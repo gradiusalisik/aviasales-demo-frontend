@@ -1,0 +1,76 @@
+{
+  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "terminal.integrated.shell.windows":
+    "C:\\Windows\\sysnative\\WindowsPowerShell\\v1.0\\powershell.exe",
+  "terminal.external.windowsExec": "C:\\Program Files\\Git\\git-bash.exe",
+  "editor.wordWrap": "on",
+  "editor.renderIndentGuides": true,
+  "editor.renderControlCharacters": true,
+  "editor.formatOnType": true,
+  "editor.mouseWheelZoom": true,
+  "editor.fontLigatures": true,
+  "editor.renderWhitespace": "all",
+  "editor.fontSize": 12,
+
+  //less
+  "less.lint.compatibleVendorPrefixes": "warning",
+  "less.lint.duplicateProperties": "warning",
+  "less.lint.importStatement": "warning",
+  "less.lint.universalSelector": "warning",
+  "less.lint.zeroUnits": "warning",
+  "less.lint.ieHack": "warning",
+  "less.lint.unknownVendorSpecificProperties": "warning",
+  "less.lint.important": "warning",
+  "less.lint.float": "warning",
+  "less.lint.idSelector": "warning",
+
+  "files.autoSave": "off",
+  "files.trimTrailingWhitespace": true,
+  "files.associations": {
+    "*.sss": "sass",
+    "*.html": "html",
+    "*.jsx": "javascriptreact",
+    "*.js": "javascriptreact"
+  },
+  "stylelint.enable": true,
+
+  "emmet.triggerExpansionOnTab": true,
+  //JavaScript
+  "javascript.format.enable": false,
+
+  "editor.tabSize": 2,
+  "files.insertFinalNewline": true,
+  "workbench.iconTheme": "vscode-icons",
+  "files.eol": "\n",
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/.DS_Store": true,
+    "**/.happypack": true,
+    "**/coverage": true,
+    "**/.storybook": true
+  },
+  "editor.quickSuggestionsDelay": 300,
+  "window.zoomLevel": 0,
+  "sync.gist": "9696caa42722c6376e2a240cdaaa9811",
+  "sync.lastUpload": "2017-10-07T17:49:22.764Z",
+  "sync.autoDownload": false,
+  "sync.autoUpload": false,
+  "sync.lastDownload": "",
+  "sync.forceDownload": false,
+  "sync.anonymousGist": false,
+  "sync.host": "",
+  "sync.pathPrefix": "",
+  "sync.quietSync": false,
+  "sync.askGistName": false,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "prettier.eslintIntegration": true,
+  "javascript.validate.enable": false,
+  "emmet.syntaxProfiles": {
+    "javascript": "jsx"
+  },
+  "git.ignoreMissingGitWarning": true,
+  "vsicons.projectDetection.autoReload": true
+}
