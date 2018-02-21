@@ -16,7 +16,7 @@ const ButtonStyled = styled.a`
   border: 2px solid #cd1f27;
   transition: border 0.3s, color 0.3s;
 
-  ${media.desktop`
+  ${media.xl`
     &:hover {
       color: #ff9d1b;
       border-color: #ff9d1b;

@@ -6,22 +6,27 @@ import media from "../utils/media";
 const Select = styled.div`
   position: relative;
   padding: 19px 16px;
+  padding-right: 30px;
   display: flex;
   align-items: center;
   width: 100%;
   background-color: #fff;
 
-  ${media.desktop`
+  ${media.xl`
     cursor: pointer;
   `};
 `;
 
 const Text = styled.span`
   font-size: 16px;
+  white-space: nowrap;
   color: #4a4a4a;
 `;
 
 const TextLight = Text.extend`
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   color: #a0b0b9;
 `;
 

@@ -12,12 +12,12 @@ export const Title = styled.h1`
   text-align: center;
   color: #fff;
 
-  ${media.tablet`
+  ${media.md`
     margin-bottom: 10px;
     font-size: 32px;
   `};
 
-  ${media.desktop`
+  ${media.xl`
     font-size: 40px;
   `};
 `;
@@ -30,11 +30,11 @@ export const SubTitle = styled.h2`
   text-align: center;
   color: #fff;
 
-  ${media.tablet`
+  ${media.md`
     display: block;
   `};
 
-  ${media.desktop`
+  ${media.xl`
     font-size: 24px;
   `};
 `;
@@ -44,7 +44,7 @@ export const WrapForm = styled.div`
   overflow: hidden;
   border-radius: 6px;
 
-  ${media.desktop`
+  ${media.xl`
     margin-bottom: 48px;
     display: flex;
   `};
@@ -53,25 +53,32 @@ export const WrapForm = styled.div`
 export const WrapField = styled.div`
   margin-bottom: ${props => (props.noBottomIndent ? 0 : "2px")};
 
-  ${media.tablet`
+  ${media.md`
     margin-left: ${props => (props.noLeftIndentTablet ? 0 : "2px")};
     margin-bottom: ${props => (props.noBottomIndentTablet ? 0 : "2px")};
     width: 100%;
   `};
 
-  ${media.desktop`
+  ${media.xl`
     margin-bottom: 0;
+    min-width: 224px;
     margin-left: ${props => (props.noLeftIndentDesktop ? 0 : "2px")};
+  `};
+`;
+
+export const WrapDatePicker = WrapField.extend`
+  ${media.xl`
+    min-width: auto;
   `};
 `;
 
 export const Wrapper = styled.div`
   width: 100%;
-  ${media.tablet`
+  ${media.md`
     display: flex;
   `};
 
-  ${media.desktop`
+  ${media.xl`
     width: auto;
     &:last-child {
       width: 100%;
@@ -80,7 +87,7 @@ export const Wrapper = styled.div`
 `;
 
 export const ButtonWrap = styled.div`
-  ${media.desktop`
+  ${media.xl`
     margin-left: auto;
     margin-right: auto;
     max-width: 308px;
@@ -93,10 +100,6 @@ export const FieldWrap = styled.div`
   width: 100%;
   height: 100%;
   background-color: #fff;
-
-  ${media.desktop`
-    min-width: 224px;
-  `};
 `;
 
 export const Input = styled.input`

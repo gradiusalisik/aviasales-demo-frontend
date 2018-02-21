@@ -10,7 +10,7 @@ export const Content = styled.div`
   text-align: center;
   background: linear-gradient(180deg, #f8fcff 0%, #ffffff 100%);
 
-  ${media.desktop`
+  ${media.xl`
     padding-bottom: 95px;
   `};
 `;
@@ -26,7 +26,7 @@ export const LogoCalen = styled.div`
 export const WrapText = styled.div`
   margin-bottom: 40px;
 
-  ${media.desktop`
+  ${media.xl`
     margin-bottom: 60px;
   `};
 `;
@@ -37,7 +37,7 @@ export const Text = styled.p`
   line-height: 24px;
   color: #4a4a4a;
 
-  ${media.desktop`
+  ${media.xl`
     font-size: 24px;
   `};
 `;
@@ -49,13 +49,13 @@ export const Description = styled(Text)`
   font-size: 16px;
   font-weight: 400;
 
-  ${media.tablet`
+  ${media.md`
     margin-bottom: 18px;
     padding-left: 0;
     padding-right: 0;
   `};
 
-  ${media.desktop`
+  ${media.xl`
     margin-left: auto;
     margin-right: auto;
     max-width: 650px;
@@ -79,7 +79,7 @@ export const Wrapper = styled.div`
   &:not(:last-child) {
     border-bottom: 2px dashed rgba(175, 190, 198, 0.2);
 
-    ${media.desktop`
+    ${media.xl`
       padding-bottom: 0;
       margin-bottom: 0;
       padding-right: 34px;
@@ -89,7 +89,7 @@ export const Wrapper = styled.div`
     `};
   }
 
-  ${media.desktop`
+  ${media.xl`
     padding-bottom: 0;
     width: 33%;
   `};
@@ -97,7 +97,7 @@ export const Wrapper = styled.div`
   &:last-child {
     margin-bottom: 15px;
 
-    ${media.desktop`
+    ${media.xl`
       margin-bottom: 0;
     `};
   }
@@ -148,7 +148,7 @@ export const Info = styled.div`
   background-color: #fff;
   transition: background-color 0.3s;
 
-  ${media.desktop`
+  ${media.xl`
     &:hover {
       background-color: #F1FCFF;
     }
@@ -161,7 +161,7 @@ export const FromPlace = styled.a`
   text-decoration: none;
   transition: color 0.3s;
 
-  ${media.desktop`
+  ${media.xl`
     &:hover {
       color: #FF8B00;
     }
@@ -174,7 +174,7 @@ export const Price = styled.a`
   color: #00bae8;
   transition: color 0.3s;
 
-  ${media.desktop`
+  ${media.xl`
     &:hover {
       color: #FF8B00;
     }
@@ -183,7 +183,7 @@ export const Price = styled.a`
 
 // CardList.js
 export const List = styled.div`
-  ${media.desktop`
+  ${media.xl`
     margin-bottom: 77px;
     display: flex;
     justify-content: space-between;

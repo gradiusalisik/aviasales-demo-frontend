@@ -16,7 +16,7 @@ const Link = styled.a`
   width: 33%;
   text-decoration: none;
 
-  ${media.tablet`
+  ${media.md`
     margin-right: 30px;
     width: auto;
   `};
@@ -28,7 +28,7 @@ const Text = styled.span`
   color: #4a4a4a;
   transition: color .3s;
 
-  ${media.desktop`
+  ${media.xl`
     ${Link}:hover & {
       color: #FD8A27;
     }

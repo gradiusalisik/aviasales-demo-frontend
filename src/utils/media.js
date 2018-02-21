@@ -1,7 +1,7 @@
 import { css } from "styled-components";
 const sizes = {
-  desktop: 1200,
-  tablet: 768
+  xl: 1200,
+  md: 768
 };
 
 export default Object.keys(sizes).reduce((acc, label) => {

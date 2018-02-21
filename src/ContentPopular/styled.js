@@ -24,7 +24,7 @@ export const Text = styled.span`
   line-height: 24px;
   color: #4a4a4a;
 
-  ${media.tablet`
+  ${media.md`
     margin-right: auto;
     margin-left: auto;
     font-size: 24px;
@@ -38,7 +38,7 @@ export const TextCity = Text.extend`
   color: #00ace2;
   transition: color 0.3s;
 
-  ${media.desktop`
+  ${media.xl`
     &:hover {
       color: #ff8b00;
     }
@@ -61,7 +61,7 @@ export const TabsWrap = styled.div`
   margin-top: 32px;
   margin-bottom: 12px;
 
-  ${media.desktop`
+  ${media.xl`
     margin-top: 56px;
     margin-bottom: 58px;
   `};
@@ -76,7 +76,7 @@ export const Wrapper = styled.a`
   box-shadow: 0px 2px 12px rgba(0, 75, 93, 0.12);
   transition: box-shadow 0.3s;
 
-  ${media.desktop`
+  ${media.xl`
     margin-bottom: 30px;
     margin-left: 14px;
     width: calc((100% - 28px) / 2);
@@ -108,7 +108,7 @@ export const PlaceImg = styled.div`
   transform: scale(1);
   transition: transform 6s ease;
 
-  ${media.desktop`
+  ${media.xl`
     ${Wrapper}:hover & {
       transform: scale(1.1);
     }
@@ -129,17 +129,17 @@ export const Info = styled.div`
 export const Wrap = styled.div`
   max-width: 155px;
 
-  ${media.tablet`
+  ${media.md`
     max-width: 300px;
   `};
 
-  ${media.desktop`
+  ${media.xl`
     max-width: 240px;
   `};
 `;
 
 export const ContentPlace = styled.div`
-  ${media.tablet`
+  ${media.md`
     display: flex;
     align-items: center;
   `};
@@ -153,7 +153,7 @@ export const Flag = styled.img`
   height: 30px;
   border-radius: 50%;
 
-  ${media.tablet`
+  ${media.md`
     display: block;
   `};
 `;
@@ -169,7 +169,7 @@ export const CityName = styled.span`
   text-align: left;
   color: #5b5b5c;
 
-  ${media.tablet`
+  ${media.md`
     font-size: 22px;
   `};
 `;
@@ -182,11 +182,11 @@ export const PriceInfo = styled.span`
   color: #00bae8;
   transition: color 0.3s;
 
-  ${media.tablet`
+  ${media.md`
     font-size: 22px;
   `};
 
-  ${media.desktop`
+  ${media.xl`
     ${Wrapper}:hover & {
       color: #FF8C00;
     }
@@ -209,7 +209,7 @@ export const Date = styled(CountryName)`
 // CardList.js
 
 export const List = styled.div`
-  ${media.desktop`
+  ${media.xl`
     display: flex;
     flex-wrap: wrap;
     margin-left: -14px;

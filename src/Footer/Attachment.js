@@ -23,18 +23,18 @@ const Link = styled.a`
   &:not(:last-child) {
     margin-bottom: 8px;
 
-    ${media.tablet`
+    ${media.md`
       margin-right: 10px;
       margin-bottom: 0;
     `};
   }
 
-  ${media.tablet`
+  ${media.md`
     margin-right: 0;
     margin-left: 0;
   `};
 
-  ${media.desktop`
+  ${media.xl`
     &:hover {
       background-color: rgba(30, 41, 45, 0.8);
     }

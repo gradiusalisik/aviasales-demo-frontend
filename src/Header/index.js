@@ -23,7 +23,7 @@ const Text = styled.span`
   font-size: 20px;
   color: #fff;
 
-  ${media.tablet`
+  ${media.md`
     display: block;
   `};
 `;

@@ -21,7 +21,7 @@ const FirstScreen = styled.div`
     #196ebd 122.26%
   );
 
-  ${media.tablet`
+  ${media.md`
     padding-left: 8px;
     padding-right: 8px;
     background-color: black;

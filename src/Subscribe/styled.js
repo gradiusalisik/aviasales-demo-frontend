@@ -8,7 +8,7 @@ export const Subscribe = styled.div`
   padding-top: 32px;
   margin-bottom: 60px;
 
-  ${media.desktop`
+  ${media.xl`
     margin-bottom: 24px;
   `} &::before {
     position: absolute;
@@ -27,7 +27,7 @@ export const Wrapper = styled.div`
   max-width: 360px;
   text-align: center;
 
-  ${media.desktop`
+  ${media.xl`
     max-width: 100%;
     display: flex;
     justify-content: space-between;
@@ -36,13 +36,13 @@ export const Wrapper = styled.div`
 `;
 
 export const WrapDescription = styled.div`
-  ${media.desktop`
+  ${media.xl`
     max-width: 360px;
     text-align: left;
   `};
 `;
 export const WrapForm = styled.div`
-  ${media.desktop`
+  ${media.xl`
     display: flex;
     align-items: center;
   `};
@@ -61,7 +61,7 @@ export const Text = styled.p`
   line-height: 22px;
   color: #5c5c5c;
 
-  ${media.desktop`
+  ${media.xl`
     margin-bottom: 0;
   `};
 `;
@@ -74,7 +74,7 @@ export const Socials = styled.div`
   justify-content: center;
   align-items: center;
 
-  ${media.desktop`
+  ${media.xl`
     margin-bottom: 0;
     margin-right: 16px;
   `};
@@ -177,7 +177,7 @@ export const Button = styled.button`
   border: none;
   transition: background-color 0.3s;
 
-  ${media.desktop`
+  ${media.xl`
     &:hover {
       background-color: #ffa353;
     }

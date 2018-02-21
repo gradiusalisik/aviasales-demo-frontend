@@ -3,6 +3,7 @@ import Field from "./Field";
 import DataPicker from "./DataPicker";
 import Select from "./Select";
 import Button from "./Button";
+import { Link } from "react-router-dom";
 import {
   Forms,
   Title,
@@ -10,6 +11,7 @@ import {
   WrapForm,
   Wrapper,
   WrapField,
+  WrapDatePicker,
   ButtonWrap
 } from "./styled";
 
@@ -27,16 +29,18 @@ export default () => (
         </WrapField>
       </Wrapper>
       <Wrapper>
-        <WrapField noLeftIndentTablet noBottomIndentTablet>
+        <WrapDatePicker noLeftIndentTablet noBottomIndentTablet>
           <DataPicker />
-        </WrapField>
+        </WrapDatePicker>
         <WrapField noBottomIndent noBottomIndentTablet>
           <Select />
         </WrapField>
       </Wrapper>
     </WrapForm>
     <ButtonWrap>
-      <Button text="Найти билеты" type="submit" icon="aero" />
+      <Link to="/search">
+        <Button text="Найти билеты" icon="aero" />
+      </Link>
     </ButtonWrap>
   </Forms>
 );

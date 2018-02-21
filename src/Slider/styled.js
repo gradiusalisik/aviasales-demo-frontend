@@ -2,7 +2,7 @@ import styled from "styled-components";
 import media from "../utils/media";
 
 export const Slider = styled.div`
-  ${media.desktop`
+  ${media.xl`
     margin-right: auto;
     margin-left: auto;
     max-width: 1030px;
@@ -38,7 +38,7 @@ export const Prev = styled.button`
 export const Slides = styled.div`
   max-width: 600px;
 
-  ${media.desktop`
+  ${media.xl`
     max-width: 100%;
   `};
 `;
@@ -90,12 +90,12 @@ export const Logo = styled.img`
   &:not(:nth-last-child(-n + 2)) {
     margin-bottom: 32px;
 
-    ${media.desktop`
+    ${media.xl`
       margin-bottom: 0;
     `};
   }
 
-  ${media.desktop`
+  ${media.xl`
     margin-left: 20px;
   `};
 `;

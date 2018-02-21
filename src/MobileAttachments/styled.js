@@ -15,19 +15,19 @@ export const Attachments = styled.div`
     #196ebd 122.26%
   );
 
-  ${media.tablet`
+  ${media.md`
     padding-left: 6px;
     padding-right: 45px;
   `};
 `;
 
 export const Container = styled.div`
-  ${media.tablet`
+  ${media.md`
     display: flex;
     align-items: center;
   `};
 
-  ${media.desktop`
+  ${media.xl`
     margin-left: auto;
     margin-right: auto;
     max-width: 1030px;
@@ -44,7 +44,7 @@ export const Title = styled.h2`
   text-align: center;
   color: #fff;
 
-  ${media.tablet`
+  ${media.md`
     font-size: 32px;
     line-height: 40px;
     text-align: left;
@@ -57,7 +57,7 @@ export const WrapRating = styled.div`
   align-items: center;
   justify-content: center;
 
-  ${media.tablet`
+  ${media.md`
     margin-bottom: 40px;
     justify-content: flex-start;
   `};
@@ -75,7 +75,7 @@ export const Body = styled.div`
   display: flex;
   align-items: center;
 
-  ${media.tablet`
+  ${media.md`
     margin-right: 0;
     margin-left: 0;
   `};
@@ -86,7 +86,7 @@ export const Phone = styled.img`
   width: 162px;
   height: 213px;
 
-  ${media.tablet`
+  ${media.md`
     display: none;
   `};
 `;
@@ -99,17 +99,17 @@ export const PhoneTablet = styled.img`
   height: 312px;
   flex: 0 0 auto;
 
-  ${media.tablet`
+  ${media.md`
     display: block;
   `};
 
-  ${media.desktop`
+  ${media.xl`
     margin-right: 80px;
   `};
 `;
 
 export const WrapAttach = styled.div`
-  ${media.tablet`
+  ${media.md`
     padding-bottom: 27px;
     display: flex;
     justify-content: space-between;
@@ -125,7 +125,7 @@ export const Link = styled.a`
   &:not(:last-child) {
     margin-bottom: 20px;
 
-    ${media.tablet`
+    ${media.md`
       margin-bottom: 0;
       padding-right: 27px;
       margin-right: 17px;
@@ -159,7 +159,7 @@ export const Text = styled.span`
     transition: opacity 0.3s;
   }
 
-  ${media.desktop`
+  ${media.xl`
     ${Link}:hover & {
       &:before{
         opacity: 1;

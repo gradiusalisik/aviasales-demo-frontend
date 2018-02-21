@@ -6,11 +6,11 @@ export const TabsContent = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
 
-  ${media.tablet`
+  ${media.md`
     flex-wrap: nowrap;
   `};
 
-  ${media.desktop`
+  ${media.xl`
     margin-left: auto;
     margin-right: auto;
     max-width: 624px;
@@ -25,11 +25,11 @@ export const Tab = styled.a`
   color: #00ace2;
   width: 33%;
 
-  ${media.tablet`
+  ${media.md`
     width: 100%;
   `};
 
-  ${media.desktop`
+  ${media.xl`
     ${props =>
       props.active ||
       css`

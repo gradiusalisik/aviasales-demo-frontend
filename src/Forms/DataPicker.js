@@ -21,7 +21,7 @@ const Button = styled.button`
     margin-right: 2px;
   }
 
-  ${media.desktop`
+  ${media.xl`
     min-width: 180px;
   `};
 `;
