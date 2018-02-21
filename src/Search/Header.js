@@ -11,11 +11,20 @@ import {
   Date,
   Passenger,
   Currency,
-  WrapInfo
+  WrapInfo,
+  LogoWrap,
+  Logo,
+  Text
 } from "./styled";
 
 const Header = props => (
   <HeaderStyled>
+    <LogoWrap>
+      <Logo>
+        <Icon icon="logo" />
+      </Logo>
+      <Text>aviasales</Text>
+    </LogoWrap>
     <WrapInfo>
       <Back to="/">
         <IconWrap>

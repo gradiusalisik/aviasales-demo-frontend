@@ -1,8 +1,8 @@
 import React from "react";
 import { PropTypes as pt } from "prop-types";
 import Logos from "./Logos";
-import Icon from "../Icon";
-import { delimiter } from "../utils/numberDelimiter";
+import Icon from "../../Icon";
+import { delimiter } from "../../utils/numberDelimiter";
 import {
   Card as CardStyled,
   Head,

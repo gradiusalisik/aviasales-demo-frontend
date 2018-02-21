@@ -1,8 +1,16 @@
 import React from "react";
 import FirstScreen from "./FirstScreen";
-import CardList from "./CardList";
-import { ButtonUp, ButtonFilter } from "../UI/Button";
-import { Search, Content, Button, ButtonFilter as BtnFilter } from "./styled";
+import CardListMobile from "./Mobile/CardList";
+import Icon from "../Icon";
+import { ButtonUp, ButtonFilter, ButtonFilterSmall } from "../UI/Button";
+import {
+  Search,
+  Content,
+  Button,
+  ButtonFilter as BtnFilter,
+  ButtonFilterSmall as BtnFilterSmall,
+  IconFilter
+} from "./styled";
 
 export default () => (
   <Search>
@@ -11,7 +19,14 @@ export default () => (
       <Button>
         <ButtonUp>Наверх</ButtonUp>
       </Button>
-      <CardList />
+      <BtnFilterSmall>
+        <ButtonFilterSmall>
+          <IconFilter>
+            <Icon icon="filter" />
+          </IconFilter>
+        </ButtonFilterSmall>
+      </BtnFilterSmall>
+      <CardListMobile />
       <BtnFilter>
         <ButtonFilter>Фильтровать</ButtonFilter>
       </BtnFilter>

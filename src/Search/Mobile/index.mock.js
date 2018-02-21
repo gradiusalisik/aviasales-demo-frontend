@@ -1,11 +1,11 @@
-import fly from "./images/fly.png";
-import nordwindAir from "./images/nordwind-air.png";
-import nordwind from "./images/nordwind.png";
-import otherSmall from "./images/other-small.png";
-import redWingsSmall from "./images/red-wings-small.png";
-import redWings from "./images/red-wings.png";
-import russiaSmall from "./images/russia-small.png";
-import russia from "./images/russia.png";
+import fly from "../images/fly.png";
+import nordwindAir from "../images/nordwind-air.png";
+import nordwind from "../images/nordwind.png";
+import otherSmall from "../images/other-small.png";
+import redWingsSmall from "../images/red-wings-small.png";
+import redWings from "../images/red-wings.png";
+import russiaSmall from "../images/russia-small.png";
+import russia from "../images/russia.png";
 
 export const list = [
   {

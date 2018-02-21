@@ -40,7 +40,12 @@ const WrapField = styled.div`
   `};
 `;
 
+const WrapDate = styled(WrapField)`
+  margin-bottom: 0;
+`;
+
 const WrapFieldLast = styled(WrapField)`
+  margin-bottom: 0;
   display: flex;
 `;
 
@@ -67,9 +72,9 @@ export default () => (
       </WrapField>
     </Wrapper>
     <Wrapper>
-      <WrapField>
+      <WrapDate>
         <DataPicker />
-      </WrapField>
+      </WrapDate>
       <WrapFieldLast>
         <ContentSelect>
           <Select />

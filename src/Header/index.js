@@ -7,9 +7,9 @@ const Header = styled.header`
   display: flex;
   align-items: center;
 
-  @media screen and (min-width: 1200px) {
+  ${media.xl`
     padding-left: 86px;
-  }
+  `};
 `;
 
 const Logo = styled.div`

@@ -16,6 +16,18 @@ const FirstScreen = styled.section`
     #02abdb -35.02%,
     #196ebd 52.98%
   );
+
+  ${media.md`
+    background: linear-gradient(
+      106.51deg,
+      #00B0DE -41.34%,
+      #01AEDC -37.67%,
+      #02ABDB -33.95%,
+      #02ABDB -30.26%,
+      #02ABDB -30.04%,
+      #196EBD 57.99%
+    );
+  `};
 `;
 
 const Container = styled.div`
