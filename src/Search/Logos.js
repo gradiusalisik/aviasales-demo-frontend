@@ -7,12 +7,13 @@ const List = styled.div`
 `;
 
 const Wrap = styled.div`
+  padding: ${props => (props.border ? "4px" : "0")};
   display: flex;
   justify-content: center;
   align-items: center;
   border: ${props => (props.border ? "1px solid #ddd" : "none")};
   &:not(:last-child) {
-    margin-right: 12px;
+    margin-right: 8px;
   }
 `;
 

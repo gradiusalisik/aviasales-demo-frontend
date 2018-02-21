@@ -6,6 +6,7 @@ export const Search = styled.div``;
 
 export const Content = styled.div`
   padding-top: 8px;
+  padding-bottom: 16px;
   background-color: #eaeaea;
 `;
 
@@ -78,6 +79,7 @@ export const Card = styled.div`
 `;
 
 export const Head = styled.div`
+  margin-bottom: 11px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -94,14 +96,16 @@ export const Info = styled.div`
   align-items: center;
 `;
 
-export const Body = styled.div``;
+export const Body = styled.div`
+  padding-left: 7px;
+`;
 
 export const Wrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   &:not(:last-child) {
-    margin-bottom: 10px;
+    margin-bottom: 16px;
   }
 `;
 
