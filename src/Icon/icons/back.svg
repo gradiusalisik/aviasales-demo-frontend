@@ -1,16 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" version="1.1" viewBox="0 0 16 16">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
     <title>
         Shape
     </title>
     <desc>
         Created using Figma
     </desc>
-    <g id="Canvas" transform="translate(-6611 -20)">
-        <g id="Shape">
-            <use fill="#FFFFFF" transform="translate(6611 20)" xlink:href="#back"/>
-        </g>
-    </g>
+    <use fill="#FFF" xlink:href="#back"/>
     <defs>
-        <path id="back" d="M 15.9688 6.98634L 3.82255 6.98634L 9.39663 1.41226L 7.98442 0L 0 7.98442L 7.98442 15.9688L 9.39663 14.5566L 3.82255 8.98246L 15.9688 8.98246L 15.9688 6.98634Z"/>
+        <path id="back" d="M15.969 6.986H3.823l5.574-5.574L7.984 0 0 7.984l7.984 7.985 1.413-1.412-5.574-5.575h12.146V6.986z"/>
     </defs>
 </svg>
