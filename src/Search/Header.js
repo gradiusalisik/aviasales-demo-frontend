@@ -11,12 +11,12 @@ import {
   Date,
   Passenger,
   Currency,
-  Content
+  WrapInfo
 } from "./styled";
 
 const Header = props => (
   <HeaderStyled>
-    <Content>
+    <WrapInfo>
       <Back to="/">
         <IconWrap>
           <Icon icon="back" />
@@ -33,7 +33,7 @@ const Header = props => (
           <Passenger>{props.passenger}</Passenger>
         </SubInfo>
       </InfoFly>
-    </Content>
+    </WrapInfo>
     <Currency>{props.currency}</Currency>
   </HeaderStyled>
 );
