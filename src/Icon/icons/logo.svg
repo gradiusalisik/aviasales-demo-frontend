@@ -7,9 +7,9 @@
     </desc>
     <g transform="translate(-2413 -12)">
         <g id="logo">
-            <use fill="#FFF" transform="translate(2413 12)" xlink:href="#logo"/>
-            <use fill="#FFF" transform="translate(2421 19)" xlink:href="#logo2"/>
-            <use fill="#FFF" transform="translate(2423.99 26)" xlink:href="#logo3"/>
+            <use fill="currentColor" transform="translate(2413 12)" xlink:href="#logo"/>
+            <use fill="currentColor" transform="translate(2421 19)" xlink:href="#logo2"/>
+            <use fill="currentColor" transform="translate(2423.99 26)" xlink:href="#logo3"/>
         </g>
     </g>
     <defs>

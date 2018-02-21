@@ -5,7 +5,7 @@
     <desc>
         Created using Figma
     </desc>
-    <g fill="#FFF" transform="translate(1 1)">
+    <g fill="currentColor" transform="translate(1 1)">
         <use xlink:href="#apple"/>
         <use fill-opacity=".16" xlink:href="#apple2"/>
     </g>

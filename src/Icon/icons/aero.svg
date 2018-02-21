@@ -5,7 +5,7 @@
     <desc>
         Created using Figma
     </desc>
-    <use fill="#FFF" transform="translate(0 .119)" xlink:href="#aero"/>
+    <use fill="currentColor" transform="translate(0 .119)" xlink:href="#aero"/>
     <defs>
         <path id="aero" fill-rule="evenodd" d="M11.159 8.949H5.22L1.491 5.966 0 6.712l1.74 2.901a1.493 1.493 0 0 0-.125 1.426L0 14.17l1.491.746 3.73-2.983h5.965L7.458 20.88h2.982l5.967-8.95h7.456c.83 0 1.492-.667 1.492-1.49 0-.83-.668-1.492-1.492-1.492h-7.456L10.44 0H7.458s2.392 5.873 3.728 8.949h-.027z"/>
     </defs>

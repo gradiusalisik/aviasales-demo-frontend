@@ -1,11 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
     <title>
-        edit
+        Shape
     </title>
     <desc>
         Created using Figma
     </desc>
-    <g transform="translate(-2607 -698)">
-        <use id="edit" fill="#00ACE2" transform="translate(2607 698.001)" xlink:href="#edit"/>
-    </g>
+    <use fill="currentColor" transform="translate(0 .001)" xlink:href="#edit"/>
+    <defs>
+        <path id="edit" fill-rule="evenodd" d="M0 11.252v3.75h3.75l8.06-8.06-3.75-3.75L0 11.251zm14.71-7.21a.996.996 0 0 0 0-1.41L12.37.291a.996.996 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+    </defs>
 </svg>

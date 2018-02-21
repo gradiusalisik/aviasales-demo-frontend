@@ -5,7 +5,7 @@
     <desc>
         Created using Figma
     </desc>
-    <use fill="#FFF" xlink:href="#google"/>
+    <use fill="currentColor" xlink:href="#google"/>
     <defs>
         <path id="google" d="M10.002 5.148L.998.131C.498-.147 0 .021 0 .603v20.439c0 .436.356.625.79.383l9.212-5.134 1.788-.996 2.879-1.603 4.486-2.5c.526-.293.476-.695.032-.927-.445-.23-4.519-2.517-4.519-2.517l-4.666-2.6z"/>
     </defs>

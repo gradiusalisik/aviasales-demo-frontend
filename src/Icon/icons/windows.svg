@@ -5,7 +5,7 @@
     <desc>
         Created using Figma
     </desc>
-    <use fill="#FFF" xlink:href="#windows"/>
+    <use fill="currentColor" xlink:href="#windows"/>
     <defs>
         <path id="windows" fill-rule="evenodd" d="M18 0v8.095H8.182V1.621L18 0zM7.36 1.62L0 2.527l.007 5.567 7.357-.037-.003-6.439zm.004 13.76l-.006-6.432L0 8.905v5.56l7.364.916zm.818.01L17.998 17 18 8.905H8.182v6.486z"/>
     </defs>

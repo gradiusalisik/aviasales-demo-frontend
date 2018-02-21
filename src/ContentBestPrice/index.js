@@ -16,7 +16,7 @@ export default () => (
   <Content>
     <Container>
       <LogoCalen>
-        <Icon icon="calen" />
+        <Icon icon="bestPriceLogo" />
       </LogoCalen>
       <WrapText>
         <Text>Лучшие цены на&nbsp;авиабилеты за&nbsp;последний месяц</Text>

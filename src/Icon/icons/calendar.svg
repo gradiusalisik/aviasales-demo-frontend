@@ -5,7 +5,7 @@
     <desc>
         Created using Figma
     </desc>
-    <use fill="#1BA6D2" xlink:href="#calendar"/>
+    <use fill="currentColor" xlink:href="#calendar"/>
     <defs>
         <path id="calendar" fill-rule="evenodd" d="M3.997 4.011V0h1v4.011h-1zm10.01.966l.003-1.966 2.985.003L17 20H0l.001-4 .997-.005.013 3.014L16 19.007l.01-12.068-15 .024v9.009L0 15.986.001 3.014l2.97.001.006 1.957L6 4.97l.007-1.966 4.992.012v1.96h3.008zM11.994 0v4.011h1V0h-1zM14 15h-3v2h3v-2zm-7 0h3v2h-3v-2zm-1 0h-3v2h3v-2zm5-3h3v2h-3v-2zm-1 0h-3v2h3v-2zm-7 0h3v2h-3v-2zm11-3h-3v2h3V9zm-7 0h3v2h-3V9zm-1 0h-3v2h3V9z"/>
     </defs>

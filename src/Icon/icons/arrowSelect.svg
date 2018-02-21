@@ -7,6 +7,6 @@
     </desc>
     <use xlink:href="#arrowSelect"/>
     <defs>
-        <path id="arrowSelect" d="M0 0l5 5 5-5H0z"/>
+        <path id="arrowSelect" fill="currentColor" d="M0 0l5 5 5-5H0z"/>
     </defs>
 </svg>

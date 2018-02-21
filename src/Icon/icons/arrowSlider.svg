@@ -5,7 +5,7 @@
     <desc>
         Created using Figma
     </desc>
-    <use fill="#5B5B5C" fill-opacity=".2" transform="rotate(-180 9 16)" xlink:href="#arrowSlider"/>
+    <use fill="currentColor" transform="rotate(-180 9 16)" xlink:href="#arrowSlider"/>
     <defs>
         <path id="arrowSlider" d="M17.692 15.262L3.278.321C3.072.107 2.835 0 2.567 0a.963.963 0 0 0-.712.32L.31 1.925a1.03 1.03 0 0 0 0 1.475L12.464 16 .31 28.602a1.03 1.03 0 0 0 0 1.475l1.547 1.602c.206.214.443.321.711.321a.962.962 0 0 0 .711-.32l14.413-14.942a1.032 1.032 0 0 0 0-1.476z"/>
     </defs>
