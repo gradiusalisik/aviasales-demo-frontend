@@ -15,6 +15,7 @@ const Header = styled.header`
 const Logo = styled.div`
   width: 30px;
   height: 30px;
+  color: #fff;
 `;
 
 const Text = styled.span`

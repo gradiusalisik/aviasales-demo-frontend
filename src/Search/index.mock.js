@@ -136,7 +136,7 @@ export const list = [
     price: "9108",
     listLogo: [
       {
-        smallImage: redWings,
+        smallImage: redWingsSmall,
         border: true
       },
       {

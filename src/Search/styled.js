@@ -16,6 +16,10 @@ export const Button = styled.div`
   justify-content: center;
 `;
 
+export const ButtonFilter = Button.extend`
+  margin-bottom: 0;
+`;
+
 // ** Header.js **
 export const HeaderStyled = styled.header`
   display: flex;

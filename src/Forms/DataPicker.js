@@ -37,6 +37,7 @@ const CalendarIcon = styled.div`
   right: 16px;
   width: 17px;
   height: 20px;
+  color: #1BA6D2;
   transform: translateY(-50%);
 `;
 

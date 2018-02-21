@@ -135,4 +135,5 @@ export const Text = styled.div`
 export const ChangeCityArrows = styled.div`
   width: 16px;
   height: 18px;
+  color: #1ba6d2;
 `;

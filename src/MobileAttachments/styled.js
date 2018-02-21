@@ -140,6 +140,7 @@ export const Logo = styled.div`
   margin-right: 8px;
   width: 18px;
   height: 23px;
+  color: #fff;
 `;
 
 export const Text = styled.span`

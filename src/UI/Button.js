@@ -41,7 +41,7 @@ export const ButtonUp = styled(Button)`
   font-weight: 900;
   text-transform: uppercase;
   color: #fff;
-  background-color: rgba(0, 172, 226, 0.5);
+  background-color: rgba(0, 172, 226, 0.;
   border: none;
   border-radius: 100px;
 `;
@@ -50,4 +50,5 @@ export const ButtonFilter = ButtonUp.extend`
   padding: 10px 24px;
   font-size: 16px;
   text-transform: none;
+  background-color: #00ace2;
 `;

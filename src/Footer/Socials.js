@@ -15,6 +15,12 @@ const Link = styled.a`
   align-items: center;
   width: 33%;
   text-decoration: none;
+  color: #4a4a4a;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #fd8a27;
+  }
 
   ${media.md`
     margin-right: 30px;
@@ -25,14 +31,7 @@ const Link = styled.a`
 const Text = styled.span`
   margin-left: 6px;
   font-size: 12px;
-  color: #4a4a4a;
-  transition: color .3s;
-
-  ${media.xl`
-    ${Link}:hover & {
-      color: #FD8A27;
-    }
-  `}
+  color: currentColor;
 `;
 
 const LogoVk = styled.div`

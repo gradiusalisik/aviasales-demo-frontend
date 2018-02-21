@@ -125,18 +125,22 @@ const IconPosition = styled.div`
 export const Twitter = IconPosition.extend`
   width: 19px;
   height: 16px;
+  color: #fff;
 `;
 export const Facebook = IconPosition.extend`
   width: 11px;
   height: 20px;
+  color: #fff;
 `;
 export const Vk = IconPosition.extend`
   width: 20px;
   height: 11px;
+  color: #fff;
 `;
 export const Rss = IconPosition.extend`
   width: 15px;
   height: 15px;
+  color: #fff;
 `;
 
 // Forms.js
