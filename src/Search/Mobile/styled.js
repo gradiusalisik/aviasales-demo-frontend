@@ -55,6 +55,7 @@ export const Time = styled.span`
 
 export const TimeBetween = Time.extend`
   margin-right: 16px;
+  width: 92px;
 `;
 
 export const Type = Time.extend``;

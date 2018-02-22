@@ -9,6 +9,11 @@ export const Content = styled.div`
   padding-top: 8px;
   padding-bottom: 16px;
   background-color: #eaeaea;
+
+  ${media.md`
+    padding-left: 8px;
+    padding-right: 8px;
+  `};
 `;
 
 export const Button = styled.div`
@@ -39,6 +44,14 @@ export const ButtonFilterSmall = Button.extend`
   display: none;
   ${media.md`
     display: flex;
+  `};
+`;
+
+export const ShowMore = styled.div`
+  display: none;
+
+  ${media.md`
+    display: block;
   `};
 `;
 
@@ -108,14 +121,3 @@ export const SubInfo = styled.span`
 export const Date = styled.span``;
 
 export const Passenger = styled.span``;
-
-export const Currency = styled.button`
-  padding: 6px 14px;
-  font-weight: 500;
-  font-size: 14px;
-  text-transform: uppercase;
-  color: #fff;
-  background-color: transparent;
-  border: 1px solid #fff;
-  border-radius: 100px;
-`;

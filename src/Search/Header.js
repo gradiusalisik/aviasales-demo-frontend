@@ -1,6 +1,7 @@
 import React from "react";
 import { PropTypes as pt } from "prop-types";
 import Icon from "../Icon";
+import { ButtonWhiteTransparent } from "../UI/Button";
 import {
   HeaderStyled,
   Back,
@@ -10,7 +11,6 @@ import {
   SubInfo,
   Date,
   Passenger,
-  Currency,
   WrapInfo,
   LogoWrap,
   Logo,
@@ -43,7 +43,7 @@ const Header = props => (
         </SubInfo>
       </InfoFly>
     </WrapInfo>
-    <Currency>{props.currency}</Currency>
+    <ButtonWhiteTransparent>{props.currency}</ButtonWhiteTransparent>
   </HeaderStyled>
 );
 

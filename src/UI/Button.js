@@ -24,7 +24,8 @@ export const ButtonSearchMain = styled(Button)`
 `;
 
 export const ButtonSearch = styled(ButtonSearchMain)`
-  padding: 15px 28px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   font-size: 20px;
   line-height: 23px;
   white-space: nowrap;
@@ -62,5 +63,32 @@ export const ButtonShowMore = ButtonFilter.extend`
   padding-top: 18px;
   padding-bottom: 18px;
   width: 100%;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
   border-radius: 4px;
+`;
+
+export const ButtonWhiteTransparent = styled.button`
+  padding: 6px 14px;
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 100px;
+`;
+
+export const ButtonCharters = ButtonWhiteTransparent.extend`
+  font-size: 10px;
+  border: 1px solid #2196f3;
+  color: #2196f3;
+`;
+
+export const ButtonBuy = ButtonSearchMain.extend`
+  padding-top: 4px;
+  padding-bottom: 4px;
+  font-size: 100%;
+  font-weight: normal;
 `;

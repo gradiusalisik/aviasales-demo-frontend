@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="19" height="20" viewBox="0 0 19 20">
+    <title>
+        Combined Shape
+    </title>
+    <desc>
+        Created using Figma
+    </desc>
+    <use fill="currentColor" transform="translate(.02 .5)" xlink:href="#bug"/>
+    <defs>
+        <path id="bug" fill-rule="evenodd" d="M9.48 0c2.46 0 4.491 1.947 4.918 4.5h2.67c1.1 0 1.91.893 1.91 1.995v11.01c0 1.102-.81 1.995-1.91 1.995H1.963C.86 19.5 0 18.607 0 17.505V6.495C0 5.393.864 4.5 1.964 4.5h2.599C4.989 1.947 7.018 0 9.48 0zm-4 5.5H1.963c-.537 0-.962.435-.962.995v11.01c0 .56.425.995.962.995h15.104c.518 0 .91-.416.91-.995V6.495c0-.58-.39-.995-.91-.995H5.48zm.1-1h7.8C12.977 2.49 11.375 1 9.48 1c-1.894 0-3.496 1.49-3.9 3.5z"/>
+    </defs>
+</svg>

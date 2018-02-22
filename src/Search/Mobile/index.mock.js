@@ -119,7 +119,7 @@ export const list = [
     listInfo: [
       {
         timeFrom: "07:00",
-        timeTo: "9:30",
+        timeTo: "09:30",
         time: "4 ч 30м",
         type: "Прямой"
       },
