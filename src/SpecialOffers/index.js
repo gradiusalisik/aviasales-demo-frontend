@@ -4,7 +4,7 @@ import CardList from "./CardList";
 import {
   Content,
   Container,
-  ContentWrap,
+  DescriptionOffers,
   Title,
   Link,
   SubText
@@ -15,10 +15,10 @@ export default () => (
     <Container>
       <Title>Спецпредложения на&nbsp;авиабилеты</Title>
       <CardList list={list} />
-      <ContentWrap>
-        <Link>Смотреть все спецпредложения</Link>
+      <DescriptionOffers>
+        <Link href="#">Смотреть все спецпредложения</Link>
         <SubText>* средняя цена по направлению</SubText>
-      </ContentWrap>
+      </DescriptionOffers>
     </Container>
   </Content>
 );

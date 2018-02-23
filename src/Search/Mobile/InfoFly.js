@@ -1,34 +1,29 @@
 import React from "react";
 import { PropTypes as pt } from "prop-types";
-import Icon from "../../Icon";
 import {
-  Wrap,
+  Content,
   Info,
-  CardIconWrap as IconWrap,
+  CardIcon as Icon,
   Time,
   TimeBetween,
   Type
 } from "./styled";
 
 const InfoFly = props => (
-  <Wrap>
+  <Content>
     <Info>
-      <IconWrap reverse={props.reverse}>
-        <Icon icon="aero" />
-      </IconWrap>
+      <Icon reverse={props.reverse} icon="aero" />
       <TimeBetween>
         {props.timeFrom}&nbsp;&mdash;&nbsp;{props.timeTo}&nbsp;
       </TimeBetween>
       <Time>
-        <IconWrap>
-          <Icon icon="clock" />
-        </IconWrap>
+        <Icon icon="clock" />
         {props.hours && props.hours + " ч"}&nbsp;
         {props.minutes && props.minutes + " м"}
       </Time>
     </Info>
     <Type>{props.type}</Type>
-  </Wrap>
+  </Content>
 );
 
 InfoFly.propTypes = {

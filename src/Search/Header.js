@@ -1,36 +1,31 @@
 import React from "react";
 import { PropTypes as pt } from "prop-types";
-import Icon from "../Icon";
 import { ButtonWhiteTransparent } from "../UI/Button";
 import {
   HeaderStyled,
   Back,
-  IconWrap,
+  BackLink,
   InfoFly,
   Place,
   SubInfo,
   Date,
   Passenger,
-  WrapInfo,
-  LogoWrap,
+  Info,
+  Logos,
   Logo,
   Text
 } from "./styled";
 
 const Header = props => (
   <HeaderStyled>
-    <LogoWrap>
-      <Logo>
-        <Icon icon="logo" />
-      </Logo>
+    <Logos>
+      <Logo icon="logo" />
       <Text>aviasales</Text>
-    </LogoWrap>
-    <WrapInfo>
-      <Back to="/">
-        <IconWrap>
-          <Icon icon="back" />
-        </IconWrap>
-      </Back>
+    </Logos>
+    <Info>
+      <BackLink to="/">
+        <Back icon="back" />
+      </BackLink>
       <InfoFly>
         <Place>
           {props.from}&nbsp;&mdash;&nbsp;{props.to}
@@ -42,7 +37,7 @@ const Header = props => (
           <Passenger>{props.passenger}</Passenger>
         </SubInfo>
       </InfoFly>
-    </WrapInfo>
+    </Info>
     <ButtonWhiteTransparent>{props.currency}</ButtonWhiteTransparent>
   </HeaderStyled>
 );

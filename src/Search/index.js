@@ -20,19 +20,19 @@ import {
   ShowMore,
   CardsMobile,
   Cards,
-  FilterWrap,
-  Wrapper,
+  Filters,
+  Section,
   Container
 } from "./styled";
 
 export default () => (
   <Search>
     <FirstScreen />
-    <Wrapper>
+    <Section>
       <Container>
-        <FilterWrap>
+        <Filters>
           <Filter />
-        </FilterWrap>
+        </Filters>
         <Content>
           <Button>
             <ButtonUp>Наверх</ButtonUp>
@@ -58,6 +58,6 @@ export default () => (
           </ShowMore>
         </Content>
       </Container>
-    </Wrapper>
+    </Section>
   </Search>
 );

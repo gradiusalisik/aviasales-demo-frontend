@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import media from "../utils/media";
+import Icon from "../Icon";
 
 export const Slider = styled.div`
   ${media.xl`
@@ -17,7 +18,7 @@ export const Title = styled.h2`
   color: #5c5c5c;
 `;
 
-export const Wrapper = styled.div`
+export const Content = styled.div`
   position: relative;
   display: flex;
   align-items: center;
@@ -47,9 +48,10 @@ export const Next = Prev.extend`
   transform: rotate(180deg);
 `;
 
-export const WrapIcon = styled.div`
+export const Icons = styled(Icon)`
   width: 18px;
   height: 32px;
+  color: rgba(91, 91, 92, 0.2);
 `;
 
 export const Bullets = styled.div`

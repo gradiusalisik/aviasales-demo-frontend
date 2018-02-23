@@ -7,7 +7,7 @@ const BaggageStyled = styled.div`
   margin-bottom: 15px;
 `;
 
-const Wrap = styled.div`
+const Types = styled.div`
   margin-bottom: 5px;
   display: flex;
   justify-content: center;
@@ -65,7 +65,7 @@ const Price = styled(NoBaggage)`
 
 const Baggage = props => (
   <BaggageStyled>
-    <Wrap>
+    <Types>
       {props.list.map((bag, key) => (
         <Bag
           key={key}
@@ -77,7 +77,7 @@ const Baggage = props => (
           {bag.kg && <Text>{bag.kg}</Text>}
         </Bag>
       ))}
-    </Wrap>
+    </Types>
     {props.noBaggage && <NoBaggage>Нет багажа</NoBaggage>}
     {props.price && <Price>+&nbsp;{props.price}&nbsp;₽</Price>}
   </BaggageStyled>

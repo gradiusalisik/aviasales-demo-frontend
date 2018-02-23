@@ -11,12 +11,12 @@ const CardList = styled.div`
   `};
 `;
 
-const Wrap = styled.div``;
+const Content = styled.div``;
 
 export default () => (
   <CardList>
     {list.map((info, key) => (
-      <Wrap key={key}>
+      <Content key={key}>
         {info.status && (
           <Status
             text={info.status}
@@ -30,7 +30,7 @@ export default () => (
           backFly={info.backFly}
           price={info.price}
         />
-      </Wrap>
+      </Content>
     ))}
   </CardList>
 );

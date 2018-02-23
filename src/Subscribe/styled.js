@@ -21,7 +21,7 @@ export const Subscribe = styled.div`
   }
 `;
 
-export const Wrapper = styled.div`
+export const Content = styled.div`
   margin-right: auto;
   margin-left: auto;
   max-width: 360px;
@@ -35,13 +35,13 @@ export const Wrapper = styled.div`
   `};
 `;
 
-export const WrapDescription = styled.div`
+export const Description = styled.div`
   ${media.xl`
     max-width: 360px;
     text-align: left;
   `};
 `;
-export const WrapForm = styled.div`
+export const Forms = styled.div`
   ${media.xl`
     display: flex;
     align-items: center;

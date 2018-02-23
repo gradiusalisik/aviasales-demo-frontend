@@ -51,7 +51,7 @@ const Container = styled.div`
   `};
 `;
 
-const Wrap = styled.div`
+const Content = styled.div`
   display: none;
   ${media.md`
     display: block;
@@ -62,9 +62,9 @@ export default () => (
   <FirstScreen>
     <Container>
       <Header />
-      <Wrap>
+      <Content>
         <Forms />
-      </Wrap>
+      </Content>
     </Container>
   </FirstScreen>
 );

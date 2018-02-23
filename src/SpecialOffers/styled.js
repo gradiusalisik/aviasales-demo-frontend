@@ -24,7 +24,7 @@ export const Content = styled.div`
   `};
 `;
 
-export const ContentWrap = styled.div`
+export const DescriptionOffers = styled.div`
   text-align: center;
 
   ${media.md`
@@ -77,7 +77,7 @@ export const SubText = TextSub.extend`
 
 // Card.js
 
-export const Wrapper = styled.div`
+export const Cards = styled.div`
   &:not(:last-child) {
     margin-bottom: 10px;
 
@@ -132,9 +132,9 @@ export const Body = styled.div`
   background-color: #fff;
 `;
 
-export const BodyWrap = styled.div``;
+export const BodyContent = styled.div``;
 
-export const Wrap = styled.div`
+export const Offer = styled.div`
   margin-bottom: 17px;
   display: flex;
   justify-content: space-between;
@@ -151,7 +151,7 @@ export const LogoBrend = styled.img`
   `};
 `;
 
-export const WrapInfo = styled.div`
+export const OfferInfo = styled.div`
   padding-right: 8px;
 `;
 

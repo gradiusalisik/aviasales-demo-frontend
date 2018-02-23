@@ -24,7 +24,7 @@ export const RightContent = styled.div`
   width: 72%;
 `;
 
-export const WrapInfoCard = styled.div`
+export const InfoCard = styled.div`
   padding-right: 23px;
   padding-left: 24px;
   padding-bottom: 32px;
@@ -71,7 +71,7 @@ export const Head = styled.div`
 
 export const Body = styled.div``;
 
-export const WrapButtons = Head.extend`
+export const Buttons = Head.extend`
   margin-bottom: 0;
 `;
 
@@ -120,10 +120,10 @@ export const Arrow = styled.div`
   }
 `;
 
-export const TabsWrap = styled.div`
+export const TabsContent = styled.div`
   margin-bottom: 16px;
 `;
 
-export const BaggageWrap = styled.div`
+export const Baggages = styled.div`
   padding-top: 12px;
 `;

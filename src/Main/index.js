@@ -12,11 +12,11 @@ import media from "../utils/media";
 
 const Main = styled.div``;
 
-const SliderWrap = styled.div`
+const Sliders = styled.div`
   margin-bottom: 32px;
 `;
 
-const Wrapper = styled.div`
+const Content = styled.div`
   display: none;
   ${media.md`
     display: block;
@@ -28,12 +28,12 @@ export default () => (
     <FirstScreen />
     <ContentPopular />
     <ContentBestPrice />
-    <Wrapper>
-      <SliderWrap>
+    <Content>
+      <Sliders>
         <Slider />
-      </SliderWrap>
+      </Sliders>
       <Subscribe />
-    </Wrapper>
+    </Content>
     <SpecialOffers />
     <About />
     <MobileAttachments />

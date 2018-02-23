@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
+import Icon from "../Icon";
 import styled from "styled-components";
 import media from "../utils/media";
 
 // ** index.js **
 export const Search = styled.div``;
 
-export const Wrapper = styled.div`
+export const Section = styled.section`
   padding-top: 8px;
   padding-bottom: 16px;
   background-color: #eaeaea;
@@ -25,7 +26,7 @@ export const Container = styled.div`
   `};
 `;
 
-export const FilterWrap = styled.div`
+export const Filters = styled.div`
   margin-right: 16px;
   display: none;
 
@@ -88,7 +89,7 @@ export const HeaderStyled = styled.header`
   justify-content: space-between;
 `;
 
-export const LogoWrap = styled.div`
+export const Logos = styled.div`
   display: none;
   ${media.md`
     display: flex;
@@ -96,7 +97,7 @@ export const LogoWrap = styled.div`
   `};
 `;
 
-export const Logo = styled.div`
+export const Logo = styled(Icon)`
   width: 30px;
   height: 30px;
   color: #fff;
@@ -108,7 +109,7 @@ export const Text = styled.span`
   color: #fff;
 `;
 
-export const WrapInfo = styled.div`
+export const Info = styled.div`
   display: flex;
   align-items: center;
 
@@ -117,11 +118,11 @@ export const WrapInfo = styled.div`
   `};
 `;
 
-export const Back = styled(Link)`
+export const BackLink = styled(Link)`
   margin-right: 25px;
 `;
 
-export const IconWrap = styled.div`
+export const Back = styled(Icon)`
   width: 16px;
   height: 16px;
   color: #fff;

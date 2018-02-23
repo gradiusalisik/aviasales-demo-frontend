@@ -20,7 +20,7 @@ const Left = styled.div`
   width: 25%;
 `;
 
-const WrapTime = styled.div`
+const Times = styled.div`
   margin-bottom: 10px;
   display: flex;
   align-items: center;
@@ -69,12 +69,12 @@ const InfoFly = props => (
     {props.list.map((info, key) => (
       <Info key={key}>
         <Left>
-          <WrapTime>
+          <Times>
             <IconPick>
               <Icon icon="pick" />
             </IconPick>
             <Time>{info.timeFrom}</Time>
-          </WrapTime>
+          </Times>
           <Place>{info.placeFrom}</Place>
           <Date>{info.dateFrom}</Date>
         </Left>

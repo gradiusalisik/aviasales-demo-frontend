@@ -17,7 +17,7 @@ const Forms = styled.form`
   `};
 `;
 
-const Wrapper = styled.div`
+const Fields = styled.div`
   display: flex;
 
   ${media.xl`
@@ -25,7 +25,7 @@ const Wrapper = styled.div`
   `};
 `;
 
-const WrapField = styled.div`
+const FormField = styled.div`
   margin-bottom: 2px;
   width: calc((100% - 2px) / 2);
 
@@ -40,11 +40,11 @@ const WrapField = styled.div`
   `};
 `;
 
-const WrapDate = styled(WrapField)`
+const DatePicker = styled(FormField)`
   margin-bottom: 0;
 `;
 
-const WrapFieldLast = styled(WrapField)`
+const FormFieldLast = styled(FormField)`
   margin-bottom: 0;
   display: flex;
 `;
@@ -63,24 +63,24 @@ const ContentSelect = styled.div`
 
 export default () => (
   <Forms action="#" method="GET">
-    <Wrapper>
-      <WrapField>
+    <Fields>
+      <FormField>
         <Field defaultValue="Москва" firstField text="Mow" />
-      </WrapField>
-      <WrapField>
+      </FormField>
+      <FormField>
         <Field placeholder="Город прибытия" />
-      </WrapField>
-    </Wrapper>
-    <Wrapper>
-      <WrapDate>
+      </FormField>
+    </Fields>
+    <Fields>
+      <DatePicker>
         <DataPicker />
-      </WrapDate>
-      <WrapFieldLast>
+      </DatePicker>
+      <FormFieldLast>
         <ContentSelect>
           <Select />
         </ContentSelect>
         <ButtonSearch type="submit">Найти билеты</ButtonSearch>
-      </WrapFieldLast>
-    </Wrapper>
+      </FormFieldLast>
+    </Fields>
   </Forms>
 );

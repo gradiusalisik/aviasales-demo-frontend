@@ -1,15 +1,16 @@
 import styled from "styled-components";
+import Icon from "../../Icon";
 
 // ** Card.js **
 
 export const Card = styled.div`
   padding: 12px 6px;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   background-color: #fff;
 `;
 
 export const Head = styled.div`
-  margin-bottom: 11px;
+  margin-bottom: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,7 +31,7 @@ export const Body = styled.div`
   padding-left: 7px;
 `;
 
-export const Wrap = styled.div`
+export const Content = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -39,7 +40,7 @@ export const Wrap = styled.div`
   }
 `;
 
-export const CardIconWrap = styled.div`
+export const CardIcon = styled(Icon)`
   margin-right: 8px;
   width: 12px;
   height: 12px;

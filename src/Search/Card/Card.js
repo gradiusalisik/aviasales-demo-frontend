@@ -10,7 +10,7 @@ import { ButtonBuy, ButtonCharters } from "../../UI/Button";
 import {
   Card as CardStyled,
   LeftContent,
-  WrapInfoCard as WrapInfo,
+  InfoCard as Info,
   BtnBuy,
   TextBuy,
   TextPrice,
@@ -20,11 +20,11 @@ import {
   Head,
   Body,
   Share,
-  WrapButtons,
+  Buttons,
   IconShare,
   ButtonDown,
-  TabsWrap,
-  BaggageWrap,
+  TabsContent,
+  Baggages,
   Arrow
 } from "./styled";
 
@@ -32,21 +32,21 @@ const Card = props => (
   <CardStyled>
     <LeftContent>
       {props.baggages && (
-        <BaggageWrap>
+        <Baggages>
           <Baggage
             list={props.baggages}
             noBaggage={props.noBaggage}
             price={props.priceBaggage}
           />
-        </BaggageWrap>
+        </Baggages>
       )}
       {props.tabs && (
-        <TabsWrap>
+        <TabsContent>
           <Tabs list={props.tabs} />
-        </TabsWrap>
+        </TabsContent>
       )}
       {props.hotTicket && <TextHotTicket>{props.hotTicket}</TextHotTicket>}
-      <WrapInfo>
+      <Info>
         <BtnBuy>
           <ButtonBuy>
             <TextBuy>Купить</TextBuy>
@@ -55,19 +55,19 @@ const Card = props => (
         </BtnBuy>
         <TextNameShop>на&nbsp;{props.nameShop}</TextNameShop>
         {props.proposals && <Proposal list={props.proposals} />}
-      </WrapInfo>
+      </Info>
     </LeftContent>
     <RightContent>
       <Head>
         <Logos list={props.logos} />
-        <WrapButtons>
+        <Buttons>
           {props.charter && <ButtonCharters>Чартер</ButtonCharters>}
           <Share>
             <IconShare>
               <Icon icon="share" />
             </IconShare>
           </Share>
-        </WrapButtons>
+        </Buttons>
       </Head>
       <Body>
         <InfoFly list={props.infoFly} />

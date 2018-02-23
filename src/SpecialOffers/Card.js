@@ -3,15 +3,15 @@ import { PropTypes as pt } from "prop-types";
 import { FormattedNumber } from "react-intl";
 import Button from "./Button";
 import {
-  Wrapper,
+  Cards,
   Head,
   Body,
-  BodyWrap,
+  BodyContent as Content,
   Text,
   Logo,
-  Wrap,
+  Offer,
   LogoBrend,
-  WrapInfo,
+  OfferInfo,
   Price,
   DateEnd,
   DescriptionPrice,
@@ -19,28 +19,28 @@ import {
 } from "./styled";
 
 const Card = props => (
-  <Wrapper>
+  <Cards>
     <Head>
       <Text title={props.text}>{props.text}</Text>
       {props.logo && <Logo src={props.logo} alt="logo" />}
     </Head>
     <Body>
-      <BodyWrap>
-        <Wrap>
+      <Content>
+        <Offer>
           <LogoBrend src={props.logoBrend} alt={props.altLogoBrend} />
-          <WrapInfo>
+          <OfferInfo>
             <Price>
               <DescriptionPrice>от</DescriptionPrice>
               <FormattedNumber value={props.price} />&nbsp;₽
             </Price>
             <DateEnd>{props.dateEnd}</DateEnd>
-          </WrapInfo>
-        </Wrap>
+          </OfferInfo>
+        </Offer>
         <Description>{props.description}</Description>
-      </BodyWrap>
+      </Content>
       <Button text="Узнать подробности" />
     </Body>
-  </Wrapper>
+  </Cards>
 );
 
 Card.propTypes = {

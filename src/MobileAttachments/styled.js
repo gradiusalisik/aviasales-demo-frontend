@@ -34,7 +34,7 @@ export const Container = styled.div`
   `};
 `;
 
-export const Wrapper = styled.div``;
+export const Content = styled.div``;
 
 export const Title = styled.h2`
   margin-bottom: 20px;
@@ -51,7 +51,7 @@ export const Title = styled.h2`
   `};
 `;
 
-export const WrapRating = styled.div`
+export const Ratings = styled.div`
   margin-bottom: 20px;
   display: flex;
   align-items: center;
@@ -108,7 +108,7 @@ export const PhoneTablet = styled.img`
   `};
 `;
 
-export const WrapAttach = styled.div`
+export const Attach = styled.div`
   ${media.md`
     padding-bottom: 27px;
     display: flex;
