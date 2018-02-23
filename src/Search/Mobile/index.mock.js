@@ -9,9 +9,11 @@ import russia from "../images/russia.png";
 
 export const list = [
   {
-    status: "Самый дешевый",
-    statusColor: "#83D40B",
-    iconStatus: "🤑",
+    status: {
+      text: "Самый дешевый",
+      color: "#83D40B",
+      icon: "🤑"
+    },
     price: 7712,
     logos: [
       {
@@ -34,9 +36,11 @@ export const list = [
     }
   },
   {
-    status: "Самый быстрый",
-    statusColor: "#AF7542",
-    iconStatus: "⚡️",
+    status: {
+      text: "Самый быстрый",
+      color: "#AF7542",
+      icon: "⚡️"
+    },
     price: 9269,
     logos: [
       {
@@ -60,9 +64,11 @@ export const list = [
     }
   },
   {
-    status: "Лучший билет",
-    statusColor: "#C279D1",
-    iconStatus: "😍️",
+    status: {
+      text: "Лучший билет",
+      color: "#C279D1",
+      icon: "😍️"
+    },
     price: 8029,
     logos: [
       {

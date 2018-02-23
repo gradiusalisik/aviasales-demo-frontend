@@ -17,11 +17,11 @@ export default () => (
   <CardList>
     {list.map((info, key) => (
       <Content key={key}>
-        {info.status && (
+        {!!info.status && (
           <Status
-            text={info.status}
-            color={info.statusColor}
-            icon={info.iconStatus}
+            text={info.status.text}
+            color={info.status.color}
+            icon={info.status.icon}
           />
         )}
         <Card
