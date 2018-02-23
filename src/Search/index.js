@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PureComponent } from "react";
 import FirstScreen from "./FirstScreen";
 import CardListMobile from "./Mobile/CardList";
 import CardList from "./Card";
@@ -11,7 +11,7 @@ import {
   ButtonShowMore
 } from "../UI/Button";
 import {
-  Search,
+  SearchStyled,
   Content,
   Button,
   ButtonFilter as BtnFilter,
@@ -23,43 +23,90 @@ import {
   Filters,
   Section,
   Container,
-  RightColumn
+  RightColumn,
+  Scroll,
+  IconScroll
 } from "./styled";
 
-export default () => (
-  <Search>
-    <FirstScreen />
-    <Section>
-      <Container>
-        <Filters>
-          <Filter />
-        </Filters>
-        <Content>
-          <Button>
-            <ButtonUp>Наверх</ButtonUp>
-          </Button>
-          <BtnFilterSmall>
-            <ButtonFilterSmall>
-              <IconFilter>
-                <Icon icon="filter" />
-              </IconFilter>
-            </ButtonFilterSmall>
-          </BtnFilterSmall>
-          <CardsMobile>
-            <CardListMobile />
-          </CardsMobile>
-          <Cards>
-            <CardList />
-          </Cards>
-          <BtnFilter>
-            <ButtonFilter>Фильтровать</ButtonFilter>
-          </BtnFilter>
-          <ShowMore>
-            <ButtonShowMore>ПОКАЗАТЬ ЕЩЕ 10 БИЛЕТОВ!</ButtonShowMore>
-          </ShowMore>
-        </Content>
-        <RightColumn />
-      </Container>
-    </Section>
-  </Search>
-);
+export default class Search extends PureComponent {
+  state = {
+    active: false,
+    intervalId: 0
+  };
+
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
+  }
+
+  handleScroll = () => {
+    if (window.pageYOffset > 90) {
+      this.setState({
+        active: true
+      });
+    } else {
+      this.setState({
+        active: false
+      });
+    }
+  };
+
+  scrollStep = () => {
+    if (window.pageYOffset === 0) {
+      clearInterval(this.state.intervalId);
+    }
+    window.scroll(0, window.pageYOffset - 50);
+  };
+
+  handleScrollTop = () => {
+    let intervalId = setInterval(this.scrollStep, 16.66);
+    this.setState({ intervalId: intervalId });
+  };
+
+  render() {
+    console.log(this.state.active);
+    return (
+      <SearchStyled>
+        <FirstScreen />
+        <Section>
+          <Container>
+            <Filters>
+              <Filter />
+            </Filters>
+            <Content>
+              <Button>
+                <ButtonUp>Наверх</ButtonUp>
+              </Button>
+              <BtnFilterSmall>
+                <ButtonFilterSmall>
+                  <IconFilter>
+                    <Icon icon="filter" />
+                  </IconFilter>
+                </ButtonFilterSmall>
+              </BtnFilterSmall>
+              <CardsMobile>
+                <CardListMobile />
+              </CardsMobile>
+              <Cards>
+                <CardList />
+              </Cards>
+              <BtnFilter>
+                <ButtonFilter>Фильтровать</ButtonFilter>
+              </BtnFilter>
+              <ShowMore>
+                <ButtonShowMore>ПОКАЗАТЬ ЕЩЕ 10 БИЛЕТОВ!</ButtonShowMore>
+              </ShowMore>
+            </Content>
+            <RightColumn />
+          </Container>
+        </Section>
+        <Scroll onClick={this.handleScrollTop} active={this.state.active}>
+          <IconScroll icon="scroll" />
+        </Scroll>
+      </SearchStyled>
+    );
+  }
+}

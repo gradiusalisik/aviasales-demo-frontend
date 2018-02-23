@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import Icon from "../Icon";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import media from "../utils/media";
 
 // ** index.js **
-export const Search = styled.div``;
+export const SearchStyled = styled.div``;
 
 export const Section = styled.section`
   padding-top: 8px;
@@ -91,6 +91,42 @@ export const ShowMore = styled.div`
   ${media.md`
     display: block;
   `};
+`;
+
+export const Scroll = styled.button`
+  position: fixed;
+  bottom: 210px;
+  right: 98px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+  background-color: #fff;
+  color: #a0b0b9;
+  box-shadow: 0px 2px 4px rgba(74, 74, 74, 0.5);
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover {
+    background-color: #00acde;
+    color: #fff;
+  }
+
+  ${media.xl`
+    ${props =>
+      props.active &&
+      css`
+        display: flex;
+      `}
+  `};
+`;
+
+export const IconScroll = styled(Icon)`
+  width: 20px;
+  height: 20px;
 `;
 
 // ** Header.js **
