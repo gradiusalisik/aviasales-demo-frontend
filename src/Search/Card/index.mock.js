@@ -12,7 +12,7 @@ export const list = [
     leftContent: {
       price: 7712,
       nameShop: "Clickavia",
-      listBaggage: [
+      baggages: [
         {
           icon: "bag",
           kg: 5
@@ -26,12 +26,12 @@ export const list = [
     },
     rightContent: {
       charter: true,
-      listLogo: [
+      logos: [
         {
           image: russia
         }
       ],
-      listInfoFly: [
+      infoFly: [
         {
           timeFrom: "00:05",
           placeFrom: "Москва",
@@ -61,7 +61,7 @@ export const list = [
     leftContent: {
       price: 8029,
       nameShop: "Билетик Аэро",
-      listBaggage: [
+      baggages: [
         {
           icon: "bag",
           kg: 5
@@ -74,12 +74,12 @@ export const list = [
       ]
     },
     rightContent: {
-      listLogo: [
+      logos: [
         {
           image: nordwind
         }
       ],
-      listInfoFly: [
+      infoFly: [
         {
           timeFrom: "00:15",
           placeFrom: "Москва",
@@ -109,7 +109,7 @@ export const list = [
     leftContent: {
       price: 8164,
       nameShop: "Aviakassa",
-      listTabs: [
+      tabs: [
         {
           noBaggage: true,
           list: [
@@ -142,12 +142,12 @@ export const list = [
     },
     rightContent: {
       charter: true,
-      listLogo: [
+      logos: [
         {
           image: nordwindAir
         }
       ],
-      listInfoFly: [
+      infoFly: [
         {
           timeFrom: "00:15",
           placeFrom: "Москва",
@@ -177,7 +177,7 @@ export const list = [
     leftContent: {
       price: 8240,
       nameShop: "Билетик Аэро",
-      listTabs: [
+      tabs: [
         {
           noBaggage: true,
           list: [
@@ -207,7 +207,7 @@ export const list = [
           ]
         }
       ],
-      listProposal: [
+      proposals: [
         {
           name: "Clickavia",
           price: 8302
@@ -223,12 +223,12 @@ export const list = [
     },
     rightContent: {
       charter: true,
-      listLogo: [
+      logos: [
         {
           image: redWings
         }
       ],
-      listInfoFly: [
+      infoFly: [
         {
           timeFrom: "07:00",
           placeFrom: "Москва",
@@ -258,7 +258,7 @@ export const list = [
     leftContent: {
       price: 9108,
       nameShop: "Clickavia",
-      listBaggage: [
+      baggages: [
         {
           icon: "bag",
           kg: 10
@@ -272,17 +272,17 @@ export const list = [
     },
     rightContent: {
       charter: true,
-      listLogo: [
+      logos: [
         {
-          smallImage: redWingsSmall,
-          border: true
+          image: redWingsSmall,
+          smallImage: true
         },
         {
-          smallImage: russiaSmall,
-          border: true
+          image: russiaSmall,
+          smallImage: true
         }
       ],
-      listInfoFly: [
+      infoFly: [
         {
           timeFrom: "00:05",
           placeFrom: "Москва",
@@ -313,7 +313,7 @@ export const list = [
       price: 9269,
       nameShop: "Biletix",
       hotTicket: "Осталось 4 билета",
-      listBaggage: [
+      baggages: [
         {
           icon: "bag",
           kg: "?",
@@ -325,7 +325,7 @@ export const list = [
           kg: 20
         }
       ],
-      listProposal: [
+      proposals: [
         {
           name: "Svyaznoy Travel",
           price: 9275
@@ -341,12 +341,12 @@ export const list = [
     },
     rightContent: {
       charter: true,
-      listLogo: [
+      logos: [
         {
           image: fly
         }
       ],
-      listInfoFly: [
+      infoFly: [
         {
           timeFrom: "07:30",
           placeFrom: "Москва",
@@ -376,7 +376,7 @@ export const list = [
     leftContent: {
       price: 9485,
       nameShop: "Clickavia",
-      listBaggage: [
+      baggages: [
         {
           icon: "bag",
           kg: "?",
@@ -391,17 +391,17 @@ export const list = [
     },
     rightContent: {
       charter: true,
-      listLogo: [
+      logos: [
         {
-          smallImage: russiaSmall,
-          border: true
+          image: russiaSmall,
+          smallImage: true
         },
         {
-          smallImage: otherSmall,
-          border: true
+          image: otherSmall,
+          smallImage: true
         }
       ],
-      listInfoFly: [
+      infoFly: [
         {
           timeFrom: "00:05",
           placeFrom: "Москва",

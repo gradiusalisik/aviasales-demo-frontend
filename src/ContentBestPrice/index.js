@@ -1,26 +1,14 @@
 import React from "react";
-import Icon from "../Icon";
 import CardList from "./CardList";
 import { list } from "./index.mock";
 import Container from "../Container";
-import {
-  Content,
-  LogoCalen,
-  WrapText,
-  Text,
-  Description,
-  SubText
-} from "./styled";
+import { Content, LogoCalen, Text, Description, SubText } from "./styled";
 
 export default () => (
   <Content>
     <Container>
-      <LogoCalen>
-        <Icon icon="bestPriceLogo" />
-      </LogoCalen>
-      <WrapText>
-        <Text>Лучшие цены на&nbsp;авиабилеты за&nbsp;последний месяц</Text>
-      </WrapText>
+      <LogoCalen icon="bestPriceLogo" />
+      <Text>Лучшие цены на&nbsp;авиабилеты за&nbsp;последний месяц</Text>
       <CardList list={list} />
       <Description>
         Мы&nbsp;знаем, где купить авиабилеты дешево. Билеты на&nbsp;самолет

@@ -85,7 +85,7 @@ const Baggage = props => (
 
 Baggage.propTypes = {
   noBaggage: pt.bool,
-  price: pt.bool,
+  price: pt.node,
   list: pt.array
 };
 

@@ -1,39 +1,41 @@
 import React from "react";
 import { PropTypes as pt } from "prop-types";
-import { delimiter } from "../utils/numberDelimiter";
+import { FormattedNumber } from "react-intl";
 import {
-  Wrapper,
+  Container,
   PlaceImg,
   Info,
-  Wrap,
+  Data,
   CityName,
   PriceInfo,
   CountryName,
   Date,
-  WrapImage,
+  Picture,
   ContentPlace,
   Flag
 } from "./styled";
 
 const Card = props => (
-  <Wrapper>
-    <WrapImage>
+  <Container>
+    <Picture>
       <PlaceImg image={props.placeImg} alt={props.altPlaceImg} />
-    </WrapImage>
+    </Picture>
     <Info>
       <ContentPlace>
         <Flag src={props.flag} alt={props.altFlag} />
-        <Wrap>
+        <Data>
           <CityName>{props.cityName}</CityName>
           <CountryName>{props.countryName}</CountryName>
-        </Wrap>
+        </Data>
       </ContentPlace>
-      <Wrap>
-        <PriceInfo>Найти от {delimiter(props.price)}&nbsp;₽</PriceInfo>
+      <Data>
+        <PriceInfo>
+          Найти от <FormattedNumber value={props.price} />&nbsp;₽
+        </PriceInfo>
         <Date>{props.date}</Date>
-      </Wrap>
+      </Data>
     </Info>
-  </Wrapper>
+  </Container>
 );
 
 Card.propTypes = {

@@ -100,14 +100,5 @@ const InfoFly = props => (
 InfoFly.propTypes = {
   list: pt.array
 };
-// totalTime: pt.string,
-// placeFrom: pt.string,
-// abbrFrom: pt.string,
-// placeTo: pt.string,
-// timeFrom: pt.string,
-// dateFrom: pt.string,
-// timeTo: pt.string,
-// dateTo: pt.string,
-// abbrTo: pt.string
 
 export default InfoFly;

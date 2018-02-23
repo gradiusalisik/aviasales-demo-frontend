@@ -4,6 +4,9 @@ import styled from "styled-components";
 
 const StatusStyled = styled.div`
   padding: 7px 6px;
+  font-size: 14px;
+  font-weight: 900;
+  color: #fff;
   background-color: ${props => props.color};
 `;
 

@@ -27,7 +27,7 @@ export const Content = styled.div`
   `};
 `;
 
-export const WrapTitle = styled.div`
+export const ContentTitle = styled.div`
   margin-bottom: 15px;
   display: flex;
   align-items: center;

@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import media from "../utils/media";
+import Icon from "../Icon";
+
 // index.js
 
 export const Content = styled.div`
@@ -15,7 +17,7 @@ export const Content = styled.div`
   `};
 `;
 
-export const LogoCalen = styled.div`
+export const LogoCalen = styled(Icon)`
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 24px;
@@ -23,21 +25,15 @@ export const LogoCalen = styled.div`
   height: 64px;
 `;
 
-export const WrapText = styled.div`
-  margin-bottom: 40px;
-
-  ${media.xl`
-    margin-bottom: 60px;
-  `};
-`;
-
 export const Text = styled.p`
+  margin-bottom: 40px;
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
   color: #4a4a4a;
 
   ${media.xl`
+    margin-bottom: 60px;
     font-size: 24px;
   `};
 `;
@@ -73,7 +69,7 @@ export const SubText = styled.p`
 
 // Card.js
 
-export const Wrapper = styled.div`
+export const Container = styled.div`
   padding-bottom: 17px;
   margin-bottom: 30px;
   &:not(:last-child) {
@@ -117,7 +113,7 @@ export const Flag = styled.img`
   border-radius: 50%;
 `;
 
-export const Wrap = styled.div`
+export const Names = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;

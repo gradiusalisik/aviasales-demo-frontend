@@ -4,7 +4,7 @@ import Baggage from "./Baggage";
 import Tabs from "./Tabs";
 import Proposal from "./Proposal";
 import InfoFly from "./InfoFly";
-import Logos from "../Mobile/Logos";
+import Logos from "../../UI/Logos";
 import Icon from "../../Icon";
 import { ButtonBuy, ButtonCharters } from "../../UI/Button";
 import {
@@ -31,18 +31,18 @@ import {
 const Card = props => (
   <CardStyled>
     <LeftContent>
-      {props.listBaggage && (
+      {props.baggages && (
         <BaggageWrap>
           <Baggage
-            list={props.listBaggage}
+            list={props.baggages}
             noBaggage={props.noBaggage}
             price={props.priceBaggage}
           />
         </BaggageWrap>
       )}
-      {props.listTabs && (
+      {props.tabs && (
         <TabsWrap>
-          <Tabs list={props.listTabs} />
+          <Tabs list={props.tabs} />
         </TabsWrap>
       )}
       {props.hotTicket && <TextHotTicket>{props.hotTicket}</TextHotTicket>}
@@ -54,12 +54,12 @@ const Card = props => (
           </ButtonBuy>
         </BtnBuy>
         <TextNameShop>на&nbsp;{props.nameShop}</TextNameShop>
-        {props.listProposal && <Proposal list={props.listProposal} />}
+        {props.proposals && <Proposal list={props.proposals} />}
       </WrapInfo>
     </LeftContent>
     <RightContent>
       <Head>
-        <Logos list={props.listLogo} />
+        <Logos list={props.logos} />
         <WrapButtons>
           {props.charter && <ButtonCharters>Чартер</ButtonCharters>}
           <Share>
@@ -70,7 +70,7 @@ const Card = props => (
         </WrapButtons>
       </Head>
       <Body>
-        <InfoFly list={props.listInfoFly} />
+        <InfoFly list={props.infoFly} />
       </Body>
       <ButtonDown>
         <Arrow>
@@ -82,11 +82,11 @@ const Card = props => (
 );
 
 Card.propTypes = {
-  listBaggage: pt.array,
-  listTabs: pt.array,
-  listProposal: pt.array,
-  listInfoFly: pt.array,
-  listLogo: pt.array,
+  baggages: pt.array,
+  tabs: pt.array,
+  proposals: pt.array,
+  infoFly: pt.array,
+  logos: pt.array,
   noBaggage: pt.bool,
   priceBaggage: pt.bool,
   hotTicket: pt.string,

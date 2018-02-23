@@ -1,11 +1,11 @@
 import React from "react";
 import { PropTypes as pt } from "prop-types";
-import { delimiter } from "../utils/numberDelimiter";
+import { FormattedNumber } from "react-intl";
 import {
-  Wrapper,
+  Container,
   Head,
   Flag,
-  Wrap,
+  Names,
   CityName,
   CountryName,
   Body,
@@ -15,25 +15,25 @@ import {
 } from "./styled";
 
 const Card = props => (
-  <Wrapper>
+  <Container>
     <Head>
       <Flag src={props.flag} alt={props.altFlag} />
-      <Wrap>
+      <Names>
         <CityName>{props.cityName}</CityName>
         <CountryName>{props.countryName}</CountryName>
-      </Wrap>
+      </Names>
     </Head>
     <Body>
       {props.list.map((info, key) => (
         <Info key={key}>
           <FromPlace href={info.fromHref || "#"}>Из {info.from}</FromPlace>
           <Price href={info.toHref || "#"}>
-            от {delimiter(info.price)}&nbsp;₽
+            от <FormattedNumber value={info.price} />&nbsp;₽
           </Price>
         </Info>
       ))}
     </Body>
-  </Wrapper>
+  </Container>
 );
 
 Card.propTypes = {

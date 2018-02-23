@@ -2,7 +2,7 @@ import styled from "styled-components";
 import media from "../utils/media";
 
 // index.js
-export const Wrapper = styled.div`
+export const Footer = styled.footer`
   padding-right: 6px;
   padding-top: 32px;
   padding-bottom: 24px;
@@ -30,7 +30,7 @@ export const Line = styled.div`
   background-color: #e0e6e8;
 `;
 
-export const WrapLinks = styled.div`
+export const Links = styled.div`
   margin-bottom: 16px;
   padding-right: 35px;
   display: flex;
@@ -71,7 +71,7 @@ export const Bottom = styled.div`
   `};
 `;
 
-export const Wrap = styled.div`
+export const Content = styled.div`
   ${media.xl`
     flex-direction: column;
     justify-content: space-between;
@@ -82,7 +82,7 @@ export const Wrap = styled.div`
   `};
 `;
 
-export const WrapAttach = styled.div`
+export const Attachments = styled.div`
   margin-bottom: 24px;
   padding-top: 16px;
 
@@ -98,7 +98,7 @@ export const WrapAttach = styled.div`
 
 // Nav.js
 
-export const NavContent = styled.nav`
+export const Nav = styled.nav`
   width: 47%;
   &:not(:nth-last-child(-n + 2)) {
     margin-bottom: 27px;
@@ -129,12 +129,12 @@ export const Title = styled.h3`
   `};
 `;
 
-export const Links = styled.ul`
+export const NavLinks = styled.ul`
   margin-bottom: 4px;
   font-size: 0;
 `;
 
-export const LinkWrap = styled.li``;
+export const LinkContent = styled.li``;
 
 export const Link = styled.a`
   padding-top: 8px;

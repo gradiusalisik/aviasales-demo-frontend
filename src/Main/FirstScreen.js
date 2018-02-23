@@ -28,7 +28,7 @@ const FirstScreen = styled.div`
   `};
 `;
 
-const Wrap = styled.div`
+const Content = styled(Container)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,10 +38,8 @@ const Wrap = styled.div`
 export default () => (
   <FirstScreen>
     <Header />
-    <Container>
-      <Wrap>
-        <Forms />
-      </Wrap>
-    </Container>
+    <Content>
+      <Forms />
+    </Content>
   </FirstScreen>
 );

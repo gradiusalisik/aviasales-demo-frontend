@@ -39,7 +39,7 @@ export const SubTitle = styled.h2`
   `};
 `;
 
-export const WrapForm = styled.div`
+export const Content = styled.div`
   margin-bottom: 16px;
   overflow: hidden;
   border-radius: 6px;
@@ -50,29 +50,45 @@ export const WrapForm = styled.div`
   `};
 `;
 
-export const WrapField = styled.div`
-  margin-bottom: ${props => (props.noBottomIndent ? 0 : "2px")};
+export const From = styled.div`
+  margin-bottom: 2px;
 
   ${media.md`
-    margin-left: ${props => (props.noLeftIndentTablet ? 0 : "2px")};
-    margin-bottom: ${props => (props.noBottomIndentTablet ? 0 : "2px")};
+    margin-left: 0;
     width: 100%;
   `};
 
   ${media.xl`
     margin-bottom: 0;
     min-width: 224px;
-    margin-left: ${props => (props.noLeftIndentDesktop ? 0 : "2px")};
   `};
 `;
 
-export const WrapDatePicker = WrapField.extend`
+export const To = From.extend`
+  ${media.md`
+    margin-left: 2px;
+  `};
+`;
+
+export const DatePicker = From.extend`
+  ${media.md`
+    margin-left: 0;
+    margin-bottom: 0;
+  `};
+
+  ${media.xl`
+    min-width: auto;
+    margin-left: 2px;
+  `};
+`;
+
+export const Selects = To.extend`
   ${media.xl`
     min-width: auto;
   `};
 `;
 
-export const Wrapper = styled.div`
+export const FormFields = styled.div`
   width: 100%;
   ${media.md`
     display: flex;
@@ -86,7 +102,7 @@ export const Wrapper = styled.div`
   `};
 `;
 
-export const ButtonWrap = styled.div`
+export const ButtonSearch = styled.div`
   ${media.xl`
     margin-left: auto;
     margin-right: auto;
@@ -95,7 +111,7 @@ export const ButtonWrap = styled.div`
 `;
 
 // ** Field.js
-export const FieldWrap = styled.div`
+export const Fields = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
@@ -115,7 +131,7 @@ export const Input = styled.input`
   }
 `;
 
-export const WrapInfoField = styled.div`
+export const InfoField = styled.div`
   position: absolute;
   padding-right: 16px;
   top: 0;

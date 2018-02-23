@@ -8,39 +8,41 @@ import {
   Forms,
   Title,
   SubTitle,
-  WrapForm,
-  Wrapper,
-  WrapField,
-  WrapDatePicker,
-  ButtonWrap
+  Content,
+  FormFields as Fields,
+  Selects,
+  DatePicker,
+  From,
+  To,
+  ButtonSearch
 } from "./styled";
 
 export default () => (
   <Forms action="#" method="GET">
     <Title>Поиск дешевых авиабилетов</Title>
     <SubTitle>Лучший способ купить авиабилеты дешево</SubTitle>
-    <WrapForm>
-      <Wrapper>
-        <WrapField noLeftIndentTablet noLeftIndentDesktop>
+    <Content>
+      <Fields>
+        <From>
           <Field defaultValue="Москва" firstField text="Mow" />
-        </WrapField>
-        <WrapField>
+        </From>
+        <To>
           <Field placeholder="Город прибытия" />
-        </WrapField>
-      </Wrapper>
-      <Wrapper>
-        <WrapDatePicker noLeftIndentTablet noBottomIndentTablet>
+        </To>
+      </Fields>
+      <Fields>
+        <DatePicker>
           <DataPicker />
-        </WrapDatePicker>
-        <WrapField noBottomIndent noBottomIndentTablet>
+        </DatePicker>
+        <Selects>
           <Select />
-        </WrapField>
-      </Wrapper>
-    </WrapForm>
-    <ButtonWrap>
+        </Selects>
+      </Fields>
+    </Content>
+    <ButtonSearch>
       <Link to="/search">
         <Button text="Найти билеты" icon="aero" />
       </Link>
-    </ButtonWrap>
+    </ButtonSearch>
   </Forms>
 );

@@ -1,20 +1,30 @@
 import React from "react";
 import { PropTypes as pt } from "prop-types";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const List = styled.div`
   display: flex;
 `;
 
-const Wrap = styled.div`
-  padding: ${props => (props.border ? "4px" : "0")};
+const Content = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: ${props => (props.border ? "1px solid #ddd" : "none")};
   &:not(:last-child) {
     margin-right: 8px;
   }
+
+  ${props =>
+    props.smallImage &&
+    css`
+      padding: 4px;
+      border: 1px solid #ddd;
+
+      ${Logo} {
+        width: 28px;
+        height: 28px;
+      }
+    `};
 `;
 
 const Logo = styled.img`
@@ -22,18 +32,12 @@ const Logo = styled.img`
   height: 36px;
 `;
 
-const LogoSmall = styled.img`
-  width: 28px;
-  height: 28px;
-`;
-
 const Logos = props => (
   <List>
     {props.list.map((logo, key) => (
-      <Wrap border={logo.border} key={key}>
-        {logo.image && <Logo src={logo.image} alt={logo.alt} />}
-        {logo.smallImage && <LogoSmall src={logo.smallImage} alt={logo.alt} />}
-      </Wrap>
+      <Content smallImage={logo.smallImage} key={key}>
+        <Logo src={logo.image} alt={logo.alt} />
+      </Content>
     ))}
   </List>
 );

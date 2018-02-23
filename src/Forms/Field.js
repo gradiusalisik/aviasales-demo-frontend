@@ -2,29 +2,29 @@ import React from "react";
 import { PropTypes as pt } from "prop-types";
 import Icon from "../Icon";
 import {
-  FieldWrap,
+  Fields,
   Input,
-  WrapInfoField,
+  InfoField as Info,
   Text,
   ChangeCityArrows
 } from "./styled";
 
 const Field = props => (
-  <FieldWrap height={props.height}>
+  <Fields height={props.height}>
     <Input
       type="text"
       defaultValue={props.defaultValue}
       placeholder={props.placeholder}
     />
     {props.firstField && (
-      <WrapInfoField>
+      <Info>
         <Text>{props.text}</Text>
         <ChangeCityArrows>
           <Icon icon="arrows" />
         </ChangeCityArrows>
-      </WrapInfoField>
+      </Info>
     )}
-  </FieldWrap>
+  </Fields>
 );
 
 Field.propTypes = {

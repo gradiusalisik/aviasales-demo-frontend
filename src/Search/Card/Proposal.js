@@ -1,6 +1,6 @@
 import React from "react";
 import { PropTypes as pt } from "prop-types";
-import { delimiter } from "../../utils/numberDelimiter";
+import { FormattedNumber } from "react-intl";
 import styled from "styled-components";
 
 const ProposalStyled = styled.div`
@@ -47,7 +47,9 @@ const Proposal = props => (
         ) : (
           <Link href={link.href || "#"}>
             <Text>{link.name}</Text>
-            <TextMedium>{delimiter(link.price)}&nbsp;₽</TextMedium>
+            <TextMedium>
+              <FormattedNumber value={link.price} />&nbsp;₽
+            </TextMedium>
           </Link>
         )}
       </div>

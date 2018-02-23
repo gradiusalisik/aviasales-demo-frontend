@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+    <title>
+        clear
+    </title>
+    <desc>
+        Created using Figma
+    </desc>
+    <use fill="currentColor" xlink:href="#cleara"/>
+    <defs>
+        <path id="cleara" fill-rule="evenodd" d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zM6.13 10.806L8 8.935l1.871 1.871a.661.661 0 1 0 .935-.936L8.936 8l1.87-1.87a.663.663 0 0 0-.936-.935L8 7.064l-1.87-1.87a.662.662 0 1 0-.936.936L7.064 8l-1.87 1.87a.662.662 0 0 0 .935.936z"/>
+    </defs>
+</svg>

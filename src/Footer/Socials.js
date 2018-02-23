@@ -3,7 +3,7 @@ import styled from "styled-components";
 import media from "../utils/media";
 import Icon from "../Icon";
 
-const Wrapper = styled.div`
+const Socials = styled.div`
   margin-bottom: 16px;
   display: flex;
   flex-wrap: wrap;
@@ -60,7 +60,7 @@ const LogoViber = styled.div`
 `;
 
 export default () => (
-  <Wrapper>
+  <Socials>
     <Link href="#">
       <LogoVk>
         <Icon icon="vk" />
@@ -91,5 +91,5 @@ export default () => (
       </LogoViber>
       <Text>Вайбер</Text>
     </Link>
-  </Wrapper>
+  </Socials>
 );

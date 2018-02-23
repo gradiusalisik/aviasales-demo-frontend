@@ -4,7 +4,7 @@ import Icon from "../Icon";
 import { ButtonSearchMain } from "../UI/Button";
 import styled from "styled-components";
 
-const ButtonWrap = styled.div`
+const Content = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,14 +20,14 @@ const PlaneImg = styled.div`
 
 const Button = props => (
   <ButtonSearchMain type={props.type || "button"}>
-    <ButtonWrap>
+    <Content>
       <Text>{props.text}</Text>
       {props.icon && (
         <PlaneImg>
           <Icon icon={props.icon} />
         </PlaneImg>
       )}
-    </ButtonWrap>
+    </Content>
   </ButtonSearchMain>
 );
 

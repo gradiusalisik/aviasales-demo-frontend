@@ -10,16 +10,16 @@ export default () => (
     {list.map((card, key) => (
       <Card
         key={key}
-        listBaggage={card.leftContent.listBaggage}
-        listTabs={card.leftContent.listTabs}
-        listProposal={card.leftContent.listProposal}
+        baggages={card.leftContent.baggages}
+        tabs={card.leftContent.tabs}
+        proposals={card.leftContent.proposals}
         noBaggage={card.leftContent.noBaggage}
         priceBaggage={card.leftContent.priceBaggage}
         hotTicket={card.leftContent.hotTicket}
         price={card.leftContent.price}
         nameShop={card.leftContent.nameShop}
-        listInfoFly={card.rightContent.listInfoFly}
-        listLogo={card.rightContent.listLogo}
+        infoFly={card.rightContent.infoFly}
+        logos={card.rightContent.logos}
         charter={card.rightContent.charter}
       />
     ))}

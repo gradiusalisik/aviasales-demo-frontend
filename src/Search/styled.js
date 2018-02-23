@@ -5,7 +5,7 @@ import media from "../utils/media";
 // ** index.js **
 export const Search = styled.div``;
 
-export const Content = styled.div`
+export const Wrapper = styled.div`
   padding-top: 8px;
   padding-bottom: 16px;
   background-color: #eaeaea;
@@ -14,6 +14,29 @@ export const Content = styled.div`
     padding-left: 8px;
     padding-right: 8px;
   `};
+`;
+
+export const Container = styled.div`
+  ${media.xl`
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    max-width: 1036px;
+  `};
+`;
+
+export const FilterWrap = styled.div`
+  margin-right: 16px;
+  display: none;
+
+  ${media.xl`
+    display: block;
+    min-width: 300px;
+  `};
+`;
+
+export const Content = styled.div`
+  width: 100%;
 `;
 
 export const Button = styled.div`
@@ -44,6 +67,10 @@ export const ButtonFilterSmall = Button.extend`
   display: none;
   ${media.md`
     display: flex;
+  `};
+
+  ${media.xl`
+    display: none;
   `};
 `;
 
@@ -121,3 +148,16 @@ export const SubInfo = styled.span`
 export const Date = styled.span``;
 
 export const Passenger = styled.span``;
+
+export const CardsMobile = styled.div`
+  ${media.md`
+    display: none;
+  `};
+`;
+
+export const Cards = styled.div`
+  display: none;
+  ${media.md`
+    display: block;
+  `};
+`;

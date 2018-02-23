@@ -1,6 +1,6 @@
 import React from "react";
 import { PropTypes as pt } from "prop-types";
-import { delimiter } from "../utils/numberDelimiter";
+import { FormattedNumber } from "react-intl";
 import Button from "./Button";
 import {
   Wrapper,
@@ -31,7 +31,7 @@ const Card = props => (
           <WrapInfo>
             <Price>
               <DescriptionPrice>от</DescriptionPrice>
-              {delimiter(props.price)}&nbsp;₽
+              <FormattedNumber value={props.price} />&nbsp;₽
             </Price>
             <DateEnd>{props.dateEnd}</DateEnd>
           </WrapInfo>

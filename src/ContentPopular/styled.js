@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import media from "../utils/media";
+import Icon from "../Icon";
 
 // index.js
 
@@ -10,7 +11,7 @@ export const Content = styled.div`
   text-align: center;
 `;
 
-export const LogoCompas = styled.div`
+export const LogoCompas = styled(Icon)`
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 24px;
@@ -45,19 +46,25 @@ export const TextCity = Text.extend`
   `};
 `;
 
-export const WrapText = styled.div`
+export const ContentText = styled.div`
   display: inline-flex;
   align-items: center;
   justify-content: center;
 `;
 
-export const EditImage = styled.div`
+export const EditImage = styled(Icon)`
   margin-left: 5px;
   width: 16px;
   height: 16px;
+  color: #00ace2;
+  transition: color 0.3s;
+
+  ${TextCity}:hover + & {
+    color: #ff8b00;
+  }
 `;
 
-export const TabsWrap = styled.div`
+export const TabsContent = styled.div`
   margin-top: 32px;
   margin-bottom: 12px;
 
@@ -68,7 +75,7 @@ export const TabsWrap = styled.div`
 `;
 
 // Card.js
-export const Wrapper = styled.a`
+export const Container = styled.a`
   margin-bottom: 12px;
   display: block;
   overflow: hidden;
@@ -88,7 +95,7 @@ export const Wrapper = styled.a`
   `};
 `;
 
-export const WrapImage = styled.div`
+export const Picture = styled.div`
   position: relative;
   padding-bottom: 41%;
   height: 0;
@@ -109,7 +116,7 @@ export const PlaceImg = styled.div`
   transition: transform 6s ease;
 
   ${media.xl`
-    ${Wrapper}:hover & {
+    ${Container}:hover & {
       transform: scale(1.1);
     }
   `};
@@ -126,7 +133,7 @@ export const Info = styled.div`
   background-color: #fff;
 `;
 
-export const Wrap = styled.div`
+export const Data = styled.div`
   max-width: 155px;
 
   ${media.md`
@@ -187,7 +194,7 @@ export const PriceInfo = styled.span`
   `};
 
   ${media.xl`
-    ${Wrapper}:hover & {
+    ${Container}:hover & {
       color: #FF8C00;
     }
   `};

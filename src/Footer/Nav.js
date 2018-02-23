@@ -1,17 +1,24 @@
 import React from "react";
 import { PropTypes as pt } from "prop-types";
-import { NavContent, Title, Links, Link, LinkMore, LinkWrap } from "./styled";
+import {
+  Nav as NavContent,
+  Title,
+  NavLinks as Content,
+  Link,
+  LinkMore,
+  LinkContent as Links
+} from "./styled";
 
 const Nav = props => (
   <NavContent>
     <Title>{props.title}</Title>
-    <Links>
+    <Content>
       {props.list.map((link, key) => (
-        <LinkWrap key={key}>
+        <Links key={key}>
           <Link href={link.href || "#"}>{link.text}</Link>
-        </LinkWrap>
+        </Links>
       ))}
-    </Links>
+    </Content>
     {props.showMore && (
       <LinkMore href={props.hrefShowMore}>
         {props.showMore}&nbsp;&rarr;

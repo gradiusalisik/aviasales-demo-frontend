@@ -10,182 +10,179 @@ import russia from "../images/russia.png";
 export const list = [
   {
     status: "Самый дешевый",
-    colorStatus: "#83D40B",
+    statusColor: "#83D40B",
     iconStatus: "🤑",
-    price: "7712",
-    listLogo: [
+    price: 7712,
+    logos: [
       {
         image: russia
       }
     ],
-    listInfo: [
-      {
-        timeFrom: "00:05",
-        timeTo: "03:05",
-        time: "5 ч",
-        type: "Прямой"
-      },
-      {
-        reverse: true,
-        timeFrom: "10:35",
-        timeTo: "17:10",
-        time: "4 ч 35 м",
-        type: "Прямой"
-      }
-    ]
+    fromFly: {
+      timeFrom: "00:05",
+      timeTo: "03:05",
+      hours: 5,
+      type: "Прямой"
+    },
+    backFly: {
+      reverse: true,
+      timeFrom: "10:35",
+      timeTo: "17:10",
+      hours: 4,
+      minutes: 35,
+      type: "Прямой"
+    }
   },
   {
     status: "Самый быстрый",
-    colorStatus: "#AF7542",
+    statusColor: "#AF7542",
     iconStatus: "⚡️",
-    price: "9269",
-    listLogo: [
+    price: 9269,
+    logos: [
       {
         image: fly
       }
     ],
-    listInfo: [
-      {
-        timeFrom: "07:30",
-        timeTo: "09:50",
-        time: "4 ч 20м",
-        type: "Прямой"
-      },
-      {
-        reverse: true,
-        timeFrom: "11:20",
-        timeTo: "17:35",
-        time: "4 ч 15 м",
-        type: "CDG"
-      }
-    ]
+    fromFly: {
+      timeFrom: "07:30",
+      timeTo: "09:50",
+      hours: 4,
+      minutes: 20,
+      type: "Прямой"
+    },
+    backFly: {
+      reverse: true,
+      timeFrom: "11:20",
+      timeTo: "17:35",
+      hours: 4,
+      minutes: 15,
+      type: "CDG"
+    }
   },
   {
     status: "Лучший билет",
-    colorStatus: "#C279D1",
+    statusColor: "#C279D1",
     iconStatus: "😍️",
-    price: "8029",
-    listLogo: [
+    price: 8029,
+    logos: [
       {
         image: nordwind
       }
     ],
-    listInfo: [
-      {
-        timeFrom: "00:15",
-        timeTo: "03:10",
-        time: "4 ч 55м",
-        type: "Прямой"
-      },
-      {
-        reverse: true,
-        timeFrom: "10:45",
-        timeTo: "17:15",
-        time: "4 ч 30 м",
-        type: "Прямой"
-      }
-    ]
+    fromFly: {
+      timeFrom: "00:15",
+      timeTo: "03:10",
+      hours: 4,
+      minutes: 55,
+      type: "Прямой"
+    },
+    backFly: {
+      reverse: true,
+      timeFrom: "10:45",
+      timeTo: "17:15",
+      hours: 4,
+      minutes: 30,
+      type: "Прямой"
+    }
   },
   {
-    price: "8164",
-    listLogo: [
+    price: 8164,
+    logos: [
       {
         image: nordwindAir
       }
     ],
-    listInfo: [
-      {
-        timeFrom: "00:15",
-        timeTo: "03:10",
-        time: "4 ч 55м",
-        type: "Прямой"
-      },
-      {
-        reverse: true,
-        timeFrom: "10:45",
-        timeTo: "17:15",
-        time: "4 ч 30 м",
-        type: "Прямой"
-      }
-    ]
+    fromFly: {
+      timeFrom: "00:15",
+      timeTo: "03:10",
+      hours: 4,
+      minutes: 55,
+      type: "Прямой"
+    },
+    backFly: {
+      reverse: true,
+      timeFrom: "10:45",
+      timeTo: "17:15",
+      hours: 4,
+      minutes: 30,
+      type: "Прямой"
+    }
   },
   {
-    price: "8240",
-    listLogo: [
+    price: 8240,
+    logos: [
       {
         image: redWings
       }
     ],
-    listInfo: [
-      {
-        timeFrom: "07:00",
-        timeTo: "09:30",
-        time: "4 ч 30м",
-        type: "Прямой"
-      },
-      {
-        reverse: true,
-        timeFrom: "11:00",
-        timeTo: "17:10",
-        time: "4 ч 10 м",
-        type: "Прямой"
-      }
-    ]
+    fromFly: {
+      timeFrom: "07:00",
+      timeTo: "09:30",
+      hours: 4,
+      minutes: 30,
+      type: "Прямой"
+    },
+    backFly: {
+      reverse: true,
+      timeFrom: "11:00",
+      timeTo: "17:10",
+      hours: 4,
+      minutes: 10,
+      type: "Прямой"
+    }
   },
   {
-    price: "9108",
-    listLogo: [
+    price: 9108,
+    logos: [
       {
-        smallImage: redWingsSmall,
-        border: true
+        image: redWingsSmall,
+        smallImage: true
       },
       {
-        smallImage: russiaSmall,
-        border: true
+        image: russiaSmall,
+        smallImage: true
       }
     ],
-    listInfo: [
-      {
-        timeFrom: "00:05",
-        timeTo: "03:05",
-        time: "5 ч",
-        type: "Прямой"
-      },
-      {
-        reverse: true,
-        timeFrom: "11:00",
-        timeTo: "17:10",
-        time: "4 ч 10 м",
-        type: "Прямой"
-      }
-    ]
+    fromFly: {
+      timeFrom: "00:05",
+      timeTo: "03:05",
+      hours: 5,
+      type: "Прямой"
+    },
+    backFly: {
+      reverse: true,
+      timeFrom: "11:00",
+      timeTo: "17:10",
+      hours: 4,
+      minutes: 10,
+      type: "Прямой"
+    }
   },
   {
-    price: "9485",
-    listLogo: [
+    price: 9485,
+    logos: [
       {
-        smallImage: russiaSmall,
-        border: true
+        image: russiaSmall,
+        smallImage: true
       },
       {
-        smallImage: otherSmall,
-        border: true
+        image: otherSmall,
+        smallImage: true
       }
     ],
-    listInfo: [
-      {
-        timeFrom: "00:05",
-        timeTo: "03:05",
-        time: "5 ч",
-        type: "Прямой"
-      },
-      {
-        reverse: true,
-        timeFrom: "11:20",
-        timeTo: "17:35",
-        time: "4 ч 15 м",
-        type: "Прямой"
-      }
-    ]
+    fromFly: {
+      timeFrom: "00:05",
+      timeTo: "03:05",
+      hours: 5,
+      type: "Прямой"
+    },
+    backFly: {
+      reverse: true,
+      timeFrom: "11:20",
+      timeTo: "17:35",
+      hours: 4,
+      minutes: 15,
+      type: "Прямой"
+    }
   }
 ];

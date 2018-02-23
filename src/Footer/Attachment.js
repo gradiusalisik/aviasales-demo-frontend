@@ -41,13 +41,13 @@ const Link = styled.a`
   `};
 `;
 
-const IconWrap = styled.div`
+const Icons = styled(Icon)`
   margin-right: 10px;
   width: 21px;
   height: 21px;
 `;
 
-const WrapText = styled.div``;
+const Content = styled.div``;
 
 const Download = styled.span`
   margin-bottom: 1px;
@@ -64,13 +64,11 @@ const Attach = styled.span`
 
 const Attachment = props => (
   <Link href={props.href}>
-    <IconWrap>
-      <Icon icon={props.icon} />
-    </IconWrap>
-    <WrapText>
+    <Icons icon={props.icon} />
+    <Content>
       {props.download && <Download>Скачайте в</Download>}{" "}
       <Attach>{props.attach}</Attach>
-    </WrapText>
+    </Content>
   </Link>
 );
 

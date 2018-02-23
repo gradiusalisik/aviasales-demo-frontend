@@ -15,19 +15,20 @@ const Wrap = styled.div``;
 
 export default () => (
   <CardList>
-    {list.map((card, key) => (
+    {list.map((info, key) => (
       <Wrap key={key}>
-        {card.status && (
+        {info.status && (
           <Status
-            text={card.status}
-            color={card.colorStatus}
-            icon={card.iconStatus}
+            text={info.status}
+            color={info.statusColor}
+            icon={info.iconStatus}
           />
         )}
         <Card
-          listLogo={card.listLogo}
-          listInfo={card.listInfo}
-          price={card.price}
+          logos={info.logos}
+          fromFly={info.fromFly}
+          backFly={info.backFly}
+          price={info.price}
         />
       </Wrap>
     ))}

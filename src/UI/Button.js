@@ -1,12 +1,7 @@
-import React from "react";
 import styled from "styled-components";
 import media from "../utils/media";
 
-const Button = ({ className, children }) => (
-  <button className={className}>{children}</button>
-);
-
-export const ButtonSearchMain = styled(Button)`
+export const ButtonSearchMain = styled.button`
   padding-top: 15px;
   padding-bottom: 15px;
   width: 100%;
@@ -23,7 +18,7 @@ export const ButtonSearchMain = styled(Button)`
   }
 `;
 
-export const ButtonSearch = styled(ButtonSearchMain)`
+export const ButtonSearch = ButtonSearchMain.extend`
   padding-top: 15px;
   padding-bottom: 15px;
   font-size: 20px;
@@ -36,7 +31,7 @@ export const ButtonSearch = styled(ButtonSearchMain)`
   `};
 `;
 
-export const ButtonUp = styled(Button)`
+export const ButtonUp = styled.button`
   padding: 6px 16px;
   font-size: 14px;
   font-weight: 900;
