@@ -80,7 +80,8 @@ const InfoFly = props => (
         </Left>
         <Center>
           <Scoreboard
-            totalTime={info.totalTime}
+            hours={info.hours}
+            minutes={info.minutes}
             placeFrom={info.placeFrom}
             abbrFrom={info.abbrFrom}
             placeTo={info.placeTo}

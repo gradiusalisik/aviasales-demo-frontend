@@ -18,7 +18,7 @@ import {
 
 const Header = props => (
   <HeaderStyled>
-    <Logos>
+    <Logos to="/">
       <Logo icon="logo" />
       <Text>aviasales</Text>
     </Logos>

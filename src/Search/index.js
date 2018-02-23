@@ -22,7 +22,8 @@ import {
   Cards,
   Filters,
   Section,
-  Container
+  Container,
+  RightColumn
 } from "./styled";
 
 export default () => (
@@ -57,6 +58,7 @@ export default () => (
             <ButtonShowMore>ПОКАЗАТЬ ЕЩЕ 10 БИЛЕТОВ!</ButtonShowMore>
           </ShowMore>
         </Content>
+        <RightColumn />
       </Container>
     </Section>
   </Search>

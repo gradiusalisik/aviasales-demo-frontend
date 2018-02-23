@@ -22,7 +22,16 @@ export const Container = styled.div`
     margin-right: auto;
     margin-left: auto;
     display: flex;
-    max-width: 1036px;
+    max-width: 1240px;
+  `};
+`;
+
+export const RightColumn = styled.div`
+  display: none;
+  ${media.xl`
+    display: block;
+    width: 23%;
+    margin-left: 16px;
   `};
 `;
 
@@ -32,7 +41,8 @@ export const Filters = styled.div`
 
   ${media.xl`
     display: block;
-    min-width: 300px;
+    max-width: 300px;
+    width: 100%;
   `};
 `;
 
@@ -89,8 +99,9 @@ export const HeaderStyled = styled.header`
   justify-content: space-between;
 `;
 
-export const Logos = styled.div`
+export const Logos = styled(Link)`
   display: none;
+  text-decoration: none;
   ${media.md`
     display: flex;
     align-items: center;

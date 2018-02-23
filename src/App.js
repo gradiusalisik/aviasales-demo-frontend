@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Footer from "./Footer";
 import Main from "./Main";
 import Search from "./Search";
@@ -11,12 +11,12 @@ const App = styled.div`
 
 export default () => (
   <App>
-    <BrowserRouter>
+    <Router>
       <div>
         <Route path="/" exact component={Main} />
         <Route path="/search" component={Search} />
         <Footer />
       </div>
-    </BrowserRouter>
+    </Router>
   </App>
 );
