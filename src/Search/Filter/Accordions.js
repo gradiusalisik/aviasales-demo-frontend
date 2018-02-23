@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Accordion from "../../UI/Accordion";
 import Checkboxes from "./Checkboxes";
+import TimeFly from "./TimeFly";
 import Checkbox from "../../UI/Checkbox";
 import Icon from "../../Icon";
 import { list } from "./index.mock";
@@ -41,13 +42,48 @@ const IconClear = styled(Icon)`
   }
 `;
 
+const Info = styled.div`
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-bottom: 24px;
+`;
+
+const Description = styled.p`
+  font-size: 12px;
+  line-height: 16px;
+  color: #323333;
+`;
+
 export default () => (
   <Accordions>
     <Accordion text="ПЕРЕСАДКИ" open>
       <Checkboxes list={list.transfer} />
     </Accordion>
     <Accordion text="ВРЕМЯ ВЫЛЕТА И ПРИБЫТИЯ" open>
-      <Checkboxes list={list.transfer} />
+      <TimeFly
+        fromPlace={list.departure.fromPlace}
+        toPlace={list.departure.toPlace}
+        from={list.departure.from}
+        outLeftDate={list.departure.outLeftDate}
+        outRightDate={list.departure.outRightDate}
+        outRange={list.departure.outRange}
+        to={list.departure.to}
+        inLeftDate={list.departure.inLeftDate}
+        inRightDate={list.departure.inRightDate}
+        inRange={list.departure.inRange}
+      />
+      <TimeFly
+        fromPlace={list.arrival.fromPlace}
+        toPlace={list.arrival.toPlace}
+        from={list.arrival.from}
+        outLeftDate={list.arrival.outLeftDate}
+        outRightDate={list.arrival.outRightDate}
+        outRange={list.arrival.outRange}
+        to={list.arrival.to}
+        inLeftDate={list.arrival.inLeftDate}
+        inRightDate={list.arrival.inRightDate}
+        inRange={list.arrival.inRange}
+      />
     </Accordion>
     <Accordion text="Багаж">
       <Checkboxes list={list.transfer} />
@@ -59,12 +95,16 @@ export default () => (
       <Checkboxes list={list.transfer} />
     </Accordion>
     <Accordion text="Авиакомпании" open quantity={43}>
-      {list.airCompany.map(
-        (data, key) =>
-          console.log(data) || (
-            <Checkboxes key={key} list={data.list} title={data.title} />
-          )
-      )}
+      <Info>
+        <Checkbox id="several-company" label="Несколько авиакомпаний" />
+        <Description>
+          Показывать билеты с перелетами, выполняемыми несколькими
+          авиакомпаниями, включая выбранную
+        </Description>
+      </Info>
+      {list.airCompany.map((data, key) => (
+        <Checkboxes key={key} list={data.list} title={data.title} />
+      ))}
     </Accordion>
     <Accordion text="аэропорты">
       <Checkboxes list={list.transfer} />

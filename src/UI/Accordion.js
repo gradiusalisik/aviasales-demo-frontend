@@ -5,19 +5,13 @@ import Collapsible from "react-collapsible";
 import Icon from "../Icon";
 
 const Accordions = styled.div`
-  background-color: transparent;
-  transiton: background-color 0.3s;
-
-  &:hover {
-    background-color: #f1fcff;
-  }
-
   .Collapsible {
     position: relative;
     border-bottom: 1px solid #dddddd;
 
     &__contentInner {
-      padding: 16px;
+      padding-top: 16px;
+      padding-bottom: 16px;
     }
   }
 `;
@@ -30,6 +24,11 @@ const Head = styled.button`
   align-items: center;
   background-color: transparent;
   border: none;
+  transiton: background-color 0.3s;
+
+  &:hover {
+    background-color: #f1fcff;
+  }
 `;
 
 const Arrow = styled(Icon)`

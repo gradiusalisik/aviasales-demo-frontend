@@ -9,20 +9,6 @@ const CheckboxStyled = styled.div`
   align-items: center;
 `;
 
-const Input = styled.input`
-  display: none;
-
-  &:checked + ${Label}:after {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  &:checked + ${Label}:before {
-    border-color: #00ace2;
-    background-color: #e1f8ff;
-  }
-`;
-
 const Label = styled.label`
   position: relative;
   padding-left: 24px;
@@ -65,6 +51,20 @@ const Label = styled.label`
   }
 `;
 
+const Input = styled.input`
+  display: none;
+
+  &:checked + ${Label}:after {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &:checked + ${Label}:before {
+    border-color: #00ace2;
+    background-color: #e1f8ff;
+  }
+`;
+
 const Checkboxes = styled.div``;
 
 const Price = styled.span`
@@ -76,7 +76,7 @@ const Price = styled.span`
 const Checkbox = props => (
   <CheckboxStyled>
     <Checkboxes>
-      <Input type="checkbox" id={props.id} checked={props.checked} />
+      <Input type="checkbox" id={props.id} checked={props.checked} readOnly />
       <Label htmlFor={props.id}>{props.label}</Label>
     </Checkboxes>
     {!!props.price && (

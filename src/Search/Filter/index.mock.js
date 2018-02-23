@@ -26,6 +26,26 @@ export const list = {
       price: 23986
     }
   ],
+  departure: {
+    fromPlace: "Москва",
+    toPlace: "Барселона",
+    from: "Москвы",
+    outLeftDate: "00:05, 24 фев",
+    outRightDate: "23:45, 24 фев",
+    to: "Барселону",
+    inLeftDate: "03:05, 24 фев",
+    inRightDate: "13:50, 26 фев"
+  },
+  arrival: {
+    fromPlace: "Барселона",
+    toPlace: "Москва",
+    from: "Барселоны",
+    outLeftDate: "06:00, 3 мар",
+    outRightDate: "23:45, 3 мар",
+    to: "Москву",
+    inLeftDate: "15:00, 3 мар",
+    inRightDate: "09:55, 5 мар"
+  },
   airCompany: [
     {
       title: "Альянсы",
