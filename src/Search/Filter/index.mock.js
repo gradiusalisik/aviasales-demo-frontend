@@ -46,6 +46,22 @@ export const list = {
     inLeftDate: "15:00, 3 мар",
     inRightDate: "09:55, 5 мар"
   },
+  timeOut: {
+    fromPlace: "Москва",
+    toPlace: "Барселона",
+    leftHours: 4,
+    leftMinutes: 20,
+    rightHours: 48,
+    rightMinutes: 50
+  },
+  timeIn: {
+    fromPlace: "Барселона",
+    toPlace: "Москва",
+    leftHours: 4,
+    leftMinutes: 10,
+    rightHours: 41,
+    rightMinutes: 20
+  },
   airCompany: [
     {
       title: "Альянсы",

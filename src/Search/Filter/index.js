@@ -24,6 +24,11 @@ const IconReset = styled(Icon)`
   width: 16px;
   height: 16px;
   color: #dadada;
+  transition: color 0.3s;
+
+  ${Reset}:hover & {
+    color: #ff6663;
+  }
 `;
 
 export default () => (

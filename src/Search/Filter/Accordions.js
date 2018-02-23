@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Accordion from "../../UI/Accordion";
 import Checkboxes from "./Checkboxes";
 import TimeFly from "./TimeFly";
+import TimePath from "./TimePath";
 import Checkbox from "../../UI/Checkbox";
 import Icon from "../../Icon";
 import { list } from "./index.mock";
@@ -88,11 +89,26 @@ export default () => (
     <Accordion text="Багаж">
       <Checkboxes list={list.transfer} />
     </Accordion>
-    <Accordion text="Длительность пересадки">
-      <Checkboxes list={list.transfer} />
-    </Accordion>
+    <Accordion text="Длительность пересадки">in Future</Accordion>
     <Accordion text="Время в пути" open>
-      <Checkboxes list={list.transfer} />
+      <TimePath
+        fromPlace={list.timeOut.fromPlace}
+        toPlace={list.timeOut.toPlace}
+        leftHours={list.timeOut.leftHours}
+        leftMinutes={list.timeOut.leftMinutes}
+        rightHours={list.timeOut.rightHours}
+        rightMinutes={list.timeOut.rightMinutes}
+        range={list.timeOut.range}
+      />
+      <TimePath
+        fromPlace={list.timeIn.fromPlace}
+        toPlace={list.timeIn.toPlace}
+        leftHours={list.timeIn.leftHours}
+        leftMinutes={list.timeIn.leftMinutes}
+        rightHours={list.timeIn.rightHours}
+        rightMinutes={list.timeIn.rightMinutes}
+        range={list.timeIn.range}
+      />
     </Accordion>
     <Accordion text="Авиакомпании" open quantity={43}>
       <Info>
@@ -106,14 +122,12 @@ export default () => (
         <Checkboxes key={key} list={data.list} title={data.title} />
       ))}
     </Accordion>
-    <Accordion text="аэропорты">
-      <Checkboxes list={list.transfer} />
-    </Accordion>
+    <Accordion text="аэропорты">in Future</Accordion>
     <Accordion text="аэропорт пересадки" quantity={71}>
-      <Checkboxes list={list.transfer} />
+      in Future
     </Accordion>
     <Accordion text="агенства" quantity={26}>
-      <Checkboxes list={list.transfer} />
+      in Future
     </Accordion>
     <Clear>
       <TextClear>СБРОСИТЬ ВСЕ ФИЛЬТРЫ</TextClear>
