@@ -41,6 +41,7 @@ export const SubTitle = styled.h2`
 
 export const Content = styled.div`
   margin-bottom: 16px;
+  overflow: hidden;
   border-radius: 6px;
 
   ${media.xl`
