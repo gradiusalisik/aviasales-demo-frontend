@@ -14,31 +14,34 @@ import {
   DatePicker,
   From,
   To,
-  ButtonSearch
+  ButtonSearch,
+  Container
 } from "./styled";
 
 export default () => (
   <Forms action="#" method="GET">
     <Title>Поиск дешевых авиабилетов</Title>
     <SubTitle>Лучший способ купить авиабилеты дешево</SubTitle>
-    <Content>
-      <Fields>
-        <From>
-          <Field defaultValue="Москва" firstField text="Mow" />
-        </From>
-        <To>
-          <Field placeholder="Город прибытия" />
-        </To>
-      </Fields>
-      <Fields>
-        <DatePicker>
-          <DataPicker />
-        </DatePicker>
-        <Selects>
-          <Select />
-        </Selects>
-      </Fields>
-    </Content>
+    <Container id="formsForPortal">
+      <Content>
+        <Fields>
+          <From>
+            <Field defaultValue="Москва" firstField text="Mow" />
+          </From>
+          <To>
+            <Field placeholder="Город прибытия" />
+          </To>
+        </Fields>
+        <Fields>
+          <DatePicker>
+            <DataPicker />
+          </DatePicker>
+          <Selects>
+            <Select />
+          </Selects>
+        </Fields>
+      </Content>
+    </Container>
     <ButtonSearch>
       <Link to="/search">
         <Button text="Найти билеты" icon="aero" />

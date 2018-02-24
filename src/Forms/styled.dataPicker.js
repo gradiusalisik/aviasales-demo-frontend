@@ -18,6 +18,7 @@ export const Picker = styled.div`
     }
 
     .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
+      z-index: -3;
       background-color: #f4f4f4 !important;
       color: #4a4a4a !important;
     }
@@ -25,15 +26,10 @@ export const Picker = styled.div`
     .DayPicker-Day {
       border-radius: 0 !important;
       padding: 0;
+      padding-top: 5px;
+      width: 46px;
       height: 46px;
-
-      div > div {
-        font-weight: 900 !important;
-        line-height: 18px !important;
-        font-size: 16px !important;
-      }
-      div > div + div {
-        font-size: 10px !important;
+      vertical-align: top;
       }
     }
 
@@ -62,21 +58,34 @@ export const Picker = styled.div`
     .DayPicker-Day--start {
       position: relative;
       border: 1px solid #00ace2 !important;
-      background: #effbff !important;
+      background: transparent !important;
       color: #4a4a4a !important;
+      border-radius: 5px 0 0 5px;
     }
 
+    .DayPicker-Day--start:before,
+    .DayPicker-Day--end:before {
+      position: absolute;
+      z-index: -3;
+      top: 0;
+      left: 0;
+      background-color: #f4f4f4;
+      content: '';
+      width: 100%;
+      height: 100%;
+    }
     .DayPicker-Day--end:after {
       position: absolute;
-      top: -6px;
-      left: 3px;
+      z-index: -2;
+      top: 0;
+      left: -3px;
       content: "";
       display: block;
       width: 100%;
-      height: calc(100% + 13px);
+      height: 100%;
       background: url("${active}");
       background-repeat: no-repeat;
-      background-position: left center;
+      background-position: right center;
       background-size: 100% 100%;
       transform: rotate(180deg);
       box-shadow: -5px 0 0 0 white;
@@ -84,12 +93,13 @@ export const Picker = styled.div`
 
     .DayPicker-Day--start:after {
       position: absolute;
-      top: -6px;
+      z-index: -2;
+      top: 0;
       left: 3px;
       content: "";
       display: block;
       width: 100%;
-      height: calc(100% + 13px);
+      height: 100%;
       background: url("${active}");
       background-size: 100% 100%;
       background-repeat: no-repeat;

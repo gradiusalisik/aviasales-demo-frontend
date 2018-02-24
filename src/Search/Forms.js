@@ -8,7 +8,6 @@ import media from "../utils/media";
 
 const Forms = styled.form`
   width: 100%;
-  overflow: hidden;
   border-radius: 4px;
 
   ${media.xl`
@@ -25,28 +24,56 @@ const Fields = styled.div`
   `};
 `;
 
+const SearchButton = ButtonSearch.extend`
+  overflow: hidden;
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 0;
+`;
+
 const FormField = styled.div`
   margin-bottom: 2px;
   width: calc((100% - 2px) / 2);
+  border-top-right-radius: 4px;
+  overflow: hidden;
 
   &:not(:last-child) {
     margin-right: 2px;
+  }
+
+  &:first-child {
+    border-top-right-radius: 0;
   }
 
   ${media.xl`
     margin-bottom: 0;
     margin-right: 2px;
     width: 100%;
-  `};
+    border-top-right-radius: 0;
+
+    &:first-child {
+      border-bottom-left-radius: 4px;
+    }
+    `};
+`;
+
+const From = FormField.extend`
+  border-top-left-radius: 4px;
 `;
 
 const DatePicker = styled(FormField)`
   margin-bottom: 0;
+  overflow: visible;
+
+  ${media.xl`
+    min-width: 370px;
+    border-bottom-left-radius: 0;
+  `};
 `;
 
 const FormFieldLast = styled(FormField)`
   margin-bottom: 0;
   display: flex;
+  border-top-right-radius: 0;
 `;
 
 const ContentSelect = styled.div`
@@ -64,9 +91,9 @@ const ContentSelect = styled.div`
 export default () => (
   <Forms action="#" method="GET">
     <Fields>
-      <FormField>
+      <From>
         <Field defaultValue="Москва" firstField text="Mow" />
-      </FormField>
+      </From>
       <FormField>
         <Field placeholder="Город прибытия" />
       </FormField>
@@ -79,7 +106,7 @@ export default () => (
         <ContentSelect>
           <Select />
         </ContentSelect>
-        <ButtonSearch type="submit">Найти билеты</ButtonSearch>
+        <SearchButton type="submit">Найти билеты</SearchButton>
       </FormFieldLast>
     </Fields>
   </Forms>

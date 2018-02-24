@@ -6,7 +6,7 @@ import media from "../utils/media";
 
 const FirstScreen = styled.section`
   position: relative;
-  z-index: 1;
+  z-index: 2;
   padding-left: 6px;
   padding-right: 6px;
   background: linear-gradient(

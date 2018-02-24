@@ -41,7 +41,6 @@ export const SubTitle = styled.h2`
 
 export const Content = styled.div`
   margin-bottom: 16px;
-  overflow: hidden;
   border-radius: 6px;
 
   ${media.xl`
@@ -50,7 +49,11 @@ export const Content = styled.div`
   `};
 `;
 
-export const From = styled.div`
+export const Container = styled.div`
+  position: relative;
+`;
+
+export const FieldContent = styled.div`
   margin-bottom: 2px;
 
   ${media.md`
@@ -64,13 +67,38 @@ export const From = styled.div`
   `};
 `;
 
-export const To = From.extend`
+export const From = FieldContent.extend`
+  margin-bottom: 2px;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+  overflow: hidden;
+
   ${media.md`
-    margin-left: 2px;
+    margin-left: 0;
+    border-top-right-radius: 0;
+    width: 100%;
+  `};
+
+  ${media.xl`
+    margin-bottom: 0;
+    border-bottom-left-radius: 6px;
+    min-width: 224px;
   `};
 `;
 
-export const DatePicker = From.extend`
+export const To = FieldContent.extend`
+  ${media.md`
+    margin-left: 2px;
+    border-top-right-radius: 6px;
+    overflow: hidden;
+  `};
+
+  ${media.xl`
+    border-top-right-radius: 0;
+  `};
+`;
+
+export const DatePicker = FieldContent.extend`
   ${media.md`
     margin-left: 0;
     margin-bottom: 0;
@@ -83,12 +111,19 @@ export const DatePicker = From.extend`
 `;
 
 export const Selects = To.extend`
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  overflow: hidden;
+
   ${media.md`
     margin-bottom: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
   `};
 
   ${media.xl`
     min-width: auto;
+    border-top-right-radius: 6px;
   `};
 `;
 
