@@ -31,37 +31,39 @@ import {
 const Card = props => (
   <CardStyled>
     <LeftContent>
-      {props.baggages && (
-        <Baggages>
+      {props.data.baggages && (
+        <Baggages hot={props.data.hotTicket}>
           <Baggage
-            list={props.baggages}
-            noBaggage={props.noBaggage}
-            price={props.priceBaggage}
+            list={props.data.baggages}
+            noBaggage={props.data.noBaggage}
+            price={props.data.priceBaggage}
           />
         </Baggages>
       )}
-      {props.tabs && (
+      {props.data.tabs && (
         <TabsContent>
-          <Tabs list={props.tabs} />
+          <Tabs list={props.data.tabs} />
         </TabsContent>
       )}
-      {props.hotTicket && <TextHotTicket>{props.hotTicket}</TextHotTicket>}
+      {props.data.hotTicket && (
+        <TextHotTicket>{props.data.hotTicket}</TextHotTicket>
+      )}
       <Info>
         <BtnBuy>
           <ButtonBuy>
             <TextBuy>Купить</TextBuy>
-            <TextPrice>за&nbsp;{props.price}&nbsp;₽</TextPrice>
+            <TextPrice>за&nbsp;{props.data.price}&nbsp;₽</TextPrice>
           </ButtonBuy>
         </BtnBuy>
-        <TextNameShop>на&nbsp;{props.nameShop}</TextNameShop>
-        {props.proposals && <Proposal list={props.proposals} />}
+        <TextNameShop>на&nbsp;{props.data.nameShop}</TextNameShop>
+        {props.data.proposals && <Proposal list={props.data.proposals} />}
       </Info>
     </LeftContent>
     <RightContent>
       <Head>
-        <Logos list={props.logos} />
+        <Logos list={props.data.logos} />
         <Buttons>
-          {props.charter && <ButtonCharters>Чартер</ButtonCharters>}
+          {props.data.charter && <ButtonCharters>Чартер</ButtonCharters>}
           <Share>
             <IconShare>
               <Icon icon="share" />
@@ -70,7 +72,7 @@ const Card = props => (
         </Buttons>
       </Head>
       <Body>
-        <InfoFly list={props.infoFly} />
+        <InfoFly list={props.data.infoFly} />
       </Body>
       <ButtonDown>
         <Arrow>
@@ -82,17 +84,7 @@ const Card = props => (
 );
 
 Card.propTypes = {
-  baggages: pt.array,
-  tabs: pt.array,
-  proposals: pt.array,
-  infoFly: pt.array,
-  logos: pt.array,
-  noBaggage: pt.bool,
-  priceBaggage: pt.bool,
-  hotTicket: pt.string,
-  price: pt.number,
-  nameShop: pt.string,
-  charter: pt.bool
+  data: pt.object
 };
 
 export default Card;

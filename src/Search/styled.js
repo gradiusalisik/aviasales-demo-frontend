@@ -60,12 +60,24 @@ export const Button = styled.div`
   `};
 `;
 
+export const ButtonsUp = Button.extend`
+  position: fixed;
+  left: 50%;
+  top: 0;
+  display: flex;
+  transform: translate(-50%, -100%);
+  transition: transform 0.4s;
+
+  ${props =>
+    props.active &&
+    css`
+      display: flex;
+      transform: translate(-50%, 5px);
+    `};
+`;
+
 export const ButtonFilter = Button.extend`
   margin-bottom: 0;
-
-  ${media.md`
-    display: none;
-  `};
 `;
 
 export const IconFilter = styled.div`

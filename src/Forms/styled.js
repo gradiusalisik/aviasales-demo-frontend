@@ -41,7 +41,6 @@ export const SubTitle = styled.h2`
 
 export const Content = styled.div`
   margin-bottom: 16px;
-  overflow: hidden;
   border-radius: 6px;
 
   ${media.xl`
@@ -77,12 +76,16 @@ export const DatePicker = From.extend`
   `};
 
   ${media.xl`
-    min-width: auto;
+    min-width: 370px;
     margin-left: 2px;
   `};
 `;
 
 export const Selects = To.extend`
+  ${media.md`
+    margin-bottom: 0;
+  `};
+
   ${media.xl`
     min-width: auto;
   `};
@@ -120,10 +123,13 @@ export const Fields = styled.div`
 
 export const Input = styled.input`
   padding: 16px;
+  padding-right: 38px;
   width: 100%;
   height: 100%;
   font-size: 16px;
   color: #4a4a4a;
+  text-overflow: ellipsis;
+  overflow: hidden;
   border: none;
 
   ::placeholder {

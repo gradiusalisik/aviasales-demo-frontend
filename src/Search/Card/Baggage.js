@@ -3,9 +3,7 @@ import styled, { css } from "styled-components";
 import { PropTypes as pt } from "prop-types";
 import Icon from "../../Icon";
 
-const BaggageStyled = styled.div`
-  margin-bottom: 15px;
-`;
+const BaggageStyled = styled.div``;
 
 const Types = styled.div`
   margin-bottom: 5px;

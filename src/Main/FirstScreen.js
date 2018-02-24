@@ -6,6 +6,8 @@ import Container from "../Container";
 import media from "../utils/media";
 
 const FirstScreen = styled.div`
+  position: relative;
+  z-index: 1;
   padding-top: 12px;
   padding-right: 6px;
   padding-left: 6px;

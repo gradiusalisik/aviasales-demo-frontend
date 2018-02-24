@@ -13,7 +13,7 @@ import {
 import {
   SearchStyled,
   Content,
-  Button,
+  ButtonsUp,
   ButtonFilter as BtnFilter,
   ButtonFilterSmall as BtnFilterSmall,
   IconFilter,
@@ -67,7 +67,6 @@ export default class Search extends PureComponent {
   };
 
   render() {
-    console.log(this.state.active);
     return (
       <SearchStyled>
         <FirstScreen />
@@ -77,9 +76,12 @@ export default class Search extends PureComponent {
               <Filter />
             </Filters>
             <Content>
-              <Button>
+              <ButtonsUp
+                onClick={this.handleScrollTop}
+                active={this.state.active}
+              >
                 <ButtonUp>Наверх</ButtonUp>
-              </Button>
+              </ButtonsUp>
               <BtnFilterSmall>
                 <ButtonFilterSmall>
                   <IconFilter>

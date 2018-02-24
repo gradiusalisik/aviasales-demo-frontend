@@ -17,7 +17,7 @@ export const Content = styled.div`
   `};
 `;
 
-export const LogoCalen = styled(Icon)`
+export const Logo = styled(Icon)`
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 24px;

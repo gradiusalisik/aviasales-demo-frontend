@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 // import media from "../utils/media";
 
 // ** Card.js **
@@ -55,7 +55,6 @@ export const TextNameShop = styled.span`
 `;
 
 export const TextHotTicket = TextNameShop.extend`
-  margin-top: -6px;
   padding-bottom: 6px;
   display: block;
   text-align: center;
@@ -126,4 +125,11 @@ export const TabsContent = styled.div`
 
 export const Baggages = styled.div`
   padding-top: 12px;
+  margin-bottom: 15px;
+
+  ${props =>
+    props.hot &&
+    css`
+      margin-bottom: 9px;
+    `};
 `;

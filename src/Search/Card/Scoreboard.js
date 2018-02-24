@@ -1,6 +1,8 @@
 import React from "react";
 import { PropTypes as pt } from "prop-types";
 import styled from "styled-components";
+import from from "./images/from.svg";
+import to from "./images/to.svg";
 
 const Path = styled.div`
   padding-top: 5px;
@@ -45,7 +47,7 @@ const PathFrom = styled.div`
     width: 16px;
     height: 8px;
     content: "";
-    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDE4IDgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgICA8cGF0aCBkPSJNMTMuODQ1Ljc1OGwtMy4xOTEgMS40OTNDOC42NjggMS42NjYgNS45MjQuODU3IDMuNDA4LjEwOWwtMS4yMS41NTMgNC41MyAzLjM4NC0yLjgwMSAxLjI4MUMyLjc2IDUuMTA4IDEuNTA3IDQuODczLjU4IDQuNzAxYy0uNTA0LS4wOTMtLjgyMS4zNDMtLjM1LjY5NEMyLjQ1IDcuMDU3IDMuMzQgNy43MjggMy4zNCA3LjcyOGExLjM3IDEuMzcgMCAwIDAgMS4zODguMTQ4bDEyLjQ3NC01LjczOGMuOTEyLS40NjIuODktMS4wODYuNjY4LTEuNTg4LS4zMTUtLjY2Mi0xLjY3NS0uODY3LTQuMDI1LjIwOHoiIGZpbGw9IiNBNEIwQjkiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPgo8L3N2Zz4K");
+    background-image: url("${from}");
     background-repeat: no-repeat;
   }
 `;
@@ -57,7 +59,7 @@ const PathTo = PathFrom.extend`
     top: -24px;
     right: -2px;
     left: auto;
-    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTMiIHZpZXdCb3g9IjAgMCAxNyAxMyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik0xNi43MTIgMTEuODMzYy4yNDUtLjY5LS41NzEtMS43OTctMi45OTMtMi42OThsLTMuMzEyLTEuMjAyYy0uOTktMS44MTctMi4zNTgtNC4zMy0zLjYxLTYuNjM4TDUuNTUzLjgzMWwuODEgNS41OTctMi44ODctMS4wNzZjLS42Ny0uOTgtMS4zOS0yLjAzMi0xLjkyMy0yLjgwOC0uMjktLjQyMi0uODIzLS4zMzktLjczOS4yNDMuMzk1IDIuNzQ1LjU1IDMuODQ4LjU1IDMuODQ4LjA2OS40NzcuMzkxLjkwNi44NzYgMS4wODZsMTIuODc4IDQuNzYzYy45NzIuMzE5IDEuMzk3LS4xMzkgMS41OTUtLjY1IiBmaWxsPSIjQTRCMEI5IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz4KPC9zdmc+Cg==");
+    background-image: url("${to}");
   }
 `;
 
