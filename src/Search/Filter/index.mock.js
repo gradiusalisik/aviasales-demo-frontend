@@ -30,37 +30,33 @@ export const list = {
     fromPlace: "Москва",
     toPlace: "Барселона",
     from: "Москвы",
-    outLeftDate: "00:05, 24 фев",
-    outRightDate: "23:45, 24 фев",
+    outLeftDate: 1519423500000,
+    outRightDate: 1519508700000,
     to: "Барселону",
-    inLeftDate: "03:05, 24 фев",
-    inRightDate: "13:50, 26 фев"
+    inLeftDate: 1519434300000,
+    inRightDate: 519645800000
   },
   arrival: {
     fromPlace: "Барселона",
     toPlace: "Москва",
     from: "Барселоны",
-    outLeftDate: "06:00, 3 мар",
-    outRightDate: "23:45, 3 мар",
+    outLeftDate: 1520049600000,
+    outRightDate: 1520113500000,
     to: "Москву",
-    inLeftDate: "15:00, 3 мар",
-    inRightDate: "09:55, 5 мар"
+    inLeftDate: 1520082000000,
+    inRightDate: 1520063700000
   },
   timeOut: {
     fromPlace: "Москва",
     toPlace: "Барселона",
-    leftHours: 4,
-    leftMinutes: 20,
-    rightHours: 48,
-    rightMinutes: 50
+    leftTime: 260,
+    rightTime: 2930
   },
   timeIn: {
     fromPlace: "Барселона",
     toPlace: "Москва",
-    leftHours: 4,
-    leftMinutes: 10,
-    rightHours: 41,
-    rightMinutes: 20
+    leftTime: 250,
+    rightTime: 2480
   },
   airCompany: [
     {

@@ -78,9 +78,9 @@ export default class Counter extends Component {
 
   handleClick = delta => () => {
     const { min, max } = Math;
-    this.setState({
-      value: min(max(0, this.state.value + delta), this.props.max)
-    });
+    this.setState((state, props) => ({
+      value: min(max(0, state.value + delta), props.max)
+    }));
   };
 
   render() {

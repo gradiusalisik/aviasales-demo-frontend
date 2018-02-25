@@ -3,6 +3,8 @@ import { PropTypes as pt } from "prop-types";
 import styled from "styled-components";
 import Range from "../../UI/Range";
 import Icon from "../../Icon";
+import format from "date-fns/format";
+import ruLocale from "date-fns/locale/ru";
 
 const TimeFlyStyled = styled.div`
   margin-top: -4px;
@@ -59,6 +61,9 @@ const Dates = styled.div`
   align-items: center;
 `;
 
+const formatDate = date =>
+  format(new Date(date), "HH:mm, D MMM", { locale: ruLocale });
+
 const TimeFly = props => (
   <TimeFlyStyled>
     <Places>
@@ -69,8 +74,8 @@ const TimeFly = props => (
     <Info>
       <TextFly>Вылет из {props.from}</TextFly>
       <Dates>
-        <Text>c {props.outLeftDate}</Text>
-        <TextRight>до {props.outRightDate}</TextRight>
+        <Text>c {formatDate(props.outLeftDate)}</Text>
+        <TextRight>до {formatDate(props.outRightDate)}</TextRight>
       </Dates>
       <Range
         min={props.outRange.min}
@@ -81,8 +86,8 @@ const TimeFly = props => (
     <Info>
       <TextFly>Прибытие в {props.to}</TextFly>
       <Dates>
-        <Text>c {props.inLeftDate}</Text>
-        <TextRight>до {props.inRightDate}</TextRight>
+        <Text>c {formatDate(props.inLeftDate)}</Text>
+        <TextRight>до {formatDate(props.inRightDate)}</TextRight>
       </Dates>
       <Range
         min={props.inRange.min}
@@ -97,12 +102,12 @@ TimeFly.propTypes = {
   fromPlace: pt.string,
   toPlace: pt.string,
   from: pt.string,
-  outLeftDate: pt.string,
-  outRightDate: pt.string,
+  outLeftDate: pt.number,
+  outRightDate: pt.number,
   outRange: pt.object,
   to: pt.string,
-  inLeftDate: pt.string,
-  inRightDate: pt.string,
+  inLeftDate: pt.number,
+  inRightDate: pt.number,
   inRange: pt.object
 };
 

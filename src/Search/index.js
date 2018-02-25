@@ -4,6 +4,8 @@ import CardListMobile from "./Mobile/CardList";
 import CardList from "./Card";
 import Icon from "../Icon";
 import Filter from "./Filter";
+import { animateScroll as scroll } from "react-scroll";
+
 import {
   ButtonUp,
   ButtonFilter,
@@ -30,8 +32,7 @@ import {
 
 export default class Search extends PureComponent {
   state = {
-    isActiveScroll: false,
-    intervalId: 0
+    isActiveScroll: false
   };
 
   componentDidMount() {
@@ -49,16 +50,8 @@ export default class Search extends PureComponent {
     });
   };
 
-  scrollStep = () => {
-    if (window.pageYOffset === 0) {
-      clearInterval(this.state.intervalId);
-    }
-    window.scroll(0, window.pageYOffset - 50);
-  };
-
   handleScrollTop = () => {
-    const intervalId = setInterval(this.scrollStep, 16.66);
-    this.setState({ intervalId: intervalId });
+    scroll.scrollToTop();
   };
 
   render() {

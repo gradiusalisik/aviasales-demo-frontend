@@ -94,19 +94,15 @@ export default () => (
       <TimePath
         fromPlace={list.timeOut.fromPlace}
         toPlace={list.timeOut.toPlace}
-        leftHours={list.timeOut.leftHours}
-        leftMinutes={list.timeOut.leftMinutes}
-        rightHours={list.timeOut.rightHours}
-        rightMinutes={list.timeOut.rightMinutes}
+        leftTime={list.timeOut.leftTime}
+        rightTime={list.timeOut.rightTime}
         range={list.timeOut.range}
       />
       <TimePath
         fromPlace={list.timeIn.fromPlace}
         toPlace={list.timeIn.toPlace}
-        leftHours={list.timeIn.leftHours}
-        leftMinutes={list.timeIn.leftMinutes}
-        rightHours={list.timeIn.rightHours}
-        rightMinutes={list.timeIn.rightMinutes}
+        leftTime={list.timeIn.leftTime}
+        rightTime={list.timeIn.rightTime}
         range={list.timeIn.range}
       />
     </Accordion>

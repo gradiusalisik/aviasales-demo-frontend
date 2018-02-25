@@ -107,7 +107,7 @@ export const ShowMore = styled.div`
 
 export const Scroll = styled.button`
   position: fixed;
-  bottom: 210px;
+  bottom: 110px;
   right: 98px;
   display: none;
   justify-content: center;

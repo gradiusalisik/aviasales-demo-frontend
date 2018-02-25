@@ -54,6 +54,8 @@ const Dates = styled.div`
   align-items: center;
 `;
 
+const formatTime = minutes => ((minutes / 60) ^ 0) + "ч " + minutes % 60 + "м";
+
 const TimePath = props => (
   <Path>
     <Places>
@@ -63,13 +65,8 @@ const TimePath = props => (
     </Places>
     <Info>
       <Dates>
-        <Text>
-          от {props.leftHours} ч {props.leftMinutes && props.leftMinutes + "м"}
-        </Text>
-        <TextRight>
-          до {props.rightHours} ч{" "}
-          {props.rightMinutes && props.rightMinutes + "м"}
-        </TextRight>
+        <Text>от {formatTime(props.leftTime)}</Text>
+        <TextRight>до {formatTime(props.rightTime)}</TextRight>
       </Dates>
       <Range
         min={props.range.min}
@@ -83,10 +80,8 @@ const TimePath = props => (
 TimePath.propTypes = {
   fromPlace: pt.string,
   toPlace: pt.string,
-  leftHours: pt.number,
-  leftMinutes: pt.number,
-  rightHours: pt.number,
-  rightMinutes: pt.number,
+  leftTime: pt.number,
+  rightTime: pt.number,
   range: pt.object
 };
 
