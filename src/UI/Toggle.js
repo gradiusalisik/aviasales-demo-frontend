@@ -56,9 +56,11 @@ const Input = styled.input`
   }
 `;
 
-export default props => (
-  <Toggle>
-    <Input type="checkbox" id={props.id} />
-    <Label htmlFor={props.id}>{props.text}</Label>
-  </Toggle>
-);
+export default props => {
+  return (
+    <Toggle>
+      <Input type="checkbox" id={props.id} onClick={props.onChange} />
+      <Label htmlFor={props.id}>{props.text}</Label>
+    </Toggle>
+  );
+};

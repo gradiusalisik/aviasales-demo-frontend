@@ -26,6 +26,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy": "react-scripts build && cd build && now deploy && now alias",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },

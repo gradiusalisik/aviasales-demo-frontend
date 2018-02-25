@@ -30,7 +30,7 @@ import {
 
 export default class Search extends PureComponent {
   state = {
-    active: false,
+    isActiveScroll: false,
     intervalId: 0
   };
 
@@ -43,15 +43,10 @@ export default class Search extends PureComponent {
   }
 
   handleScroll = () => {
-    if (window.pageYOffset > 90) {
-      this.setState({
-        active: true
-      });
-    } else {
-      this.setState({
-        active: false
-      });
-    }
+    const isActiveScroll = window.pageYOffset > 90;
+    this.setState({
+      isActiveScroll
+    });
   };
 
   scrollStep = () => {
@@ -62,7 +57,7 @@ export default class Search extends PureComponent {
   };
 
   handleScrollTop = () => {
-    let intervalId = setInterval(this.scrollStep, 16.66);
+    const intervalId = setInterval(this.scrollStep, 16.66);
     this.setState({ intervalId: intervalId });
   };
 
@@ -78,7 +73,7 @@ export default class Search extends PureComponent {
             <Content>
               <ButtonsUp
                 onClick={this.handleScrollTop}
-                active={this.state.active}
+                active={this.state.isActiveScroll}
               >
                 <ButtonUp>Наверх</ButtonUp>
               </ButtonsUp>
@@ -105,7 +100,10 @@ export default class Search extends PureComponent {
             <RightColumn />
           </Container>
         </Section>
-        <Scroll onClick={this.handleScrollTop} active={this.state.active}>
+        <Scroll
+          onClick={this.handleScrollTop}
+          active={this.state.isActiveScroll}
+        >
           <IconScroll icon="scroll" />
         </Scroll>
       </SearchStyled>

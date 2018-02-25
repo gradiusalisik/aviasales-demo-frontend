@@ -18,6 +18,10 @@ const SelectStyled = styled.div`
         opacity: 1;
         transform: scaleY(1);
       }
+
+      ${IconSelect} {
+        transform: rotate(180deg);
+      }
     `};
 `;
 
@@ -78,15 +82,21 @@ const ArrowSelect = styled.div`
   transform: translateY(-50%);
 `;
 
+const IconSelect = styled(Icon)`
+  transition: transform 0.3s;
+  width: 100%;
+  height: 100%;
+`;
+
 class Select extends Component {
   state = {
     active: false
   };
 
   handleClick = () => {
-    this.setState({
-      active: !this.state.active
-    });
+    this.setState(prevState => ({
+      active: !prevState.active
+    }));
   };
 
   handleClickOutside = () => {
@@ -102,7 +112,7 @@ class Select extends Component {
           <Text>1 пассажир,&nbsp;</Text>
           <TextLight>эконом</TextLight>
           <ArrowSelect>
-            <Icon icon="arrowSelect" />
+            <IconSelect icon="arrowSelect" />
           </ArrowSelect>
         </Head>
         <Body>{this.props.children}</Body>

@@ -3,12 +3,12 @@ import enhanceWithClickOutside from "react-click-outside";
 import format from "date-fns/format";
 import ruLocale from "date-fns/locale/ru";
 import { DateUtils } from "react-day-picker";
-import { prices } from "./index.mock";
+import { prices, priceCheapStyle, priceStyle } from "./index.mock";
 import Field from "./Field";
 import DayPicker from "./DayPicker";
 import Icon from "../Icon";
 import Toggle from "../UI/Toggle";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import media from "../utils/media";
 
 const Picker = styled.div`
@@ -43,7 +43,15 @@ const Departure = Content.extend`
   margin-right: 2px;
 `;
 
-const Arrival = Content.extend``;
+const Arrival = Content.extend`
+  ${props =>
+    props.disabled &&
+    css`
+      opacity: 0.9;
+      pointer-events: none;
+      cursor: default;
+    `};
+`;
 
 const DayPickerStyled = styled(DayPicker)``;
 
@@ -96,75 +104,77 @@ const ClearArrivalDate = styled.button`
 
 class DataPicker extends Component {
   state = {
-    isOpen: false,
-    from: undefined,
-    to: undefined
+    isOpen: undefined,
+    from: new Date(),
+    to: "",
+    isChecked: false,
+    enteredTo: ""
   };
 
-  handleClickDay = () => {
+  handleClickDay = data => () => {
+    this.setState({ isOpen: data });
+  };
+
+  isSelectingFirstDay = (from, to, day) => {
+    const isBeforeFirstDay = from && DateUtils.isDayBefore(day, from);
+    const isRangeSelected = from && to;
+    return !from || isBeforeFirstDay || isRangeSelected;
+  };
+
+  handleDaySelectionFrom = day => {
     this.setState({
-      isOpen: true
+      from: day,
+      to: "",
+      enteredTo: "",
+      isOpen: "to"
     });
   };
 
-  handleDaySelection = (day, { selected, disabled }) => {
-    if (disabled) {
-      return;
-    }
-
-    const range = DateUtils.addDayToRange(day, this.state);
-    this.setState(range);
-    if (range.to !== undefined) {
-      this.setState({
-        isOpen: false
-      });
-    }
+  handleDaySelectionTo = day => {
+    this.setState({
+      to: day,
+      enteredTo: day,
+      isOpen: undefined
+    });
   };
 
   handleClickOutside = () => {
     this.setState({
-      isOpen: false
+      isOpen: undefined
     });
   };
 
   clearArrivalDate = () => {
-    this.setState({ to: undefined });
+    this.setState({ to: "" });
   };
 
-  formatted = date => {
-    if (!date) {
-      return "";
+  formatted = date =>
+    date && format(new Date(date), "D MMMM, dd", { locale: ruLocale });
+
+  handleDayMouseEnter = day => {
+    const { from, to } = this.state;
+    if (!this.isSelectingFirstDay(from, to, day)) {
+      this.setState({
+        enteredTo: day
+      });
     }
-    return format(new Date(date), "D MMMM, dd", { locale: ruLocale });
+  };
+
+  handleToggle = () => {
+    this.setState(state => ({
+      isChecked: !state.isChecked
+    }));
   };
 
   renderDay(day) {
     const date = day.getDate();
-    const dateStyle = {
-      fontSize: 18,
-      fontWeight: 900,
-      textTransform: "uppercase",
-      marginBottom: "5px"
-    };
-    const priceCheapStyle = {
-      fontSize: "10px",
-      textAlign: "center",
-      color: "#00C455",
-      fontWeight: 500
-    };
-    const priceStyle = {
-      fontSize: "10px",
-      textAlign: "center",
-      color: "#A0B0B9",
-      fontWeight: 500
-    };
-    const cellStyle = {};
+
     return (
-      <div style={cellStyle}>
-        <div style={dateStyle}>{date}</div>
+      <div className="cells">
+        <div className="date">{date}</div>
         {prices[date] &&
-          prices[date].map((price, i) => (
-            <div key={i} style={price.cheap ? priceCheapStyle : priceStyle}>
+          prices[date].map((price, key) => (
+            <div key={key} style={price.isCheap ? priceCheapStyle : priceStyle}>
               {price.text}
             </div>
           ))}
@@ -173,29 +183,31 @@ class DataPicker extends Component {
   }
 
   render() {
-    const { from, to, isOpen } = this.state;
+    const { from, to, isOpen, enteredTo } = this.state;
     const modifiers = { start: from, end: to };
     const fromFormatted = this.formatted(from);
     const toFormatted = this.formatted(to);
+    const disabledDays = { before: new Date() };
+    const selectedDays = [from, { from, to: enteredTo }];
     return (
       <Picker>
         <Container>
           <Departure>
             <DepartureField
               placeholder="Туда"
-              onClick={this.handleClickDay}
+              onClick={this.handleClickDay("from")}
               value={fromFormatted}
             />
             <IconCalendar icon="calendar" />
           </Departure>
-          <Arrival>
+          <Arrival disabled={this.state.isChecked}>
             <ArrivalField
               placeholder="Обратно"
-              onClick={this.handleClickDay}
+              onClick={this.handleClickDay("to")}
               value={toFormatted}
             />
             {to ? (
-              <ClearArrivalDate onClick={this.clearArrivalDate}>
+              <ClearArrivalDate onClick={this.clearArrivalDate} type="button">
                 <IconClear icon="close" />
               </ClearArrivalDate>
             ) : (
@@ -203,16 +215,32 @@ class DataPicker extends Component {
             )}
           </Arrival>
         </Container>
-        <Calendar isOpen={isOpen}>
+        <Calendar isOpen={isOpen === "from"}>
           <DayPickerStyled
             className="dataPickers"
-            onDayClick={this.handleDaySelection}
+            onDayClick={this.handleDaySelectionFrom}
             modifiers={modifiers}
-            selectedDays={[from, { from, to }]}
-            disabledDays={{ before: new Date() }}
+            selectedDays={selectedDays}
+            disabledDays={disabledDays}
             renderDay={this.renderDay}
+            handleDayMouseEnter={this.handleDayMouseEnter}
           />
-          <Toggle text="Показать цены в одну сторону" id="toggle" />
+          <Toggle
+            text="Показать цены в одну сторону"
+            id="toggle"
+            onChange={this.handleToggle}
+          />
+        </Calendar>
+        <Calendar isOpen={isOpen === "to"}>
+          <DayPickerStyled
+            className="dataPickers"
+            onDayClick={this.handleDaySelectionTo}
+            modifiers={modifiers}
+            selectedDays={selectedDays}
+            disabledDays={{ before: from }}
+            renderDay={this.renderDay}
+            handleDayMouseEnter={this.handleDayMouseEnter}
+          />
         </Calendar>
       </Picker>
     );

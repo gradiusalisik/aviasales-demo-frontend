@@ -76,28 +76,30 @@ export default class Counter extends Component {
     value: 0
   };
 
-  handleIncrement = () => {
+  handleClick = delta => () => {
+    const { min, max } = Math;
     this.setState({
-      value: this.state.value + 1
-    });
-  };
-
-  handleDecrement = () => {
-    this.setState({
-      value: this.state.value - 1
+      value: min(max(0, this.state.value + delta), this.props.max)
     });
   };
 
   render() {
-    const disabledIncrement = this.state.value >= this.props.max;
-    const disabledDecrement = this.state.value < 1;
+    const { value } = this.state;
     return (
       <CounterStyled>
-        <Decrement disabled={disabledDecrement} onClick={this.handleDecrement}>
+        <Decrement
+          disabled={value === 0}
+          onClick={this.handleClick(-1)}
+          type="button"
+        >
           <IconDecrement icon="decrement" />
         </Decrement>
         <Count>{this.state.value}</Count>
-        <Increment disabled={disabledIncrement} onClick={this.handleIncrement}>
+        <Increment
+          disabled={value === this.props.max}
+          onClick={this.handleClick(1)}
+          type="button"
+        >
           <IconIncrement icon="increment" />
         </Increment>
       </CounterStyled>
