@@ -18,21 +18,23 @@ const Field = props => (
       placeholder={props.placeholder}
       onChange={props.onChange}
     />
-    {props.firstField && (
+    {!!props.destination && (
       <Info>
-        <Text>{props.text}</Text>
-        <ChangeCityArrows>
-          <Icon icon="arrows" />
-        </ChangeCityArrows>
+        <Text>{props.destination}</Text>
+        {!!props.reverse && (
+          <ChangeCityArrows>
+            <Icon icon="arrows" />
+          </ChangeCityArrows>
+        )}
       </Info>
     )}
   </Fields>
 );
 
 Field.propTypes = {
-  firstField: pt.bool,
+  destination: pt.string,
   height: pt.string,
-  text: pt.string,
+  reverse: pt.bool,
   defaultValue: pt.string,
   placeholder: pt.string,
   value: pt.string,

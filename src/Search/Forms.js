@@ -92,7 +92,7 @@ export default () => (
   <Forms action="#" method="GET">
     <Fields>
       <From>
-        <Field defaultValue="Москва" firstField text="Mow" />
+        <Field defaultValue="Москва" reverse destination="Mow" />
       </From>
       <FormField>
         <Field placeholder="Город прибытия" />

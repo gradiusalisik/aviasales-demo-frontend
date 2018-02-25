@@ -2,6 +2,7 @@ import React from "react";
 import Field from "./Field";
 import DataPicker from "./DataPicker";
 import Select from "./Select";
+import ChoiceQuantity from "./ChoiceQuantity";
 import Button from "./Button";
 import { Link } from "react-router-dom";
 import {
@@ -26,7 +27,7 @@ export default () => (
       <Content>
         <Fields>
           <From>
-            <Field defaultValue="Москва" firstField text="Mow" />
+            <Field defaultValue="Москва" reverse destination="Mow" />
           </From>
           <To>
             <Field placeholder="Город прибытия" />
@@ -37,7 +38,9 @@ export default () => (
             <DataPicker />
           </DatePicker>
           <Selects>
-            <Select />
+            <Select>
+              <ChoiceQuantity />
+            </Select>
           </Selects>
         </Fields>
       </Content>

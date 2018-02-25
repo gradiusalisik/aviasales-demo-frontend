@@ -110,20 +110,16 @@ export const DatePicker = FieldContent.extend`
   `};
 `;
 
-export const Selects = To.extend`
-  border-bottom-right-radius: 6px;
-  border-bottom-left-radius: 6px;
-  overflow: hidden;
+export const Selects = styled.div`
+  margin-bottom: 2px;
 
   ${media.md`
     margin-bottom: 0;
-    border-top-right-radius: 0;
-    border-bottom-left-radius: 0;
+    margin-left: 2px;
   `};
 
   ${media.xl`
     min-width: auto;
-    border-top-right-radius: 6px;
   `};
 `;
 
@@ -167,8 +163,9 @@ export const Input = styled.input`
   text-overflow: ellipsis;
   overflow: hidden;
   border: none;
+  transition: box-shadow 0.3s;
 
-  ::placeholder {
+  &::placeholder {
     color: #a0b0b9;
   }
 `;
@@ -184,13 +181,13 @@ export const InfoField = styled.div`
 `;
 
 export const Text = styled.div`
-  margin-right: 11px;
   font-size: 16px;
   text-transform: uppercase;
   color: #a0b0b9;
 `;
 
 export const ChangeCityArrows = styled.div`
+  margin-left: 11px;
   width: 16px;
   height: 18px;
   color: #1ba6d2;

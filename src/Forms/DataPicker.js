@@ -11,8 +11,6 @@ import Toggle from "../UI/Toggle";
 import styled from "styled-components";
 import media from "../utils/media";
 
-// TODO поправить датапикер
-
 const Picker = styled.div`
   position: relative;
 `;
