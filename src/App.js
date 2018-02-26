@@ -1,4 +1,5 @@
 import React from "react";
+import Helmet from "react-helmet";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Footer from "./Footer";
 import Main from "./Main";
@@ -13,6 +14,9 @@ export default () => (
   <App>
     <Router>
       <div>
+        <Helmet>
+          <title>Aviasales Demo App</title>
+        </Helmet>
         <Route path="/" exact component={Main} />
         <Route path="/search" component={Search} />
         <Footer />

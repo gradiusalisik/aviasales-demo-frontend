@@ -2,13 +2,14 @@ import React from "react";
 import Field from "../Forms/Field";
 import DataPicker from "../Forms/DataPicker";
 import Select from "../Forms/Select";
+import ChoiceQuantity from "../Forms/ChoiceQuantity";
 import { ButtonSearch } from "../UI/Button";
 import styled from "styled-components";
 import media from "../utils/media";
 
 const Forms = styled.form`
   width: 100%;
-  border-radius: 4px;
+  border-radius: 6px;
 
   ${media.xl`
     display: flex;
@@ -21,19 +22,23 @@ const Fields = styled.div`
 
   ${media.xl`
     width: 100%;
+
+    &:first-child {
+      width: 58%;
+    }
   `};
 `;
 
 const SearchButton = ButtonSearch.extend`
   overflow: hidden;
-  border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 6px;
   border-top-right-radius: 0;
 `;
 
 const FormField = styled.div`
   margin-bottom: 2px;
   width: calc((100% - 2px) / 2);
-  border-top-right-radius: 4px;
+  border-top-right-radius: 6px;
   overflow: hidden;
 
   &:not(:last-child) {
@@ -48,16 +53,23 @@ const FormField = styled.div`
     margin-bottom: 0;
     margin-right: 2px;
     width: 100%;
+    overflow: visible;
     border-top-right-radius: 0;
-
-    &:first-child {
-      border-bottom-left-radius: 4px;
-    }
-    `};
+  `};
 `;
 
 const From = FormField.extend`
-  border-top-left-radius: 4px;
+  border-top-left-radius: 6px;
+
+  ${media.xl`
+    max-width: 226px;
+  `};
+`;
+
+const To = FormField.extend`
+  ${media.xl`
+    max-width: 226px;
+  `};
 `;
 
 const DatePicker = styled(FormField)`
@@ -82,9 +94,7 @@ const ContentSelect = styled.div`
 
   ${media.xl`
     margin-right: 16px;
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-    overflow: hidden;
+    min-width: 207px;
   `};
 `;
 
@@ -94,9 +104,9 @@ export default () => (
       <From>
         <Field defaultValue="Москва" reverse destination="Mow" />
       </From>
-      <FormField>
+      <To>
         <Field placeholder="Город прибытия" />
-      </FormField>
+      </To>
     </Fields>
     <Fields>
       <DatePicker>
@@ -104,7 +114,9 @@ export default () => (
       </DatePicker>
       <FormFieldLast>
         <ContentSelect>
-          <Select />
+          <Select>
+            <ChoiceQuantity />
+          </Select>
         </ContentSelect>
         <SearchButton type="submit">Найти билеты</SearchButton>
       </FormFieldLast>

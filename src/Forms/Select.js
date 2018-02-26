@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import enhanceWithClickOutside from "react-click-outside";
 import Icon from "../Icon";
+import { withRouter } from "react-router-dom";
 import styled, { css } from "styled-components";
 import media from "../utils/media";
 
@@ -25,7 +26,7 @@ const SelectStyled = styled.div`
     `};
 `;
 
-const Head = styled.button`
+const Head = withRouter(styled.button`
   padding: 16px;
   padding-right: 30px;
   display: flex;
@@ -40,13 +41,25 @@ const Head = styled.button`
 
   ${media.md`
     border-bottom-left-radius: 0;
+
+    ${({ location }) =>
+      location.pathname.includes("search") &&
+      css`
+        border-bottom-right-radius: 0;
+      `}
   `};
 
   ${media.xl`
     border-top-right-radius: 6px;
     cursor: pointer;
+
+    ${({ location }) =>
+      location.pathname.includes("search") &&
+      css`
+        border-bottom-right-radius: 6px;
+      `}
   `};
-`;
+`);
 
 const Body = styled.div`
   position: absolute;

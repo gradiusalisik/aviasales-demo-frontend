@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import Helmet from "react-helmet";
 import FirstScreen from "./FirstScreen";
 import CardListMobile from "./Mobile/CardList";
 import CardList from "./Card";
@@ -57,6 +58,9 @@ export default class Search extends PureComponent {
   render() {
     return (
       <SearchStyled>
+        <Helmet>
+          <title>Результаты поиска</title>
+        </Helmet>
         <FirstScreen />
         <Section>
           <Container>
