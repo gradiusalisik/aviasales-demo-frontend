@@ -62,7 +62,7 @@ const Dates = styled.div`
 `;
 
 const formatDate = date =>
-  format(new Date(date), "HH:mm, D MMM", { locale: ruLocale });
+  format(date, "HH:mm, D MMM", { locale: ruLocale });
 
 const TimeFly = props => (
   <TimeFlyStyled>

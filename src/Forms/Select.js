@@ -107,8 +107,8 @@ class Select extends Component {
   };
 
   handleClick = () => {
-    this.setState(prevState => ({
-      active: !prevState.active
+    this.setState(state => ({
+      active: !state.active
     }));
   };
 

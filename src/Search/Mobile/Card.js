@@ -16,16 +16,16 @@ export const Card = props => (
     <Body>
       <InfoFly
         reverse={props.fromFly.reverse}
-        timeFrom={props.fromFly.timeFrom}
-        timeTo={props.fromFly.timeTo}
+        dateFrom={props.fromFly.dateFrom}
+        dateTo={props.fromFly.dateTo}
         hours={props.fromFly.hours}
         minutes={props.fromFly.minutes}
         type={props.fromFly.type}
       />
       <InfoFly
         reverse={props.backFly.reverse}
-        timeFrom={props.backFly.timeFrom}
-        timeTo={props.backFly.timeTo}
+        dateFrom={props.backFly.dateFrom}
+        dateTo={props.backFly.dateTo}
         hours={props.backFly.hours}
         minutes={props.backFly.minutes}
         type={props.backFly.type}

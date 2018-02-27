@@ -198,7 +198,10 @@ class DataPicker extends Component {
               onClick={this.handleClickDay("from")}
               value={fromFormatted}
             />
-            <IconCalendar icon="calendar" />
+            <IconCalendar
+              icon="calendar"
+              onClick={this.handleClickDay("from")}
+            />
           </Departure>
           <Arrival disabled={this.state.isChecked}>
             <ArrivalField
@@ -211,7 +214,10 @@ class DataPicker extends Component {
                 <IconClear icon="close" />
               </ClearArrivalDate>
             ) : (
-              <IconCalendar icon="calendar" />
+              <IconCalendar
+                icon="calendar"
+                onClick={this.handleClickDay("to")}
+              />
             )}
           </Arrival>
         </Container>

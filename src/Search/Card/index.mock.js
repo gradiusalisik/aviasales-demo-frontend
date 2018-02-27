@@ -30,27 +30,23 @@ export const list = [
     ],
     infoFly: [
       {
-        timeFrom: "00:05",
         placeFrom: "Москва",
-        dateFrom: "24 фев 2018, Сб",
+        dateFrom: 1519423500000,
         hours: 5,
         abbrFrom: "VKO",
         abbrTo: "BCN",
-        timeTo: "03:05",
         placeTo: "Барселона",
-        dateTo: "24 фев 2018, Сб "
+        dateTo: 1519434300000
       },
       {
-        timeFrom: "10:35",
         placeFrom: "Барселона",
-        dateFrom: "3 мар 2018, Сб",
+        dateFrom: 1520066100000,
         hours: 4,
         minutes: 35,
         abbrFrom: "BCN",
         abbrTo: "SVO",
-        timeTo: "17:10",
         placeTo: "Москва",
-        dateTo: "3 мар 2018, Сб"
+        dateTo: 1520089800000
       }
     ]
   },
@@ -75,28 +71,24 @@ export const list = [
     ],
     infoFly: [
       {
-        timeFrom: "00:15",
         placeFrom: "Москва",
-        dateFrom: "24 фев 2018, Сб",
+        dateFrom: 1519424100000,
         hours: 4,
         minutes: 55,
         abbrFrom: "VKO",
         abbrTo: "BCN",
-        timeTo: "03:10",
         placeTo: "Барселона",
-        dateTo: "24 фев 2018, Сб "
+        dateTo: 1519434600000
       },
       {
-        timeFrom: "10:45",
         placeFrom: "Барселона",
-        dateFrom: "3 мар 2018, Сб",
+        dateFrom: 1520066700000,
         hours: 4,
         minutes: 30,
         abbrFrom: "BCN",
         abbrTo: "SVO",
-        timeTo: "17:15",
         placeTo: "Москва",
-        dateTo: "3 мар 2018, Сб"
+        dateTo: 1520090100000
       }
     ]
   },
@@ -141,28 +133,24 @@ export const list = [
     ],
     infoFly: [
       {
-        timeFrom: "00:15",
         placeFrom: "Москва",
-        dateFrom: "24 фев 2018, Сб",
+        dateFrom: 1519424100000,
         hours: 4,
         minutes: 55,
         abbrFrom: "VKO",
         abbrTo: "BCN",
-        timeTo: "03:10",
         placeTo: "Барселона",
-        dateTo: "24 фев 2018, Сб "
+        dateTo: 1519434600000
       },
       {
-        timeFrom: "10:45",
         placeFrom: "Барселона",
-        dateFrom: "3 мар 2018, Сб",
+        dateFrom: 1520066700000,
         hours: 4,
         minutes: 30,
         abbrFrom: "BCN",
         abbrTo: "SVO",
-        timeTo: "17:15",
         placeTo: "Москва",
-        dateTo: "3 мар 2018, Сб"
+        dateTo: 1520090100000
       }
     ]
   },
@@ -220,28 +208,24 @@ export const list = [
     ],
     infoFly: [
       {
-        timeFrom: "07:00",
         placeFrom: "Москва",
-        dateFrom: "24 фев 2018, Сб",
+        dateFrom: 1519448400000,
         hours: 4,
         minutes: 30,
         abbrFrom: "VKO",
         abbrTo: "BCN",
-        timeTo: "09:30",
         placeTo: "Барселона",
-        dateTo: "24 фев 2018, Сб "
+        dateTo: 1519457400000
       },
       {
-        timeFrom: "11:00",
         placeFrom: "Барселона",
-        dateFrom: "3 мар 2018, Сб",
+        dateFrom: 1520067600000,
         hours: 4,
         minutes: 10,
         abbrFrom: "BCN",
         abbrTo: "SVO",
-        timeTo: "17:10",
         placeTo: "Москва",
-        dateTo: "3 мар 2018, Сб"
+        dateTo: 1520089800000
       }
     ]
   },
@@ -272,27 +256,23 @@ export const list = [
     ],
     infoFly: [
       {
-        timeFrom: "00:05",
         placeFrom: "Москва",
-        dateFrom: "24 фев 2018, Сб",
+        dateFrom: 1519423500000,
         hours: 5,
         abbrFrom: "VKO",
         abbrTo: "BCN",
-        timeTo: "03:05",
         placeTo: "Барселона",
-        dateTo: "24 фев 2018, Сб "
+        dateTo: 1519434300000
       },
       {
-        timeFrom: "11:00",
         placeFrom: "Барселона",
-        dateFrom: "3 мар 2018, Сб",
+        dateFrom: 1520067600000,
         hours: 4,
         minutes: 35,
         abbrFrom: "BCN",
         abbrTo: "SVO",
-        timeTo: "17:10",
         placeTo: "Москва",
-        dateTo: "3 мар 2018, Сб"
+        dateTo: 1520089800000
       }
     ]
   },
@@ -333,28 +313,24 @@ export const list = [
     ],
     infoFly: [
       {
-        timeFrom: "07:30",
         placeFrom: "Москва",
-        dateFrom: "24 фев 2018, Сб",
+        dateFrom: 1519450200000,
         hours: 4,
         minutes: 20,
         abbrFrom: "VKO",
         abbrTo: "BCN",
-        timeTo: "09:50",
         placeTo: "Барселона",
-        dateTo: "24 фев 2018, Сб "
+        dateTo: 1519458600000
       },
       {
-        timeFrom: "11:20",
         placeFrom: "Барселона",
-        dateFrom: "3 мар 2018, Сб",
+        dateFrom: 1520068800000,
         hours: 4,
         minutes: 15,
         abbrFrom: "BCN",
         abbrTo: "SVO",
-        timeTo: "17:35",
         placeTo: "Москва",
-        dateTo: "3 мар 2018, Сб"
+        dateTo: 1520091300000
       }
     ]
   },
@@ -386,27 +362,23 @@ export const list = [
     ],
     infoFly: [
       {
-        timeFrom: "00:05",
         placeFrom: "Москва",
-        dateFrom: "24 фев 2018, Сб",
+        dateFrom: 1519423500000,
         hours: 5,
         abbrFrom: "VKO",
         abbrTo: "BCN",
-        timeTo: "03:05",
         placeTo: "Барселона",
-        dateTo: "24 фев 2018, Сб "
+        dateTo: 1519434300000
       },
       {
-        timeFrom: "11:20",
         placeFrom: "Барселона",
-        dateFrom: "3 мар 2018, Сб",
+        dateFrom: 1520068800000,
         hours: 4,
         minutes: 15,
         abbrFrom: "BCN",
         abbrTo: "SVO",
-        timeTo: "17:35",
         placeTo: "Москва",
-        dateTo: "3 мар 2018, Сб"
+        dateTo: 1520091300000
       }
     ]
   }

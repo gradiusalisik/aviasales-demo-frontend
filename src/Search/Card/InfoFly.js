@@ -3,6 +3,9 @@ import { PropTypes as pt } from "prop-types";
 import styled from "styled-components";
 import Scoreboard from "./Scoreboard";
 import Icon from "../../Icon";
+import format from "date-fns/format";
+import ruLocale from "date-fns/locale/ru";
+import differenceInMilliseconds from "date-fns/difference_in_milliseconds";
 
 const List = styled.div``;
 
@@ -64,6 +67,17 @@ const Right = Left.extend`
   text-align: right;
 `;
 
+const formatDate = date => format(date, "D MMM YYYY, dd", { locale: ruLocale });
+
+const formatDifferent = (from, to) => {
+  const minutes = differenceInMilliseconds(to, from) / 60000;
+  const hours = ((minutes / 60) ^ 0) + "ч ";
+  const min = minutes % 60 !== 0 ? minutes % 60 + "м" : "";
+  return `${hours} ${min}`;
+};
+
+const formatTime = date => format(date, "HH:mm", { locale: ruLocale });
+
 const InfoFly = props => (
   <List>
     {props.list.map((info, key) => (
@@ -73,15 +87,14 @@ const InfoFly = props => (
             <IconPick>
               <Icon icon="pick" />
             </IconPick>
-            <Time>{info.timeFrom}</Time>
+            <Time>{formatTime(info.dateFrom)}</Time>
           </Times>
           <Place>{info.placeFrom}</Place>
-          <Date>{info.dateFrom}</Date>
+          <Date>{formatDate(info.dateFrom)}</Date>
         </Left>
         <Center>
           <Scoreboard
-            hours={info.hours}
-            minutes={info.minutes}
+            time={formatDifferent(info.dateFrom, info.dateTo)}
             placeFrom={info.placeFrom}
             abbrFrom={info.abbrFrom}
             placeTo={info.placeTo}
@@ -89,9 +102,9 @@ const InfoFly = props => (
           />
         </Center>
         <Right>
-          <TimeTo>{info.timeTo}</TimeTo>
+          <TimeTo>{formatTime(info.dateTo)}</TimeTo>
           <Place>{info.placeTo}</Place>
-          <Date>{info.dateTo}</Date>
+          <Date>{formatDate(info.dateTo)}</Date>
         </Right>
       </Info>
     ))}

@@ -94,10 +94,7 @@ const PathLine = styled.div`
 
 const Scoreboard = props => (
   <Path>
-    <TotalTime>
-      Всего:&nbsp;{props.hours && props.hours + "ч"}&nbsp;
-      {props.minutes && props.minutes + "м"}
-    </TotalTime>
+    <TotalTime>Всего:&nbsp;{props.time}</TotalTime>
     <Stops>
       <PlaneFrom>
         <PathFrom title={props.placeFrom}>{props.abbrFrom}</PathFrom>
@@ -113,8 +110,7 @@ const Scoreboard = props => (
 );
 
 Scoreboard.propTypes = {
-  hours: pt.number,
-  minutes: pt.number,
+  time: pt.string,
   placeFrom: pt.string,
   abbrFrom: pt.string,
   placeTo: pt.string,
