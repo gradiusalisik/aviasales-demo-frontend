@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import Field from "../Forms/Field";
 import DataPicker from "../Forms/DataPicker";
 import Select from "../Forms/Select";
@@ -7,7 +7,7 @@ import { ButtonSearch } from "../UI/Button";
 import styled from "styled-components";
 import media from "../utils/media";
 
-const Forms = styled.form`
+const FormsStyled = styled.form`
   width: 100%;
   border-radius: 6px;
 
@@ -97,28 +97,54 @@ const ContentSelect = styled.div`
   `};
 `;
 
-export default () => (
-  <Forms action="#" method="GET">
-    <Fields>
-      <From>
-        <Field defaultValue="Москва" reverse destination="Mow" />
-      </From>
-      <To>
-        <Field placeholder="Город прибытия" />
-      </To>
-    </Fields>
-    <Fields>
-      <DatePicker>
-        <DataPicker />
-      </DatePicker>
-      <FormFieldLast>
-        <ContentSelect>
-          <Select>
-            <ChoiceQuantity />
-          </Select>
-        </ContentSelect>
-        <SearchButton type="submit">Найти билеты</SearchButton>
-      </FormFieldLast>
-    </Fields>
-  </Forms>
-);
+export default class Forms extends Component {
+  state = {
+    quantitySelect: 1,
+    isChecked: false
+  };
+
+  handleChangeClass = () => {
+    this.setState(state => ({
+      isChecked: !state.isChecked
+    }));
+  };
+
+  handleChangeCounter = delta => {
+    this.setState(state => ({
+      quantitySelect: state.quantitySelect + delta
+    }));
+  };
+
+  render() {
+    const { isChecked, quantitySelect } = this.state;
+    const classFly = isChecked ? "бизнес" : "эконом";
+    return (
+      <FormsStyled action="#" method="GET">
+        <Fields>
+          <From>
+            <Field defaultValue="Москва" reverse destination="Mow" />
+          </From>
+          <To>
+            <Field placeholder="Город прибытия" />
+          </To>
+        </Fields>
+        <Fields>
+          <DatePicker>
+            <DataPicker />
+          </DatePicker>
+          <FormFieldLast>
+            <ContentSelect>
+              <Select quantity={quantitySelect} classFly={classFly}>
+                <ChoiceQuantity
+                  onChangeCheckbox={this.handleChangeClass}
+                  onChangeCounter={this.handleChangeCounter}
+                />
+              </Select>
+            </ContentSelect>
+            <SearchButton type="submit">Найти билеты</SearchButton>
+          </FormFieldLast>
+        </Fields>
+      </FormsStyled>
+    );
+  }
+}
