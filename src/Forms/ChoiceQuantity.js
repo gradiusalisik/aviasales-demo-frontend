@@ -37,25 +37,29 @@ const Checkboxes = styled.div`
 
 const Info = styled.div``;
 
-export default () => (
+export default props => (
   <ChoiceQuantity>
     <Content>
       <Text>Взрослые</Text>
-      <Counter max={9} />
+      <Counter max={9} value={1} onChangeCounter={props.onChangeCounter} />
     </Content>
     <Content>
       <Text>Взрослые</Text>
-      <Counter max={9} />
+      <Counter max={9} onChangeCounter={props.onChangeCounter} />
     </Content>
     <Content>
       <Info>
         <Text>Взрослые</Text>
         <SubText>Без места</SubText>
       </Info>
-      <Counter max={1} />
+      <Counter max={1} onChangeCounter={props.onChangeCounter} />
     </Content>
     <Checkboxes>
-      <Checkbox label="Бизнес-класс" id="business" />
+      <Checkbox
+        label="Бизнес-класс"
+        id="business"
+        onChange={props.onChangeCheckbox}
+      />
     </Checkboxes>
   </ChoiceQuantity>
 );

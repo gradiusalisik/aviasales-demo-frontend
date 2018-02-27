@@ -76,7 +76,13 @@ const Price = styled.span`
 const Checkbox = props => (
   <CheckboxStyled>
     <Checkboxes>
-      <Input type="checkbox" id={props.id} checked={props.checked} readOnly />
+      <Input
+        type="checkbox"
+        id={props.id}
+        checked={props.checked}
+        readOnly
+        onClick={props.onChange}
+      />
       <Label htmlFor={props.id}>{props.label}</Label>
     </Checkboxes>
     {!!props.price && (

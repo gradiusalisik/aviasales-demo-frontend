@@ -39,7 +39,6 @@ const FormField = styled.div`
   margin-bottom: 2px;
   width: calc((100% - 2px) / 2);
   border-top-right-radius: 6px;
-  overflow: hidden;
 
   &:not(:last-child) {
     margin-right: 2px;

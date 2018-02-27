@@ -2,7 +2,7 @@ import styled from "styled-components";
 import media from "../utils/media";
 
 // ** index.js
-export const Forms = styled.form`
+export const FormsStyled = styled.form`
   width: 100%;
 `;
 

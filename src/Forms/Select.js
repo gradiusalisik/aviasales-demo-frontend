@@ -4,9 +4,11 @@ import Icon from "../Icon";
 import { withRouter } from "react-router-dom";
 import styled, { css } from "styled-components";
 import media from "../utils/media";
+import decline from "../utils/decline";
 
 const SelectStyled = styled.div`
   position: relative;
+  min-width: 225px;
 
   ${props =>
     props.active &&
@@ -81,6 +83,7 @@ const Text = styled.span`
 
 const TextLight = Text.extend`
   overflow: hidden;
+  min-width: 57px;
   white-space: nowrap;
   text-overflow: ellipsis;
   color: #a0b0b9;
@@ -122,8 +125,15 @@ class Select extends Component {
     return (
       <SelectStyled active={this.state.active}>
         <Head onClick={this.handleClick} type="button">
-          <Text>1 пассажир,&nbsp;</Text>
-          <TextLight>эконом</TextLight>
+          <Text>
+            {`${this.props.quantity} ${decline(this.props.quantity, [
+              "пассажир",
+              "пассажира",
+              "пассажиров"
+            ])}`}
+            ,&nbsp;
+          </Text>
+          <TextLight>{this.props.classFly}</TextLight>
           <ArrowSelect>
             <IconSelect icon="arrowSelect" />
           </ArrowSelect>
