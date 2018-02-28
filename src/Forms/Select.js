@@ -8,7 +8,6 @@ import decline from "../utils/decline";
 
 const SelectStyled = styled.div`
   position: relative;
-  min-width: 225px;
 
   ${props =>
     props.active &&
@@ -83,7 +82,6 @@ const Text = styled.span`
 
 const TextLight = Text.extend`
   overflow: hidden;
-  min-width: 57px;
   white-space: nowrap;
   text-overflow: ellipsis;
   color: #a0b0b9;

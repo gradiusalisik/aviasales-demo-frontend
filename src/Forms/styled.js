@@ -112,6 +112,7 @@ export const DatePicker = FieldContent.extend`
 
 export const Selects = styled.div`
   margin-bottom: 2px;
+  min-width: 225px;
 
   ${media.md`
     margin-bottom: 0;
@@ -119,7 +120,9 @@ export const Selects = styled.div`
   `};
 
   ${media.xl`
-    min-width: auto;
+    /* min-width: auto; */
+    /* min-width: 225px; */
+
   `};
 `;
 
