@@ -138,6 +138,7 @@ export default class Forms extends Component {
                 <ChoiceQuantity
                   onChangeCheckbox={this.handleChangeClass}
                   onChangeCounter={this.handleChangeCounter}
+                  disabled={quantitySelect === 9}
                 />
               </Select>
             </ContentSelect>

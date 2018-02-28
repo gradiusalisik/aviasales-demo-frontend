@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import media from "../utils/media";
+import { Link } from "react-router-dom";
 
-export const ButtonSearchMain = styled.button`
+export const Button = styled.button`
   padding-top: 15px;
   padding-bottom: 15px;
   width: 100%;
@@ -18,7 +19,25 @@ export const ButtonSearchMain = styled.button`
   }
 `;
 
-export const ButtonSearch = ButtonSearchMain.extend`
+export const ButtonSearchMain = styled(Link)`
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 100%;
+  font-size: 24px;
+  font-weight: 900;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #ff9241;
+  border: none;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #ffa353;
+  }
+`;
+
+export const ButtonSearch = Button.extend`
   padding-top: 15px;
   padding-bottom: 15px;
   font-size: 20px;
@@ -81,7 +100,7 @@ export const ButtonCharters = ButtonWhiteTransparent.extend`
   color: #2196f3;
 `;
 
-export const ButtonBuy = ButtonSearchMain.extend`
+export const ButtonBuy = Button.extend`
   padding-top: 4px;
   padding-bottom: 4px;
   font-size: 100%;

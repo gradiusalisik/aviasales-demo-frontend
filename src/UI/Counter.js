@@ -97,7 +97,7 @@ export default class Counter extends Component {
         </Decrement>
         <Count>{this.state.value}</Count>
         <Increment
-          disabled={value === this.props.max}
+          disabled={this.props.disabled || value === this.props.max}
           onClick={this.handleClick(1)}
           type="button"
         >

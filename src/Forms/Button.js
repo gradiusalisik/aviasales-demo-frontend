@@ -19,7 +19,7 @@ const PlaneImg = styled.div`
 `;
 
 const Button = props => (
-  <ButtonSearchMain type={props.type || "button"}>
+  <ButtonSearchMain type={props.type || "button"} to={props.to}>
     <Content>
       <Text>{props.text}</Text>
       {props.icon && (

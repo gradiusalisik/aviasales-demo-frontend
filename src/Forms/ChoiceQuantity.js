@@ -41,18 +41,31 @@ export default props => (
   <ChoiceQuantity>
     <Content>
       <Text>Взрослые</Text>
-      <Counter max={9} value={1} onChangeCounter={props.onChangeCounter} />
+      <Counter
+        disabled={props.disabled}
+        max={9}
+        value={1}
+        onChangeCounter={props.onChangeCounter}
+      />
     </Content>
     <Content>
-      <Text>Взрослые</Text>
-      <Counter max={9} onChangeCounter={props.onChangeCounter} />
+      <Text>Дети до 12 лет</Text>
+      <Counter
+        disabled={props.disabled}
+        max={9}
+        onChangeCounter={props.onChangeCounter}
+      />
     </Content>
     <Content>
       <Info>
-        <Text>Взрослые</Text>
+        <Text>Дети до 2 лет</Text>
         <SubText>Без места</SubText>
       </Info>
-      <Counter max={1} onChangeCounter={props.onChangeCounter} />
+      <Counter
+        disabled={props.disabled}
+        max={1}
+        onChangeCounter={props.onChangeCounter}
+      />
     </Content>
     <Checkboxes>
       <Checkbox

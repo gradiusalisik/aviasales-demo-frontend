@@ -118,12 +118,6 @@ export const Selects = styled.div`
     margin-bottom: 0;
     margin-left: 2px;
   `};
-
-  ${media.xl`
-    /* min-width: auto; */
-    /* min-width: 225px; */
-
-  `};
 `;
 
 export const FormFields = styled.div`

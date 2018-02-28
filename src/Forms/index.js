@@ -4,7 +4,6 @@ import DataPicker from "./DataPicker";
 import Select from "./Select";
 import ChoiceQuantity from "./ChoiceQuantity";
 import Button from "./Button";
-import { Link } from "react-router-dom";
 import {
   FormsStyled,
   Title,
@@ -40,6 +39,7 @@ export default class Forms extends Component {
   render() {
     const { isChecked, quantitySelect } = this.state;
     const classFly = isChecked ? "бизнес" : "эконом";
+    console.log(quantitySelect);
     return (
       <FormsStyled action="#" method="GET">
         <Title>Поиск дешевых авиабилетов</Title>
@@ -63,6 +63,7 @@ export default class Forms extends Component {
                   <ChoiceQuantity
                     onChangeCheckbox={this.handleChangeClass}
                     onChangeCounter={this.handleChangeCounter}
+                    disabled={quantitySelect === 9}
                   />
                 </Select>
               </Selects>
@@ -70,9 +71,7 @@ export default class Forms extends Component {
           </Content>
         </Container>
         <ButtonSearch>
-          <Link to="/search">
-            <Button text="Найти билеты" icon="aero" />
-          </Link>
+          <Button to="/search" text="Найти билеты" icon="aero" />
         </ButtonSearch>
       </FormsStyled>
     );
