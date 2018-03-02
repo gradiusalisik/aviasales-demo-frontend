@@ -118,6 +118,7 @@ export default class Forms extends Component {
   render() {
     const { isChecked, quantitySelect } = this.state;
     const classFly = isChecked ? "бизнес" : "эконом";
+
     return (
       <FormsStyled action="#" method="GET">
         <Fields>

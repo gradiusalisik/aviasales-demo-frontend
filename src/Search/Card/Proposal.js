@@ -48,7 +48,13 @@ const Proposal = props => (
           <Link href={link.href || "#"}>
             <Text>{link.name}</Text>
             <TextMedium>
-              <FormattedNumber value={link.price} />&nbsp;₽
+              <FormattedNumber
+                value={link.price}
+                style={`currency`}
+                currency="RUB"
+                minimumFractionDigits={0}
+                maximumFractionDigits={0}
+              />
             </TextMedium>
           </Link>
         )}

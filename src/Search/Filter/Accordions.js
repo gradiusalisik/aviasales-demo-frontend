@@ -62,8 +62,6 @@ export default () => (
     </Accordion>
     <Accordion text="ВРЕМЯ ВЫЛЕТА И ПРИБЫТИЯ" open>
       <TimeFly
-        fromPlace={list.departure.fromPlace}
-        toPlace={list.departure.toPlace}
         from={list.departure.from}
         outLeftDate={list.departure.outLeftDate}
         outRightDate={list.departure.outRightDate}
@@ -74,8 +72,6 @@ export default () => (
         inRange={list.departure.inRange}
       />
       <TimeFly
-        fromPlace={list.arrival.fromPlace}
-        toPlace={list.arrival.toPlace}
         from={list.arrival.from}
         outLeftDate={list.arrival.outLeftDate}
         outRightDate={list.arrival.outRightDate}
@@ -92,15 +88,15 @@ export default () => (
     <Accordion text="Длительность пересадки">in Future</Accordion>
     <Accordion text="Время в пути" open>
       <TimePath
-        fromPlace={list.timeOut.fromPlace}
-        toPlace={list.timeOut.toPlace}
+        from={list.timeOut.from}
+        to={list.timeOut.to}
         leftTime={list.timeOut.leftTime}
         rightTime={list.timeOut.rightTime}
         range={list.timeOut.range}
       />
       <TimePath
-        fromPlace={list.timeIn.fromPlace}
-        toPlace={list.timeIn.toPlace}
+        from={list.timeIn.from}
+        to={list.timeIn.to}
         leftTime={list.timeIn.leftTime}
         rightTime={list.timeIn.rightTime}
         range={list.timeIn.range}

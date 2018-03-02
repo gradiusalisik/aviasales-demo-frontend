@@ -134,7 +134,7 @@ export const FormFields = styled.div`
   `};
 `;
 
-export const ButtonSearch = styled.div`
+export const LinkContent = styled.div`
   ${media.xl`
     margin-left: auto;
     margin-right: auto;

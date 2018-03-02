@@ -44,7 +44,6 @@ export default props => (
       <Counter
         disabled={props.disabled}
         max={9}
-        value={1}
         onChangeCounter={props.onChangeCounter}
       />
     </Content>

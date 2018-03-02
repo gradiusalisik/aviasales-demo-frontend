@@ -9,8 +9,8 @@ const CardList = props => (
       <Card
         key={key}
         flag={card.flag}
-        cityName={card.cityName}
-        countryName={card.countryName}
+        city={card.city}
+        country={card.country}
         list={card.list}
       />
     ))}

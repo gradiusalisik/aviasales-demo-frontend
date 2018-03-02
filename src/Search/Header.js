@@ -1,6 +1,10 @@
 import React from "react";
 import { PropTypes as pt } from "prop-types";
 import { ButtonWhiteTransparent } from "../UI/Button";
+import { cities } from "../utils/library.mock";
+import format from "date-fns/format";
+import ruLocale from "date-fns/locale/ru";
+import pluralize from "pluralize-ru";
 import {
   HeaderStyled,
   Back,
@@ -16,6 +20,8 @@ import {
   Text
 } from "./styled";
 
+const formatDate = date => format(date, "D MMM", { locale: ruLocale });
+
 const Header = props => (
   <HeaderStyled>
     <Logos to="/">
@@ -28,13 +34,21 @@ const Header = props => (
       </BackLink>
       <InfoFly>
         <Place>
-          {props.from}&nbsp;&mdash;&nbsp;{props.to}
+          {cities[props.from].name}&nbsp;&mdash;&nbsp;{cities[props.to].name}
         </Place>
         <SubInfo>
           <Date>
-            {props.dateTo}&nbsp;&mdash;&nbsp;{props.dateFrom},&nbsp;
+            {formatDate(props.dateTo)}&nbsp;&mdash;&nbsp;{formatDate(
+              props.dateFrom
+            )},&nbsp;
           </Date>
-          <Passenger>{props.passenger}</Passenger>
+          <Passenger>{`${pluralize(
+            props.passenger,
+            "нет пассажиров",
+            "%d пассажир",
+            "%d пассажира",
+            "%d пассажиров"
+          )}`}</Passenger>
         </SubInfo>
       </InfoFly>
     </Info>
@@ -45,18 +59,18 @@ const Header = props => (
 Header.propTypes = {
   from: pt.string,
   to: pt.string,
-  dateTo: pt.string,
-  dateFrom: pt.string,
-  passenger: pt.string,
+  dateTo: pt.number,
+  dateFrom: pt.number,
+  passenger: pt.number,
   currency: pt.string
 };
 
 Header.defaultProps = {
-  from: "Москва",
-  to: "Барселона",
-  dateTo: "24 фев",
-  dateFrom: "3 март",
-  passenger: "1 пассажир",
+  from: "MOW",
+  to: "BCN",
+  dateTo: 1519423200000,
+  dateFrom: 1520028000000,
+  passenger: 1,
   currency: "rub"
 };
 

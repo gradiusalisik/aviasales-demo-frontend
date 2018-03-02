@@ -88,7 +88,13 @@ const Checkbox = props => (
     {!!props.price && (
       <Price>
         {" "}
-        <FormattedNumber value={props.price} />&nbsp;₽
+        <FormattedNumber
+          value={props.price}
+          style={`currency`}
+          currency="RUB"
+          minimumFractionDigits={0}
+          maximumFractionDigits={0}
+        />
       </Price>
     )}
   </CheckboxStyled>

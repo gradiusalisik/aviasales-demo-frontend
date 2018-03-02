@@ -1,7 +1,5 @@
 import styled from "styled-components";
 import media from "../utils/media";
-import { Link } from "react-router-dom";
-
 export const Button = styled.button`
   padding-top: 15px;
   padding-bottom: 15px;
@@ -9,24 +7,6 @@ export const Button = styled.button`
   font-size: 24px;
   font-weight: 900;
   border-radius: 4px;
-  color: #fff;
-  background-color: #ff9241;
-  border: none;
-  transition: background-color 0.3s;
-
-  &:hover {
-    background-color: #ffa353;
-  }
-`;
-
-export const ButtonSearchMain = styled(Link)`
-  padding-top: 15px;
-  padding-bottom: 15px;
-  width: 100%;
-  font-size: 24px;
-  font-weight: 900;
-  border-radius: 4px;
-  text-decoration: none;
   color: #fff;
   background-color: #ff9241;
   border: none;

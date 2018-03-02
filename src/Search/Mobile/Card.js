@@ -9,7 +9,13 @@ export const Card = props => (
   <CardStyled>
     <Head>
       <Price>
-        <FormattedNumber value={props.price} />&nbsp;₽
+        <FormattedNumber
+          value={props.price}
+          style={`currency`}
+          currency="RUB"
+          minimumFractionDigits={0}
+          maximumFractionDigits={0}
+        />
       </Price>
       <Logos list={props.logos} />
     </Head>
@@ -18,7 +24,6 @@ export const Card = props => (
         reverse={props.fromFly.reverse}
         dateFrom={props.fromFly.dateFrom}
         dateTo={props.fromFly.dateTo}
-        hours={props.fromFly.hours}
         minutes={props.fromFly.minutes}
         type={props.fromFly.type}
       />
@@ -26,7 +31,6 @@ export const Card = props => (
         reverse={props.backFly.reverse}
         dateFrom={props.backFly.dateFrom}
         dateTo={props.backFly.dateTo}
-        hours={props.backFly.hours}
         minutes={props.backFly.minutes}
         type={props.backFly.type}
       />

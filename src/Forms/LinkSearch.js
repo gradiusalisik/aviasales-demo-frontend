@@ -1,8 +1,27 @@
 import React from "react";
 import { PropTypes as pt } from "prop-types";
+import { Link } from "react-router-dom";
 import Icon from "../Icon";
-import { ButtonSearchMain } from "../UI/Button";
 import styled from "styled-components";
+
+const LinkSearchStyled = styled(Link)`
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 100%;
+  font-size: 24px;
+  font-weight: 900;
+  border-radius: 4px;
+  text-decoration: none;
+  display: block;
+  color: #fff;
+  background-color: #ff9241;
+  border: none;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #ffa353;
+  }
+`;
 
 const Content = styled.div`
   display: flex;
@@ -18,8 +37,8 @@ const PlaneImg = styled.div`
   height: 24px;
 `;
 
-const Button = props => (
-  <ButtonSearchMain type={props.type || "button"} to={props.to}>
+const LinkSearch = props => (
+  <LinkSearchStyled to={props.to}>
     <Content>
       <Text>{props.text}</Text>
       {props.icon && (
@@ -28,13 +47,13 @@ const Button = props => (
         </PlaneImg>
       )}
     </Content>
-  </ButtonSearchMain>
+  </LinkSearchStyled>
 );
 
-Button.propTypes = {
+LinkSearch.propTypes = {
   type: pt.string,
   text: pt.string,
   icon: pt.string
 };
 
-export default Button;
+export default LinkSearch;

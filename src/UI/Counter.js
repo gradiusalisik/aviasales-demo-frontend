@@ -73,7 +73,7 @@ const Count = styled.div`
 
 export default class Counter extends Component {
   state = {
-    value: this.props.value || 0
+    value: 0
   };
 
   handleClick = delta => () => {

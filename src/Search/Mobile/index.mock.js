@@ -23,16 +23,15 @@ export const list = [
     fromFly: {
       dateFrom: 1519423500000,
       dateTo: 1519434300000,
-      hours: 5,
-      type: "Прямой"
+      minutes: 300,
+      type: "straight"
     },
     backFly: {
       reverse: true,
       dateFrom: 1520066100000,
       dateTo: 1520089800000,
-      hours: 4,
-      minutes: 35,
-      type: "Прямой"
+      minutes: 275,
+      type: "straight"
     }
   },
   {
@@ -50,16 +49,14 @@ export const list = [
     fromFly: {
       dateFrom: 1519424100000,
       dateTo: 1519434600000,
-      hours: 4,
-      minutes: 20,
-      type: "Прямой"
+      minutes: 260,
+      type: "straight"
     },
     backFly: {
       reverse: true,
       dateFrom: 1520066700000,
       dateTo: 1520090100000,
-      hours: 4,
-      minutes: 15,
+      minutes: 255,
       type: "CDG"
     }
   },
@@ -78,17 +75,15 @@ export const list = [
     fromFly: {
       dateFrom: 1519424100000,
       dateTo: 1519434600000,
-      hours: 4,
-      minutes: 55,
-      type: "Прямой"
+      minutes: 295,
+      type: "straight"
     },
     backFly: {
       reverse: true,
       dateFrom: 1520066700000,
       dateTo: 1520090100000,
-      hours: 4,
-      minutes: 30,
-      type: "Прямой"
+      minutes: 270,
+      type: "straight"
     }
   },
   {
@@ -101,17 +96,15 @@ export const list = [
     fromFly: {
       dateFrom: 1519448400000,
       dateTo: 1519457400000,
-      hours: 4,
-      minutes: 55,
-      type: "Прямой"
+      minutes: 295,
+      type: "straight"
     },
     backFly: {
       reverse: true,
       dateFrom: 1520067600000,
       dateTo: 1520089800000,
-      hours: 4,
-      minutes: 30,
-      type: "Прямой"
+      minutes: 270,
+      type: "straight"
     }
   },
   {
@@ -124,17 +117,15 @@ export const list = [
     fromFly: {
       dateFrom: 1519423500000,
       dateTo: 1519434300000,
-      hours: 4,
-      minutes: 30,
-      type: "Прямой"
+      minutes: 270,
+      type: "straight"
     },
     backFly: {
       reverse: true,
       dateFrom: 1520067600000,
       dateTo: 1520089800000,
-      hours: 4,
-      minutes: 10,
-      type: "Прямой"
+      minutes: 250,
+      type: "straight"
     }
   },
   {
@@ -152,16 +143,15 @@ export const list = [
     fromFly: {
       dateFrom: 1519450200000,
       dateTo: 1519458600000,
-      hours: 5,
-      type: "Прямой"
+      minutes: 300,
+      type: "straight"
     },
     backFly: {
       reverse: true,
       dateFrom: 1520068800000,
       dateTo: 1520091300000,
-      hours: 4,
-      minutes: 10,
-      type: "Прямой"
+      minutes: 250,
+      type: "straight"
     }
   },
   {
@@ -179,16 +169,15 @@ export const list = [
     fromFly: {
       dateFrom: 1519423500000,
       dateTo: 1519434300000,
-      hours: 5,
-      type: "Прямой"
+      minutes: 300,
+      type: "straight"
     },
     backFly: {
       reverse: true,
       dateFrom: 1520068800000,
       dateTo: 1520091300000,
-      hours: 4,
-      minutes: 15,
-      type: "Прямой"
+      minutes: 255,
+      type: "straight"
     }
   }
 ];

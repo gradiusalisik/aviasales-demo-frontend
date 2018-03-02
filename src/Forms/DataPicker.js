@@ -102,23 +102,23 @@ const ClearArrivalDate = styled.button`
   background-color: transparent;
 `;
 
+const isSelectingFirstDay = (from, to, day) => {
+  const isBeforeFirstDay = from && DateUtils.isDayBefore(day, from);
+  const isRangeSelected = from && to;
+  return !from || isBeforeFirstDay || isRangeSelected;
+};
+
 class DataPicker extends Component {
   state = {
-    isOpen: undefined,
+    openPicker: undefined,
     from: new Date(),
     to: "",
     isChecked: false,
     enteredTo: ""
   };
 
-  handleClickDay = data => () => {
-    this.setState({ isOpen: data });
-  };
-
-  isSelectingFirstDay = (from, to, day) => {
-    const isBeforeFirstDay = from && DateUtils.isDayBefore(day, from);
-    const isRangeSelected = from && to;
-    return !from || isBeforeFirstDay || isRangeSelected;
+  handleClickDay = name => () => {
+    this.setState({ openPicker: name });
   };
 
   handleDaySelectionFrom = day => {
@@ -126,7 +126,7 @@ class DataPicker extends Component {
       from: day,
       to: "",
       enteredTo: "",
-      isOpen: "to"
+      openPicker: "to"
     });
   };
 
@@ -134,13 +134,13 @@ class DataPicker extends Component {
     this.setState({
       to: day,
       enteredTo: day,
-      isOpen: undefined
+      openPicker: undefined
     });
   };
 
   handleClickOutside = () => {
     this.setState({
-      isOpen: undefined
+      openPicker: undefined
     });
   };
 
@@ -153,7 +153,7 @@ class DataPicker extends Component {
 
   handleDayMouseEnter = day => {
     const { from, to } = this.state;
-    if (!this.isSelectingFirstDay(from, to, day)) {
+    if (!isSelectingFirstDay(from, to, day)) {
       this.setState({
         enteredTo: day
       });
@@ -183,7 +183,7 @@ class DataPicker extends Component {
   }
 
   render() {
-    const { from, to, isOpen, enteredTo } = this.state;
+    const { from, to, openPicker, enteredTo } = this.state;
     const modifiers = { start: from, end: to };
     const fromFormatted = this.formatted(from);
     const toFormatted = this.formatted(to);
@@ -221,7 +221,7 @@ class DataPicker extends Component {
             )}
           </Arrival>
         </Container>
-        <Calendar isOpen={isOpen === "from"}>
+        <Calendar isOpen={openPicker === "from"}>
           <DayPickerStyled
             className="dataPickers"
             onDayClick={this.handleDaySelectionFrom}
@@ -237,7 +237,7 @@ class DataPicker extends Component {
             onChange={this.handleToggle}
           />
         </Calendar>
-        <Calendar isOpen={isOpen === "to"}>
+        <Calendar isOpen={openPicker === "to"}>
           <DayPickerStyled
             className="dataPickers"
             onDayClick={this.handleDaySelectionTo}

@@ -3,6 +3,7 @@ import { PropTypes as pt } from "prop-types";
 import styled from "styled-components";
 import Range from "../../UI/Range";
 import Icon from "../../Icon";
+import { cities } from "../../utils/library.mock";
 
 const Path = styled.div`
   margin-top: -4px;
@@ -59,9 +60,9 @@ const formatTime = minutes => ((minutes / 60) ^ 0) + "ч " + minutes % 60 + "м"
 const TimePath = props => (
   <Path>
     <Places>
-      <Title>{props.fromPlace}</Title>
+      <Title>{cities[props.from].name}</Title>
       <IconFly icon="aero" />
-      <Title>{props.toPlace}</Title>
+      <Title>{cities[props.to].name}</Title>
     </Places>
     <Info>
       <Dates>
@@ -78,8 +79,8 @@ const TimePath = props => (
 );
 
 TimePath.propTypes = {
-  fromPlace: pt.string,
-  toPlace: pt.string,
+  from: pt.string,
+  to: pt.string,
   leftTime: pt.number,
   rightTime: pt.number,
   range: pt.object

@@ -27,34 +27,30 @@ export const list = {
     }
   ],
   departure: {
-    fromPlace: "Москва",
-    toPlace: "Барселона",
-    from: "Москвы",
+    from: "MOW",
     outLeftDate: 1519423500000,
     outRightDate: 1519508700000,
-    to: "Барселону",
+    to: "BCN",
     inLeftDate: 1519434300000,
     inRightDate: 519645800000
   },
   arrival: {
-    fromPlace: "Барселона",
-    toPlace: "Москва",
-    from: "Барселоны",
+    from: "BCN",
     outLeftDate: 1520049600000,
     outRightDate: 1520113500000,
-    to: "Москву",
+    to: "MOW",
     inLeftDate: 1520082000000,
     inRightDate: 1520063700000
   },
   timeOut: {
-    fromPlace: "Москва",
-    toPlace: "Барселона",
+    from: "MOW",
+    to: "BCN",
     leftTime: 260,
     rightTime: 2930
   },
   timeIn: {
-    fromPlace: "Барселона",
-    toPlace: "Москва",
+    from: "BCN",
+    to: "MOW",
     leftTime: 250,
     rightTime: 2480
   },

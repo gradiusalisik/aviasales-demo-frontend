@@ -4,7 +4,7 @@ import Icon from "../Icon";
 import { withRouter } from "react-router-dom";
 import styled, { css } from "styled-components";
 import media from "../utils/media";
-import decline from "../utils/decline";
+import pluralize from "pluralize-ru";
 
 const SelectStyled = styled.div`
   position: relative;
@@ -124,11 +124,13 @@ class Select extends Component {
       <SelectStyled active={this.state.active}>
         <Head onClick={this.handleClick} type="button">
           <Text>
-            {`${this.props.quantity} ${decline(this.props.quantity, [
-              "пассажир",
-              "пассажира",
-              "пассажиров"
-            ])}`}
+            {`${pluralize(
+              this.props.quantity,
+              "нет пассажиров",
+              "%d пассажир",
+              "%d пассажира",
+              "%d пассажиров"
+            )}`}
             ,&nbsp;
           </Text>
           <TextLight>{this.props.classFly}</TextLight>

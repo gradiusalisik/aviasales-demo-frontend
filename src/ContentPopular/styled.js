@@ -211,6 +211,7 @@ export const CountryName = styled.span`
 
 export const Date = styled(CountryName)`
   text-transform: none;
+  text-align: right;
 `;
 
 // CardList.js

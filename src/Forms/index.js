@@ -3,7 +3,7 @@ import Field from "./Field";
 import DataPicker from "./DataPicker";
 import Select from "./Select";
 import ChoiceQuantity from "./ChoiceQuantity";
-import Button from "./Button";
+import LinkSearch from "./LinkSearch";
 import {
   FormsStyled,
   Title,
@@ -14,7 +14,7 @@ import {
   DatePicker,
   From,
   To,
-  ButtonSearch,
+  LinkContent,
   Container
 } from "./styled";
 
@@ -39,7 +39,6 @@ export default class Forms extends Component {
   render() {
     const { isChecked, quantitySelect } = this.state;
     const classFly = isChecked ? "бизнес" : "эконом";
-    console.log(quantitySelect);
     return (
       <FormsStyled action="#" method="GET">
         <Title>Поиск дешевых авиабилетов</Title>
@@ -70,9 +69,9 @@ export default class Forms extends Component {
             </Fields>
           </Content>
         </Container>
-        <ButtonSearch>
-          <Button to="/search" text="Найти билеты" icon="aero" />
-        </ButtonSearch>
+        <LinkContent>
+          <LinkSearch to="/search" text="Найти билеты" icon="aero" />
+        </LinkContent>
       </FormsStyled>
     );
   }

@@ -3,6 +3,7 @@ import { PropTypes as pt } from "prop-types";
 import styled from "styled-components";
 import from from "./images/from.svg";
 import to from "./images/to.svg";
+import { airports } from "../../utils/library.mock";
 
 const Path = styled.div`
   padding-top: 5px;
@@ -97,11 +98,13 @@ const Scoreboard = props => (
     <TotalTime>Всего:&nbsp;{props.time}</TotalTime>
     <Stops>
       <PlaneFrom>
-        <PathFrom title={props.placeFrom}>{props.abbrFrom}</PathFrom>
+        <PathFrom title={airports[props.abbrFrom].city}>
+          {props.abbrFrom}
+        </PathFrom>
         <DotLeft />
       </PlaneFrom>
       <PlaneTo>
-        <PathTo title={props.placeTo}>{props.abbrTo}</PathTo>
+        <PathTo title={airports[props.abbrTo].city}>{props.abbrTo}</PathTo>
         <DotRight />
       </PlaneTo>
       <PathLine />
@@ -111,9 +114,7 @@ const Scoreboard = props => (
 
 Scoreboard.propTypes = {
   time: pt.string,
-  placeFrom: pt.string,
   abbrFrom: pt.string,
-  placeTo: pt.string,
   abbrTo: pt.string
 };
 

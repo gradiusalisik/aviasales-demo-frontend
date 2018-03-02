@@ -1,6 +1,7 @@
 import React from "react";
 import { PropTypes as pt } from "prop-types";
 import { FormattedNumber } from "react-intl";
+import { cities, countries } from "../utils/library.mock";
 import {
   Container,
   Head,
@@ -19,16 +20,25 @@ const Card = props => (
     <Head>
       <Flag src={props.flag} alt={props.altFlag} />
       <Names>
-        <CityName>{props.cityName}</CityName>
-        <CountryName>{props.countryName}</CountryName>
+        <CityName>{cities[props.city].name}</CityName>
+        <CountryName>{countries[props.country].name}</CountryName>
       </Names>
     </Head>
     <Body>
       {props.list.map((info, key) => (
         <Info key={key}>
-          <FromPlace href={info.fromHref || "#"}>Из {info.from}</FromPlace>
+          <FromPlace href={info.fromHref || "#"}>
+            Из {cities[info.from].cases.ro}
+          </FromPlace>
           <Price href={info.toHref || "#"}>
-            от <FormattedNumber value={info.price} />&nbsp;₽
+            от{" "}
+            <FormattedNumber
+              value={info.price}
+              style={`currency`}
+              currency="RUB"
+              minimumFractionDigits={0}
+              maximumFractionDigits={0}
+            />
           </Price>
         </Info>
       ))}
@@ -39,8 +49,8 @@ const Card = props => (
 Card.propTypes = {
   flag: pt.string,
   altFlag: pt.string,
-  cityName: pt.string,
-  countryName: pt.string,
+  city: pt.string,
+  country: pt.string,
   list: pt.array
 };
 

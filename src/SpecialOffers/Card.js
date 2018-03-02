@@ -2,6 +2,7 @@ import React from "react";
 import { PropTypes as pt } from "prop-types";
 import { FormattedNumber } from "react-intl";
 import Button from "./Button";
+import pluralize from "pluralize-ru";
 import {
   Cards,
   Head,
@@ -31,9 +32,24 @@ const Card = props => (
           <OfferInfo>
             <Price>
               <DescriptionPrice>от</DescriptionPrice>
-              <FormattedNumber value={props.price} />&nbsp;₽
+              <FormattedNumber
+                value={props.price}
+                style={`currency`}
+                currency="RUB"
+                minimumFractionDigits={0}
+                maximumFractionDigits={0}
+              />
             </Price>
-            <DateEnd>{props.dateEnd}</DateEnd>
+            <DateEnd>
+              Осталось{" "}
+              {`${pluralize(
+                props.dateEnd,
+                "закончилось",
+                "%d день",
+                "%d дня",
+                "%d дней"
+              )}`}
+            </DateEnd>
           </OfferInfo>
         </Offer>
         <Description>{props.description}</Description>
@@ -48,8 +64,8 @@ Card.propTypes = {
   logo: pt.string,
   logoBrend: pt.string,
   altLogoBrend: pt.string,
-  price: pt.string,
-  dateEnd: pt.string,
+  price: pt.number,
+  dateEnd: pt.number,
   description: pt.node
 };
 

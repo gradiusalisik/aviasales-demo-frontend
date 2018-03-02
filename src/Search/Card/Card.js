@@ -6,6 +6,7 @@ import Proposal from "./Proposal";
 import InfoFly from "./InfoFly";
 import Logos from "../../UI/Logos";
 import Icon from "../../Icon";
+import { FormattedNumber } from "react-intl";
 import { ButtonBuy, ButtonCharters } from "../../UI/Button";
 import {
   Card as CardStyled,
@@ -52,7 +53,16 @@ const Card = props => (
         <BtnBuy>
           <ButtonBuy>
             <TextBuy>Купить</TextBuy>
-            <TextPrice>за&nbsp;{props.data.price}&nbsp;₽</TextPrice>
+            <TextPrice>
+              за&nbsp;
+              <FormattedNumber
+                value={props.data.price}
+                style={`currency`}
+                currency="RUB"
+                minimumFractionDigits={0}
+                maximumFractionDigits={0}
+              />
+            </TextPrice>
           </ButtonBuy>
         </BtnBuy>
         <TextNameShop>на&nbsp;{props.data.nameShop}</TextNameShop>
