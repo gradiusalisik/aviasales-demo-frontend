@@ -136,3 +136,27 @@
   margin: 0;
   width: 100%;
 }
+
+.DayPicker-Week
+  .DayPicker-Day--selected:first-child:not(.DayPicker-Day--outside):after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  right: 100%;
+  background-color: #f4f4f4;
+}
+
+.DayPicker-Week
+  .DayPicker-Day--selected:nth-child(7):not(.DayPicker-Day--outside):not(.DayPicker-Day--end):after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  left: 100%;
+  background-color: #f4f4f4;
+}

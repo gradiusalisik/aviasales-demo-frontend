@@ -52,21 +52,29 @@ const FormField = styled.div`
     margin-bottom: 0;
     margin-right: 2px;
     width: 100%;
-    overflow: visible;
     border-top-right-radius: 0;
   `};
 `;
 
 const From = FormField.extend`
   border-top-left-radius: 6px;
+  overflow: hidden;
 
   ${media.xl`
     max-width: 226px;
+    border-bottom-left-radius: 6px;
   `};
 `;
 
 const To = FormField.extend`
+  overflow: hidden;
+
+  ${media.md`
+    border-top-right-radius: 6px;
+  `};
+
   ${media.xl`
+    border-top-right-radius: 0;
     max-width: 226px;
   `};
 `;
@@ -135,7 +143,11 @@ export default class Forms extends Component {
           </DatePicker>
           <FormFieldLast>
             <ContentSelect>
-              <Select quantity={quantitySelect} classFly={classFly}>
+              <Select
+                quantity={quantitySelect}
+                classFly={classFly}
+                destroyBorder
+              >
                 <ChoiceQuantity
                   onChangeCheckbox={this.handleChangeClass}
                   onChangeCounter={this.handleChangeCounter}

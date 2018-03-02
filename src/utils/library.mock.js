@@ -148,3 +148,11 @@ export const cities = {
     cases: { vi: "в Новый Уренгой", ro: "Нового Уренгоя", pr: "Новом Уренгое" }
   }
 };
+
+export const partners = {
+  1: "Clickavia",
+  2: "Билетик Аэро",
+  3: "Aviakassa",
+  4: "Biletix",
+  5: "Svyaznoy Travel"
+};

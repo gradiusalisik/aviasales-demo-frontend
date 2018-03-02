@@ -8,6 +8,8 @@ import Logos from "../../UI/Logos";
 import Icon from "../../Icon";
 import { FormattedNumber } from "react-intl";
 import { ButtonBuy, ButtonCharters } from "../../UI/Button";
+import { partners } from "../../utils/library.mock";
+
 import {
   Card as CardStyled,
   LeftContent,
@@ -65,7 +67,7 @@ const Card = props => (
             </TextPrice>
           </ButtonBuy>
         </BtnBuy>
-        <TextNameShop>на&nbsp;{props.data.nameShop}</TextNameShop>
+        <TextNameShop>на&nbsp;{partners[props.data.partnerId]}</TextNameShop>
         {props.data.proposals && <Proposal list={props.data.proposals} />}
       </Info>
     </LeftContent>
@@ -73,7 +75,7 @@ const Card = props => (
       <Head>
         <Logos list={props.data.logos} />
         <Buttons>
-          {props.data.charter && <ButtonCharters>Чартер</ButtonCharters>}
+          {props.data.isCharter && <ButtonCharters>Чартер</ButtonCharters>}
           <Share>
             <IconShare>
               <Icon icon="share" />

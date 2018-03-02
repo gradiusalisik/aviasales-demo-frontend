@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import enhanceWithClickOutside from "react-click-outside";
 import Icon from "../Icon";
-import { withRouter } from "react-router-dom";
 import styled, { css } from "styled-components";
 import media from "../utils/media";
 import pluralize from "pluralize-ru";
@@ -27,7 +26,7 @@ const SelectStyled = styled.div`
     `};
 `;
 
-const Head = withRouter(styled.button`
+const Head = styled.button`
   padding: 16px;
   padding-right: 30px;
   display: flex;
@@ -42,25 +41,25 @@ const Head = withRouter(styled.button`
 
   ${media.md`
     border-bottom-left-radius: 0;
-
-    ${({ location }) =>
-      location.pathname.includes("search") &&
-      css`
-        border-bottom-right-radius: 0;
-      `}
   `};
 
   ${media.xl`
     border-top-right-radius: 6px;
     cursor: pointer;
-
-    ${({ location }) =>
-      location.pathname.includes("search") &&
-      css`
-        border-bottom-right-radius: 6px;
-      `}
   `};
-`);
+
+  ${props =>
+    props.destroyBorder &&
+    css`
+      ${media.md`
+        border-bottom-right-radius: 0;
+    `};
+
+      ${media.xl`
+        border-bottom-right-radius: 6px;
+    `};
+    `};
+`;
 
 const Body = styled.div`
   position: absolute;
@@ -122,7 +121,11 @@ class Select extends Component {
   render() {
     return (
       <SelectStyled active={this.state.active}>
-        <Head onClick={this.handleClick} type="button">
+        <Head
+          onClick={this.handleClick}
+          type="button"
+          destroyBorder={this.props.destroyBorder}
+        >
           <Text>
             {`${pluralize(
               this.props.quantity,

@@ -10,6 +10,7 @@ import Icon from "../Icon";
 import Toggle from "../UI/Toggle";
 import styled, { css } from "styled-components";
 import media from "../utils/media";
+import { FormattedNumber } from "react-intl";
 
 const Picker = styled.div`
   position: relative;
@@ -59,6 +60,7 @@ const Calendar = styled.div`
   position: absolute;
   top: 0;
   left: 0;
+  overflow: hidden;
   z-index: 1001;
   padding-left: 24px;
   padding-right: 24px;
@@ -166,18 +168,27 @@ class DataPicker extends Component {
     }));
   };
 
-  renderDay(day) {
+  renderDay(day, { selected, disabled }) {
     const date = day.getDate();
+    const month = day.getMonth();
 
     return (
       <div className="cells">
         <div className="date">{date}</div>
-        {prices[date] &&
-          prices[date].map((price, key) => (
-            <div key={key} style={price.isCheap ? priceCheapStyle : priceStyle}>
-              {price.text}
+        {!disabled &&
+          prices[month] &&
+          prices[month][date] && (
+            <div
+              style={prices[month][date].isCheap ? priceCheapStyle : priceStyle}
+            >
+              <FormattedNumber
+                value={prices[month][date].number}
+                style={`decimal`}
+                minimumFractionDigits={0}
+                maximumFractionDigits={0}
+              />
             </div>
-          ))}
+          )}
       </div>
     );
   }

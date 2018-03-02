@@ -20,7 +20,7 @@ import {
 
 export default class Forms extends Component {
   state = {
-    quantitySelect: 1,
+    quantitySelect: 0,
     isChecked: false
   };
 

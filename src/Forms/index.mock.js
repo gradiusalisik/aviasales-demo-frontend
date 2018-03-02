@@ -1,9 +1,19 @@
 export const prices = {
-  24: [{ text: "43 606" }],
-  25: [{ text: "43 606" }],
-  27: [{ text: "41 920", isCheap: true }],
-  26: [{ text: "42 140", isCheap: true }],
-  28: [{ text: "42 130", isCheap: true }]
+  0: {},
+  1: {
+    24: { number: 43606 },
+    25: { number: 43606 },
+    27: { number: 41920, isCheap: true },
+    26: { number: 42140, isCheap: true },
+    28: { number: 42130, isCheap: true }
+  },
+  2: {
+    1: { number: 43606 },
+    2: { number: 43606 },
+    3: { number: 41920, isCheap: true },
+    4: { number: 42140, isCheap: true },
+    5: { number: 42130, isCheap: true }
+  }
 };
 
 export const MONTHS = [
@@ -31,6 +41,7 @@ export const priceCheapStyle = {
 };
 
 export const priceStyle = {
+  marginTop: "5px",
   fontSize: "10px",
   textAlign: "center",
   color: "#A0B0B9",

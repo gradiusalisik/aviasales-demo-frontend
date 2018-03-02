@@ -10,7 +10,7 @@ import russia from "../images/russia.png";
 export const list = [
   {
     price: 7712,
-    nameShop: "Clickavia",
+    partnerId: 1,
     baggages: [
       {
         icon: "bag",
@@ -22,7 +22,7 @@ export const list = [
         kg: 12
       }
     ],
-    charter: true,
+    isCharter: true,
     logos: [
       {
         image: russia
@@ -47,7 +47,7 @@ export const list = [
   },
   {
     price: 8029,
-    nameShop: "Билетик Аэро",
+    partnerId: 2,
     baggages: [
       {
         icon: "bag",
@@ -83,7 +83,7 @@ export const list = [
   },
   {
     price: 8164,
-    nameShop: "Aviakassa",
+    partnerId: 3,
     tabs: [
       {
         noBaggage: true,
@@ -114,7 +114,7 @@ export const list = [
         ]
       }
     ],
-    charter: true,
+    isCharter: true,
     logos: [
       {
         image: nordwindAir
@@ -139,7 +139,7 @@ export const list = [
   },
   {
     price: 8240,
-    nameShop: "Билетик Аэро",
+    partnerId: 2,
     tabs: [
       {
         noBaggage: true,
@@ -172,18 +172,18 @@ export const list = [
     ],
     proposals: [
       {
-        name: "Clickavia",
+        partnerId: 1,
         price: 8302
       },
       {
-        name: "Aviakassa",
+        partnerId: 3,
         price: 8376
       },
       {
         showMore: "3 предложения"
       }
     ],
-    charter: true,
+    isCharter: true,
     logos: [
       {
         image: redWings
@@ -208,7 +208,7 @@ export const list = [
   },
   {
     price: 9108,
-    nameShop: "Clickavia",
+    partnerId: 1,
     baggages: [
       {
         icon: "bag",
@@ -220,7 +220,7 @@ export const list = [
         kg: 15
       }
     ],
-    charter: true,
+    isCharter: true,
     logos: [
       {
         image: redWingsSmall,
@@ -250,7 +250,7 @@ export const list = [
   },
   {
     price: 9269,
-    nameShop: "Biletix",
+    partnerId: 4,
     hotTicket: "Осталось 4 билета",
     baggages: [
       {
@@ -266,18 +266,18 @@ export const list = [
     ],
     proposals: [
       {
-        name: "Svyaznoy Travel",
+        partnerId: 5,
         price: 9275
       },
       {
-        name: "Билетик Аэро",
+        partnerId: 2,
         price: 9587
       },
       {
         showMore: "4 предложения"
       }
     ],
-    charter: true,
+    isCharter: true,
     logos: [
       {
         image: fly
@@ -302,7 +302,7 @@ export const list = [
   },
   {
     price: 9485,
-    nameShop: "Clickavia",
+    partnerId: 1,
     baggages: [
       {
         icon: "bag",
@@ -315,7 +315,7 @@ export const list = [
         kg: 15
       }
     ],
-    charter: true,
+    isCharter: true,
     logos: [
       {
         image: russiaSmall,

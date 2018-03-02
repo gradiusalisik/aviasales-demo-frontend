@@ -2,6 +2,7 @@ import React from "react";
 import { PropTypes as pt } from "prop-types";
 import { FormattedNumber } from "react-intl";
 import styled from "styled-components";
+import { partners } from "../../utils/library.mock";
 
 const ProposalStyled = styled.div`
   padding-top: 24px;
@@ -46,7 +47,7 @@ const Proposal = props => (
           <ShowMore>+ Еще {link.showMore}</ShowMore>
         ) : (
           <Link href={link.href || "#"}>
-            <Text>{link.name}</Text>
+            <Text>{partners[link.partnerId]}</Text>
             <TextMedium>
               <FormattedNumber
                 value={link.price}
