@@ -70,7 +70,6 @@ const Card = props => (
         <TextNameShop>
           на&nbsp;{partners[props.data.proposals[0].partnerId]}
         </TextNameShop>
-        {console.log(props.data.proposals)}
         {props.data.proposals.length > 1 && (
           <Proposal list={props.data.proposals.slice(1)} />
         )}
