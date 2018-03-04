@@ -150,7 +150,7 @@
 }
 
 .DayPicker-Week
-  .DayPicker-Day--selected:nth-child(7):not(.DayPicker-Day--outside):not(.DayPicker-Day--end):after {
+  .DayPicker-Day--selected:nth-child(7):not(.DayPicker-Day--outside):not(.DayPicker-Day--end):not(.DayPicker-Day--start):after {
   content: "";
   display: block;
   position: absolute;
