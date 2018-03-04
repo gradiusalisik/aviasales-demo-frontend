@@ -42,13 +42,13 @@ const Card = props => (
             </Price>
             <DateEnd>
               Осталось{" "}
-              {`${pluralize(
+              {pluralize(
                 props.dateEnd,
                 "закончилось",
                 "%d день",
                 "%d дня",
                 "%d дней"
-              )}`}
+              )}
             </DateEnd>
           </OfferInfo>
         </Offer>

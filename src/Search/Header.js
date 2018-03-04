@@ -42,13 +42,13 @@ const Header = props => (
               props.dateFrom
             )},&nbsp;
           </Date>
-          <Passenger>{`${pluralize(
+          <Passenger>{pluralize(
             props.passenger,
             "нет пассажиров",
             "%d пассажир",
             "%d пассажира",
             "%d пассажиров"
-          )}`}</Passenger>
+          )}</Passenger>
         </SubInfo>
       </InfoFly>
     </Info>

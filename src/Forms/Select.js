@@ -49,7 +49,7 @@ const Head = styled.button`
   `};
 
   ${props =>
-    props.destroyBorder &&
+    props.removalBorder &&
     css`
       ${media.md`
         border-bottom-right-radius: 0;
@@ -124,16 +124,16 @@ class Select extends Component {
         <Head
           onClick={this.handleClick}
           type="button"
-          destroyBorder={this.props.destroyBorder}
+          removalBorder={this.props.removalBorder}
         >
           <Text>
-            {`${pluralize(
+            {pluralize(
               this.props.quantity,
               "нет пассажиров",
               "%d пассажир",
               "%d пассажира",
               "%d пассажиров"
-            )}`}
+            )}
             ,&nbsp;
           </Text>
           <TextLight>{this.props.classFly}</TextLight>

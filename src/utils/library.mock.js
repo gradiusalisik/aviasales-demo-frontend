@@ -3,7 +3,7 @@ export const airports = {
     name: "Пулково",
     time_zone: "Europe/Moscow",
     country: "Россия",
-    rates: "259",
+    rates: 259,
     city: "Санкт-Петербург",
     cases: {
       vi: "в Санкт-Петербург",
@@ -15,12 +15,12 @@ export const airports = {
     name: "Домодедово",
     time_zone: "Europe/Moscow",
     country: "Россия",
-    rates: "392",
+    rates: 392,
     city: "Москва",
     cases: { vi: "в Москву", ro: "Москвы", pr: "Москве" }
   },
   SVO: {
-    rates: "307",
+    rates: 307,
     country: "Россия",
     name: "Шереметьево",
     average_rate: "3.63",
@@ -32,7 +32,7 @@ export const airports = {
     name: "Внуково",
     time_zone: "Europe/Moscow",
     country: "Россия",
-    rates: "211",
+    rates: 211,
     city: "Москва",
     cases: { vi: "в Москву", ro: "Москвы", pr: "Москве" }
   },
@@ -40,7 +40,7 @@ export const airports = {
     name: "Эль-Прат",
     time_zone: "Europe/Madrid",
     country: "Испания",
-    rates: "98",
+    rates: 98,
     city: "Барселона",
     cases: { vi: "в Барселону", ro: "Барселоны", pr: "Барселоне" }
   }

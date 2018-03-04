@@ -58,7 +58,7 @@ const Card = props => (
             <TextPrice>
               за&nbsp;
               <FormattedNumber
-                value={props.data.price}
+                value={props.data.proposals[0].price}
                 style={`currency`}
                 currency="RUB"
                 minimumFractionDigits={0}
@@ -67,8 +67,13 @@ const Card = props => (
             </TextPrice>
           </ButtonBuy>
         </BtnBuy>
-        <TextNameShop>на&nbsp;{partners[props.data.partnerId]}</TextNameShop>
-        {props.data.proposals && <Proposal list={props.data.proposals} />}
+        <TextNameShop>
+          на&nbsp;{partners[props.data.proposals[0].partnerId]}
+        </TextNameShop>
+        {console.log(props.data.proposals)}
+        {props.data.proposals.length > 1 && (
+          <Proposal list={props.data.proposals.slice(1)} />
+        )}
       </Info>
     </LeftContent>
     <RightContent>

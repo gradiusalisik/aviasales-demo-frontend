@@ -9,8 +9,6 @@ import russia from "../images/russia.png";
 
 export const list = [
   {
-    price: 7712,
-    partnerId: 1,
     baggages: [
       {
         icon: "bag",
@@ -20,6 +18,12 @@ export const list = [
         icon: "suitcase",
         type: "suitcase",
         kg: 12
+      }
+    ],
+    proposals: [
+      {
+        partnerId: 1,
+        price: 7712
       }
     ],
     isCharter: true,
@@ -46,8 +50,6 @@ export const list = [
     ]
   },
   {
-    price: 8029,
-    partnerId: 2,
     baggages: [
       {
         icon: "bag",
@@ -79,11 +81,15 @@ export const list = [
         abbrTo: "SVO",
         dateTo: 1520090100000
       }
+    ],
+    proposals: [
+      {
+        partnerId: 2,
+        price: 8029
+      }
     ]
   },
   {
-    price: 8164,
-    partnerId: 3,
     tabs: [
       {
         noBaggage: true,
@@ -135,11 +141,15 @@ export const list = [
         abbrTo: "SVO",
         dateTo: 1520090100000
       }
+    ],
+    proposals: [
+      {
+        partnerId: 3,
+        price: 8164
+      }
     ]
   },
   {
-    price: 8240,
-    partnerId: 2,
     tabs: [
       {
         noBaggage: true,
@@ -171,6 +181,10 @@ export const list = [
       }
     ],
     proposals: [
+      {
+        partnerId: 2,
+        price: 8240
+      },
       {
         partnerId: 1,
         price: 8302
@@ -207,8 +221,6 @@ export const list = [
     ]
   },
   {
-    price: 9108,
-    partnerId: 1,
     baggages: [
       {
         icon: "bag",
@@ -246,11 +258,15 @@ export const list = [
         abbrTo: "SVO",
         dateTo: 1520089800000
       }
+    ],
+    proposals: [
+      {
+        partnerId: 1,
+        price: 9108
+      }
     ]
   },
   {
-    price: 9269,
-    partnerId: 4,
     hotTicket: "Осталось 4 билета",
     baggages: [
       {
@@ -265,6 +281,10 @@ export const list = [
       }
     ],
     proposals: [
+      {
+        partnerId: 4,
+        price: 9269
+      },
       {
         partnerId: 5,
         price: 9275
@@ -301,8 +321,6 @@ export const list = [
     ]
   },
   {
-    price: 9485,
-    partnerId: 1,
     baggages: [
       {
         icon: "bag",
@@ -340,6 +358,12 @@ export const list = [
         abbrFrom: "BCN",
         abbrTo: "SVO",
         dateTo: 1520091300000
+      }
+    ],
+    proposals: [
+      {
+        partnerId: 1,
+        price: 9485
       }
     ]
   }
