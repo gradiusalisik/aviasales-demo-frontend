@@ -1,5 +1,5 @@
-import React from "react";
-import { Form, Field, Input, Button } from "./styled";
+import React from 'react';
+import { Form, Field, Input, Button } from './styled';
 
 export default () => (
   <Form action="#" method="GET">

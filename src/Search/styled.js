@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
-import Icon from "../Icon";
-import styled, { css } from "styled-components";
-import media from "../utils/media";
+import { Link } from 'react-router-dom';
+import styled, { css } from 'styled-components';
+import Icon from '../Icon';
+import media from '../utils/media';
 
 // ** index.js **
 export const SearchStyled = styled.div``;
@@ -129,7 +129,7 @@ export const Scroll = styled.button`
 
   ${media.xl`
     ${props =>
-      props.active &&
+    props.active &&
       css`
         display: flex;
       `}

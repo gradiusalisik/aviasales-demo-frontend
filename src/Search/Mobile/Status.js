@@ -1,6 +1,6 @@
-import React from "react";
-import { PropTypes as pt } from "prop-types";
-import styled from "styled-components";
+import React from 'react';
+import { PropTypes as pt } from 'prop-types';
+import styled from 'styled-components';
 
 const StatusStyled = styled.div`
   padding: 8px 6px;
@@ -24,7 +24,13 @@ const Status = props => (
 Status.propTypes = {
   color: pt.string,
   text: pt.string,
-  icon: pt.string
+  icon: pt.string,
+};
+
+Status.defaultProps = {
+  color: '',
+  text: '',
+  icon: '',
 };
 
 export default Status;

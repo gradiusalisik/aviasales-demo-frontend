@@ -1,7 +1,7 @@
-import React from "react";
-import { PropTypes as pt } from "prop-types";
-import styled from "styled-components";
-import media from "../utils/media";
+import React from 'react';
+import { PropTypes as pt } from 'prop-types';
+import styled from 'styled-components';
+import media from '../utils/media';
 
 const ButtonStyled = styled.a`
   padding-top: 8px;
@@ -34,11 +34,12 @@ const Button = props => (
 
 Button.propTypes = {
   text: pt.string,
-  href: pt.string
+  href: pt.string,
 };
 
 Button.defaultProps = {
-  href: "#"
+  href: '#',
+  text: '',
 };
 
 export default Button;

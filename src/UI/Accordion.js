@@ -1,8 +1,8 @@
-import React from "react";
-import { PropTypes as pt } from "prop-types";
-import styled from "styled-components";
-import Collapsible from "react-collapsible";
-import Icon from "../Icon";
+import React from 'react';
+import { PropTypes as pt } from 'prop-types';
+import styled from 'styled-components';
+import Collapsible from 'react-collapsible';
+import Icon from '../Icon';
 
 const Accordions = styled.div`
   .Collapsible {
@@ -80,7 +80,14 @@ Accordion.propTypes = {
   open: pt.bool,
   text: pt.string,
   quantity: pt.number,
-  children: pt.node
+  children: pt.node,
+};
+
+Accordion.defaultProps = {
+  open: false,
+  text: '',
+  quantity: null,
+  children: null,
 };
 
 export default Accordion;

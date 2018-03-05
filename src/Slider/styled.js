@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import media from "../utils/media";
-import Icon from "../Icon";
+import styled from 'styled-components';
+import media from '../utils/media';
+import Icon from '../Icon';
 
 export const Slider = styled.div`
   ${media.xl`
@@ -66,7 +66,7 @@ export const Bullets = styled.div`
 export const Bullet = styled.button`
   width: 10px;
   height: 10px;
-  background-color: ${props => (props.active ? "#818181" : "transparent")};
+  background-color: ${props => (props.active ? '#818181' : 'transparent')};
   border: 1px solid #818181;
   border-radius: 50%;
 

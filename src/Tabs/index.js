@@ -1,11 +1,11 @@
-import React from "react";
-import { PropTypes as pt } from "prop-types";
-import { TabsContent, Tab, Logo, LogoImage, Text } from "./styled";
+import React from 'react';
+import { PropTypes as pt } from 'prop-types';
+import { TabsContent, Tab, Logo, LogoImage, Text } from './styled';
 
 const Tabs = props => (
   <TabsContent>
-    {props.list.map((tab, key) => (
-      <Tab active={tab.active} key={key}>
+    {props.list.map(tab => (
+      <Tab active={tab.active} key={tab.id}>
         <Logo>
           <LogoImage icon={tab.icon} />
         </Logo>
@@ -16,7 +16,11 @@ const Tabs = props => (
 );
 
 Tabs.propTypes = {
-  list: pt.array
+  list: pt.arrayOf(pt.shape({})),
+};
+
+Tabs.defaultProps = {
+  list: [],
 };
 
 export default Tabs;

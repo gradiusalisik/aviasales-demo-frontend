@@ -1,18 +1,13 @@
-import React, { PureComponent } from "react";
-import Helmet from "react-helmet";
-import FirstScreen from "./FirstScreen";
-import CardListMobile from "./Mobile/CardList";
-import CardList from "./Card";
-import Icon from "../Icon";
-import Filter from "./Filter";
-import { animateScroll as scroll } from "react-scroll";
+import React, { PureComponent } from 'react';
+import Helmet from 'react-helmet';
+import { animateScroll as scroll } from 'react-scroll';
+import FirstScreen from './FirstScreen';
+import CardListMobile from './Mobile/CardList';
+import CardList from './Card';
+import Icon from '../Icon';
+import Filter from './Filter';
 
-import {
-  ButtonUp,
-  ButtonFilter,
-  ButtonFilterSmall,
-  ButtonShowMore
-} from "../UI/Button";
+import { ButtonUp, ButtonFilter, ButtonFilterSmall, ButtonShowMore } from '../UI/Button';
 import {
   SearchStyled,
   Content,
@@ -28,26 +23,26 @@ import {
   Container,
   RightColumn,
   Scroll,
-  IconScroll
-} from "./styled";
+  IconScroll,
+} from './styled';
 
 export default class Search extends PureComponent {
   state = {
-    isActiveScroll: false
+    isActiveScroll: false,
   };
 
   componentDidMount() {
-    window.addEventListener("scroll", this.handleScroll);
+    window.addEventListener('scroll', this.handleScroll);
   }
 
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.handleScroll);
+    window.removeEventListener('scroll', this.handleScroll);
   }
 
   handleScroll = () => {
     const isActiveScroll = window.pageYOffset > 90;
     this.setState({
-      isActiveScroll
+      isActiveScroll,
     });
   };
 
@@ -68,10 +63,7 @@ export default class Search extends PureComponent {
               <Filter />
             </Filters>
             <Content>
-              <ButtonsUp
-                onClick={this.handleScrollTop}
-                active={this.state.isActiveScroll}
-              >
+              <ButtonsUp onClick={this.handleScrollTop} active={this.state.isActiveScroll}>
                 <ButtonUp>Наверх</ButtonUp>
               </ButtonsUp>
               <BtnFilterSmall>
@@ -97,10 +89,7 @@ export default class Search extends PureComponent {
             <RightColumn />
           </Container>
         </Section>
-        <Scroll
-          onClick={this.handleScrollTop}
-          active={this.state.isActiveScroll}
-        >
+        <Scroll onClick={this.handleScrollTop} active={this.state.isActiveScroll}>
           <IconScroll icon="scroll" />
         </Scroll>
       </SearchStyled>

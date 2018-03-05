@@ -1,8 +1,8 @@
-import React from "react";
-import { PropTypes as pt } from "prop-types";
-import { FormattedNumber } from "react-intl";
-import Button from "./Button";
-import pluralize from "pluralize-ru";
+import React from 'react';
+import pluralize from 'pluralize-ru';
+import { PropTypes as pt } from 'prop-types';
+import { FormattedNumber } from 'react-intl';
+import Button from './Button';
 import {
   Cards,
   Head,
@@ -16,8 +16,8 @@ import {
   Price,
   DateEnd,
   DescriptionPrice,
-  Description
-} from "./styled";
+  Description,
+} from './styled';
 
 const Card = props => (
   <Cards>
@@ -34,21 +34,14 @@ const Card = props => (
               <DescriptionPrice>от</DescriptionPrice>
               <FormattedNumber
                 value={props.price}
-                style={`currency`}
+                style={['currency']}
                 currency="RUB"
                 minimumFractionDigits={0}
                 maximumFractionDigits={0}
               />
             </Price>
             <DateEnd>
-              Осталось{" "}
-              {pluralize(
-                props.dateEnd,
-                "закончилось",
-                "%d день",
-                "%d дня",
-                "%d дней"
-              )}
+              Осталось {pluralize(props.dateEnd, 'закончилось', '%d день', '%d дня', '%d дней')}
             </DateEnd>
           </OfferInfo>
         </Offer>
@@ -66,7 +59,17 @@ Card.propTypes = {
   altLogoBrend: pt.string,
   price: pt.number,
   dateEnd: pt.number,
-  description: pt.node
+  description: pt.node,
+};
+
+Card.defaultProps = {
+  text: '',
+  logo: '',
+  logoBrend: '',
+  altLogoBrend: '',
+  price: null,
+  dateEnd: null,
+  description: null,
 };
 
 export default Card;

@@ -1,11 +1,11 @@
 import React from 'react';
 import { PropTypes as pt } from 'prop-types';
+import { FormattedNumber } from 'react-intl';
 import Logos from '../../UI/Logos';
 import InfoFly from './InfoFly';
-import { FormattedNumber } from 'react-intl';
 import { Card as CardStyled, Head, PriceCard as Price, Body } from './styled';
 
-export const Card = props => (
+const Card = props => (
   <CardStyled>
     <Head>
       <Price>
@@ -40,16 +40,16 @@ export const Card = props => (
 
 Card.propTypes = {
   price: pt.number,
-  logos: pt.array,
-  fromFly: pt.object,
-  backFly: pt.object
+  logos: pt.arrayOf(pt.shape({})),
+  fromFly: pt.shape(),
+  backFly: pt.shape(),
 };
 
 Card.defaultProps = {
   price: 0,
   logos: [],
   fromFly: {},
-  backFly: {}
+  backFly: {},
 };
 
 export default Card;

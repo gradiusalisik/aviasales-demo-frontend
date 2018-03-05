@@ -1,6 +1,6 @@
-import styled, { css } from "styled-components";
-import media from "../utils/media";
-import Icon from "../Icon";
+import styled, { css } from 'styled-components';
+import media from '../utils/media';
+import Icon from '../Icon';
 
 export const TabsContent = styled.div`
   display: flex;
@@ -18,6 +18,37 @@ export const TabsContent = styled.div`
   `};
 `;
 
+export const Logo = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  background-color: #fff;
+  border-radius: 50%;
+  color: #a0b0b9;
+  box-shadow: 0px 2px 4px rgba(74, 74, 74, 0.1);
+  transition: box-shadow 0.3s, transform 0.3s, color 0.3s;
+  transform: translateY(0);
+`;
+
+export const LogoImage = styled(Icon)`
+  width: 22px;
+  height: 22px;
+  color: currentColor;
+`;
+
+export const Text = styled.span`
+  font-size: 12px;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: #00ace2;
+  transition: color 0.3s;
+`;
+
 export const Tab = styled.a`
   margin-bottom: 24px;
   display: block;
@@ -32,7 +63,7 @@ export const Tab = styled.a`
 
   ${media.xl`
     ${props =>
-      props.active ||
+    props.active ||
       css`
         cursor: pointer;
 
@@ -70,40 +101,9 @@ export const Tab = styled.a`
           left: 0;
           width: 100%;
           height: 1px;
-          content: "";
+          content: '';
           background-color: #00ace2;
         }
       }
     `};
-`;
-
-export const Logo = styled.div`
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 48px;
-  height: 48px;
-  background-color: #fff;
-  border-radius: 50%;
-  color: #a0b0b9;
-  box-shadow: 0px 2px 4px rgba(74, 74, 74, 0.1);
-  transition: box-shadow 0.3s, transform 0.3s, color 0.3s;
-  transform: translateY(0);
-`;
-
-export const LogoImage = styled(Icon)`
-  width: 22px;
-  height: 22px;
-  color: currentColor;
-`;
-
-export const Text = styled.span`
-  font-size: 12px;
-  line-height: 20px;
-  text-transform: uppercase;
-  color: #00ace2;
-  transition: color 0.3s;
 `;

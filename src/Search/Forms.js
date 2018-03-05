@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import Field from "../Forms/Field";
-import DataPicker from "../Forms/DataPicker";
-import Select from "../Forms/Select";
-import ChoiceQuantity from "../Forms/ChoiceQuantity";
-import { ButtonSearch } from "../UI/Button";
-import styled from "styled-components";
-import media from "../utils/media";
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import Field from '../Forms/Field';
+import DataPicker from '../Forms/DataPicker';
+import Select from '../Forms/Select';
+import ChoiceQuantity from '../Forms/ChoiceQuantity';
+import { ButtonSearch } from '../UI/Button';
+import media from '../utils/media';
 
 const FormsStyled = styled.form`
   width: 100%;
@@ -108,24 +108,24 @@ const ContentSelect = styled.div`
 export default class Forms extends Component {
   state = {
     quantitySelect: 1,
-    isChecked: false
+    isChecked: false,
   };
 
   handleChangeClass = () => {
     this.setState(state => ({
-      isChecked: !state.isChecked
+      isChecked: !state.isChecked,
     }));
   };
 
-  handleChangeCounter = delta => {
+  handleChangeCounter = (delta) => {
     this.setState(state => ({
-      quantitySelect: state.quantitySelect + delta
+      quantitySelect: state.quantitySelect + delta,
     }));
   };
 
   render() {
     const { isChecked, quantitySelect } = this.state;
-    const classFly = isChecked ? "бизнес" : "эконом";
+    const classFly = isChecked ? 'бизнес' : 'эконом';
 
     return (
       <FormsStyled action="#" method="GET">
@@ -143,11 +143,7 @@ export default class Forms extends Component {
           </DatePicker>
           <FormFieldLast>
             <ContentSelect>
-              <Select
-                quantity={quantitySelect}
-                classFly={classFly}
-                removalBorder
-              >
+              <Select quantity={quantitySelect} classFly={classFly} removalBorder>
                 <ChoiceQuantity
                   onChangeCheckbox={this.handleChangeClass}
                   onChangeCounter={this.handleChangeCounter}

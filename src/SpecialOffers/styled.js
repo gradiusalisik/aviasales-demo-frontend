@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import media from "../utils/media";
+import styled from 'styled-components';
+import media from '../utils/media';
 // index.js
 
 export const Content = styled.div`
@@ -63,12 +63,12 @@ export const Link = styled.a`
     left: 0;
     width: 100%;
     height: 1px;
-    content: "";
+    content: '';
     background-color: #fff;
   }
 `;
 
-const TextSub = Link.withComponent("p");
+const TextSub = Link.withComponent('p');
 export const SubText = TextSub.extend`
   &::before {
     display: none;
