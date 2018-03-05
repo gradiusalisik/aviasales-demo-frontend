@@ -1,7 +1,7 @@
-import React from "react";
-import { PropTypes as pt } from "prop-types";
-import styled from "styled-components";
-import Checkbox from "../../UI/Checkbox";
+import React from 'react';
+import { PropTypes as pt } from 'prop-types';
+import styled from 'styled-components';
+import Checkbox from '../../UI/Checkbox';
 
 const CheckboxesStyled = styled.div`
   &:not(:last-child) {
@@ -31,7 +31,7 @@ const Content = styled.div`
 const Checkboxes = props => (
   <CheckboxesStyled>
     {!!props.title && <Title>{props.title}</Title>}
-    {props.list.map((checkbox, key) => (
+    {props.list.map(checkbox => (
       <Content key={checkbox.id}>
         <Checkbox
           id={checkbox.id}
@@ -45,7 +45,11 @@ const Checkboxes = props => (
 );
 
 Checkboxes.propTypes = {
-  list: pt.array
+  list: pt.arrayOf(pt.shape({})),
+};
+
+Checkboxes.defaultProps = {
+  list: [],
 };
 
 export default Checkboxes;

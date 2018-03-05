@@ -1,11 +1,11 @@
-import React from "react";
-import { PropTypes as pt } from "prop-types";
-import styled from "styled-components";
-import Range from "../../UI/Range";
-import Icon from "../../Icon";
-import format from "date-fns/format";
-import ruLocale from "date-fns/locale/ru";
-import { cities } from "../../utils/library.mock";
+import React from 'react';
+import { PropTypes as pt } from 'prop-types';
+import format from 'date-fns/format';
+import ruLocale from 'date-fns/locale/ru';
+import styled from 'styled-components';
+import Range from '../../UI/Range';
+import Icon from '../../Icon';
+import { cities } from '../../utils/library.mock';
 
 const TimeFlyStyled = styled.div`
   margin-top: -4px;
@@ -62,7 +62,7 @@ const Dates = styled.div`
   align-items: center;
 `;
 
-const formatDate = date => format(date, "HH:mm, D MMM", { locale: ruLocale });
+const formatDate = date => format(date, 'HH:mm, D MMM', { locale: ruLocale });
 
 const TimeFly = props => (
   <TimeFlyStyled>
@@ -102,24 +102,30 @@ TimeFly.propTypes = {
   from: pt.string,
   outLeftDate: pt.number,
   outRightDate: pt.number,
-  outRange: pt.object,
+  outRange: pt.shape(),
+  inRange: pt.shape(),
   to: pt.string,
   inLeftDate: pt.number,
   inRightDate: pt.number,
-  inRange: pt.object
 };
 
 TimeFly.defaultProps = {
+  from: '',
+  outLeftDate: null,
+  outRightDate: null,
+  to: '',
+  inLeftDate: null,
+  inRightDate: null,
   outRange: {
     min: 0,
     max: 20,
-    defaultValue: [0, 20]
+    defaultValue: [0, 20],
   },
   inRange: {
     min: 0,
     max: 20,
-    defaultValue: [0, 20]
-  }
+    defaultValue: [0, 20],
+  },
 };
 
 export default TimeFly;

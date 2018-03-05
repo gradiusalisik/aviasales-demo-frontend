@@ -1,16 +1,16 @@
-import React, { Component } from "react";
-import enhanceWithClickOutside from "react-click-outside";
-import format from "date-fns/format";
-import ruLocale from "date-fns/locale/ru";
-import { DateUtils } from "react-day-picker";
-import { prices, priceCheapStyle, priceStyle } from "./index.mock";
-import Field from "./Field";
-import DayPicker from "./DayPicker";
-import Icon from "../Icon";
-import Toggle from "../UI/Toggle";
-import styled, { css } from "styled-components";
-import media from "../utils/media";
-import { FormattedNumber } from "react-intl";
+import React, { Component } from 'react';
+import enhanceWithClickOutside from 'react-click-outside';
+import format from 'date-fns/format';
+import ruLocale from 'date-fns/locale/ru';
+import styled, { css } from 'styled-components';
+import { DateUtils } from 'react-day-picker';
+import { FormattedNumber } from 'react-intl';
+import { prices, priceCheapStyle, priceStyle } from './index.mock';
+import Field from './Field';
+import DayPicker from './DayPicker';
+import Icon from '../Icon';
+import Toggle from '../UI/Toggle';
+import media from '../utils/media';
 
 const Picker = styled.div`
   position: relative;
@@ -65,7 +65,7 @@ const Calendar = styled.div`
   padding-left: 24px;
   padding-right: 24px;
   padding-bottom: 16px;
-  display: ${props => (props.isOpen ? "block" : "none")};
+  display: ${props => (props.isOpen ? 'block' : 'none')};
   width: 100%;
   background-color: #fff;
   box-shadow: 0px 0px 8px rgba(74, 74, 74, 0.2),
@@ -114,61 +114,61 @@ class DataPicker extends Component {
   state = {
     openPicker: undefined,
     from: new Date(),
-    to: "",
+    to: '',
     isChecked: false,
-    enteredTo: ""
+    enteredTo: '',
   };
 
   handleClickDay = name => () => {
     this.setState({ openPicker: name });
   };
 
-  handleDaySelectionFrom = day => {
+  handleDaySelectionFrom = (day) => {
     this.setState({
       from: day,
-      to: "",
-      enteredTo: "",
-      openPicker: "to"
+      to: '',
+      enteredTo: '',
+      openPicker: 'to',
     });
   };
 
-  handleDaySelectionTo = day => {
+  handleDaySelectionTo = (day) => {
     this.setState({
       to: day,
       enteredTo: day,
-      openPicker: undefined
+      openPicker: undefined,
     });
   };
 
   handleClickOutside = () => {
     this.setState({
-      openPicker: undefined
+      openPicker: undefined,
     });
   };
 
   clearArrivalDate = () => {
-    this.setState({ to: "" });
+    this.setState({ to: '' });
   };
 
   formatted = date =>
-    date && format(new Date(date), "D MMMM, dd", { locale: ruLocale });
+    date && format(new Date(date), 'D MMMM, dd', { locale: ruLocale });
 
-  handleDayMouseEnter = day => {
+  handleDayMouseEnter = (day) => {
     const { from, to } = this.state;
     if (!isSelectingFirstDay(from, to, day)) {
       this.setState({
-        enteredTo: day
+        enteredTo: day,
       });
     }
   };
 
   handleToggle = () => {
     this.setState(state => ({
-      isChecked: !state.isChecked
+      isChecked: !state.isChecked,
     }));
   };
 
-  renderDay(day, { selected, disabled }) {
+  renderDay = (day, { disabled }) => {
     const date = day.getDate();
     const month = day.getMonth();
 
@@ -183,7 +183,7 @@ class DataPicker extends Component {
             >
               <FormattedNumber
                 value={prices[month][date].number}
-                style={`decimal`}
+                style={['decimal']}
                 minimumFractionDigits={0}
                 maximumFractionDigits={0}
               />
@@ -194,7 +194,10 @@ class DataPicker extends Component {
   }
 
   render() {
-    const { from, to, openPicker, enteredTo } = this.state;
+    const {
+      from, to,
+      openPicker, enteredTo,
+    } = this.state;
     const modifiers = { start: from, end: to };
     const fromFormatted = this.formatted(from);
     const toFormatted = this.formatted(to);
@@ -206,18 +209,18 @@ class DataPicker extends Component {
           <Departure>
             <DepartureField
               placeholder="Туда"
-              onClick={this.handleClickDay("from")}
+              onClick={this.handleClickDay('from')}
               value={fromFormatted}
             />
             <IconCalendar
               icon="calendar"
-              onClick={this.handleClickDay("from")}
+              onClick={this.handleClickDay('from')}
             />
           </Departure>
           <Arrival disabled={this.state.isChecked}>
             <ArrivalField
               placeholder="Обратно"
-              onClick={this.handleClickDay("to")}
+              onClick={this.handleClickDay('to')}
               value={toFormatted}
             />
             {to ? (
@@ -227,12 +230,12 @@ class DataPicker extends Component {
             ) : (
               <IconCalendar
                 icon="calendar"
-                onClick={this.handleClickDay("to")}
+                onClick={this.handleClickDay('to')}
               />
             )}
           </Arrival>
         </Container>
-        <Calendar isOpen={openPicker === "from"}>
+        <Calendar isOpen={openPicker === 'from'}>
           <DayPickerStyled
             className="dataPickers"
             onDayClick={this.handleDaySelectionFrom}
@@ -248,7 +251,7 @@ class DataPicker extends Component {
             onChange={this.handleToggle}
           />
         </Calendar>
-        <Calendar isOpen={openPicker === "to"}>
+        <Calendar isOpen={openPicker === 'to'}>
           <DayPickerStyled
             className="dataPickers"
             onDayClick={this.handleDaySelectionTo}

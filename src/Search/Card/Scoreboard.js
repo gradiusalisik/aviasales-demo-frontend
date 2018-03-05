@@ -1,9 +1,9 @@
-import React from "react";
-import { PropTypes as pt } from "prop-types";
-import styled from "styled-components";
-import from from "./images/from.svg";
-import to from "./images/to.svg";
-import { airports } from "../../utils/library.mock";
+import React from 'react';
+import { PropTypes as pt } from 'prop-types';
+import styled from 'styled-components';
+import from from './images/from.svg';
+import to from './images/to.svg';
+import { airports } from '../../utils/library.mock';
 
 const Path = styled.div`
   padding-top: 5px;
@@ -98,9 +98,7 @@ const Scoreboard = props => (
     <TotalTime>Всего:&nbsp;{props.time}</TotalTime>
     <Stops>
       <PlaneFrom>
-        <PathFrom title={airports[props.abbrFrom].city}>
-          {props.abbrFrom}
-        </PathFrom>
+        <PathFrom title={airports[props.abbrFrom].city}>{props.abbrFrom}</PathFrom>
         <DotLeft />
       </PlaneFrom>
       <PlaneTo>
@@ -115,7 +113,13 @@ const Scoreboard = props => (
 Scoreboard.propTypes = {
   time: pt.string,
   abbrFrom: pt.string,
-  abbrTo: pt.string
+  abbrTo: pt.string,
+};
+
+Scoreboard.defaultProps = {
+  time: '',
+  abbrFrom: '',
+  abbrTo: '',
 };
 
 export default Scoreboard;

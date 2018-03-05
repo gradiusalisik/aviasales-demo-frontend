@@ -1,12 +1,12 @@
-import React from "react";
-import styled from "styled-components";
-import Accordion from "../../UI/Accordion";
-import Checkboxes from "./Checkboxes";
-import TimeFly from "./TimeFly";
-import TimePath from "./TimePath";
-import Checkbox from "../../UI/Checkbox";
-import Icon from "../../Icon";
-import { list } from "./index.mock";
+import React from 'react';
+import styled from 'styled-components';
+import Accordion from '../../UI/Accordion';
+import Checkboxes from './Checkboxes';
+import TimeFly from './TimeFly';
+import TimePath from './TimePath';
+import Checkbox from '../../UI/Checkbox';
+import Icon from '../../Icon';
+import list from './index.mock';
 
 const Accordions = styled.div``;
 
@@ -106,12 +106,11 @@ export default () => (
       <Info>
         <Checkbox id="several-company" label="Несколько авиакомпаний" />
         <Description>
-          Показывать билеты с перелетами, выполняемыми несколькими
-          авиакомпаниями, включая выбранную
+          Показывать билеты с перелетами, выполняемыми несколькими авиакомпаниями, включая выбранную
         </Description>
       </Info>
-      {list.airCompany.map((data, key) => (
-        <Checkboxes key={key} list={data.list} title={data.title} />
+      {list.airCompany.map(data => (
+        <Checkboxes key={data.id} list={data.list} title={data.title} />
       ))}
     </Accordion>
     <Accordion text="аэропорты">in Future</Accordion>

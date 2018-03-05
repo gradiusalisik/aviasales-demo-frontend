@@ -1,8 +1,8 @@
-import React from "react";
-import { PropTypes as pt } from "prop-types";
-import { Link } from "react-router-dom";
-import Icon from "../Icon";
-import styled from "styled-components";
+import React from 'react';
+import { PropTypes as pt } from 'prop-types';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import Icon from '../Icon';
 
 const LinkSearchStyled = styled(Link)`
   padding-top: 15px;
@@ -51,9 +51,13 @@ const LinkSearch = props => (
 );
 
 LinkSearch.propTypes = {
-  type: pt.string,
   text: pt.string,
-  icon: pt.string
+  icon: pt.string,
+};
+
+LinkSearch.defaultProps = {
+  text: '',
+  icon: '',
 };
 
 export default LinkSearch;

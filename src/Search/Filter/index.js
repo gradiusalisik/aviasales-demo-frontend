@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import Accordions from "./Accordions";
-import Icon from "../../Icon";
+import React from 'react';
+import styled from 'styled-components';
+import Accordions from './Accordions';
+import Icon from '../../Icon';
 
 const Filter = styled.div`
   position: relative;

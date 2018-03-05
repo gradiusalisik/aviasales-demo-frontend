@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import Field from "./Field";
-import DataPicker from "./DataPicker";
-import Select from "./Select";
-import ChoiceQuantity from "./ChoiceQuantity";
-import LinkSearch from "./LinkSearch";
+import React, { Component } from 'react';
+import Field from './Field';
+import DataPicker from './DataPicker';
+import Select from './Select';
+import ChoiceQuantity from './ChoiceQuantity';
+import LinkSearch from './LinkSearch';
 import {
   FormsStyled,
   Title,
@@ -15,30 +15,30 @@ import {
   From,
   To,
   LinkContent,
-  Container
-} from "./styled";
+  Container,
+} from './styled';
 
 export default class Forms extends Component {
   state = {
     quantitySelect: 0,
-    isChecked: false
+    isChecked: false,
   };
 
   handleChangeClass = () => {
     this.setState(state => ({
-      isChecked: !state.isChecked
+      isChecked: !state.isChecked,
     }));
   };
 
-  handleChangeCounter = delta => {
+  handleChangeCounter = (delta) => {
     this.setState(state => ({
-      quantitySelect: state.quantitySelect + delta
+      quantitySelect: state.quantitySelect + delta,
     }));
   };
 
   render() {
     const { isChecked, quantitySelect } = this.state;
-    const classFly = isChecked ? "бизнес" : "эконом";
+    const classFly = isChecked ? 'бизнес' : 'эконом';
     return (
       <FormsStyled action="#" method="GET">
         <Title>Поиск дешевых авиабилетов</Title>

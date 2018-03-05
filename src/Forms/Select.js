@@ -1,30 +1,9 @@
-import React, { Component } from "react";
-import enhanceWithClickOutside from "react-click-outside";
-import Icon from "../Icon";
-import styled, { css } from "styled-components";
-import media from "../utils/media";
-import pluralize from "pluralize-ru";
-
-const SelectStyled = styled.div`
-  position: relative;
-
-  ${props =>
-    props.active &&
-    css`
-      ${Head} {
-        box-shadow: 0 0 0 2px #ff8e41;
-      }
-
-      ${Body} {
-        opacity: 1;
-        transform: scaleY(1);
-      }
-
-      ${IconSelect} {
-        transform: rotate(180deg);
-      }
-    `};
-`;
+import React, { Component } from 'react';
+import enhanceWithClickOutside from 'react-click-outside';
+import styled, { css } from 'styled-components';
+import pluralize from 'pluralize-ru';
+import Icon from '../Icon';
+import media from '../utils/media';
 
 const Head = styled.button`
   padding: 16px;
@@ -101,38 +80,55 @@ const IconSelect = styled(Icon)`
   height: 100%;
 `;
 
+const SelectStyled = styled.div`
+  position: relative;
+
+  ${props =>
+    props.active &&
+    css`
+      ${Head} {
+        box-shadow: 0 0 0 2px #ff8e41;
+      }
+
+      ${Body} {
+        opacity: 1;
+        transform: scaleY(1);
+      }
+
+      ${IconSelect} {
+        transform: rotate(180deg);
+      }
+    `};
+`;
+
 class Select extends Component {
   state = {
-    active: false
+    active: false,
   };
 
   handleClick = () => {
     this.setState(state => ({
-      active: !state.active
+      active: !state.active,
     }));
   };
 
   handleClickOutside = () => {
     this.setState({
-      active: false
+      active: false,
     });
   };
 
   render() {
     return (
       <SelectStyled active={this.state.active}>
-        <Head
-          onClick={this.handleClick}
-          type="button"
-          removalBorder={this.props.removalBorder}
-        >
+        <Head onClick={this.handleClick} type="button" removalBorder={this.props.removalBorder}>
           <Text>
             {pluralize(
               this.props.quantity,
-              "нет пассажиров",
-              "%d пассажир",
-              "%d пассажира",
-              "%d пассажиров"
+              'нет пассажиров',
+              '%d пассажир',
+              '%d пассажира',
+              '%d пассажиров',
             )}
             ,&nbsp;
           </Text>

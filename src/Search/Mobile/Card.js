@@ -1,9 +1,9 @@
-import React from "react";
-import { PropTypes as pt } from "prop-types";
-import Logos from "../../UI/Logos";
-import InfoFly from "./InfoFly";
-import { FormattedNumber } from "react-intl";
-import { Card as CardStyled, Head, PriceCard as Price, Body } from "./styled";
+import React from 'react';
+import { PropTypes as pt } from 'prop-types';
+import Logos from '../../UI/Logos';
+import InfoFly from './InfoFly';
+import { FormattedNumber } from 'react-intl';
+import { Card as CardStyled, Head, PriceCard as Price, Body } from './styled';
 
 export const Card = props => (
   <CardStyled>
@@ -11,7 +11,7 @@ export const Card = props => (
       <Price>
         <FormattedNumber
           value={props.price}
-          style={`currency`}
+          style={['currency']}
           currency="RUB"
           minimumFractionDigits={0}
           maximumFractionDigits={0}

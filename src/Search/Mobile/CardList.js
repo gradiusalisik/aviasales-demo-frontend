@@ -1,9 +1,9 @@
-import React from "react";
-import Card from "./Card";
-import Status from "./Status";
-import styled from "styled-components";
-import media from "../../utils/media";
-import { list } from "./index.mock";
+import React from 'react';
+import Card from './Card';
+import Status from './Status';
+import styled from 'styled-components';
+import media from '../../utils/media';
+import { list } from './index.mock';
 
 const CardList = styled.div`
   ${media.md`
@@ -15,8 +15,8 @@ const Content = styled.div``;
 
 export default () => (
   <CardList>
-    {list.map((info, key) => (
-      <Content key={key}>
+    {list.map(info => (
+      <Content key={info.id}>
         {!!info.status && (
           <Status
             text={info.status.text}

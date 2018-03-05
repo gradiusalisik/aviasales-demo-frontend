@@ -1,7 +1,7 @@
-import React from "react";
-import styled, { css } from "styled-components";
-import { PropTypes as pt } from "prop-types";
-import Icon from "../../Icon";
+import React from 'react';
+import styled, { css } from 'styled-components';
+import { PropTypes as pt } from 'prop-types';
+import Icon from '../../Icon';
 
 const BaggageStyled = styled.div``;
 
@@ -12,18 +12,28 @@ const Types = styled.div`
   align-items: flex-end;
 `;
 
+const Text = styled.span`
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  font-size: 10px;
+  font-weight: 700;
+  color: currentColor;
+  transform: translateX(-50%);
+`;
+
 const Bag = styled.div`
   position: relative;
   width: 19px;
   height: 20px;
-  color: ${props => props.color || "#9AB0B9"};
+  color: ${props => props.color || '#9AB0B9'};
 
   &:not(:last-child) {
     margin-right: 4px;
   }
 
   ${props =>
-    props.type === "suitcase" &&
+    props.type === 'suitcase' &&
     css`
       width: 17px;
       height: 23px;
@@ -40,16 +50,6 @@ const Bag = styled.div`
     `};
 `;
 
-const Text = styled.span`
-  position: absolute;
-  bottom: 3px;
-  left: 50%;
-  font-size: 10px;
-  font-weight: 700;
-  color: currentColor;
-  transform: translateX(-50%);
-`;
-
 const NoBaggage = styled.p`
   font-size: 10px;
   text-align: center;
@@ -64,13 +64,8 @@ const Price = styled(NoBaggage)`
 const Baggage = props => (
   <BaggageStyled>
     <Types>
-      {props.list.map((bag, key) => (
-        <Bag
-          key={key}
-          type={bag.type}
-          color={bag.color}
-          disabled={bag.disabled}
-        >
+      {props.list.map(bag => (
+        <Bag key={bag.id} type={bag.type} color={bag.color} disabled={bag.disabled}>
           <Icon icon={bag.icon} />
           {bag.kg && <Text>{bag.kg}</Text>}
         </Bag>
@@ -84,7 +79,13 @@ const Baggage = props => (
 Baggage.propTypes = {
   noBaggage: pt.bool,
   price: pt.node,
-  list: pt.array
+  list: pt.arrayOf(pt.shape({})),
+};
+
+Baggage.defaultProps = {
+  noBaggage: false,
+  list: [],
+  price: null,
 };
 
 export default Baggage;

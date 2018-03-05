@@ -1,12 +1,12 @@
-import React from "react";
-import DayPicker from "react-day-picker/DayPicker";
-import "react-day-picker/lib/style.css";
-import "./dayPicker.css";
-import { MONTHS, WEEKDAYS_SHORT } from "./index.mock";
+import React from 'react';
+import DayPicker from 'react-day-picker/DayPicker';
+import 'react-day-picker/lib/style.css';
+import './dayPicker.css';
+import { MONTHS, WEEKDAYS_SHORT } from './index.mock';
 
 export default props => (
   <DayPicker
-    locale={"ru"}
+    locale="ru"
     months={MONTHS}
     weekdaysShort={WEEKDAYS_SHORT}
     className="dataPicker"

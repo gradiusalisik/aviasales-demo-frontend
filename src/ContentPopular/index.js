@@ -1,17 +1,9 @@
-import React from "react";
-import { listTabs, cardList } from "./index.mock";
-import Tabs from "../Tabs";
-import CardList from "./CardList";
-import Container from "../Container";
-import {
-  Content,
-  LogoCompas,
-  ContentText,
-  Text,
-  TextCity,
-  EditImage,
-  TabsContent
-} from "./styled";
+import React from 'react';
+import { listTabs, cardList } from './index.mock';
+import Tabs from '../Tabs';
+import CardList from './CardList';
+import Container from '../Container';
+import { Content, LogoCompas, ContentText, Text, TextCity, EditImage, TabsContent } from './styled';
 
 export default () => (
   <Content>

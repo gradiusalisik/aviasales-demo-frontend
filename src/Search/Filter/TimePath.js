@@ -1,9 +1,9 @@
-import React from "react";
-import { PropTypes as pt } from "prop-types";
-import styled from "styled-components";
-import Range from "../../UI/Range";
-import Icon from "../../Icon";
-import { cities } from "../../utils/library.mock";
+import React from 'react';
+import { PropTypes as pt } from 'prop-types';
+import styled from 'styled-components';
+import Range from '../../UI/Range';
+import Icon from '../../Icon';
+import { cities } from '../../utils/library.mock';
 
 const Path = styled.div`
   margin-top: -4px;
@@ -55,7 +55,7 @@ const Dates = styled.div`
   align-items: center;
 `;
 
-const formatTime = minutes => ((minutes / 60) ^ 0) + "ч " + minutes % 60 + "м";
+const formatTime = minutes => `${Math.floor(minutes / 60)}ч ${minutes % 60}м`;
 
 const TimePath = props => (
   <Path>
@@ -69,11 +69,7 @@ const TimePath = props => (
         <Text>от {formatTime(props.leftTime)}</Text>
         <TextRight>до {formatTime(props.rightTime)}</TextRight>
       </Dates>
-      <Range
-        min={props.range.min}
-        max={props.range.max}
-        defaultValue={props.range.defaultValue}
-      />
+      <Range min={props.range.min} max={props.range.max} defaultValue={props.range.defaultValue} />
     </Info>
   </Path>
 );
@@ -83,15 +79,19 @@ TimePath.propTypes = {
   to: pt.string,
   leftTime: pt.number,
   rightTime: pt.number,
-  range: pt.object
+  range: pt.shape(),
 };
 
 TimePath.defaultProps = {
+  from: '',
+  to: '',
+  leftTime: null,
+  rightTime: null,
   range: {
     min: 0,
     max: 20,
-    defaultValue: [0, 20]
-  }
+    defaultValue: [0, 20],
+  },
 };
 
 export default TimePath;

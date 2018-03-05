@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import media from "../utils/media";
+import styled from 'styled-components';
+import media from '../utils/media';
 
 // ** index.js
 export const FormsStyled = styled.form`

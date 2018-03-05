@@ -1,177 +1,177 @@
 export const list = [
   {
-    title: "СТРАНЫ",
-    showMore: "Все страны",
+    title: 'СТРАНЫ',
+    showMore: 'Все страны',
     list: [
       {
-        text: "Россия"
+        text: 'Россия',
       },
       {
-        text: "Таиланд"
+        text: 'Таиланд',
       },
       {
-        text: "Черногория"
+        text: 'Черногория',
       },
       {
-        text: "Кипр"
+        text: 'Кипр',
       },
       {
-        text: "Болгария"
+        text: 'Болгария',
       },
       {
-        text: "Грузия"
-      }
-    ]
+        text: 'Грузия',
+      },
+    ],
   },
   {
-    title: "Города",
-    showMore: "Все города",
+    title: 'Города',
+    showMore: 'Все города',
     list: [
       {
-        text: "Москва"
+        text: 'Москва',
       },
       {
-        text: "Санкт-Петербург"
+        text: 'Санкт-Петербург',
       },
       {
-        text: "Симферополь"
+        text: 'Симферополь',
       },
       {
-        text: "Адлер"
+        text: 'Адлер',
       },
       {
-        text: "Екатеринбург"
+        text: 'Екатеринбург',
       },
       {
-        text: "Лондон"
-      }
-    ]
+        text: 'Лондон',
+      },
+    ],
   },
   {
-    title: "АВИАКОМПАНИИ",
-    showMore: "Все авиакомпании",
+    title: 'АВИАКОМПАНИИ',
+    showMore: 'Все авиакомпании',
     list: [
       {
-        text: "Air Berlin"
+        text: 'Air Berlin',
       },
       {
-        text: "Air France"
+        text: 'Air France',
       },
       {
-        text: "Черногория"
+        text: 'Черногория',
       },
       {
-        text: "Alitalia"
+        text: 'Alitalia',
       },
       {
-        text: "Air Baltic"
+        text: 'Air Baltic',
       },
       {
-        text: "Emirates"
+        text: 'Emirates',
       },
       {
-        text: "KLM"
-      }
-    ]
+        text: 'KLM',
+      },
+    ],
   },
   {
-    title: "АЭРОПОРТЫ",
-    showMore: "Все аэропорты",
+    title: 'АЭРОПОРТЫ',
+    showMore: 'Все аэропорты',
     list: [
       {
-        text: "Шереметьево"
+        text: 'Шереметьево',
       },
       {
-        text: "Курумоч"
+        text: 'Курумоч',
       },
       {
-        text: "Черногория"
+        text: 'Черногория',
       },
       {
-        text: "Домодедово"
+        text: 'Домодедово',
       },
       {
-        text: "Толмачево"
+        text: 'Толмачево',
       },
       {
-        text: "Владивосток"
+        text: 'Владивосток',
       },
       {
-        text: "Гамбург"
-      }
-    ]
+        text: 'Гамбург',
+      },
+    ],
   },
   {
-    title: "НАПРАВЛЕНИЯ",
+    title: 'НАПРАВЛЕНИЯ',
     list: [
       {
-        text: "MOW – SIP"
+        text: 'MOW – SIP',
       },
       {
-        text: "MOW – AER"
+        text: 'MOW – AER',
       },
       {
-        text: "MOW – TIV"
+        text: 'MOW – TIV',
       },
       {
-        text: "MOW – MRV"
+        text: 'MOW – MRV',
       },
       {
-        text: "LED – MOW"
+        text: 'LED – MOW',
       },
       {
-        text: "MOW – BKK"
-      }
-    ]
+        text: 'MOW – BKK',
+      },
+    ],
   },
   {
-    title: "СЕРВИСЫ",
+    title: 'СЕРВИСЫ',
     list: [
       {
-        text: "Горящие авиабилеты"
+        text: 'Горящие авиабилеты',
       },
       {
-        text: "Горящие авиабилеты"
+        text: 'Горящие авиабилеты',
       },
       {
-        text: "Карта низких цен"
+        text: 'Карта низких цен',
       },
       {
-        text: "Спецпредложения"
+        text: 'Спецпредложения',
       },
       {
-        text: "Таблица цен"
+        text: 'Таблица цен',
       },
       {
-        text: "Блог"
+        text: 'Блог',
       },
       {
-        text: "Помощь"
-      }
-    ]
-  }
+        text: 'Помощь',
+      },
+    ],
+  },
 ];
 
 export const linkList = [
   {
-    text: "О компании"
+    text: 'О компании',
   },
   {
-    text: "Партнёрская программа"
+    text: 'Партнёрская программа',
   },
   {
-    text: "Реклама"
+    text: 'Реклама',
   },
   {
-    text: "Вакансии"
+    text: 'Вакансии',
   },
   {
-    text: "Помощь"
+    text: 'Помощь',
   },
   {
-    text: "Правила"
+    text: 'Правила',
   },
   {
-    text: "White Label авиабилеты"
-  }
+    text: 'White Label авиабилеты',
+  },
 ];

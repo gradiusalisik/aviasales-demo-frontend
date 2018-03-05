@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import media from "../utils/media";
+import styled from 'styled-components';
+import media from '../utils/media';
 
 export const Attachments = styled.div`
   padding-top: 24px;
@@ -154,7 +154,7 @@ export const Text = styled.span`
     left: 0;
     width: 100%;
     height: 1px;
-    content: "";
+    content: '';
     background-color: #fff;
     opacity: 0;
     transition: opacity 0.3s;
