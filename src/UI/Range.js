@@ -59,12 +59,7 @@ const RangeStyled = styled.div`
 
 const Range = props => (
   <RangeStyled>
-    <RangeSlider
-      min={props.min}
-      max={props.max}
-      step={props.step}
-      defaultValue={props.defaultValue}
-    />
+    <RangeSlider min={props.min} max={props.max} defaultValue={props.defaultValue} />
   </RangeStyled>
 );
 
@@ -72,14 +67,12 @@ Range.propTypes = {
   defaultValue: pt.arrayOf(pt.number),
   min: pt.number,
   max: pt.number,
-  step: pt.number,
 };
 
 Range.defaultProps = {
   defaultValue: [],
   min: null,
   max: null,
-  step: null,
 };
 
 export default Range;
