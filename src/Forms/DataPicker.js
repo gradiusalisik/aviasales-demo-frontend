@@ -68,8 +68,7 @@ const Calendar = styled.div`
   display: ${props => (props.isOpen ? 'block' : 'none')};
   width: 100%;
   background-color: #fff;
-  box-shadow: 0px 0px 8px rgba(74, 74, 74, 0.2),
-    0px 2px 4px rgba(74, 74, 74, 0.2);
+  box-shadow: 0px 0px 8px rgba(74, 74, 74, 0.2), 0px 2px 4px rgba(74, 74, 74, 0.2);
 `;
 
 const Icons = styled(Icon)`
@@ -150,8 +149,7 @@ class DataPicker extends Component {
     this.setState({ to: '' });
   };
 
-  formatted = date =>
-    date && format(new Date(date), 'D MMMM, dd', { locale: ruLocale });
+  formatted = date => date && format(new Date(date), 'D MMMM, dd', { locale: ruLocale });
 
   handleDayMouseEnter = (day) => {
     const { from, to } = this.state;
@@ -178,12 +176,10 @@ class DataPicker extends Component {
         {!disabled &&
           prices[month] &&
           prices[month][date] && (
-            <div
-              style={prices[month][date].isCheap ? priceCheapStyle : priceStyle}
-            >
+            <div style={prices[month][date].isCheap ? priceCheapStyle : priceStyle}>
               <FormattedNumber
                 value={prices[month][date].number}
-                style={['decimal']}
+                style={String('decimal')}
                 minimumFractionDigits={0}
                 maximumFractionDigits={0}
               />
@@ -191,12 +187,11 @@ class DataPicker extends Component {
           )}
       </div>
     );
-  }
+  };
 
   render() {
     const {
-      from, to,
-      openPicker, enteredTo,
+      from, to, openPicker, enteredTo,
     } = this.state;
     const modifiers = { start: from, end: to };
     const fromFormatted = this.formatted(from);
@@ -212,10 +207,7 @@ class DataPicker extends Component {
               onClick={this.handleClickDay('from')}
               value={fromFormatted}
             />
-            <IconCalendar
-              icon="calendar"
-              onClick={this.handleClickDay('from')}
-            />
+            <IconCalendar icon="calendar" onClick={this.handleClickDay('from')} />
           </Departure>
           <Arrival disabled={this.state.isChecked}>
             <ArrivalField
@@ -228,10 +220,7 @@ class DataPicker extends Component {
                 <IconClear icon="close" />
               </ClearArrivalDate>
             ) : (
-              <IconCalendar
-                icon="calendar"
-                onClick={this.handleClickDay('to')}
-              />
+              <IconCalendar icon="calendar" onClick={this.handleClickDay('to')} />
             )}
           </Arrival>
         </Container>
@@ -245,11 +234,7 @@ class DataPicker extends Component {
             renderDay={this.renderDay}
             handleDayMouseEnter={this.handleDayMouseEnter}
           />
-          <Toggle
-            text="Показать цены в одну сторону"
-            id="toggle"
-            onChange={this.handleToggle}
-          />
+          <Toggle text="Показать цены в одну сторону" id="toggle" onChange={this.handleToggle} />
         </Calendar>
         <Calendar isOpen={openPicker === 'to'}>
           <DayPickerStyled

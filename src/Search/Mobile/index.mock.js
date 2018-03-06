@@ -9,6 +9,7 @@ import russia from '../images/russia.png';
 
 const list = [
   {
+    id: 'cardMobile-1',
     status: {
       text: 'Самый дешевый',
       color: '#83D40B',
@@ -17,6 +18,7 @@ const list = [
     price: 7712,
     logos: [
       {
+        id: 'logo-1',
         image: russia,
       },
     ],
@@ -35,6 +37,7 @@ const list = [
     },
   },
   {
+    id: 'cardMobile-2',
     status: {
       text: 'Самый быстрый',
       color: '#AF7542',
@@ -43,6 +46,7 @@ const list = [
     price: 9269,
     logos: [
       {
+        id: 'fly-1',
         image: fly,
       },
     ],
@@ -61,6 +65,7 @@ const list = [
     },
   },
   {
+    id: 'cardMobile-3',
     status: {
       text: 'Лучший билет',
       color: '#C279D1',
@@ -69,6 +74,7 @@ const list = [
     price: 8029,
     logos: [
       {
+        id: 'nordwind-1',
         image: nordwind,
       },
     ],
@@ -87,9 +93,11 @@ const list = [
     },
   },
   {
+    id: 'cardMobile-4',
     price: 8164,
     logos: [
       {
+        id: 'nordwindAir-1',
         image: nordwindAir,
       },
     ],
@@ -108,9 +116,11 @@ const list = [
     },
   },
   {
+    id: 'cardMobile-5',
     price: 8240,
     logos: [
       {
+        id: 'redWings',
         image: redWings,
       },
     ],
@@ -129,13 +139,16 @@ const list = [
     },
   },
   {
+    id: 'cardMobile-6',
     price: 9108,
     logos: [
       {
+        id: 'redWingsSmall',
         image: redWingsSmall,
         smallImage: true,
       },
       {
+        id: 'russiaSmall',
         image: russiaSmall,
         smallImage: true,
       },
@@ -155,13 +168,16 @@ const list = [
     },
   },
   {
+    id: 'cardMobile-7',
     price: 9485,
     logos: [
       {
+        id: 'russiaSmall',
         image: russiaSmall,
         smallImage: true,
       },
       {
+        id: 'otherSmall',
         image: otherSmall,
         smallImage: true,
       },

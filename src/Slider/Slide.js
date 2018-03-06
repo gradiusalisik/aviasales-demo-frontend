@@ -4,7 +4,7 @@ import { SlideStyled, Logo } from './styled';
 
 const Slide = props => (
   <SlideStyled>
-    {props.list.map(slide => <Logo key={slide.id} src={slide.image} alt={slide.altImage} />)}
+    {props.list.map(slide => <Logo key={slide.alt} src={slide.image} alt={slide.alt} />)}
   </SlideStyled>
 );
 

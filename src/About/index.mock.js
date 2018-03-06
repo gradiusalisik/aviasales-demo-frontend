@@ -5,6 +5,7 @@ import mail from './images/mail.png';
 
 const list = [
   {
+    id: 'about-1',
     logo: aero,
     title: 'КАК КУПИТЬ ДЕШЕВЫЕ АВИАБИЛЕТЫ?',
     description: (
@@ -23,6 +24,7 @@ const list = [
     href: '#',
   },
   {
+    id: 'about-2',
     logo: mail,
     title: 'ЭЛЕКТРОННЫЙ АВИАБИЛЕТ ',
     description: (
@@ -43,6 +45,7 @@ const list = [
     href: '#',
   },
   {
+    id: 'about-3',
     logo: listImg,
     title: '20 СОВЕТОВ АВИАПУТЕШЕСТВЕННИКАМ',
     description: (

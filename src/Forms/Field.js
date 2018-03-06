@@ -8,7 +8,6 @@ const Field = props => (
     <Input
       type="text"
       defaultValue={props.defaultValue}
-      value={props.value}
       placeholder={props.placeholder}
       onChange={props.onChange}
     />
@@ -31,7 +30,6 @@ Field.propTypes = {
   reverse: pt.bool,
   defaultValue: pt.string,
   placeholder: pt.string,
-  value: pt.string,
   onChange: pt.func,
   onClick: pt.func,
 };
@@ -42,8 +40,7 @@ Field.defaultProps = {
   destination: '',
   height: '',
   reverse: false,
-  defaultValue: '',
-  value: '',
+  defaultValue: null,
   placeholder: '',
 };
 

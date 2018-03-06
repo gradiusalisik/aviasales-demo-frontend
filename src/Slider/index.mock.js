@@ -6,6 +6,7 @@ import el7 from './images/el7.png';
 
 const list = [
   {
+    id: 'slide-1',
     list: [
       {
         image: aeroflot,

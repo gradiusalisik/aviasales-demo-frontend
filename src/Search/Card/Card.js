@@ -57,7 +57,7 @@ const Card = props => (
               за&nbsp;
               <FormattedNumber
                 value={props.data.proposals[0].price}
-                style={['currency']}
+                style={String('currency')}
                 currency="RUB"
                 minimumFractionDigits={0}
                 maximumFractionDigits={0}

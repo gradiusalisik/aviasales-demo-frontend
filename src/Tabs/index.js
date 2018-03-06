@@ -5,7 +5,7 @@ import { TabsContent, Tab, Logo, LogoImage, Text } from './styled';
 const Tabs = props => (
   <TabsContent>
     {props.list.map(tab => (
-      <Tab active={tab.active} key={tab.id}>
+      <Tab active={tab.active} key={tab.icon}>
         <Logo>
           <LogoImage icon={tab.icon} />
         </Logo>

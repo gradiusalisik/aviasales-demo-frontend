@@ -63,6 +63,7 @@ export const listTabs = [
 
 export const cardList = [
   {
+    id: 'contentPopularCard-1',
     placeImg: krasnodar,
     altPlaceImge: 'krasnodar',
     flag: flagRu,
@@ -73,6 +74,7 @@ export const cardList = [
     date: 1521324000000,
   },
   {
+    id: 'contentPopularCard-2',
     placeImg: adler,
     altPlaceImge: 'adler',
     flag: flagRu,
@@ -83,6 +85,7 @@ export const cardList = [
     date: 1522098000000,
   },
   {
+    id: 'contentPopularCard-3',
     placeImg: piter,
     altPlaceImge: 'piter',
     flag: flagRu,
@@ -93,6 +96,7 @@ export const cardList = [
     date: 1518991200000,
   },
   {
+    id: 'contentPopularCard-4',
     placeImg: mineral,
     altPlaceImge: 'mineral',
     flag: flagRu,
@@ -103,6 +107,7 @@ export const cardList = [
     date: 1520892000000,
   },
   {
+    id: 'contentPopularCard-5',
     placeImg: simferopol,
     altPlaceImge: 'simferopol',
     flag: flagRu,
@@ -113,6 +118,7 @@ export const cardList = [
     date: 1520892000000,
   },
   {
+    id: 'contentPopularCard-6',
     placeImg: barsa,
     altPlaceImge: 'barsa',
     flag: flagEsp,

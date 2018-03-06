@@ -51,7 +51,7 @@ const Proposal = props => (
             <TextMedium>
               <FormattedNumber
                 value={link.price}
-                style={['currency']}
+                style={String('currency')}
                 currency="RUB"
                 minimumFractionDigits={0}
                 maximumFractionDigits={0}

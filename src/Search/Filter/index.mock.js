@@ -56,6 +56,7 @@ const list = {
   },
   airCompany: [
     {
+      id: 'air-company-1',
       title: 'Альянсы',
       list: [
         {
@@ -84,6 +85,7 @@ const list = {
       ],
     },
     {
+      id: 'air-company-2',
       title: 'Авиакомпании',
       list: [
         {
