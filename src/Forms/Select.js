@@ -49,7 +49,7 @@ const Head = styled.button`
   `};
 
   ${props =>
-    props.removalBorder &&
+    props.kind === 'cornerRightRadius' &&
     css`
       ${media.md`
         border-bottom-right-radius: 0;
@@ -124,7 +124,7 @@ class Select extends Component {
         <Head
           onClick={this.handleClick}
           type="button"
-          removalBorder={this.props.removalBorder}
+          kind={this.props.kind}
         >
           <Text>
             {pluralize(

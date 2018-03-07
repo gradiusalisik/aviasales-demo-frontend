@@ -146,7 +146,7 @@ export default class Forms extends Component {
               <Select
                 quantity={quantitySelect}
                 classFly={classFly}
-                removalBorder
+                kind="cornerRightRadius"
               >
                 <ChoiceQuantity
                   onChangeCheckbox={this.handleChangeClass}
