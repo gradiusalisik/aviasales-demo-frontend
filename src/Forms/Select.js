@@ -49,7 +49,7 @@ const Head = styled.button`
   `};
 
   ${props =>
-    props.kind === 'cornerRightRadius' &&
+    props.kind === "simple" &&
     css`
       ${media.md`
         border-bottom-right-radius: 0;
@@ -121,11 +121,7 @@ class Select extends Component {
   render() {
     return (
       <SelectStyled active={this.state.active}>
-        <Head
-          onClick={this.handleClick}
-          type="button"
-          kind={this.props.kind}
-        >
+        <Head onClick={this.handleClick} type="button" kind={this.props.kind}>
           <Text>
             {pluralize(
               this.props.quantity,
