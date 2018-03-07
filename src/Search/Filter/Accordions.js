@@ -6,6 +6,7 @@ import TimeFly from './TimeFly';
 import TimePath from './TimePath';
 import Checkbox from '../../UI/Checkbox';
 import Icon from '../../Icon';
+import AccordionCheckboxes from './AccordionCheckboxes';
 import list from './index.mock';
 
 const Accordions = styled.div``;
@@ -57,9 +58,7 @@ const Description = styled.p`
 
 export default () => (
   <Accordions>
-    <Accordion text="ПЕРЕСАДКИ" open>
-      <Checkboxes list={list.transfer} />
-    </Accordion>
+    <AccordionCheckboxes list={list.transfer} text="ПЕРЕСАДКИ" open />
     <Accordion text="ВРЕМЯ ВЫЛЕТА И ПРИБЫТИЯ" open>
       <TimeFly
         from={list.departure.from}
@@ -82,9 +81,7 @@ export default () => (
         inRange={list.arrival.inRange}
       />
     </Accordion>
-    <Accordion text="Багаж">
-      <Checkboxes list={list.transfer} />
-    </Accordion>
+    <Accordion text="Багаж">in Future</Accordion>
     <Accordion text="Длительность пересадки">in Future</Accordion>
     <Accordion text="Время в пути" open>
       <TimePath
@@ -110,7 +107,7 @@ export default () => (
         </Description>
       </Info>
       {list.airCompany.map(data => (
-        <Checkboxes key={data.id} list={data.list} title={data.title} />
+        <Checkboxes key={data.id} list={data.list} title={data.title} id={data.id} />
       ))}
     </Accordion>
     <Accordion text="аэропорты">in Future</Accordion>

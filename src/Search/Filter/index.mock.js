@@ -1,11 +1,7 @@
 const list = {
   transfer: [
     {
-      id: 'all',
-      label: 'Все',
-    },
-    {
-      id: 'no-transfer',
+      id: 'not-transfer',
       label: 'Без пересадок',
       price: 7712,
       checked: true,
@@ -60,11 +56,6 @@ const list = {
       title: 'Альянсы',
       list: [
         {
-          id: 'all-alians',
-          label: 'Все',
-          checked: true,
-        },
-        {
           id: 'Star Alliance',
           label: 'Star Alliance',
           price: 11150,
@@ -88,11 +79,6 @@ const list = {
       id: 'air-company-2',
       title: 'Авиакомпании',
       list: [
-        {
-          id: 'all-aircompany',
-          label: 'Все',
-          checked: true,
-        },
         {
           id: 'Aegean Airlines',
           label: 'Aegean Airlines',

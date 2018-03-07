@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { PropTypes as pt } from 'prop-types';
 import styled from 'styled-components';
 import Checkbox from '../../UI/Checkbox';
@@ -28,28 +28,53 @@ const Content = styled.div`
   }
 `;
 
-const Checkboxes = props => (
-  <CheckboxesStyled>
-    {!!props.title && <Title>{props.title}</Title>}
-    {props.list.map(checkbox => (
-      <Content key={checkbox.id}>
-        <Checkbox
-          id={checkbox.id}
-          label={checkbox.label}
-          price={checkbox.price}
-          checked={checkbox.checked}
-        />
-      </Content>
-    ))}
-  </CheckboxesStyled>
-);
+export default class Checkboxes extends Component {
+  static propTypes = {
+    list: pt.arrayOf(pt.shape({})),
+    id: pt.string,
+    label: pt.string,
+    checkedIds: pt.arrayOf(pt.node),
+  };
 
-Checkboxes.propTypes = {
-  list: pt.arrayOf(pt.shape({})),
-};
+  static defaultProps = {
+    list: [],
+    checkedIds: [],
+    id: 'all',
+    label: 'Все',
+  };
 
-Checkboxes.defaultProps = {
-  list: [],
-};
+  handleChangeFilter = id => ({ target }) => {
+    this.props.handleChangeFilter(id, target);
+  };
 
-export default Checkboxes;
+  handleChangeAllCheckbox = ({ target }) => {
+    this.props.handleChangeAllCheckbox(target);
+  };
+
+  render() {
+    return (
+      <CheckboxesStyled>
+        {!!this.props.title && <Title>{this.props.title}</Title>}
+        <Content>
+          <Checkbox
+            id={this.props.id}
+            label={this.props.label}
+            checked={this.props.isAllChecked}
+            onChange={this.handleChangeAllCheckbox}
+          />
+        </Content>
+        {this.props.list.map(checkbox => (
+          <Content key={checkbox.id}>
+            <Checkbox
+              id={checkbox.id}
+              label={checkbox.label}
+              price={checkbox.price}
+              checked={this.props.checkedIds.includes(checkbox.id)}
+              onChange={this.handleChangeFilter(checkbox.id)}
+            />
+          </Content>
+        ))}
+      </CheckboxesStyled>
+    );
+  }
+}

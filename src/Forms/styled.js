@@ -166,6 +166,10 @@ export const Input = styled.input`
   &::placeholder {
     color: #a0b0b9;
   }
+
+  &:focus {
+    box-shadow: 0 0 0 2px #ff8e41;
+  }
 `;
 
 export const InfoField = styled.div`
