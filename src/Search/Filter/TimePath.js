@@ -59,11 +59,13 @@ const formatTime = minutes => `${Math.floor(minutes / 60)}ч ${minutes % 60}м`;
 
 const TimePath = props => (
   <Path>
-    <Places>
-      <Title>{cities[props.from].name}</Title>
-      <IconFly icon="aero" />
-      <Title>{cities[props.to].name}</Title>
-    </Places>
+    {cities[props.from] && (
+      <Places>
+        <Title>{cities[props.from].name}</Title>
+        <IconFly icon="aero" />
+        <Title>{cities[props.to].name}</Title>
+      </Places>
+    )}
     <Info>
       <Dates>
         <Text>от {formatTime(props.leftTime)}</Text>

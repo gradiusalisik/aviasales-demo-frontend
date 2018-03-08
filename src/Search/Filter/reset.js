@@ -29,3 +29,10 @@ export const defaultTimes = {
     right: list.timeIn.rightTime,
   },
 };
+
+export const defaultDuration = {
+  duration: {
+    left: list.duration.leftTime,
+    right: list.duration.rightTime,
+  },
+};

@@ -5,7 +5,9 @@ import Checkboxes from './Checkboxes';
 import Accordion from '../../UI/Accordion';
 import Icon from '../../Icon';
 
-const AccordionCheckboxesStyled = styled.div``;
+const AccordionCheckboxesStyled = styled.div`
+  position: relative;
+`;
 
 const Reset = styled.button`
   position: absolute;
@@ -27,24 +29,31 @@ const IconReset = styled(Icon)`
   }
 `;
 
-const AccordionCheckboxes = props => (
-  <AccordionCheckboxesStyled>
-    <Accordion text={props.text} open={props.open} quantity={props.quantity}>
-      <Checkboxes
-        list={props.list}
-        handleChangeAllCheckbox={props.handleChangeAllCheckbox}
-        handleChangeFilter={props.handleChangeFilter}
-        checkedIds={props.checkedIds}
-        isAllChecked={props.list.length === props.checkedIds.length}
-      />
-    </Accordion>
-    {!(props.list.length === props.checkedIds.length) && (
-      <Reset onClick={props.handleResetFilter}>
-        <IconReset icon="clear" />
-      </Reset>
-    )}
-  </AccordionCheckboxesStyled>
-);
+const AccordionCheckboxes = (props) => {
+  const isCheckedAll = props.list.length === props.checkedIds.length;
+  const quantity = isCheckedAll
+    ? props.list.length
+    : `${props.checkedIds.length} / ${props.list.length}`;
+  return (
+    <AccordionCheckboxesStyled>
+      <Accordion text={props.text} open={props.open} quantity={props.quantity && quantity}>
+        <Checkboxes
+          list={props.list}
+          id={props.id}
+          handleChangeAllCheckbox={props.handleChangeAllCheckbox}
+          handleChangeFilter={props.handleChangeFilter}
+          checkedIds={props.checkedIds}
+          isAllChecked={isCheckedAll}
+        />
+      </Accordion>
+      {!isCheckedAll && (
+        <Reset onClick={props.handleResetFilter}>
+          <IconReset icon="clear" />
+        </Reset>
+      )}
+    </AccordionCheckboxesStyled>
+  );
+};
 
 AccordionCheckboxes.propTypes = {
   text: pt.string,
