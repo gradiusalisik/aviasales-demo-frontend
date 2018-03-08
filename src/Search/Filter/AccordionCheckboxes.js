@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { PropTypes as pt } from 'prop-types';
 import styled from 'styled-components';
 import Checkboxes from './Checkboxes';
@@ -27,77 +27,41 @@ const IconReset = styled(Icon)`
   }
 `;
 
-export default class AccordionCheckboxes extends Component {
-  static propTypes = {
-    text: pt.string,
-    open: pt.bool,
-    list: pt.arrayOf(pt.shape({})),
-  };
+const AccordionCheckboxes = props => (
+  <AccordionCheckboxesStyled>
+    <Accordion text={props.text} open={props.open} quantity={props.quantity}>
+      <Checkboxes
+        list={props.list}
+        handleChangeAllCheckbox={props.handleChangeAllCheckbox}
+        handleChangeFilter={props.handleChangeFilter}
+        checkedIds={props.checkedIds}
+        isAllChecked={props.list.length === props.checkedIds.length}
+      />
+    </Accordion>
+    {!props.isAllChecked && (
+      <Reset onClick={props.handleResetFilter}>
+        <IconReset icon="clear" />
+      </Reset>
+    )}
+  </AccordionCheckboxesStyled>
+);
 
-  static defaultProps = {
-    text: '',
-    open: false,
-    list: [],
-  };
+AccordionCheckboxes.propTypes = {
+  text: pt.string,
+  open: pt.bool,
+  list: pt.arrayOf(pt.shape({})),
+  handleChangeAllCheckbox: pt.func,
+  handleChangeFilter: pt.func,
+  handleResetFilter: pt.func,
+};
 
-  state = {
-    checkboxFilter: this.props.list,
-    checkedIds: [],
-  };
+AccordionCheckboxes.defaultProps = {
+  text: '',
+  open: false,
+  list: [],
+  handleChangeAllCheckbox: () => {},
+  handleChangeFilter: () => {},
+  handleResetFilter: () => {},
+};
 
-  handleChangeFilter = (id, target) => {
-    const { checked } = target;
-    const { checkedIds } = this.state;
-
-    if (checked) {
-      checkedIds.push(id);
-      this.setState(state => ({ checkedIds: state.checkedIds }));
-    } else {
-      this.setState(state => ({
-        checkedIds: state.checkedIds.filter(checkbox => checkbox !== id),
-      }));
-    }
-  };
-
-  handleChangeAllCheckbox = (target) => {
-    const { checkboxFilter } = this.state;
-    const newCheckboxIds = target.checked ? checkboxFilter.map(checkbox => checkbox.id) : [];
-
-    this.setState({
-      checkedIds: newCheckboxIds,
-    });
-  };
-
-  handleResetFilter = () => {
-    const { checkboxFilter } = this.state;
-    const newCheckboxIds = checkboxFilter.map(checkbox => checkbox.id);
-
-    this.setState({
-      checkedIds: newCheckboxIds,
-    });
-  };
-
-  render() {
-    const { checkboxFilter, checkedIds } = this.state;
-    const isAllChecked = checkboxFilter.length === checkedIds.length;
-
-    return (
-      <AccordionCheckboxesStyled>
-        <Accordion text={this.props.text} open={this.props.open} quantity={this.props.quantity}>
-          <Checkboxes
-            list={checkboxFilter}
-            handleChangeAllCheckbox={this.handleChangeAllCheckbox}
-            handleChangeFilter={this.handleChangeFilter}
-            checkedIds={checkedIds}
-            isAllChecked={isAllChecked}
-          />
-        </Accordion>
-        {!isAllChecked && (
-          <Reset onClick={this.handleResetFilter}>
-            <IconReset icon="clear" />
-          </Reset>
-        )}
-      </AccordionCheckboxesStyled>
-    );
-  }
-}
+export default AccordionCheckboxes;

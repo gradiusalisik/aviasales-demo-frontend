@@ -47,7 +47,7 @@ export default class Forms extends Component {
           <Content>
             <Fields>
               <From>
-                <Field defaultValue="Москва" reverse destination="Mow" />
+                <Field placeholder="Город вылета" reverse />
               </From>
               <To>
                 <Field placeholder="Город прибытия" />

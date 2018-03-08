@@ -198,6 +198,7 @@ class DataPicker extends Component {
     const toFormatted = this.formatted(to);
     const disabledDays = { before: new Date() };
     const selectedDays = [from, { from, to: enteredTo }];
+
     return (
       <Picker>
         <Container>

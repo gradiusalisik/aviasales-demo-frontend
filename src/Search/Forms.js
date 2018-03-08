@@ -131,7 +131,7 @@ export default class Forms extends Component {
       <FormsStyled action="#" method="GET">
         <Fields>
           <From>
-            <Field defaultValue="Москва" reverse destination="Mow" />
+            <Field placeholder="Город отправления" reverse />
           </From>
           <To>
             <Field placeholder="Город прибытия" />
