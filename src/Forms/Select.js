@@ -28,7 +28,7 @@ const Head = styled.button`
   `};
 
   ${props =>
-    props.removalBorder &&
+    props.kind === 'simple' &&
     css`
       ${media.md`
         border-bottom-right-radius: 0;
@@ -121,7 +121,7 @@ class Select extends Component {
   render() {
     return (
       <SelectStyled active={this.state.active}>
-        <Head onClick={this.handleClick} type="button" removalBorder={this.props.removalBorder}>
+        <Head onClick={this.handleClick} type="button" kind={this.props.kind}>
           <Text>
             {pluralize(
               this.props.quantity,
