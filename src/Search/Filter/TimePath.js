@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { PropTypes as pt } from 'prop-types';
 import styled from 'styled-components';
 import Range from '../../UI/Range';
@@ -57,58 +57,44 @@ const Dates = styled.div`
 
 const formatTime = minutes => `${Math.floor(minutes / 60)}ч ${minutes % 60}м`;
 
-export default class TimePath extends Component {
-  static propTypes = {
-    from: pt.string,
-    to: pt.string,
-    leftTime: pt.number,
-    rightTime: pt.number,
-    // range: pt.shape(),
-  };
+const TimePath = props => (
+  <Path>
+    <Places>
+      <Title>{cities[props.from].name}</Title>
+      <IconFly icon="aero" />
+      <Title>{cities[props.to].name}</Title>
+    </Places>
+    <Info>
+      <Dates>
+        <Text>от {formatTime(props.leftTime)}</Text>
+        <TextRight>до {formatTime(props.rightTime)}</TextRight>
+      </Dates>
+      <Range
+        min={props.min}
+        max={props.max}
+        defaultValue={[props.min, props.max]}
+        onChange={props.handleChangeRange}
+      />
+    </Info>
+  </Path>
+);
 
-  static defaultProps = {
-    from: '',
-    to: '',
-    leftTime: null,
-    rightTime: null,
-    // range: {
-    //   defaultValue: [0, 100],
-    // },
-  };
+TimePath.propTypes = {
+  from: pt.string,
+  to: pt.string,
+  leftTime: pt.number,
+  rightTime: pt.number,
+  min: pt.number,
+  max: pt.number,
+};
 
-  state = {
-    leftTime: this.props.leftTime,
-    rightTime: this.props.rightTime,
-  };
+TimePath.defaultProps = {
+  from: '',
+  to: '',
+  leftTime: null,
+  rightTime: null,
+  min: null,
+  max: null,
+};
 
-  handleChangeRange = (value) => {
-    this.setState({
-      leftTime: value[0],
-      rightTime: value[1],
-    });
-  };
-
-  render() {
-    return (
-      <Path>
-        <Places>
-          <Title>{cities[this.props.from].name}</Title>
-          <IconFly icon="aero" />
-          <Title>{cities[this.props.to].name}</Title>
-        </Places>
-        <Info>
-          <Dates>
-            <Text>от {formatTime(this.state.leftTime)}</Text>
-            <TextRight>до {formatTime(this.state.rightTime)}</TextRight>
-          </Dates>
-          <Range
-            min={this.props.leftTime}
-            max={this.props.rightTime}
-            defaultValue={[this.props.leftTime, this.props.rightTime]}
-            onChange={this.handleChangeRange}
-          />
-        </Info>
-      </Path>
-    );
-  }
-}
+export default TimePath;

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { PropTypes as pt } from 'prop-types';
 import format from 'date-fns/format';
 import ruLocale from 'date-fns/locale/ru';
@@ -64,88 +64,66 @@ const Dates = styled.div`
 
 const formatDate = date => format(date, 'HH:mm, D MMM', { locale: ruLocale });
 
-export default class TimeFly extends Component {
-  static propTypes = {
-    from: pt.string,
-    outLeftDate: pt.number,
-    outRightDate: pt.number,
-    // outRange: pt.shape(),
-    // inRange: pt.shape(),
-    to: pt.string,
-    inLeftDate: pt.number,
-    inRightDate: pt.number,
-  };
+const TimeFly = props => (
+  <TimeFlyStyled>
+    <Places>
+      <Title>{cities[props.from].name}</Title>
+      <IconFly icon="aero" />
+      <Title>{cities[props.to].name}</Title>
+    </Places>
+    <Info>
+      <TextFly>Вылет из {cities[props.from].cases.ro}</TextFly>
+      <Dates>
+        <Text>c {formatDate(props.outLeftDate)}</Text>
+        <TextRight>до {formatDate(props.outRightDate)}</TextRight>
+      </Dates>
+      <Range
+        min={props.minOut}
+        max={props.maxOut}
+        defaultValue={[props.minOut, props.maxOut]}
+        onChange={props.handleChangeRangeOut}
+      />
+    </Info>
+    <Info>
+      <TextFly>Прибытие {cities[props.to].cases.vi}</TextFly>
+      <Dates>
+        <Text>c {formatDate(props.inLeftDate)}</Text>
+        <TextRight>до {formatDate(props.inRightDate)}</TextRight>
+      </Dates>
+      <Range
+        min={props.minIn}
+        max={props.maxIn}
+        defaultValue={[props.minIn, props.maxIn]}
+        onChange={props.handleChangeRangeIn}
+      />
+    </Info>
+  </TimeFlyStyled>
+);
 
-  static defaultProps = {
-    from: '',
-    outLeftDate: null,
-    outRightDate: null,
-    to: '',
-    inLeftDate: null,
-    inRightDate: null,
-    // outRange: {
-    //   defaultValue: [0, 100],
-    // },
-    // inRange: {
-    //   defaultValue: [0, 100],
-    // },
-  };
+TimeFly.propTypes = {
+  from: pt.string,
+  outLeftDate: pt.number,
+  outRightDate: pt.number,
+  minOut: pt.number,
+  maxOut: pt.number,
+  to: pt.string,
+  inLeftDate: pt.number,
+  inRightDate: pt.number,
+  minIn: pt.number,
+  maxIn: pt.number,
+};
 
-  state = {
-    out: {
-      leftDate: this.props.outLeftDate,
-      rightDate: this.props.outRightDate,
-    },
-    in: {
-      leftDate: this.props.inLeftDate,
-      rightDate: this.props.inRightDate,
-    },
-  };
+TimeFly.defaultProps = {
+  from: '',
+  outLeftDate: null,
+  outRightDate: null,
+  minOut: null,
+  maxOut: null,
+  to: '',
+  inLeftDate: null,
+  inRightDate: null,
+  minIn: null,
+  maxIn: null,
+};
 
-  handleChangeRange = place => (value) => {
-    this.setState({
-      [place]: {
-        leftDate: value[0],
-        rightDate: value[1],
-      },
-    });
-  };
-
-  render() {
-    return (
-      <TimeFlyStyled>
-        <Places>
-          <Title>{cities[this.props.from].name}</Title>
-          <IconFly icon="aero" />
-          <Title>{cities[this.props.to].name}</Title>
-        </Places>
-        <Info>
-          <TextFly>Вылет из {cities[this.props.from].cases.ro}</TextFly>
-          <Dates>
-            <Text>c {formatDate(this.state.out.leftDate)}</Text>
-            <TextRight>до {formatDate(this.state.out.rightDate)}</TextRight>
-          </Dates>
-          <Range
-            min={this.props.outLeftDate}
-            max={this.props.outRightDate}
-            defaultValue={[this.props.outLeftDate, this.props.outRightDate]}
-            onChange={this.handleChangeRange('out')}
-          />
-        </Info>
-        <Info>
-          <TextFly>Прибытие {cities[this.props.to].cases.vi}</TextFly>
-          <Dates>
-            <Text>c {formatDate(this.state.in.leftDate)}</Text>
-            <TextRight>до {formatDate(this.state.in.rightDate)}</TextRight>
-          </Dates>
-          <Range
-            min={this.props.inLeftDate}
-            max={this.props.inRightDate}
-            defaultValue={[this.props.inLeftDate, this.props.inRightDate]}
-            onChange={this.handleChangeRange('in')}
-          />
-        </Info>
-      </TimeFlyStyled>
-    );
-  }
-}
+export default TimeFly;

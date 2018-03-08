@@ -26,6 +26,30 @@ export default class Accordions extends Component {
     checkedIdsTransfer: [],
     checkedIdsAlians: [],
     checkedIdsCompany: [],
+    outDeparture: {
+      left: list.departure.outLeftDate,
+      right: list.departure.outRightDate,
+    },
+    inDeparture: {
+      left: list.departure.inLeftDate,
+      right: list.departure.inRightDate,
+    },
+    outArrival: {
+      left: list.arrival.outLeftDate,
+      right: list.arrival.outRightDate,
+    },
+    inArrival: {
+      left: list.arrival.inLeftDate,
+      right: list.arrival.inRightDate,
+    },
+    outTime: {
+      left: list.timeOut.leftTime,
+      right: list.timeOut.rightTime,
+    },
+    inTime: {
+      left: list.timeIn.leftTime,
+      right: list.timeIn.rightTime,
+    },
   };
 
   handleChangeFilter = checkedIds => id => ({ target }) => {
@@ -59,6 +83,15 @@ export default class Accordions extends Component {
       }));
   };
 
+  handleChangeRange = name => (value) => {
+    this.setState({
+      [name]: {
+        left: value[0],
+        right: value[1],
+      },
+    });
+  };
+
   render() {
     const isAllCheckedAlias =
       this.state.checkboxFilterAlians.length === this.state.checkedIdsAlians.length;
@@ -85,23 +118,27 @@ export default class Accordions extends Component {
         <Accordion text="ВРЕМЯ ВЫЛЕТА И ПРИБЫТИЯ" open>
           <TimeFly
             from={list.departure.from}
-            outLeftDate={list.departure.outLeftDate}
-            outRightDate={list.departure.outRightDate}
-            outRange={list.departure.outRange}
+            outLeftDate={this.state.outDeparture.left}
+            outRightDate={this.state.outDeparture.right}
+            minOut={list.departure.outLeftDate}
+            maxOut={list.departure.outRightDate}
             to={list.departure.to}
-            inLeftDate={list.departure.inLeftDate}
-            inRightDate={list.departure.inRightDate}
-            inRange={list.departure.inRange}
+            minIn={list.departure.inLeftDate}
+            maxIn={list.departure.inRightDate}
+            inLeftDate={this.state.inDeparture.left}
+            inRightDate={this.state.inDeparture.right}
+            handleChangeRangeOut={this.handleChangeRange('outDeparture')}
+            handleChangeRangeIn={this.handleChangeRange('inDeparture')}
           />
           <TimeFly
             from={list.arrival.from}
             outLeftDate={list.arrival.outLeftDate}
             outRightDate={list.arrival.outRightDate}
-            outRange={list.arrival.outRange}
             to={list.arrival.to}
             inLeftDate={list.arrival.inLeftDate}
             inRightDate={list.arrival.inRightDate}
-            inRange={list.arrival.inRange}
+            handleChangeRangeOut={this.handleChangeRange('outArrival')}
+            handleChangeRangeIn={this.handleChangeRange('inArrival')}
           />
         </Accordion>
         <Accordion text="Багаж">in Future</Accordion>
@@ -110,16 +147,20 @@ export default class Accordions extends Component {
           <TimePath
             from={list.timeOut.from}
             to={list.timeOut.to}
-            leftTime={list.timeOut.leftTime}
-            rightTime={list.timeOut.rightTime}
-            range={list.timeOut.range}
+            leftTime={this.state.outTime.left}
+            rightTime={this.state.outTime.right}
+            min={list.timeOut.leftTime}
+            max={list.timeOut.rightTime}
+            handleChangeRange={this.handleChangeRange('outTime')}
           />
           <TimePath
             from={list.timeIn.from}
             to={list.timeIn.to}
-            leftTime={list.timeIn.leftTime}
-            rightTime={list.timeIn.rightTime}
-            range={list.timeIn.range}
+            leftTime={this.state.inTime.left}
+            rightTime={this.state.inTime.right}
+            min={list.timeIn.leftTime}
+            max={list.timeIn.rightTime}
+            handleChangeRange={this.handleChangeRange('inTime')}
           />
         </Accordion>
         <AccordionCheckboxesGroup>
