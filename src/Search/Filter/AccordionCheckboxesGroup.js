@@ -44,7 +44,7 @@ export default class AccordionCheckboxesGroup extends Component {
   static propTypes = {
     text: pt.string,
     open: pt.bool,
-    list: pt.arrayOf(pt.shape({})),
+    list: pt.arrayOf(pt.node),
   };
 
   static defaultProps = {
