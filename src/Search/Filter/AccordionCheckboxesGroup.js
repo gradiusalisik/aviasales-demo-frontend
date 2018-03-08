@@ -6,7 +6,9 @@ import Accordion from '../../UI/Accordion';
 import Icon from '../../Icon';
 import Checkbox from '../../UI/Checkbox';
 
-const AccordionCheckboxesStyled = styled.div``;
+const AccordionCheckboxesStyled = styled.div`
+  position: relative;
+`;
 
 const Reset = styled.button`
   position: absolute;
@@ -44,55 +46,68 @@ export default class AccordionCheckboxesGroup extends Component {
   static propTypes = {
     text: pt.string,
     open: pt.bool,
-    list: pt.arrayOf(pt.node),
+    listFirst: pt.arrayOf(pt.shape()),
+    listSecond: pt.arrayOf(pt.shape()),
   };
 
   static defaultProps = {
     text: '',
     open: false,
-    list: [],
+    listFirst: [],
+    listSecond: [],
   };
 
   state = {
-    checkboxFilter: this.props.list.map(checkbox => checkbox.list),
-    checkedIds: [],
+    checkboxFilterFirst: this.props.listFirst,
+    checkboxFilterSecond: this.props.listSecond,
+    checkedIdsFirst: [],
+    checkedIdsSecond: [],
+    isAllChecked: false,
   };
 
-  handleChangeFilter = (id, target) => {
+  handleChangeFilter = checkedIds => (id, target) => {
     const { checked } = target;
-    const { checkedIds } = this.state;
 
     if (checked) {
-      checkedIds.push(id);
-      this.setState({ checkedIds });
+      this.state[checkedIds].push(id);
+      this.setState(state => ({ [checkedIds]: state[checkedIds] }));
     } else {
-      this.setState({
-        checkedIds: checkedIds.filter(checkbox => checkbox !== id),
-      });
+      this.setState(state => ({
+        [checkedIds]: state[checkedIds].filter(checkbox => checkbox !== id),
+      }));
     }
   };
 
-  handleChangeAllCheckbox = (target) => {
-    const { checkboxFilter } = this.state;
-    const newCheckboxIds = target.checked ? checkboxFilter.map(checkbox => checkbox.id) : [];
+  handleChangeAllCheckbox = (checkboxFilter, checkedIds) => (target) => {
+    const newCheckboxIds = target.checked
+      ? this.state[checkboxFilter].map(checkbox => checkbox.id)
+      : [];
 
     this.setState({
-      checkedIds: newCheckboxIds,
+      [checkedIds]: newCheckboxIds,
     });
   };
 
   handleResetFilter = () => {
-    const { checkboxFilter } = this.state;
-    const newCheckboxIds = checkboxFilter.map(checkbox => checkbox.id);
+    const { checkboxFilterFirst, checkboxFilterSecond } = this.state;
+    const newCheckboxIdsFirst = checkboxFilterFirst.map(checkbox => checkbox.id);
+    const newCheckboxIdsSecond = checkboxFilterSecond.map(checkbox => checkbox.id);
 
     this.setState({
-      checkedIds: newCheckboxIds,
+      checkedIdsFirst: newCheckboxIdsFirst,
+      checkedIdsSecond: newCheckboxIdsSecond,
     });
   };
 
   render() {
-    const { checkboxFilter, checkedIds } = this.state;
-    const isAllChecked = checkboxFilter.length === checkedIds.length;
+    const {
+      checkboxFilterFirst,
+      checkedIdsFirst,
+      checkboxFilterSecond,
+      checkedIdsSecond,
+    } = this.state;
+    const isAllCheckedFirst = checkboxFilterFirst.length === checkedIdsFirst.length;
+    const isAllCheckedSecond = checkboxFilterSecond.length === checkedIdsSecond.length;
 
     return (
       <AccordionCheckboxesStyled>
@@ -104,21 +119,36 @@ export default class AccordionCheckboxesGroup extends Component {
               выбранную
             </Description>
           </Info>
-          {this.props.list.map(data => (
-            <Checkboxes
-              key={data.id}
-              list={checkboxFilter}
-              handleChangeAllCheckbox={this.handleChangeAllCheckbox}
-              handleChangeFilter={this.handleChangeFilter}
-              checkedIds={checkedIds}
-              title={data.title}
-              isAllChecked={isAllChecked}
-            />
-          ))}
+          <Checkboxes
+            list={checkboxFilterFirst}
+            handleChangeAllCheckbox={this.handleChangeAllCheckbox(
+              'checkboxFilterFirst',
+              'checkedIdsFirst',
+            )}
+            id={this.props.idFirstAll}
+            handleChangeFilter={this.handleChangeFilter('checkedIdsFirst')}
+            checkedIds={checkedIdsFirst}
+            title={this.props.titleFirst}
+            isAllChecked={isAllCheckedFirst}
+          />
+          <Checkboxes
+            list={checkboxFilterSecond}
+            handleChangeAllCheckbox={this.handleChangeAllCheckbox(
+              'checkboxFilterSecond',
+              'checkedIdsSecond',
+            )}
+            id={this.props.idSecondAll}
+            handleChangeFilter={this.handleChangeFilter('checkedIdsSecond')}
+            checkedIds={checkedIdsSecond}
+            title={this.props.titleSecond}
+            isAllChecked={isAllCheckedSecond}
+          />
         </Accordion>
-        <Reset onClick={this.handleResetFilter}>
-          <IconReset icon="clear" />
-        </Reset>
+        {(!isAllCheckedFirst || !isAllCheckedSecond) && (
+          <Reset onClick={this.handleResetFilter}>
+            <IconReset icon="clear" />
+          </Reset>
+        )}
       </AccordionCheckboxesStyled>
     );
   }

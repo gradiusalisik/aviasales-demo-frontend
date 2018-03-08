@@ -50,8 +50,8 @@ const list = {
     leftTime: 250,
     rightTime: 2480,
   },
-  airCompany: [
-    {
+  airCompany: {
+    alians: {
       id: 'air-company-1',
       title: 'Альянсы',
       list: [
@@ -75,7 +75,7 @@ const list = {
         },
       ],
     },
-    {
+    company: {
       id: 'air-company-2',
       title: 'Авиакомпании',
       list: [
@@ -147,7 +147,7 @@ const list = {
         },
       ],
     },
-  ],
+  },
 };
 
 export default list;

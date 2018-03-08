@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import Accordion from '../../UI/Accordion';
-import Checkboxes from './Checkboxes';
+// import Checkboxes from './Checkboxes';
 import TimeFly from './TimeFly';
 import TimePath from './TimePath';
-import Checkbox from '../../UI/Checkbox';
+// import Checkbox from '../../UI/Checkbox';
 import Icon from '../../Icon';
 import AccordionCheckboxes from './AccordionCheckboxes';
+import AccordionCheckboxesGroup from './AccordionCheckboxesGroup';
 import list from './index.mock';
 
 const Accordions = styled.div``;
@@ -42,18 +43,6 @@ const IconClear = styled(Icon)`
   ${Clear}:hover & {
     color: #ff6663;
   }
-`;
-
-const Info = styled.div`
-  padding-left: 16px;
-  padding-right: 16px;
-  margin-bottom: 24px;
-`;
-
-const Description = styled.p`
-  font-size: 12px;
-  line-height: 16px;
-  color: #323333;
 `;
 
 export default () => (
@@ -99,17 +88,17 @@ export default () => (
         range={list.timeIn.range}
       />
     </Accordion>
-    <Accordion text="Авиакомпании" open quantity={43}>
-      <Info>
-        <Checkbox id="several-company" label="Несколько авиакомпаний" />
-        <Description>
-          Показывать билеты с перелетами, выполняемыми несколькими авиакомпаниями, включая выбранную
-        </Description>
-      </Info>
-      {list.airCompany.map(data => (
-        <Checkboxes key={data.id} list={data.list} title={data.title} id={data.id} />
-      ))}
-    </Accordion>
+    <AccordionCheckboxesGroup
+      text="Авиакомпании"
+      open
+      quantity={43}
+      idFirstAll="aliansAll"
+      idSecondAll="companyAll"
+      titleFirst={list.airCompany.alians.title}
+      titleSecond={list.airCompany.company.title}
+      listFirst={list.airCompany.alians.list}
+      listSecond={list.airCompany.company.list}
+    />
     <Accordion text="аэропорты">in Future</Accordion>
     <Accordion text="аэропорт пересадки" quantity={71}>
       in Future

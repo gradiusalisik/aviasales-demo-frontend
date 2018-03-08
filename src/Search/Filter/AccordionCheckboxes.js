@@ -92,9 +92,11 @@ export default class AccordionCheckboxes extends Component {
             isAllChecked={isAllChecked}
           />
         </Accordion>
-        <Reset onClick={this.handleResetFilter}>
-          <IconReset icon="clear" />
-        </Reset>
+        {!isAllChecked && (
+          <Reset onClick={this.handleResetFilter}>
+            <IconReset icon="clear" />
+          </Reset>
+        )}
       </AccordionCheckboxesStyled>
     );
   }
