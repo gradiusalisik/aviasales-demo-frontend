@@ -73,6 +73,7 @@ const TimePath = props => (
         min={props.min}
         max={props.max}
         defaultValue={[props.min, props.max]}
+        value={[props.leftTime, props.rightTime]}
         onChange={props.handleChangeRange}
       />
     </Info>

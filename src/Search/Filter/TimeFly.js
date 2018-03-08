@@ -81,6 +81,7 @@ const TimeFly = props => (
         min={props.minOut}
         max={props.maxOut}
         defaultValue={[props.minOut, props.maxOut]}
+        value={[props.outLeftDate, props.outRightDate]}
         onChange={props.handleChangeRangeOut}
       />
     </Info>
@@ -94,6 +95,7 @@ const TimeFly = props => (
         min={props.minIn}
         max={props.maxIn}
         defaultValue={[props.minIn, props.maxIn]}
+        value={[props.inLeftDate, props.inRightDate]}
         onChange={props.handleChangeRangeIn}
       />
     </Info>

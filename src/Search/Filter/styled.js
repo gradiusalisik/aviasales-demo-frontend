@@ -36,7 +36,7 @@ export const IconClear = styled(Icon)`
   }
 `;
 
-export const AccordionCheckboxesGroup = styled.div`
+export const AccordionGroup = styled.div`
   position: relative;
 `;
 

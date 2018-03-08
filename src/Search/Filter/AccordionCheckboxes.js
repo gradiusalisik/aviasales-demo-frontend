@@ -38,7 +38,7 @@ const AccordionCheckboxes = props => (
         isAllChecked={props.list.length === props.checkedIds.length}
       />
     </Accordion>
-    {!props.isAllChecked && (
+    {!(props.list.length === props.checkedIds.length) && (
       <Reset onClick={props.handleResetFilter}>
         <IconReset icon="clear" />
       </Reset>
