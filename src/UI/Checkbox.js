@@ -4,7 +4,6 @@ import { FormattedNumber } from 'react-intl';
 import styled from 'styled-components';
 
 const CheckboxStyled = styled.div`
-  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,8 +12,6 @@ const CheckboxStyled = styled.div`
 const Label = styled.label`
   position: relative;
   padding-left: 24px;
-  display: block;
-  width: 100%;
   font-size: 12px;
   line-height: 36px;
   user-select: none;
@@ -23,7 +20,7 @@ const Label = styled.label`
 
   &:before {
     position: absolute;
-    top: 10px;
+    top: 0;
     left: 0;
     margin-top: -1px;
     width: 18px;
@@ -38,7 +35,7 @@ const Label = styled.label`
 
   &:after {
     position: absolute;
-    top: 14px;
+    top: 4px;
     left: 5px;
     z-index: 1;
     content: '';
@@ -67,26 +64,24 @@ const Input = styled.input`
   }
 `;
 
-const Checkboxes = styled.div`
-  position: relative;
-  z-index: 10;
-  width: 100%;
-`;
+const Checkboxes = styled.div``;
 
 const Price = styled.span`
-  position: absolute;
-  top: 50%;
-  right: 0;
   font-size: 12px;
   color: #a0b0b9;
   line-height: 36px;
-  transform: translateY(-50%);
 `;
 
 const Checkbox = props => (
   <CheckboxStyled>
     <Checkboxes>
-      <Input type="checkbox" id={props.id} checked={props.checked} onChange={props.onChange} />
+      <Input
+        type="checkbox"
+        id={props.id}
+        checked={props.checked}
+        readOnly
+        onClick={props.onChange}
+      />
       <Label htmlFor={props.id}>{props.label}</Label>
     </Checkboxes>
     {!!props.price && (
