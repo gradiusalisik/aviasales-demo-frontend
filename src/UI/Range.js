@@ -59,7 +59,13 @@ const RangeStyled = styled.div`
 
 const Range = props => (
   <RangeStyled>
-    <RangeSlider min={props.min} max={props.max} defaultValue={props.defaultValue} />
+    <RangeSlider
+      min={props.min}
+      max={props.max}
+      defaultValue={props.defaultValue}
+      allowCross={false}
+      {...props}
+    />
   </RangeStyled>
 );
 

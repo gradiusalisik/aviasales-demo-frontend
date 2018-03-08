@@ -51,11 +51,11 @@ export default class AccordionCheckboxes extends Component {
 
     if (checked) {
       checkedIds.push(id);
-      this.setState({ checkedIds });
+      this.setState(state => ({ checkedIds: state.checkedIds }));
     } else {
-      this.setState({
-        checkedIds: checkedIds.filter(checkbox => checkbox !== id),
-      });
+      this.setState(state => ({
+        checkedIds: state.checkedIds.filter(checkbox => checkbox !== id),
+      }));
     }
   };
 

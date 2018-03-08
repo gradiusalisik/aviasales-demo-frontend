@@ -28,7 +28,7 @@ const list = {
     outRightDate: 1519508700000,
     to: 'BCN',
     inLeftDate: 1519434300000,
-    inRightDate: 519645800000,
+    inRightDate: 1519643100000,
   },
   arrival: {
     from: 'BCN',
@@ -36,7 +36,7 @@ const list = {
     outRightDate: 1520113500000,
     to: 'MOW',
     inLeftDate: 1520082000000,
-    inRightDate: 1520063700000,
+    inRightDate: 1520236500000,
   },
   timeOut: {
     from: 'MOW',
