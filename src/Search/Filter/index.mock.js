@@ -3,10 +3,6 @@ import { partners } from '../../utils/library.mock';
 const list = {
   transfer: [
     {
-      id: 'all',
-      label: 'Все',
-    },
-    {
       id: 'not-transfer',
       label: 'Без пересадок',
       price: 7712,
@@ -201,10 +197,6 @@ const list = {
       title: 'Альянсы',
       list: [
         {
-          id: 'all-alianse',
-          label: 'Все',
-        },
-        {
           id: 'Star Alliance',
           label: 'Star Alliance',
           price: 11150,
@@ -228,10 +220,6 @@ const list = {
       id: 'air-company-2',
       title: 'Авиакомпании',
       list: [
-        {
-          id: 'all-air',
-          label: 'Все',
-        },
         {
           id: 'Aegean Airlines',
           label: 'Aegean Airlines',

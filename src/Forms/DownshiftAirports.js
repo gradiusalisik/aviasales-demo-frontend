@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { PropTypes as pt } from 'prop-types';
 import styled, { css } from 'styled-components';
 import Downshift from 'downshift';
 import Highlighter from 'react-highlight-words';
@@ -114,70 +115,83 @@ const Info = styled.div`
 
 const toLowerCaseCustom = name => name.toString().toLowerCase();
 
-export default class DownshiftAirports extends Component {
-  handleSelection = id => (selection) => {
-    this.props.handleSelection(id, selection);
-  };
-
-  handleChangeInput = id => (event) => {
-    const { value } = event.target;
-    this.props.handleChangeInput(id, value);
-  };
-
-  render() {
-    return (
-      <Downshift
-        onChange={this.handleSelection(this.props.id)}
-        itemToString={i => (i !== null ? i.city : '')}
-        render={({
+const DownshiftAirports = props => (
+  <Downshift
+    onChange={selection => props.handleSelection(props.id, selection)}
+    itemToString={i => (i !== null ? i.city : '')}
+    render={({
  getInputProps, getItemProps, isOpen, inputValue, highlightedIndex,
 }) => (
   <div style={{ position: 'relative' }}>
     <Field
-      placeholder={this.props.placeholder}
-      reverse={this.props.reverse}
-      kind={this.props.kind}
+      placeholder={props.placeholder}
+      reverse={props.reverse}
+      kind={props.kind}
       {...getInputProps({
-                destination: this.props.destination,
-                onChange: this.handleChangeInput(this.props.id),
-                onClickReverse: this.props.onClickReverse,
-                value: this.props.value,
-              })}
+            destination: props.destination,
+            onChange: event => props.handleChangeInput(props.id, event.target.value),
+            onClickReverse: props.onClickReverse,
+            value: props.value,
+          })}
     />
-    {isOpen && this.props.value !== '' ? (
+    {isOpen && props.value !== '' ? (
       <ChoiceAirports>
         {airportsRu
-                  .filter(content =>
-                      toLowerCaseCustom(content.city) === toLowerCaseCustom(inputValue) ||
-                      toLowerCaseCustom(content.city).includes(toLowerCaseCustom(inputValue)))
-                  .slice(0, 6)
-                  .map((content, index) => (
-                    <Content
-                      key={content.code}
-                      select={highlightedIndex === index}
-                      {...getItemProps({
-                        item: content,
-                        index,
-                      })}
-                    >
-                      <Info>
-                        <City
-                          searchWords={[this.props.value]}
-                          autoEscape
-                          textToHighlight={content.city}
-                          highlightTag={queryText}
-                        />
-                        <Comma>,&nbsp;</Comma>
-                        <Country>{content.country}</Country>
-                      </Info>
-                      <Text>{content.code}</Text>
-                    </Content>
-                  ))}
+              .filter(content =>
+                  toLowerCaseCustom(content.city) === toLowerCaseCustom(inputValue) ||
+                  toLowerCaseCustom(content.city).includes(toLowerCaseCustom(inputValue)))
+              .slice(0, 6)
+              .map((content, index) => (
+                <Content
+                  key={content.code}
+                  select={highlightedIndex === index}
+                  {...getItemProps({
+                    item: content,
+                    index,
+                  })}
+                >
+                  <Info>
+                    <City
+                      searchWords={[props.value]}
+                      autoEscape
+                      textToHighlight={content.city}
+                      highlightTag={queryText}
+                    />
+                    <Comma>,&nbsp;</Comma>
+                    <Country>{content.country}</Country>
+                  </Info>
+                  <Text>{content.code}</Text>
+                </Content>
+              ))}
       </ChoiceAirports>
-            ) : null}
+        ) : null}
   </div>
-        )}
-      />
-    );
-  }
-}
+    )}
+  />
+);
+
+DownshiftAirports.propTypes = {
+  value: pt.string,
+  placeholder: pt.string,
+  id: pt.string,
+  reverse: pt.bool,
+  kind: pt.string,
+  destination: pt.string,
+  handleSelection: pt.func,
+  handleChangeInput: pt.func,
+  onClickReverse: pt.func,
+};
+
+DownshiftAirports.defaultProps = {
+  value: '',
+  placeholder: '',
+  id: '',
+  kind: '',
+  reverse: false,
+  destination: '',
+  handleSelection: () => {},
+  handleChangeInput: () => {},
+  onClickReverse: () => {},
+};
+
+export default DownshiftAirports;

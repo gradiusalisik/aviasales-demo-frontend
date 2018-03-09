@@ -63,15 +63,23 @@ const Checkboxes = props => (
 Checkboxes.propTypes = {
   list: pt.arrayOf(pt.shape({})),
   id: pt.string,
+  title: pt.string,
   label: pt.string,
+  isAllChecked: pt.bool,
   checkedIds: pt.arrayOf(pt.node),
+  handleChangeAllCheckbox: pt.func,
+  handleChangeFilter: pt.func,
 };
 
 Checkboxes.defaultProps = {
   list: [],
   checkedIds: [],
   id: 'all',
+  title: '',
   label: 'Все',
+  isAllChecked: false,
+  handleChangeAllCheckbox: () => {},
+  handleChangeFilter: () => {},
 };
 
 export default Checkboxes;

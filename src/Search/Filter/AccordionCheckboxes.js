@@ -29,11 +29,12 @@ const IconReset = styled(Icon)`
   }
 `;
 
+const quantityCheckedOptions = (isCheckedAll, checked, max) =>
+  (isCheckedAll ? max : `${checked} / ${max}`);
+
 const AccordionCheckboxes = (props) => {
   const isCheckedAll = props.list.length === props.checkedIds.length;
-  const quantity = isCheckedAll
-    ? props.list.length
-    : `${props.checkedIds.length} / ${props.list.length}`;
+  const quantity = quantityCheckedOptions(isCheckedAll, props.checkedIds.length, props.list.length);
 
   return (
     <AccordionCheckboxesStyled>
@@ -59,7 +60,10 @@ const AccordionCheckboxes = (props) => {
 AccordionCheckboxes.propTypes = {
   text: pt.string,
   open: pt.bool,
+  quantity: pt.string,
+  id: pt.string,
   list: pt.arrayOf(pt.shape({})),
+  checkedIds: pt.arrayOf(pt.shape({})),
   handleChangeAllCheckbox: pt.func,
   handleChangeFilter: pt.func,
   handleResetFilter: pt.func,
@@ -68,7 +72,10 @@ AccordionCheckboxes.propTypes = {
 AccordionCheckboxes.defaultProps = {
   text: '',
   open: false,
+  id: '',
   list: [],
+  quantity: '',
+  checkedIds: [],
   handleChangeAllCheckbox: () => {},
   handleChangeFilter: () => {},
   handleResetFilter: () => {},

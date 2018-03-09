@@ -31,17 +31,21 @@ Field.propTypes = {
   value: pt.string,
   placeholder: pt.string,
   onChange: pt.func,
+  onClickReverse: pt.func,
   onClick: pt.func,
+  kind: pt.string,
 };
 
 Field.defaultProps = {
   onChange: () => {},
   onClick: () => {},
+  onClickReverse: () => {},
   destination: '',
   height: '',
   reverse: false,
   value: undefined,
   placeholder: '',
+  kind: '',
 };
 
 export default Field;
