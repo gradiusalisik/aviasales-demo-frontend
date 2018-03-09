@@ -4,6 +4,7 @@ import DataPicker from './DataPicker';
 import Select from './Select';
 import ChoiceQuantity from './ChoiceQuantity';
 import LinkSearch from './LinkSearch';
+import DownshiftAirports from './DownshiftAirports';
 import {
   FormsStyled,
   Title,
@@ -47,7 +48,7 @@ export default class Forms extends Component {
           <Content>
             <Fields>
               <From>
-                <Field placeholder="Город вылета" reverse />
+                <DownshiftAirports />
               </From>
               <To>
                 <Field placeholder="Город прибытия" kind="simpleTo" />

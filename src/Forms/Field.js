@@ -11,6 +11,7 @@ const Field = props => (
       placeholder={props.placeholder}
       onChange={props.onChange}
       kind={props.kind}
+      {...props}
     />
     {!!props.destination && (
       <Info>
