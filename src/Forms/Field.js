@@ -10,6 +10,7 @@ const Field = props => (
       value={props.value}
       placeholder={props.placeholder}
       onChange={props.onChange}
+      kind={props.kind}
     />
     {!!props.destination && (
       <Info>

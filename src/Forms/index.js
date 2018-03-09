@@ -50,12 +50,12 @@ export default class Forms extends Component {
                 <Field placeholder="Город вылета" reverse />
               </From>
               <To>
-                <Field placeholder="Город прибытия" />
+                <Field placeholder="Город прибытия" kind="simpleTo" />
               </To>
             </Fields>
             <Fields>
               <DatePicker>
-                <DataPicker />
+                <DataPicker kind="simpleDate" />
               </DatePicker>
               <Selects>
                 <Select quantity={quantitySelect} classFly={classFly}>

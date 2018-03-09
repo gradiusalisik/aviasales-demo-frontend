@@ -57,24 +57,13 @@ const FormField = styled.div`
 `;
 
 const From = FormField.extend`
-  border-top-left-radius: 6px;
-  overflow: hidden;
-
   ${media.xl`
     max-width: 226px;
-    border-bottom-left-radius: 6px;
   `};
 `;
 
 const To = FormField.extend`
-  overflow: hidden;
-
-  ${media.md`
-    border-top-right-radius: 6px;
-  `};
-
   ${media.xl`
-    border-top-right-radius: 0;
     max-width: 226px;
   `};
 `;
@@ -131,15 +120,15 @@ export default class Forms extends Component {
       <FormsStyled action="#" method="GET">
         <Fields>
           <From>
-            <Field placeholder="Город отправления" reverse />
+            <Field placeholder="Город отправления" reverse kind="complexFrom" />
           </From>
           <To>
-            <Field placeholder="Город прибытия" />
+            <Field placeholder="Город прибытия" kind="complexTo" />
           </To>
         </Fields>
         <Fields>
           <DatePicker>
-            <DataPicker />
+            <DataPicker kind="simpleDate" />
           </DatePicker>
           <FormFieldLast>
             <ContentSelect>

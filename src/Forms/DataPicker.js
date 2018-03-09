@@ -19,10 +19,10 @@ const Picker = styled.div`
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
+  overflow: hidden;
 
   ${media.md`
     border-bottom-left-radius: 6px;
-    overflow: hidden;
   `};
 
   ${media.xl`
@@ -207,6 +207,7 @@ class DataPicker extends Component {
               placeholder="Туда"
               onClick={this.handleClickDay('from')}
               value={fromFormatted}
+              kind={this.props.kind}
             />
             <IconCalendar icon="calendar" onClick={this.handleClickDay('from')} />
           </Departure>
@@ -215,6 +216,7 @@ class DataPicker extends Component {
               placeholder="Обратно"
               onClick={this.handleClickDay('to')}
               value={toFormatted}
+              kind={this.props.kind}
             />
             {to ? (
               <ClearArrivalDate onClick={this.clearArrivalDate} type="button">
