@@ -355,7 +355,7 @@ export default class Accordions extends Component {
           handleChangeFilter={this.handleChangeFilter('checkedIdsPartners')}
           checkedIds={this.state.checkedIdsPartners}
           text="агенства"
-          quantity
+          isQuantity
         />
         <Clear onClick={this.handleResetAllFitler} disabled={isDisabledClearAllFilter}>
           <TextClear>СБРОСИТЬ ВСЕ ФИЛЬТРЫ</TextClear>

@@ -38,7 +38,7 @@ const AccordionCheckboxes = (props) => {
 
   return (
     <AccordionCheckboxesStyled>
-      <Accordion text={props.text} open={props.open} quantity={props.quantity && quantity}>
+      <Accordion text={props.text} open={props.open} quantity={props.isQuantity && quantity}>
         <Checkboxes
           list={props.list}
           id={props.id}
@@ -60,10 +60,10 @@ const AccordionCheckboxes = (props) => {
 AccordionCheckboxes.propTypes = {
   text: pt.string,
   open: pt.bool,
-  quantity: pt.string,
+  isQuantity: pt.bool,
   id: pt.string,
   list: pt.arrayOf(pt.shape({})),
-  checkedIds: pt.arrayOf(pt.shape({})),
+  checkedIds: pt.arrayOf(pt.node),
   handleChangeAllCheckbox: pt.func,
   handleChangeFilter: pt.func,
   handleResetFilter: pt.func,
@@ -74,7 +74,7 @@ AccordionCheckboxes.defaultProps = {
   open: false,
   id: '',
   list: [],
-  quantity: '',
+  isQuantity: false,
   checkedIds: [],
   handleChangeAllCheckbox: () => {},
   handleChangeFilter: () => {},
