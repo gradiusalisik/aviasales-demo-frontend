@@ -20,6 +20,8 @@ import {
   Reset,
 } from './styled';
 
+const defaultChecked = arr => arr.map(checkbox => checkbox.id);
+
 export default class Accordions extends Component {
   constructor(props) {
     super(props);
@@ -29,12 +31,13 @@ export default class Accordions extends Component {
       checkboxFilterAlians: list.airCompany.alians.list,
       checkboxFilterCompany: list.airCompany.company.list,
       checkboxFilterPartners: list.partners,
-      checkedIdsPartners: [],
       checkboxFilterBaggage: list.baggage,
-      checkedIdsBaggage: [],
-      checkedIdsTransfer: [],
-      checkedIdsAlians: [],
-      checkedIdsCompany: [],
+      checkedIdsPartners: defaultChecked(list.partners) || [],
+      checkedIdsBaggage: defaultChecked(list.baggage) || [],
+      checkedIdsTransfer: defaultChecked(list.transfer) || [],
+      checkedIdsAlians: defaultChecked(list.airCompany.alians.list) || [],
+      checkedIdsCompany: defaultChecked(list.airCompany.company.list) || [],
+      checkedOneCheckbox: false,
       outDeparture: {
         left: list.departure.outLeftDate,
         right: list.departure.outRightDate,
@@ -126,6 +129,12 @@ export default class Accordions extends Component {
     return `${checkedCompany} / ${allCompany}`;
   };
 
+  handleChangeOneCheckbox = () => {
+    this.setState(state => ({
+      checkedOneCheckbox: !state.checkedOneCheckbox,
+    }));
+  };
+
   render() {
     const isAllCheckedAlias =
       this.state.checkboxFilterAlians.length === this.state.checkedIdsAlians.length;
@@ -156,6 +165,8 @@ export default class Accordions extends Component {
       list.duration.rightTime === this.state.duration.right;
 
     const quantityAviaCompany = this.quantityAviaCompany(isAllCheckedAlias, isAllCheckedCompany);
+
+    const isDisabledClearAllFilter = isAllCheckedAlias && isAllCheckedCompany && isOutTimeRange && isDepartureRange && isArrivalRange && isDuration;
 
     return (
       <AccordionsStyled>
@@ -272,7 +283,12 @@ export default class Accordions extends Component {
         <AccordionGroup>
           <Accordion text="Авиакомпании" open quantity={quantityAviaCompany}>
             <Info>
-              <Checkbox id="several-companies" label="Несколько авиакомпаний" />
+              <Checkbox
+                id="several-companies"
+                label="Несколько авиакомпаний"
+                checked={this.state.checkedOneCheckbox}
+                onChange={this.handleChangeOneCheckbox}
+              />
               <Description>
                 Показывать билеты с перелетами, выполняемыми несколькими авиакомпаниями, включая
                 выбранную
@@ -332,10 +348,9 @@ export default class Accordions extends Component {
           handleChangeFilter={this.handleChangeFilter('checkedIdsPartners')}
           checkedIds={this.state.checkedIdsPartners}
           text="агенства"
-          open
           quantity
         />
-        <Clear onClick={this.handleResetAllFitler}>
+        <Clear onClick={this.handleResetAllFitler} disabled={isDisabledClearAllFilter}>
           <TextClear>СБРОСИТЬ ВСЕ ФИЛЬТРЫ</TextClear>
           <IconClear icon="clear" />
         </Clear>

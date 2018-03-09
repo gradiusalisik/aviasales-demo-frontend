@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Icon from '../../Icon';
 
 export const AccordionsStyled = styled.div``;
@@ -19,6 +19,14 @@ export const Clear = styled.button`
     color: #ff9d1b;
     background-color: #f1fcff;
   }
+
+  ${props =>
+    props.disabled &&
+    css`
+      pointer-events: none;
+      color: #a0b0b5;
+      opacity: 0.7;
+    `};
 `;
 
 export const TextClear = styled.span`
