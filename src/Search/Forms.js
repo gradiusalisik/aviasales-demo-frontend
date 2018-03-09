@@ -98,6 +98,14 @@ export default class Forms extends Component {
   state = {
     quantitySelect: 1,
     isChecked: false,
+    from: {
+      value: '',
+      destination: '',
+    },
+    to: {
+      value: '',
+      destination: '',
+    },
   };
 
   handleChangeClass = () => {
@@ -112,6 +120,40 @@ export default class Forms extends Component {
     }));
   };
 
+  handleSelection = (id, selection) => {
+    this.setState({
+      [id]: {
+        value: selection.city,
+        destination: selection.code,
+      },
+    });
+  };
+
+  handleChangeInput = (id, value) => {
+    if (value === '') {
+      this.setState({
+        [id]: {
+          destination: '',
+        },
+      });
+    }
+    this.setState({
+      [id]: {
+        value,
+      },
+    });
+  };
+
+  handleClickReverseInputs = () => {
+    const paramsInputFrom = this.state.from;
+    const paramsInputTo = this.state.to;
+
+    this.setState({
+      from: paramsInputTo,
+      to: paramsInputFrom,
+    });
+  };
+
   render() {
     const { isChecked, quantitySelect } = this.state;
     const classFly = isChecked ? 'бизнес' : 'эконом';
@@ -120,10 +162,28 @@ export default class Forms extends Component {
       <FormsStyled action="#" method="GET">
         <Fields>
           <From>
-            <DownshiftAirports placeholder="Город отправления" reverse kind="complexFrom" />
+            <DownshiftAirports
+              id="from"
+              placeholder="Город отправления"
+              reverse
+              kind="complexFrom"
+              handleChangeInput={this.handleChangeInput}
+              handleSelection={this.handleSelection}
+              onClickReverse={this.handleClickReverseInputs}
+              value={this.state.from.value}
+              destination={this.state.from.destination}
+            />
           </From>
           <To>
-            <DownshiftAirports placeholder="Город прибытия" kind="complexTo" />
+            <DownshiftAirports
+              id="to"
+              placeholder="Город прибытия"
+              kind="complexTo"
+              handleChangeInput={this.handleChangeInput}
+              handleSelection={this.handleSelection}
+              value={this.state.to.value}
+              destination={this.state.to.destination}
+            />
           </To>
         </Fields>
         <Fields>

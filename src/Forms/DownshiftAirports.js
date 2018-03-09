@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
 import Downshift from 'downshift';
+import Highlighter from 'react-highlight-words';
 import Field from './Field';
 import airportsRu from '../utils/airportsRu.mock';
-import Highlighter from 'react-highlight-words';
 
 const ChoiceAirports = styled.div`
   position: absolute;
@@ -17,6 +17,37 @@ const ChoiceAirports = styled.div`
   border-radius: 2px;
 `;
 
+const City = styled(Highlighter)`
+  font-size: 14px;
+  overflow: hidden;
+  max-width: 105px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #4a4a4a;
+  transition: color 0.3s;
+`;
+
+const Country = styled.span`
+  font-size: 14px;
+  overflow: hidden;
+  max-width: 105px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #a0b0b9;
+  transition: color 0.3s;
+`;
+
+const Comma = styled(Country)`
+  color: #4a4a4a;
+`;
+
+const Text = styled.span`
+  font-size: 12px;
+  text-align: right;
+  color: #a0b0b9;
+  transition: color 0.3s;
+`;
+
 const Content = styled.div`
   padding: 15px 16px;
   display: flex;
@@ -28,6 +59,13 @@ const Content = styled.div`
 
   &:hover {
     background-color: #20a6cb;
+
+      ${City},
+      ${Country},
+      ${Comma},
+      ${Text} {
+        color: #fff;
+      }
   }
 
   &:nth-child(even) {
@@ -74,104 +112,41 @@ const Info = styled.div`
   align-items: center;
 `;
 
-const City = styled(Highlighter)`
-  font-size: 14px;
-  overflow: hidden;
-  max-width: 105px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  color: #4a4a4a;
-  transition: color 0.3s;
-
-  ${Content}:hover & {
-    color: #fff;
-  }
-`;
-
-const Country = styled.span`
-  font-size: 14px;
-  overflow: hidden;
-  max-width: 105px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  color: #a0b0b9;
-  transition: color 0.3s;
-
-  ${Content}:hover & {
-    color: #fff;
-  }
-`;
-
-const Comma = styled(Country)`
-  color: #4a4a4a;
-`;
-
-const Text = styled.span`
-  font-size: 12px;
-  text-align: right;
-  color: #a0b0b9;
-  transition: color 0.3s;
-
-  ${Content}:hover & {
-    color: #fff;
-  }
-`;
-
 const toLowerCaseCustom = name => name.toString().toLowerCase();
 
 export default class DownshiftAirports extends Component {
-  state = {
-    value: '',
-    destination: '',
+  handleSelection = id => (selection) => {
+    this.props.handleSelection(id, selection);
   };
 
-  handleChange = (selection) => {
-    this.setState({
-      value: selection.city,
-      destination: selection.code,
-    });
-  };
-
-  handleChangeInput = (event) => {
+  handleChangeInput = id => (event) => {
     const { value } = event.target;
-    if (value === '') {
-      this.setState({
-        destination: '',
-      });
-    }
-    this.setState({
-      value,
-    });
+    this.props.handleChangeInput(id, value);
   };
 
   render() {
-    console.log(this.state.destination, 'destination');
     return (
       <Downshift
-        onChange={this.handleChange}
+        onChange={this.handleSelection(this.props.id)}
         itemToString={i => (i !== null ? i.city : '')}
         render={({
-          getInputProps,
-          getItemProps,
-          isOpen,
-          inputValue,
-          highlightedIndex,
-          selectedItem,
-        }) => (
-          <div style={{ position: 'relative' }}>
-            <Field
-              placeholder={this.props.placeholder}
-              reverse={this.props.reverse}
-              kind={this.props.kind}
-              {...getInputProps({
-                destination: this.state.destination,
-                onChange: this.handleChangeInput,
-                value: this.state.value,
+ getInputProps, getItemProps, isOpen, inputValue, highlightedIndex,
+}) => (
+  <div style={{ position: 'relative' }}>
+    <Field
+      placeholder={this.props.placeholder}
+      reverse={this.props.reverse}
+      kind={this.props.kind}
+      {...getInputProps({
+                destination: this.props.destination,
+                onChange: this.handleChangeInput(this.props.id),
+                onClickReverse: this.props.onClickReverse,
+                value: this.props.value,
               })}
-            />
-            {isOpen && this.state.value !== '' ? (
-              <ChoiceAirports>
-                {airportsRu
+    />
+    {isOpen && this.props.value !== '' ? (
+      <ChoiceAirports>
+        {airportsRu
                   .filter(content =>
                       toLowerCaseCustom(content.city) === toLowerCaseCustom(inputValue) ||
                       toLowerCaseCustom(content.city).includes(toLowerCaseCustom(inputValue)))
@@ -187,7 +162,7 @@ export default class DownshiftAirports extends Component {
                     >
                       <Info>
                         <City
-                          searchWords={[this.state.value]}
+                          searchWords={[this.props.value]}
                           autoEscape
                           textToHighlight={content.city}
                           highlightTag={queryText}
@@ -198,9 +173,9 @@ export default class DownshiftAirports extends Component {
                       <Text>{content.code}</Text>
                     </Content>
                   ))}
-              </ChoiceAirports>
+      </ChoiceAirports>
             ) : null}
-          </div>
+  </div>
         )}
       />
     );

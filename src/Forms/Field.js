@@ -16,7 +16,7 @@ const Field = props => (
     <Info>
       {!!props.destination && <Text>{props.destination}</Text>}
       {!!props.reverse && (
-        <ChangeCityArrows>
+        <ChangeCityArrows onClick={props.onClickReverse}>
           <Icon icon="arrows" />
         </ChangeCityArrows>
       )}
