@@ -13,16 +13,14 @@ const Field = props => (
       kind={props.kind}
       {...props}
     />
-    {!!props.destination && (
-      <Info>
-        <Text>{props.destination}</Text>
-        {!!props.reverse && (
-          <ChangeCityArrows>
-            <Icon icon="arrows" />
-          </ChangeCityArrows>
-        )}
-      </Info>
-    )}
+    <Info>
+      {!!props.destination && <Text>{props.destination}</Text>}
+      {!!props.reverse && (
+        <ChangeCityArrows>
+          <Icon icon="arrows" />
+        </ChangeCityArrows>
+      )}
+    </Info>
   </Fields>
 );
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Field from '../Forms/Field';
+import DownshiftAirports from '../Forms/DownshiftAirports';
 import DataPicker from '../Forms/DataPicker';
 import Select from '../Forms/Select';
 import ChoiceQuantity from '../Forms/ChoiceQuantity';
@@ -120,10 +120,10 @@ export default class Forms extends Component {
       <FormsStyled action="#" method="GET">
         <Fields>
           <From>
-            <Field placeholder="Город отправления" reverse kind="complexFrom" />
+            <DownshiftAirports placeholder="Город отправления" reverse kind="complexFrom" />
           </From>
           <To>
-            <Field placeholder="Город прибытия" kind="complexTo" />
+            <DownshiftAirports placeholder="Город прибытия" kind="complexTo" />
           </To>
         </Fields>
         <Fields>

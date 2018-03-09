@@ -34,6 +34,7 @@ const AccordionCheckboxes = (props) => {
   const quantity = isCheckedAll
     ? props.list.length
     : `${props.checkedIds.length} / ${props.list.length}`;
+
   return (
     <AccordionCheckboxesStyled>
       <Accordion text={props.text} open={props.open} quantity={props.quantity && quantity}>

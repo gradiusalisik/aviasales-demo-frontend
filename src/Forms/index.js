@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Field from './Field';
 import DataPicker from './DataPicker';
 import Select from './Select';
 import ChoiceQuantity from './ChoiceQuantity';
@@ -48,10 +47,10 @@ export default class Forms extends Component {
           <Content>
             <Fields>
               <From>
-                <DownshiftAirports />
+                <DownshiftAirports placeholder="Город вылета" reverse />
               </From>
               <To>
-                <Field placeholder="Город прибытия" kind="simpleTo" />
+                <DownshiftAirports placeholder="Город прибытия" kind="simpleTo" />
               </To>
             </Fields>
             <Fields>
