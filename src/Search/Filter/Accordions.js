@@ -166,7 +166,13 @@ export default class Accordions extends Component {
 
     const quantityAviaCompany = this.quantityAviaCompany(isAllCheckedAlias, isAllCheckedCompany);
 
-    const isDisabledClearAllFilter = isAllCheckedAlias && isAllCheckedCompany && isOutTimeRange && isDepartureRange && isArrivalRange && isDuration;
+    const isDisabledClearAllFilter =
+      isAllCheckedAlias &&
+      isAllCheckedCompany &&
+      isOutTimeRange &&
+      isDepartureRange &&
+      isArrivalRange &&
+      isDuration;
 
     return (
       <AccordionsStyled>

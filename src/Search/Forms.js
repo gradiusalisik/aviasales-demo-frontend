@@ -143,7 +143,7 @@ export default class Forms extends Component {
           </DatePicker>
           <FormFieldLast>
             <ContentSelect>
-              <Select quantity={quantitySelect} classFly={classFly} removalBorder>
+              <Select quantity={quantitySelect} classFly={classFly} kind="simple">
                 <ChoiceQuantity
                   onChangeCheckbox={this.handleChangeClass}
                   onChangeCounter={this.handleChangeCounter}
