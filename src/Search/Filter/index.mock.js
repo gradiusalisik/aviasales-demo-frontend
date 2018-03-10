@@ -26,19 +26,27 @@ const list = {
   ],
   departure: {
     from: 'MOW',
-    outLeftDate: 1519423500000,
-    outRightDate: 1519508700000,
     to: 'BCN',
-    inLeftDate: 1519434300000,
-    inRightDate: 1519643100000,
+    outDate: {
+      begin: 1519423500000,
+      end: 1519508700000,
+    },
+    inDate: {
+      begin: 1519434300000,
+      end: 1519643100000,
+    },
   },
   arrival: {
     from: 'BCN',
-    outLeftDate: 1520049600000,
-    outRightDate: 1520113500000,
     to: 'MOW',
-    inLeftDate: 1520082000000,
-    inRightDate: 1520236500000,
+    outDate: {
+      begin: 1520049600000,
+      end: 1520113500000,
+    },
+    inDate: {
+      begin: 1520082000000,
+      end: 1520236500000,
+    },
   },
   baggage: [
     {
@@ -176,23 +184,23 @@ const list = {
     },
   ],
   duration: {
-    leftTime: 45,
-    rightTime: 1440,
+    beginTime: 45,
+    endTime: 1440,
   },
-  timeOut: {
+  outTime: {
     from: 'MOW',
     to: 'BCN',
-    leftTime: 260,
-    rightTime: 2930,
+    beginTime: 260,
+    endTime: 2930,
   },
-  timeIn: {
+  inTime: {
     from: 'BCN',
     to: 'MOW',
-    leftTime: 250,
-    rightTime: 2480,
+    beginTime: 250,
+    endTime: 2480,
   },
   airCompany: {
-    alians: {
+    alliance: {
       id: 'air-company-1',
       title: 'Альянсы',
       list: [

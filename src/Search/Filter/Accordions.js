@@ -7,25 +7,11 @@ import TimePath from './TimePath';
 import Checkbox from '../../UI/Checkbox';
 import AccordionCheckboxes from './AccordionCheckboxes';
 import list from './index.mock';
+import initialState from './reset';
 import {
-  defaultDates,
-  defaultTimes,
-  defaultDuration,
-  defaultTransfer,
-  defaultBaggage,
-  defaultAviacompanies,
-  defaultPartners,
-} from './reset';
-import {
-  getStatusDuration,
-  getStatusTransfers,
-  getStatusPartners,
-  getStatusArrivalRange,
-  getStatusDepartureRange,
-  getStatusInTimeRange,
-  getStatusOutTimeRange,
-  getStatusCheckedAlias,
-  getStatusCheckedCompany,
+  getStatusCheckboxes,
+  getStatusDateRange,
+  getStatusTimeRange,
 } from './helpers/accordionsHelper';
 
 import {
@@ -42,93 +28,74 @@ import {
 
 export default class Accordions extends Component {
   state = {
-    checkboxFilterTransfer: list.transfer,
-    checkedIdsTransfer: get(defaultTransfer, 'checkedIdsTransfer', []),
-    checkboxFilterAlians: list.airCompany.alians.list,
-    checkboxFilterCompany: list.airCompany.company.list,
-    checkboxFilterPartners: list.partners,
-    checkboxFilterBaggage: list.baggage,
-    checkedIdsBaggage: get(defaultBaggage, 'checkedIdsBaggage', []),
-    checkedIdsPartners: get(defaultPartners, 'checkedIdsPartners', []),
-    checkedIdsAlians: get(defaultAviacompanies, 'checkedIdsAlians', []),
-    checkedIdsCompany: get(defaultAviacompanies, 'checkedIdsCompany', []),
+    transfer: get(initialState, 'transfer', {}),
+    partners: get(initialState, 'partners', {}),
+    baggage: get(initialState, 'baggage', {}),
+    alliance: get(initialState, 'alliance', {}),
+    company: get(initialState, 'company', {}),
+    duration: get(initialState, 'duration', {}),
+    outTime: get(initialState, 'outTime', {}),
+    inTime: get(initialState, 'inTime', {}),
+    outDeparture: get(initialState, 'outDeparture', {}),
+    inDeparture: get(initialState, 'inDeparture', {}),
+    outArrival: get(initialState, 'outArrival', {}),
+    inArrival: get(initialState, 'inArrival', {}),
     checkedOneCheckbox: false,
-    outDeparture: {
-      left: list.departure.outLeftDate,
-      right: list.departure.outRightDate,
-    },
-    inDeparture: {
-      left: list.departure.inLeftDate,
-      right: list.departure.inRightDate,
-    },
-    outArrival: {
-      left: list.arrival.outLeftDate,
-      right: list.arrival.outRightDate,
-    },
-    inArrival: {
-      left: list.arrival.inLeftDate,
-      right: list.arrival.inRightDate,
-    },
-    outTime: {
-      left: list.timeOut.leftTime,
-      right: list.timeOut.rightTime,
-    },
-    inTime: {
-      left: list.timeIn.leftTime,
-      right: list.timeIn.rightTime,
-    },
-    duration: {
-      left: list.duration.leftTime,
-      right: list.duration.rightTime,
-    },
   };
 
-  baseState = this.state;
-
-  handleChangeFilter = checkedIds => id => ({ target }) => {
+  handleChangeFilter = name => id => ({ target }) => {
     const { checked } = target;
 
     if (checked) {
-      this.setState(state => ({ [checkedIds]: state[checkedIds].concat(id) }));
+      this.setState(state => ({
+        [name]: {
+          ...state[name],
+          checkedIds: state[name].checkedIds.concat(id),
+        },
+      }));
     } else {
       this.setState(state => ({
-        [checkedIds]: state[checkedIds].filter(checkbox => checkbox !== id),
+        [name]: {
+          ...state[name],
+          checkedIds: state[name].checkedIds.filter(checkbox => checkbox !== id),
+        },
       }));
     }
   };
 
-  handleChangeAllCheckbox = (checkboxFilter, checkedIds) => ({ target }) => {
+  handleChangeAllCheckbox = name => ({ target }) => {
     const newCheckboxIds = target.checked
-      ? this.state[checkboxFilter].map(checkbox => checkbox.id)
+      ? this.state[name].filters.map(checkbox => checkbox.id)
       : [];
-
-    this.setState({
-      [checkedIds]: newCheckboxIds,
-    });
+    this.setState(state => ({
+      [name]: {
+        ...state[name],
+        checkedIds: newCheckboxIds,
+      },
+    }));
   };
 
-  handleResetFilter = data => () => {
-    this.setState(data);
+  handleResetFilter = (defaultState, ...args) => () => {
+    args.map(name => this.setState({ [name]: defaultState[name] }));
   };
 
   handleChangeRange = name => (value) => {
     this.setState({
       [name]: {
-        left: value[0],
-        right: value[1],
+        begin: value[0],
+        end: value[1],
       },
     });
   };
 
   handleResetAllFitler = () => {
-    this.setState(this.baseState);
+    this.setState(initialState);
   };
 
   quantityAviaCompany = (isAllCheckedAlias, isAllCheckedCompany) => {
-    const allCompanies =
-      this.state.checkboxFilterAlians.length + this.state.checkboxFilterCompany.length;
+    const allCompanies = this.state.alliance.filters.length + this.state.company.filters.length;
     const checkedCompanies =
-      this.state.checkedIdsAlians.length + this.state.checkedIdsCompany.length;
+      this.state.alliance.checkedIds.length + this.state.company.checkedIds.length;
 
     if (isAllCheckedAlias && isAllCheckedCompany) {
       return allCompanies;
@@ -144,25 +111,31 @@ export default class Accordions extends Component {
   };
 
   render() {
-    const isAllCheckedAlias = getStatusCheckedAlias(this.state);
+    const isAllTransfers = getStatusCheckboxes(this.state.transfer);
 
-    const isAllCheckedCompany = getStatusCheckedCompany(this.state);
+    const isAllPartners = getStatusCheckboxes(this.state.partners);
 
-    const isOutTimeRange = getStatusOutTimeRange(list, this.state);
+    const isAllCheckedAlias = getStatusCheckboxes(this.state.alliance);
 
-    const isInTimeRange = getStatusInTimeRange(list, this.state);
+    const isAllCheckedCompany = getStatusCheckboxes(this.state.company);
 
-    const isDepartureRange = getStatusDepartureRange(list, this.state);
+    const isOutTimeRange = getStatusTimeRange(list.outTime, this.state.outTime);
 
-    const isArrivalRange = getStatusArrivalRange(list, this.state);
+    const isInTimeRange = getStatusTimeRange(list.inTime, this.state.inTime);
 
-    const isDuration = getStatusDuration(list, this.state);
+    const isDepartureRange = getStatusDateRange(list.departure, {
+      out: this.state.outDeparture,
+      in: this.state.inDeparture,
+    });
+
+    const isArrivalRange = getStatusDateRange(list.arrival, {
+      out: this.state.outArrival,
+      in: this.state.inArrival,
+    });
+
+    const isDuration = getStatusTimeRange(list.duration, this.state.duration);
 
     const quantityAviaCompany = this.quantityAviaCompany(isAllCheckedAlias, isAllCheckedCompany);
-
-    const isAllPartners = getStatusPartners(this.state);
-
-    const isAllTransfers = getStatusTransfers(this.state);
 
     const isDisabledClearAllFilter =
       isAllCheckedAlias &&
@@ -178,109 +151,116 @@ export default class Accordions extends Component {
       <AccordionsStyled>
         <AccordionCheckboxes
           id="all-transfers"
-          list={this.state.checkboxFilterTransfer}
-          handleChangeAllCheckbox={this.handleChangeAllCheckbox(
-            'checkboxFilterTransfer',
-            'checkedIdsTransfer',
-          )}
-          handleResetFilter={this.handleResetFilter(defaultTransfer)}
-          handleChangeFilter={this.handleChangeFilter('checkedIdsTransfer')}
-          checkedIds={this.state.checkedIdsTransfer}
+          list={this.state.transfer.filters}
+          handleChangeAllCheckbox={this.handleChangeAllCheckbox('transfer')}
+          handleResetFilter={this.handleResetFilter(initialState, 'transfer')}
+          handleChangeFilter={this.handleChangeFilter('transfer')}
+          checkedIds={this.state.transfer.checkedIds}
           text="ПЕРЕСАДКИ"
           open
         />
+
         <AccordionGroup>
           <Accordion text="ВРЕМЯ ВЫЛЕТА И ПРИБЫТИЯ" open>
             <TimeFly
               from={list.departure.from}
-              outLeftDate={this.state.outDeparture.left}
-              outRightDate={this.state.outDeparture.right}
-              minOut={list.departure.outLeftDate}
-              maxOut={list.departure.outRightDate}
+              outLeftDate={this.state.outDeparture.begin}
+              outRightDate={this.state.outDeparture.end}
+              minOut={list.departure.outDate.begin}
+              maxOut={list.departure.outDate.end}
               to={list.departure.to}
-              minIn={list.departure.inLeftDate}
-              maxIn={list.departure.inRightDate}
-              inLeftDate={this.state.inDeparture.left}
-              inRightDate={this.state.inDeparture.right}
+              minIn={list.departure.inDate.begin}
+              maxIn={list.departure.inDate.end}
+              inLeftDate={this.state.inDeparture.begin}
+              inRightDate={this.state.inDeparture.end}
               handleChangeRangeOut={this.handleChangeRange('outDeparture')}
               handleChangeRangeIn={this.handleChangeRange('inDeparture')}
             />
             <TimeFly
               from={list.arrival.from}
-              outLeftDate={this.state.outArrival.left}
-              outRightDate={this.state.outArrival.right}
-              minOut={list.arrival.outLeftDate}
-              maxOut={list.arrival.outRightDate}
+              outLeftDate={this.state.outArrival.begin}
+              outRightDate={this.state.outArrival.end}
+              minOut={list.arrival.outDate.begin}
+              maxOut={list.arrival.outDate.end}
               to={list.arrival.to}
-              minIn={list.arrival.inLeftDate}
-              maxIn={list.arrival.inRightDate}
-              inLeftDate={this.state.inArrival.left}
-              inRightDate={this.state.inArrival.right}
+              minIn={list.arrival.inDate.begin}
+              maxIn={list.arrival.inDate.end}
+              inLeftDate={this.state.inArrival.begin}
+              inRightDate={this.state.inArrival.end}
               handleChangeRangeOut={this.handleChangeRange('outArrival')}
               handleChangeRangeIn={this.handleChangeRange('inArrival')}
             />
           </Accordion>
           {(!isDepartureRange || !isArrivalRange) && (
-            <Reset onClick={this.handleResetFilter(defaultDates)}>
+            <Reset
+              onClick={this.handleResetFilter(
+                initialState,
+                'outDeparture',
+                'inDeparture',
+                'outArrival',
+                'inArrival',
+              )}
+            >
               <IconReset icon="clear" />
             </Reset>
           )}
         </AccordionGroup>
+
         <AccordionCheckboxes
-          list={this.state.checkboxFilterBaggage}
+          list={this.state.baggage.filters}
           id="baggage-id"
-          handleChangeAllCheckbox={this.handleChangeAllCheckbox(
-            'checkboxFilterBaggage',
-            'checkedIdsBaggage',
-          )}
-          handleResetFilter={this.handleResetFilter(defaultBaggage)}
-          handleChangeFilter={this.handleChangeFilter('checkedIdsBaggage')}
-          checkedIds={this.state.checkedIdsBaggage}
+          handleChangeAllCheckbox={this.handleChangeAllCheckbox('baggage')}
+          handleResetFilter={this.handleResetFilter(initialState, 'baggage')}
+          handleChangeFilter={this.handleChangeFilter('baggage')}
+          checkedIds={this.state.baggage.checkedIds}
           text="Багаж"
         />
+
         <AccordionGroup>
           <Accordion text="Длительность пересадки">
             <TimePath
-              leftTime={this.state.duration.left}
-              rightTime={this.state.duration.right}
-              min={list.duration.leftTime}
-              max={list.duration.rightTime}
+              beginTime={this.state.duration.begin}
+              endTime={this.state.duration.end}
+              min={list.duration.beginTime}
+              max={list.duration.endTime}
               handleChangeRange={this.handleChangeRange('duration')}
             />
           </Accordion>
           {!isDuration && (
-            <Reset onClick={this.handleResetFilter(defaultDuration)}>
+            <Reset onClick={this.handleResetFilter(initialState, 'duration')}>
               <IconReset icon="clear" />
             </Reset>
           )}
         </AccordionGroup>
+
         <AccordionGroup>
           <Accordion text="Время в пути" open>
             <TimePath
-              from={list.timeOut.from}
-              to={list.timeOut.to}
-              leftTime={this.state.outTime.left}
-              rightTime={this.state.outTime.right}
-              min={list.timeOut.leftTime}
-              max={list.timeOut.rightTime}
+              from={list.outTime.from}
+              to={list.outTime.to}
+              beginTime={this.state.outTime.begin}
+              endTime={this.state.outTime.end}
+              min={list.outTime.beginTime}
+              max={list.outTime.endTime}
               handleChangeRange={this.handleChangeRange('outTime')}
             />
             <TimePath
-              from={list.timeIn.from}
-              to={list.timeIn.to}
-              leftTime={this.state.inTime.left}
-              rightTime={this.state.inTime.right}
-              min={list.timeIn.leftTime}
-              max={list.timeIn.rightTime}
+              from={list.inTime.from}
+              to={list.inTime.to}
+              beginTime={this.state.inTime.begin}
+              endTime={this.state.inTime.end}
+              min={list.inTime.beginTime}
+              max={list.inTime.endTime}
               handleChangeRange={this.handleChangeRange('inTime')}
             />
           </Accordion>
           {(!isOutTimeRange || !isInTimeRange) && (
-            <Reset onClick={this.handleResetFilter(defaultTimes)}>
+            <Reset onClick={this.handleResetFilter(initialState, 'outTime', 'inTime')}>
               <IconReset icon="clear" />
             </Reset>
           )}
         </AccordionGroup>
+
         <AccordionGroup>
           <Accordion text="Авиакомпании" open quantity={quantityAviaCompany}>
             <Info>
@@ -296,53 +276,48 @@ export default class Accordions extends Component {
               </Description>
             </Info>
             <Checkboxes
-              list={this.state.checkboxFilterAlians}
-              id="aliansAll"
-              handleChangeAllCheckbox={this.handleChangeAllCheckbox(
-                'checkboxFilterAlians',
-                'checkedIdsAlians',
-              )}
-              handleChangeFilter={this.handleChangeFilter('checkedIdsAlians')}
-              checkedIds={this.state.checkedIdsAlians}
-              title={list.airCompany.alians.title}
+              list={this.state.alliance.filters}
+              id="allianceAll"
+              handleChangeAllCheckbox={this.handleChangeAllCheckbox('alliance')}
+              handleChangeFilter={this.handleChangeFilter('alliance')}
+              checkedIds={this.state.alliance.checkedIds}
+              title={list.airCompany.alliance.title}
               isAllChecked={isAllCheckedAlias}
             />
             <Checkboxes
-              list={this.state.checkboxFilterCompany}
+              list={this.state.company.filters}
               id="companyAll"
-              handleChangeAllCheckbox={this.handleChangeAllCheckbox(
-                'checkboxFilterCompany',
-                'checkedIdsCompany',
-              )}
-              handleChangeFilter={this.handleChangeFilter('checkedIdsCompany')}
-              checkedIds={this.state.checkedIdsCompany}
+              handleChangeAllCheckbox={this.handleChangeAllCheckbox('company')}
+              handleChangeFilter={this.handleChangeFilter('company')}
+              checkedIds={this.state.company.checkedIds}
               title={list.airCompany.company.title}
               isAllChecked={isAllCheckedCompany}
             />
           </Accordion>
           {(!isAllCheckedAlias || !isAllCheckedCompany) && (
-            <Reset onClick={this.handleResetFilter(defaultAviacompanies)}>
+            <Reset onClick={this.handleResetFilter(initialState, 'alliance', 'company')}>
               <IconReset icon="clear" />
             </Reset>
           )}
         </AccordionGroup>
+
         <Accordion text="аэропорты">in Future</Accordion>
+
         <Accordion text="аэропорт пересадки" quantity={71}>
           in Future
         </Accordion>
+
         <AccordionCheckboxes
-          list={this.state.checkboxFilterPartners}
+          list={this.state.partners.filters}
           id="all-partners"
-          handleChangeAllCheckbox={this.handleChangeAllCheckbox(
-            'checkboxFilterPartners',
-            'checkedIdsPartners',
-          )}
-          handleResetFilter={this.handleResetFilter(defaultPartners)}
-          handleChangeFilter={this.handleChangeFilter('checkedIdsPartners')}
-          checkedIds={this.state.checkedIdsPartners}
+          handleChangeAllCheckbox={this.handleChangeAllCheckbox('partners')}
+          handleResetFilter={this.handleResetFilter(initialState, 'partners')}
+          handleChangeFilter={this.handleChangeFilter('partners')}
+          checkedIds={this.state.partners.checkedIds}
           text="агенства"
           isQuantity
         />
+
         <Clear onClick={this.handleResetAllFitler} disabled={isDisabledClearAllFilter}>
           <TextClear>СБРОСИТЬ ВСЕ ФИЛЬТРЫ</TextClear>
           <IconClear icon="clear" />

@@ -68,14 +68,14 @@ const TimePath = props => (
     )}
     <Info>
       <Dates>
-        <Text>от {formatTime(props.leftTime)}</Text>
-        <TextRight>до {formatTime(props.rightTime)}</TextRight>
+        <Text>от {formatTime(props.beginTime)}</Text>
+        <TextRight>до {formatTime(props.endTime)}</TextRight>
       </Dates>
       <Range
         min={props.min}
         max={props.max}
         defaultValue={[props.min, props.max]}
-        value={[props.leftTime, props.rightTime]}
+        value={[props.beginTime, props.endTime]}
         onChange={props.handleChangeRange}
       />
     </Info>
@@ -85,19 +85,21 @@ const TimePath = props => (
 TimePath.propTypes = {
   from: pt.string,
   to: pt.string,
-  leftTime: pt.number,
-  rightTime: pt.number,
+  beginTime: pt.number,
+  endTime: pt.number,
   min: pt.number,
   max: pt.number,
+  handleChangeRange: pt.func,
 };
 
 TimePath.defaultProps = {
   from: '',
   to: '',
-  leftTime: null,
-  rightTime: null,
+  beginTime: null,
+  endTime: null,
   min: null,
   max: null,
+  handleChangeRange: () => {},
 };
 
 export default TimePath;

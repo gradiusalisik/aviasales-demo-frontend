@@ -2,56 +2,55 @@ import list from './index.mock';
 
 const defaultChecked = arr => arr.map(checkbox => checkbox.id);
 
-export const defaultDates = {
-  outDeparture: {
-    left: list.departure.outLeftDate,
-    right: list.departure.outRightDate,
+const initialState = {
+  transfer: {
+    filters: list.transfer,
+    checkedIds: defaultChecked(list.transfer) || [],
   },
-  inDeparture: {
-    left: list.departure.inLeftDate,
-    right: list.departure.inRightDate,
+  partners: {
+    filters: list.partners,
+    checkedIds: defaultChecked(list.partners) || [],
   },
-  outArrival: {
-    left: list.arrival.outLeftDate,
-    right: list.arrival.outRightDate,
+  baggage: {
+    filters: list.baggage,
+    checkedIds: defaultChecked(list.baggage) || [],
   },
-  inArrival: {
-    left: list.arrival.inLeftDate,
-    right: list.arrival.inRightDate,
+  alliance: {
+    filters: list.airCompany.alliance.list,
+    checkedIds: defaultChecked(list.airCompany.alliance.list) || [],
   },
-};
-
-export const defaultTransfer = {
-  checkedIdsTransfer: defaultChecked(list.transfer),
-};
-
-export const defaultPartners = {
-  checkedIdsPartners: defaultChecked(list.partners),
-};
-
-export const defaultBaggage = {
-  checkedIdsBaggage: defaultChecked(list.baggage),
-};
-
-export const defaultAviacompanies = {
-  checkedIdsAlians: defaultChecked(list.airCompany.alians.list),
-  checkedIdsCompany: defaultChecked(list.airCompany.company.list),
-};
-
-export const defaultTimes = {
+  company: {
+    filters: list.airCompany.company.list,
+    checkedIds: defaultChecked(list.airCompany.company.list) || [],
+  },
+  duration: {
+    begin: list.duration.beginTime,
+    end: list.duration.endTime,
+  },
   outTime: {
-    left: list.timeOut.leftTime,
-    right: list.timeOut.rightTime,
+    begin: list.outTime.beginTime,
+    end: list.outTime.endTime,
   },
   inTime: {
-    left: list.timeIn.leftTime,
-    right: list.timeIn.rightTime,
+    begin: list.inTime.beginTime,
+    end: list.inTime.endTime,
+  },
+  outDeparture: {
+    begin: list.departure.outDate.begin,
+    end: list.departure.outDate.end,
+  },
+  inDeparture: {
+    begin: list.departure.inDate.begin,
+    end: list.departure.inDate.end,
+  },
+  outArrival: {
+    begin: list.arrival.outDate.begin,
+    end: list.arrival.outDate.end,
+  },
+  inArrival: {
+    begin: list.arrival.inDate.begin,
+    end: list.arrival.inDate.end,
   },
 };
 
-export const defaultDuration = {
-  duration: {
-    left: list.duration.leftTime,
-    right: list.duration.rightTime,
-  },
-};
+export default initialState;
