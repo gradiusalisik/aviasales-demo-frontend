@@ -1,5 +1,7 @@
 import list from './index.mock';
 
+const defaultChecked = arr => arr.map(checkbox => checkbox.id);
+
 export const defaultDates = {
   outDeparture: {
     left: list.departure.outLeftDate,
@@ -17,6 +19,23 @@ export const defaultDates = {
     left: list.arrival.inLeftDate,
     right: list.arrival.inRightDate,
   },
+};
+
+export const defaultTransfer = {
+  checkedIdsTransfer: defaultChecked(list.transfer),
+};
+
+export const defaultPartners = {
+  checkedIdsPartners: defaultChecked(list.partners),
+};
+
+export const defaultBaggage = {
+  checkedIdsBaggage: defaultChecked(list.baggage),
+};
+
+export const defaultAviacompanies = {
+  checkedIdsAlians: defaultChecked(list.airCompany.alians.list),
+  checkedIdsCompany: defaultChecked(list.airCompany.company.list),
 };
 
 export const defaultTimes = {
