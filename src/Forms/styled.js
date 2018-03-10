@@ -142,7 +142,7 @@ export const Fields = styled.div`
 
 export const Input = styled.input`
   padding: 16px;
-  padding-right: 38px;
+  padding-right: 80px;
   width: 100%;
   height: 100%;
   font-size: 16px;
