@@ -57,13 +57,23 @@ const FormField = styled.div`
 `;
 
 const From = FormField.extend`
+  ${media.md`
+    border-top-left-radius: 6px;
+  `};
+
   ${media.xl`
+    border-bottom-left-radius: 6px;
     max-width: 226px;
   `};
 `;
 
 const To = FormField.extend`
+  ${media.md`
+    border-top-right-radius: 6px;
+  `};
+
   ${media.xl`
+    border-top-right-radius: 0;
     max-width: 226px;
   `};
 `;
@@ -93,6 +103,8 @@ const ContentSelect = styled.div`
     min-width: 207px;
   `};
 `;
+
+const showDestination = (value, destination) => (value.length > 0 ? destination : '');
 
 export default class Forms extends Component {
   state = {
@@ -130,13 +142,6 @@ export default class Forms extends Component {
   };
 
   handleChangeInput = (id, value) => {
-    if (value === '') {
-      this.setState({
-        [id]: {
-          destination: '',
-        },
-      });
-    }
     this.setState({
       [id]: {
         value,
@@ -145,18 +150,19 @@ export default class Forms extends Component {
   };
 
   handleClickReverseInputs = () => {
-    const paramsInputFrom = this.state.from;
-    const paramsInputTo = this.state.to;
+    const { from, to } = this.state;
 
     this.setState({
-      from: paramsInputTo,
-      to: paramsInputFrom,
+      from: to,
+      to: from,
     });
   };
 
   render() {
     const { isChecked, quantitySelect } = this.state;
     const classFly = isChecked ? 'бизнес' : 'эконом';
+    const destinationTo = showDestination(this.state.to.value, this.state.to.destination);
+    const destinationFrom = showDestination(this.state.from.value, this.state.from.destination);
 
     return (
       <FormsStyled action="#" method="GET">
@@ -166,29 +172,27 @@ export default class Forms extends Component {
               id="from"
               placeholder="Город отправления"
               reverse
-              kind="complexFrom"
               handleChangeInput={this.handleChangeInput}
               handleSelection={this.handleSelection}
               onClickReverse={this.handleClickReverseInputs}
               value={this.state.from.value}
-              destination={this.state.from.destination}
+              destination={destinationFrom}
             />
           </From>
           <To>
             <DownshiftAirports
               id="to"
               placeholder="Город прибытия"
-              kind="complexTo"
               handleChangeInput={this.handleChangeInput}
               handleSelection={this.handleSelection}
               value={this.state.to.value}
-              destination={this.state.to.destination}
+              destination={destinationTo}
             />
           </To>
         </Fields>
         <Fields>
           <DatePicker>
-            <DataPicker kind="simpleDate" />
+            <DataPicker />
           </DatePicker>
           <FormFieldLast>
             <ContentSelect>

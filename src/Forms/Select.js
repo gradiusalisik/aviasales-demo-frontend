@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { PropTypes as pt } from 'prop-types';
 import enhanceWithClickOutside from 'react-click-outside';
 import styled, { css } from 'styled-components';
 import pluralize from 'pluralize-ru';
@@ -102,6 +103,20 @@ const SelectStyled = styled.div`
 `;
 
 class Select extends Component {
+  static propTypes = {
+    quantity: pt.number,
+    kind: pt.string,
+    classFly: pt.string,
+    children: pt.oneOfType([pt.node, pt.arrayOf(pt.node)]),
+  };
+
+  static defaultProps = {
+    quantity: null,
+    kind: '',
+    classFly: '',
+    children: null,
+  };
+
   state = {
     active: false,
   };

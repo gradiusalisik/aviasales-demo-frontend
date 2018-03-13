@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import get from 'lodash/get';
 import Accordion from '../../UI/Accordion';
 import Checkboxes from './Checkboxes';
 import TimeFly from './TimeFly';
@@ -7,12 +6,7 @@ import TimePath from './TimePath';
 import Checkbox from '../../UI/Checkbox';
 import AccordionCheckboxes from './AccordionCheckboxes';
 import list from './index.mock';
-import initialState from './reset';
-import {
-  getStatusCheckboxes,
-  getStatusDateRange,
-  getStatusTimeRange,
-} from './helpers/accordionsHelper';
+import { getStatusCheckboxes, getStatusDateRange, getStatusTimeRange } from './helpers/accordions';
 
 import {
   AccordionsStyled,
@@ -26,24 +20,64 @@ import {
   Reset,
 } from './styled';
 
+const defaultChecked = arr => arr.map(checkbox => checkbox.id);
+
 export default class Accordions extends Component {
   state = {
-    transfer: get(initialState, 'transfer', {}),
-    partners: get(initialState, 'partners', {}),
-    baggage: get(initialState, 'baggage', {}),
-    alliance: get(initialState, 'alliance', {}),
-    company: get(initialState, 'company', {}),
-    duration: get(initialState, 'duration', {}),
-    outTime: get(initialState, 'outTime', {}),
-    inTime: get(initialState, 'inTime', {}),
-    outDeparture: get(initialState, 'outDeparture', {}),
-    inDeparture: get(initialState, 'inDeparture', {}),
-    outArrival: get(initialState, 'outArrival', {}),
-    inArrival: get(initialState, 'inArrival', {}),
+    transfer: {
+      filters: list.transfer,
+      checkedIds: defaultChecked(list.transfer) || [],
+    },
+    partners: {
+      filters: list.partners,
+      checkedIds: defaultChecked(list.partners) || [],
+    },
+    baggage: {
+      filters: list.baggage,
+      checkedIds: defaultChecked(list.baggage) || [],
+    },
+    alliance: {
+      filters: list.airCompany.alliance.list,
+      checkedIds: defaultChecked(list.airCompany.alliance.list) || [],
+    },
+    company: {
+      filters: list.airCompany.company.list,
+      checkedIds: defaultChecked(list.airCompany.company.list) || [],
+    },
+    duration: {
+      begin: list.duration.beginTime,
+      end: list.duration.endTime,
+    },
+    outTime: {
+      begin: list.outTime.beginTime,
+      end: list.outTime.endTime,
+    },
+    inTime: {
+      begin: list.inTime.beginTime,
+      end: list.inTime.endTime,
+    },
+    outDeparture: {
+      begin: list.departure.outDate.begin,
+      end: list.departure.outDate.end,
+    },
+    inDeparture: {
+      begin: list.departure.inDate.begin,
+      end: list.departure.inDate.end,
+    },
+    outArrival: {
+      begin: list.arrival.outDate.begin,
+      end: list.arrival.outDate.end,
+    },
+    inArrival: {
+      begin: list.arrival.inDate.begin,
+      end: list.arrival.inDate.end,
+    },
     checkedOneCheckbox: false,
   };
 
-  handleChangeFilter = name => id => ({ target }) => {
+  initialState = this.state;
+
+  handleChangeFilterCheckboxes = name => id => ({ target }) => {
     const { checked } = target;
 
     if (checked) {
@@ -67,6 +101,7 @@ export default class Accordions extends Component {
     const newCheckboxIds = target.checked
       ? this.state[name].filters.map(checkbox => checkbox.id)
       : [];
+
     this.setState(state => ({
       [name]: {
         ...state[name],
@@ -76,7 +111,7 @@ export default class Accordions extends Component {
   };
 
   handleResetFilter = (defaultState, ...args) => () => {
-    args.map(name => this.setState({ [name]: defaultState[name] }));
+    this.setState(() => args.reduce((acc, name) => ({ ...acc, [name]: defaultState[name] }), {}));
   };
 
   handleChangeRange = name => (value) => {
@@ -89,7 +124,7 @@ export default class Accordions extends Component {
   };
 
   handleResetAllFitler = () => {
-    this.setState(initialState);
+    this.setState(this.initialState);
   };
 
   quantityAviaCompany = (isAllCheckedAlias, isAllCheckedCompany) => {
@@ -153,8 +188,8 @@ export default class Accordions extends Component {
           id="all-transfers"
           list={this.state.transfer.filters}
           handleChangeAllCheckbox={this.handleChangeAllCheckbox('transfer')}
-          handleResetFilter={this.handleResetFilter(initialState, 'transfer')}
-          handleChangeFilter={this.handleChangeFilter('transfer')}
+          handleResetFilter={this.handleResetFilter(this.initialState, 'transfer')}
+          handleChangeFilterCheckboxes={this.handleChangeFilterCheckboxes('transfer')}
           checkedIds={this.state.transfer.checkedIds}
           text="ПЕРЕСАДКИ"
           open
@@ -194,7 +229,7 @@ export default class Accordions extends Component {
           {(!isDepartureRange || !isArrivalRange) && (
             <Reset
               onClick={this.handleResetFilter(
-                initialState,
+                this.initialState,
                 'outDeparture',
                 'inDeparture',
                 'outArrival',
@@ -210,8 +245,8 @@ export default class Accordions extends Component {
           list={this.state.baggage.filters}
           id="baggage-id"
           handleChangeAllCheckbox={this.handleChangeAllCheckbox('baggage')}
-          handleResetFilter={this.handleResetFilter(initialState, 'baggage')}
-          handleChangeFilter={this.handleChangeFilter('baggage')}
+          handleResetFilter={this.handleResetFilter(this.initialState, 'baggage')}
+          handleChangeFilterCheckboxes={this.handleChangeFilterCheckboxes('baggage')}
           checkedIds={this.state.baggage.checkedIds}
           text="Багаж"
         />
@@ -227,7 +262,7 @@ export default class Accordions extends Component {
             />
           </Accordion>
           {!isDuration && (
-            <Reset onClick={this.handleResetFilter(initialState, 'duration')}>
+            <Reset onClick={this.handleResetFilter(this.initialState, 'duration')}>
               <IconReset icon="clear" />
             </Reset>
           )}
@@ -255,7 +290,7 @@ export default class Accordions extends Component {
             />
           </Accordion>
           {(!isOutTimeRange || !isInTimeRange) && (
-            <Reset onClick={this.handleResetFilter(initialState, 'outTime', 'inTime')}>
+            <Reset onClick={this.handleResetFilter(this.initialState, 'outTime', 'inTime')}>
               <IconReset icon="clear" />
             </Reset>
           )}
@@ -279,7 +314,7 @@ export default class Accordions extends Component {
               list={this.state.alliance.filters}
               id="allianceAll"
               handleChangeAllCheckbox={this.handleChangeAllCheckbox('alliance')}
-              handleChangeFilter={this.handleChangeFilter('alliance')}
+              handleChangeFilterCheckboxes={this.handleChangeFilterCheckboxes('alliance')}
               checkedIds={this.state.alliance.checkedIds}
               title={list.airCompany.alliance.title}
               isAllChecked={isAllCheckedAlias}
@@ -288,14 +323,14 @@ export default class Accordions extends Component {
               list={this.state.company.filters}
               id="companyAll"
               handleChangeAllCheckbox={this.handleChangeAllCheckbox('company')}
-              handleChangeFilter={this.handleChangeFilter('company')}
+              handleChangeFilterCheckboxes={this.handleChangeFilterCheckboxes('company')}
               checkedIds={this.state.company.checkedIds}
               title={list.airCompany.company.title}
               isAllChecked={isAllCheckedCompany}
             />
           </Accordion>
           {(!isAllCheckedAlias || !isAllCheckedCompany) && (
-            <Reset onClick={this.handleResetFilter(initialState, 'alliance', 'company')}>
+            <Reset onClick={this.handleResetFilter(this.initialState, 'alliance', 'company')}>
               <IconReset icon="clear" />
             </Reset>
           )}
@@ -311,8 +346,8 @@ export default class Accordions extends Component {
           list={this.state.partners.filters}
           id="all-partners"
           handleChangeAllCheckbox={this.handleChangeAllCheckbox('partners')}
-          handleResetFilter={this.handleResetFilter(initialState, 'partners')}
-          handleChangeFilter={this.handleChangeFilter('partners')}
+          handleResetFilter={this.handleResetFilter(this.initialState, 'partners')}
+          handleChangeFilterCheckboxes={this.handleChangeFilterCheckboxes('partners')}
           checkedIds={this.state.partners.checkedIds}
           text="агенства"
           isQuantity

@@ -10,7 +10,7 @@ const Field = props => (
       value={props.value}
       placeholder={props.placeholder}
       onChange={props.onChange}
-      kind={props.kind}
+      className={props.className}
       {...props}
     />
     <Info>
@@ -33,7 +33,7 @@ Field.propTypes = {
   onChange: pt.func,
   onClickReverse: pt.func,
   onClick: pt.func,
-  kind: pt.string,
+  className: pt.string,
 };
 
 Field.defaultProps = {
@@ -45,7 +45,7 @@ Field.defaultProps = {
   reverse: false,
   value: undefined,
   placeholder: '',
-  kind: '',
+  className: '',
 };
 
 export default Field;

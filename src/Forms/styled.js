@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import media from '../utils/media';
 
 // ** index.js
@@ -69,6 +69,8 @@ export const FieldContent = styled.div`
 
 export const From = FieldContent.extend`
   margin-bottom: 2px;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
 
   ${media.md`
     margin-left: 0;
@@ -84,8 +86,17 @@ export const From = FieldContent.extend`
 `;
 
 export const To = FieldContent.extend`
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+
   ${media.md`
     margin-left: 2px;
+    border-top-right-radius: 6px;
+  `};
+
+  ${media.xl`
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
   `};
 `;
 
@@ -138,6 +149,7 @@ export const Fields = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
+  border-radius: inherit;
 `;
 
 export const Input = styled.input`
@@ -150,8 +162,8 @@ export const Input = styled.input`
   text-overflow: ellipsis;
   overflow: hidden;
   border: none;
-  border-top-right-radius: 6px;
-  border-top-left-radius: 6px;
+  border-radius: inherit;
+
   transition: box-shadow 0.3s;
 
   &::placeholder {
@@ -161,64 +173,6 @@ export const Input = styled.input`
   &:focus {
     box-shadow: 0 0 0 2px #ff8e41;
   }
-
-  ${media.md`
-    border-top-right-radius: 0;
-  `};
-
-  ${media.xl`
-    border-bottom-left-radius: 6px;
-  `};
-
-  ${props =>
-    props.kind === 'simpleTo' &&
-    css`
-      border-top-right-radius: 0;
-      border-top-left-radius: 0;
-
-      ${media.md`
-        border-top-right-radius: 6px;
-      `};
-
-      ${media.xl`
-        border-top-right-radius: 0;
-        border-bottom-left-radius: 0;
-      `};
-    `};
-
-  ${props =>
-    props.kind === 'complexTo' &&
-    css`
-      border-top-right-radius: 0;
-      border-top-left-radius: 0;
-
-      ${media.md`
-        border-top-right-radius: 6px;
-      `};
-
-      ${media.xl`
-        border-top-right-radius: 0;
-        border-bottom-left-radius: 0;
-      `};
-    `};
-
-  ${props =>
-    props.kind === 'complexFrom' &&
-    css`
-      ${media.xl`
-        border-bottom-left-radius: 6px;
-      `};
-    `};
-
-  ${props =>
-    props.kind === 'simpleDate' &&
-    css`
-      border-top-right-radius: 0;
-      border-top-left-radius: 0;
-      ${media.xl`
-        border-bottom-left-radius: 0;
-      `};
-    `};
 `;
 
 export const InfoField = styled.div`

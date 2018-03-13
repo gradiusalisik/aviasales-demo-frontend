@@ -122,11 +122,11 @@ const DownshiftAirports = props => (
     render={({
  getInputProps, getItemProps, isOpen, inputValue, highlightedIndex,
 }) => (
-  <div style={{ position: 'relative' }}>
+  <div style={{ position: 'relative', borderRadius: 'inherit' }}>
     <Field
       placeholder={props.placeholder}
       reverse={props.reverse}
-      kind={props.kind}
+      className={props.className}
       {...getInputProps({
             destination: props.destination,
             onChange: event => props.handleChangeInput(props.id, event.target.value),
@@ -175,20 +175,20 @@ DownshiftAirports.propTypes = {
   placeholder: pt.string,
   id: pt.string,
   reverse: pt.bool,
-  kind: pt.string,
   destination: pt.string,
   handleSelection: pt.func,
   handleChangeInput: pt.func,
   onClickReverse: pt.func,
+  className: pt.string,
 };
 
 DownshiftAirports.defaultProps = {
   value: '',
   placeholder: '',
   id: '',
-  kind: '',
   reverse: false,
   destination: '',
+  className: '',
   handleSelection: () => {},
   handleChangeInput: () => {},
   onClickReverse: () => {},

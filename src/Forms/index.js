@@ -18,6 +18,8 @@ import {
   Container,
 } from './styled';
 
+const showDestination = (value, destination) => (value.length > 0 ? destination : '');
+
 export default class Forms extends Component {
   state = {
     quantitySelect: 1,
@@ -54,13 +56,6 @@ export default class Forms extends Component {
   };
 
   handleChangeInput = (id, value) => {
-    if (value === '') {
-      this.setState({
-        [id]: {
-          destination: '',
-        },
-      });
-    }
     this.setState({
       [id]: {
         value,
@@ -69,18 +64,20 @@ export default class Forms extends Component {
   };
 
   handleClickReverseInputs = () => {
-    const paramsInputFrom = this.state.from;
-    const paramsInputTo = this.state.to;
+    const { from, to } = this.state;
 
     this.setState({
-      from: paramsInputTo,
-      to: paramsInputFrom,
+      from: to,
+      to: from,
     });
   };
 
   render() {
     const { isChecked, quantitySelect } = this.state;
     const classFly = isChecked ? 'бизнес' : 'эконом';
+    const destinationTo = showDestination(this.state.to.value, this.state.to.destination);
+    const destinationFrom = showDestination(this.state.from.value, this.state.from.destination);
+
     return (
       <FormsStyled action="#" method="GET">
         <Title>Поиск дешевых авиабилетов</Title>
@@ -97,24 +94,23 @@ export default class Forms extends Component {
                   handleSelection={this.handleSelection}
                   onClickReverse={this.handleClickReverseInputs}
                   value={this.state.from.value}
-                  destination={this.state.from.destination}
+                  destination={destinationFrom}
                 />
               </From>
               <To>
                 <DownshiftAirports
                   placeholder="Город прибытия"
-                  kind="simpleTo"
                   id="to"
                   handleChangeInput={this.handleChangeInput}
                   handleSelection={this.handleSelection}
                   value={this.state.to.value}
-                  destination={this.state.to.destination}
+                  destination={destinationTo}
                 />
               </To>
             </Fields>
             <Fields>
               <DatePicker>
-                <DataPicker kind="simpleDate" />
+                <DataPicker />
               </DatePicker>
               <Selects>
                 <Select quantity={quantitySelect} classFly={classFly}>

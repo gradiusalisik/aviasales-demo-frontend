@@ -52,7 +52,7 @@ const Checkboxes = props => (
             label={checkbox.label}
             price={checkbox.price}
             checked={props.checkedIds.includes(checkbox.id)}
-            onChange={props.handleChangeFilter(checkbox.id)}
+            onChange={props.handleChangeFilterCheckboxes(checkbox.id)}
           />
         </Content>
       ))}
@@ -68,7 +68,7 @@ Checkboxes.propTypes = {
   isAllChecked: pt.bool,
   checkedIds: pt.arrayOf(pt.node),
   handleChangeAllCheckbox: pt.func,
-  handleChangeFilter: pt.func,
+  handleChangeFilterCheckboxes: pt.func,
 };
 
 Checkboxes.defaultProps = {
@@ -79,7 +79,7 @@ Checkboxes.defaultProps = {
   label: 'Все',
   isAllChecked: false,
   handleChangeAllCheckbox: () => {},
-  handleChangeFilter: () => {},
+  handleChangeFilterCheckboxes: () => {},
 };
 
 export default Checkboxes;
