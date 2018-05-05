@@ -1,42 +1,78 @@
-import React from "react";
+import React, { Component } from "react";
 import Field from "./Field";
 import DataPicker from "./DataPicker";
 import Select from "./Select";
-import Button from "./Button";
+import ChoiceQuantity from "./ChoiceQuantity";
+import LinkSearch from "./LinkSearch";
 import {
-  Forms,
+  FormsStyled,
   Title,
   SubTitle,
-  WrapForm,
-  Wrapper,
-  WrapField,
-  ButtonWrap
+  Content,
+  FormFields as Fields,
+  Selects,
+  DatePicker,
+  From,
+  To,
+  LinkContent,
+  Container
 } from "./styled";
 
-export default () => (
-  <Forms action="#" method="GET">
-    <Title>Поиск дешевых авиабилетов</Title>
-    <SubTitle>Лучший способ купить авиабилеты дешево</SubTitle>
-    <WrapForm>
-      <Wrapper>
-        <WrapField noLeftIndentTablet noLeftIndentDesktop>
-          <Field defaultValue="Москва" firstField text="Mow" />
-        </WrapField>
-        <WrapField>
-          <Field placeholder="Город прибытия" />
-        </WrapField>
-      </Wrapper>
-      <Wrapper>
-        <WrapField noLeftIndentTablet noBottomIndentTablet>
-          <DataPicker />
-        </WrapField>
-        <WrapField noBottomIndent noBottomIndentTablet>
-          <Select />
-        </WrapField>
-      </Wrapper>
-    </WrapForm>
-    <ButtonWrap>
-      <Button text="Найти билеты" type="submit" icon="aero" />
-    </ButtonWrap>
-  </Forms>
-);
+export default class Forms extends Component {
+  state = {
+    quantitySelect: 0,
+    isChecked: false
+  };
+
+  handleChangeClass = () => {
+    this.setState(state => ({
+      isChecked: !state.isChecked
+    }));
+  };
+
+  handleChangeCounter = delta => {
+    this.setState(state => ({
+      quantitySelect: state.quantitySelect + delta
+    }));
+  };
+
+  render() {
+    const { isChecked, quantitySelect } = this.state;
+    const classFly = isChecked ? "бизнес" : "эконом";
+    return (
+      <FormsStyled action="#" method="GET">
+        <Title>Поиск дешевых авиабилетов</Title>
+        <SubTitle>Лучший способ купить авиабилеты дешево</SubTitle>
+        <Container id="formsForPortal">
+          <Content>
+            <Fields>
+              <From>
+                <Field defaultValue="Москва" reverse destination="Mow" />
+              </From>
+              <To>
+                <Field placeholder="Город прибытия" />
+              </To>
+            </Fields>
+            <Fields>
+              <DatePicker>
+                <DataPicker />
+              </DatePicker>
+              <Selects>
+                <Select quantity={quantitySelect} classFly={classFly}>
+                  <ChoiceQuantity
+                    onChangeCheckbox={this.handleChangeClass}
+                    onChangeCounter={this.handleChangeCounter}
+                    disabled={quantitySelect === 9}
+                  />
+                </Select>
+              </Selects>
+            </Fields>
+          </Content>
+        </Container>
+        <LinkContent>
+          <LinkSearch to="/search" text="Найти билеты" icon="aero" />
+        </LinkContent>
+      </FormsStyled>
+    );
+  }
+}

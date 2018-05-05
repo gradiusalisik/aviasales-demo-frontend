@@ -6,10 +6,10 @@ export default styled.div`
   margin-right: auto;
   height: 100%;
 
-  ${media.tablet`
+  ${media.md`
     max-width: 624px;
   `};
-  ${media.desktop`
+  ${media.xl`
     max-width: 1030px;
   `};
 `;

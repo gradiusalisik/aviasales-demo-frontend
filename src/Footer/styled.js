@@ -2,20 +2,20 @@ import styled from "styled-components";
 import media from "../utils/media";
 
 // index.js
-export const Wrapper = styled.div`
+export const Footer = styled.footer`
   padding-right: 6px;
   padding-top: 32px;
   padding-bottom: 24px;
   padding-left: 6px;
 
-  ${media.tablet`
+  ${media.md`
     padding-top: 41px;
     padding-bottom: 40px;
   `};
 `;
 
 export const Container = styled.div`
-  ${media.desktop`
+  ${media.xl`
     margin-left: auto;
     margin-right: auto;
     max-width: 1240px;
@@ -30,7 +30,7 @@ export const Line = styled.div`
   background-color: #e0e6e8;
 `;
 
-export const WrapLinks = styled.div`
+export const Links = styled.div`
   margin-bottom: 16px;
   padding-right: 35px;
   display: flex;
@@ -45,11 +45,11 @@ export const LinkSearch = styled.a`
   text-decoration: none;
   transition: color 0.3s;
 
-  ${media.tablet`
+  ${media.md`
     text-align: left;
   `};
 
-  ${media.desktop`
+  ${media.xl`
     &:hover {
       color: #FD8A27;
     }
@@ -59,20 +59,20 @@ export const LinkSearch = styled.a`
 const Description = LinkSearch.withComponent("span");
 
 export const Copyright = Description.extend`
-  ${media.desktop`
+  ${media.xl`
     text-align: right;
   `};
 `;
 
 export const Bottom = styled.div`
-  ${media.desktop`
+  ${media.xl`
     display: flex;
     justify-content: space-between;
   `};
 `;
 
-export const Wrap = styled.div`
-  ${media.desktop`
+export const Content = styled.div`
+  ${media.xl`
     flex-direction: column;
     justify-content: space-between;
 
@@ -82,37 +82,37 @@ export const Wrap = styled.div`
   `};
 `;
 
-export const WrapAttach = styled.div`
+export const Attachments = styled.div`
   margin-bottom: 24px;
   padding-top: 16px;
 
-  ${media.tablet`
+  ${media.md`
     display: flex;
     align-items: center;
   `};
 
-  ${media.desktop`
+  ${media.xl`
     padding-top: 0;
   `};
 `;
 
 // Nav.js
 
-export const NavContent = styled.nav`
+export const Nav = styled.nav`
   width: 47%;
   &:not(:nth-last-child(-n + 2)) {
     margin-bottom: 27px;
 
-    ${media.tablet`
+    ${media.md`
       margin-bottom: 15px;
     `};
   }
 
-  ${media.tablet`
+  ${media.md`
     width: 25%;
   `};
 
-  ${media.desktop`
+  ${media.xl`
     width: 100%;
   `};
 `;
@@ -124,17 +124,17 @@ export const Title = styled.h3`
   text-transform: uppercase;
   color: #4a4a4a;
 
-  ${media.tablet`
+  ${media.md`
     margin-bottom: 17px;
   `};
 `;
 
-export const Links = styled.ul`
+export const NavLinks = styled.ul`
   margin-bottom: 4px;
   font-size: 0;
 `;
 
-export const LinkWrap = styled.li``;
+export const LinkContent = styled.li``;
 
 export const Link = styled.a`
   padding-top: 8px;
@@ -145,7 +145,7 @@ export const Link = styled.a`
   color: #5b5b5c;
   transition: color 0.3s;
 
-  ${media.desktop`
+  ${media.xl`
     &:hover {
       color: #FD8A27;
     }
@@ -172,11 +172,11 @@ export const Menu = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
 
-  ${media.tablet`
+  ${media.md`
     justify-content: flex-start;
   `};
 
-  ${media.desktop`
+  ${media.xl`
     justify-content: space-between;
     flex-wrap: nowrap;
   `};

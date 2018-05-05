@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="45px" height="41px" version="1.1" viewBox="0 0 45 41">
+<!--Generator: Sketch 3.8.1 (29687) - http://www.bohemiancoding.com/sketch-->
+    <title>
+        Rectangle 36
+    </title>
+    <desc>
+        Created with Sketch.
+    </desc>
+    <defs>
+        <path id="datapicker-active" d="M0,2.99821673 C0,1.34234735 1.34246828,0 2.99550699,0 L39,0 L45,20.5251406 L39,41 L2.99550699,41 C1.34113416,41 0,39.6591666 0,38.0017833 L0,2.99821673 Z"/>
+        <mask id="datapicker-active-mask" width="45" height="41" x="0" y="0" fill="white" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox">
+            <use xlink:href="#datapicker-active"/>
+        </mask>
+    </defs>
+    <g id="Date-Picker" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1" opacity="1">
+        <g id="568-1032" fill="#E7F9FF" stroke="#0CB2E1" stroke-width="2" transform="translate(-450.000000, -255.000000)">
+            <g id="Group-2" transform="translate(385.000000, 29.000000)">
+                <g id="Group" transform="translate(24.000000, 56.000000)">
+                    <g id="Group-10">
+                        <g id="Group-8" transform="translate(0.000000, 170.000000)">
+                            <g id="row" transform="translate(41.000000, 0.000000)">
+                                <g id="date-cell">
+                                    <use id="Rectangle-36" mask="url(#datapicker-active-mask)" xlink:href="#datapicker-active"/>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

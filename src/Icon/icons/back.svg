@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+    <title>
+        Shape
+    </title>
+    <desc>
+        Created using Figma
+    </desc>
+    <use fill="currentColor" xlink:href="#back"/>
+    <defs>
+        <path id="back" d="M15.969 6.986H3.823l5.574-5.574L7.984 0 0 7.984l7.984 7.985 1.413-1.412-5.574-5.575h12.146V6.986z"/>
+    </defs>
+</svg>

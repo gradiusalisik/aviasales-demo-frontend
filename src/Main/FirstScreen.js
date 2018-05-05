@@ -6,6 +6,8 @@ import Container from "../Container";
 import media from "../utils/media";
 
 const FirstScreen = styled.div`
+  position: relative;
+  z-index: 1;
   padding-top: 12px;
   padding-right: 6px;
   padding-left: 6px;
@@ -21,14 +23,14 @@ const FirstScreen = styled.div`
     #196ebd 122.26%
   );
 
-  ${media.tablet`
+  ${media.md`
     padding-left: 8px;
     padding-right: 8px;
     background-color: black;
   `};
 `;
 
-const Wrap = styled.div`
+const Content = styled(Container)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,10 +40,8 @@ const Wrap = styled.div`
 export default () => (
   <FirstScreen>
     <Header />
-    <Container>
-      <Wrap>
-        <Forms />
-      </Wrap>
-    </Container>
+    <Content>
+      <Forms />
+    </Content>
   </FirstScreen>
 );

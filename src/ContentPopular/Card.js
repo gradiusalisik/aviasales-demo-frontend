@@ -1,49 +1,63 @@
 import React from "react";
 import { PropTypes as pt } from "prop-types";
-import { delimiter } from "../utils/numberDelimiter";
+import { FormattedNumber } from "react-intl";
+import { cities, countries } from "../utils/library.mock";
+import format from "date-fns/format";
+import ruLocale from "date-fns/locale/ru";
 import {
-  Wrapper,
+  Container,
   PlaceImg,
   Info,
-  Wrap,
+  Data,
   CityName,
   PriceInfo,
   CountryName,
   Date,
-  WrapImage,
+  Picture,
   ContentPlace,
   Flag
 } from "./styled";
 
+const formatDate = date => format(date, "D MMMM", { locale: ruLocale });
+
 const Card = props => (
-  <Wrapper>
-    <WrapImage>
+  <Container>
+    <Picture>
       <PlaceImg image={props.placeImg} alt={props.altPlaceImg} />
-    </WrapImage>
+    </Picture>
     <Info>
       <ContentPlace>
         <Flag src={props.flag} alt={props.altFlag} />
-        <Wrap>
-          <CityName>{props.cityName}</CityName>
-          <CountryName>{props.countryName}</CountryName>
-        </Wrap>
+        <Data>
+          <CityName>{cities[props.city].name}</CityName>
+          <CountryName>{countries[props.country].name}</CountryName>
+        </Data>
       </ContentPlace>
-      <Wrap>
-        <PriceInfo>Найти от {delimiter(props.price)}&nbsp;₽</PriceInfo>
-        <Date>{props.date}</Date>
-      </Wrap>
+      <Data>
+        <PriceInfo>
+          Найти от{" "}
+          <FormattedNumber
+            value={props.price}
+            style={`currency`}
+            currency="RUB"
+            minimumFractionDigits={0}
+            maximumFractionDigits={0}
+          />
+        </PriceInfo>
+        <Date>{formatDate(props.date)}</Date>
+      </Data>
     </Info>
-  </Wrapper>
+  </Container>
 );
 
 Card.propTypes = {
   placeImg: pt.string,
   altPlaceImage: pt.string,
   altFlag: pt.string,
-  cityName: pt.string,
-  price: pt.string,
-  countryName: pt.string,
-  date: pt.string,
+  city: pt.string,
+  price: pt.number,
+  country: pt.string,
+  date: pt.number,
   flag: pt.string
 };
 

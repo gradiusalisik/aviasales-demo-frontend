@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import media from "../utils/media";
+import Icon from "../Icon";
 
 // index.js
 
@@ -10,7 +11,7 @@ export const Content = styled.div`
   text-align: center;
 `;
 
-export const LogoCompas = styled.div`
+export const LogoCompas = styled(Icon)`
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 24px;
@@ -24,7 +25,7 @@ export const Text = styled.span`
   line-height: 24px;
   color: #4a4a4a;
 
-  ${media.tablet`
+  ${media.md`
     margin-right: auto;
     margin-left: auto;
     font-size: 24px;
@@ -38,37 +39,43 @@ export const TextCity = Text.extend`
   color: #00ace2;
   transition: color 0.3s;
 
-  ${media.desktop`
+  ${media.xl`
     &:hover {
       color: #ff8b00;
     }
   `};
 `;
 
-export const WrapText = styled.div`
+export const ContentText = styled.div`
   display: inline-flex;
   align-items: center;
   justify-content: center;
 `;
 
-export const EditImage = styled.div`
+export const EditImage = styled(Icon)`
   margin-left: 5px;
   width: 16px;
   height: 16px;
+  color: #00ace2;
+  transition: color 0.3s;
+
+  ${TextCity}:hover + & {
+    color: #ff8b00;
+  }
 `;
 
-export const TabsWrap = styled.div`
+export const TabsContent = styled.div`
   margin-top: 32px;
   margin-bottom: 12px;
 
-  ${media.desktop`
+  ${media.xl`
     margin-top: 56px;
     margin-bottom: 58px;
   `};
 `;
 
 // Card.js
-export const Wrapper = styled.a`
+export const Container = styled.a`
   margin-bottom: 12px;
   display: block;
   overflow: hidden;
@@ -76,7 +83,7 @@ export const Wrapper = styled.a`
   box-shadow: 0px 2px 12px rgba(0, 75, 93, 0.12);
   transition: box-shadow 0.3s;
 
-  ${media.desktop`
+  ${media.xl`
     margin-bottom: 30px;
     margin-left: 14px;
     width: calc((100% - 28px) / 2);
@@ -88,7 +95,7 @@ export const Wrapper = styled.a`
   `};
 `;
 
-export const WrapImage = styled.div`
+export const Picture = styled.div`
   position: relative;
   padding-bottom: 41%;
   height: 0;
@@ -108,8 +115,8 @@ export const PlaceImg = styled.div`
   transform: scale(1);
   transition: transform 6s ease;
 
-  ${media.desktop`
-    ${Wrapper}:hover & {
+  ${media.xl`
+    ${Container}:hover & {
       transform: scale(1.1);
     }
   `};
@@ -126,20 +133,20 @@ export const Info = styled.div`
   background-color: #fff;
 `;
 
-export const Wrap = styled.div`
+export const Data = styled.div`
   max-width: 155px;
 
-  ${media.tablet`
+  ${media.md`
     max-width: 300px;
   `};
 
-  ${media.desktop`
+  ${media.xl`
     max-width: 240px;
   `};
 `;
 
 export const ContentPlace = styled.div`
-  ${media.tablet`
+  ${media.md`
     display: flex;
     align-items: center;
   `};
@@ -153,7 +160,7 @@ export const Flag = styled.img`
   height: 30px;
   border-radius: 50%;
 
-  ${media.tablet`
+  ${media.md`
     display: block;
   `};
 `;
@@ -169,7 +176,7 @@ export const CityName = styled.span`
   text-align: left;
   color: #5b5b5c;
 
-  ${media.tablet`
+  ${media.md`
     font-size: 22px;
   `};
 `;
@@ -182,12 +189,12 @@ export const PriceInfo = styled.span`
   color: #00bae8;
   transition: color 0.3s;
 
-  ${media.tablet`
+  ${media.md`
     font-size: 22px;
   `};
 
-  ${media.desktop`
-    ${Wrapper}:hover & {
+  ${media.xl`
+    ${Container}:hover & {
       color: #FF8C00;
     }
   `};
@@ -204,12 +211,13 @@ export const CountryName = styled.span`
 
 export const Date = styled(CountryName)`
   text-transform: none;
+  text-align: right;
 `;
 
 // CardList.js
 
 export const List = styled.div`
-  ${media.desktop`
+  ${media.xl`
     display: flex;
     flex-wrap: wrap;
     margin-left: -14px;

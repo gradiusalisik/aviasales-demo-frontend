@@ -9,9 +9,9 @@ const CardList = props => (
       <Card
         key={key}
         placeImg={card.placeImg}
-        cityName={card.cityName}
+        city={card.city}
         price={card.price}
-        countryName={card.countryName}
+        country={card.country}
         date={card.date}
         flag={card.flag}
       />

@@ -23,31 +23,31 @@ const Link = styled.a`
   &:not(:last-child) {
     margin-bottom: 8px;
 
-    ${media.tablet`
+    ${media.md`
       margin-right: 10px;
       margin-bottom: 0;
     `};
   }
 
-  ${media.tablet`
+  ${media.md`
     margin-right: 0;
     margin-left: 0;
   `};
 
-  ${media.desktop`
+  ${media.xl`
     &:hover {
       background-color: rgba(30, 41, 45, 0.8);
     }
   `};
 `;
 
-const IconWrap = styled.div`
+const Icons = styled(Icon)`
   margin-right: 10px;
   width: 21px;
   height: 21px;
 `;
 
-const WrapText = styled.div``;
+const Content = styled.div``;
 
 const Download = styled.span`
   margin-bottom: 1px;
@@ -64,13 +64,11 @@ const Attach = styled.span`
 
 const Attachment = props => (
   <Link href={props.href}>
-    <IconWrap>
-      <Icon icon={props.icon} />
-    </IconWrap>
-    <WrapText>
+    <Icons icon={props.icon} />
+    <Content>
       {props.download && <Download>Скачайте в</Download>}{" "}
       <Attach>{props.attach}</Attach>
-    </WrapText>
+    </Content>
   </Link>
 );
 

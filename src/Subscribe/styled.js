@@ -8,7 +8,7 @@ export const Subscribe = styled.div`
   padding-top: 32px;
   margin-bottom: 60px;
 
-  ${media.desktop`
+  ${media.xl`
     margin-bottom: 24px;
   `} &::before {
     position: absolute;
@@ -21,13 +21,13 @@ export const Subscribe = styled.div`
   }
 `;
 
-export const Wrapper = styled.div`
+export const Content = styled.div`
   margin-right: auto;
   margin-left: auto;
   max-width: 360px;
   text-align: center;
 
-  ${media.desktop`
+  ${media.xl`
     max-width: 100%;
     display: flex;
     justify-content: space-between;
@@ -35,14 +35,14 @@ export const Wrapper = styled.div`
   `};
 `;
 
-export const WrapDescription = styled.div`
-  ${media.desktop`
+export const Description = styled.div`
+  ${media.xl`
     max-width: 360px;
     text-align: left;
   `};
 `;
-export const WrapForm = styled.div`
-  ${media.desktop`
+export const Forms = styled.div`
+  ${media.xl`
     display: flex;
     align-items: center;
   `};
@@ -61,7 +61,7 @@ export const Text = styled.p`
   line-height: 22px;
   color: #5c5c5c;
 
-  ${media.desktop`
+  ${media.xl`
     margin-bottom: 0;
   `};
 `;
@@ -74,7 +74,7 @@ export const Socials = styled.div`
   justify-content: center;
   align-items: center;
 
-  ${media.desktop`
+  ${media.xl`
     margin-bottom: 0;
     margin-right: 16px;
   `};
@@ -125,18 +125,22 @@ const IconPosition = styled.div`
 export const Twitter = IconPosition.extend`
   width: 19px;
   height: 16px;
+  color: #fff;
 `;
 export const Facebook = IconPosition.extend`
   width: 11px;
   height: 20px;
+  color: #fff;
 `;
 export const Vk = IconPosition.extend`
   width: 20px;
   height: 11px;
+  color: #fff;
 `;
 export const Rss = IconPosition.extend`
   width: 15px;
   height: 15px;
+  color: #fff;
 `;
 
 // Forms.js
@@ -177,7 +181,7 @@ export const Button = styled.button`
   border: none;
   transition: background-color 0.3s;
 
-  ${media.desktop`
+  ${media.xl`
     &:hover {
       background-color: #ffa353;
     }

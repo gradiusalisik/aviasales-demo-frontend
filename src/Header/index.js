@@ -7,14 +7,15 @@ const Header = styled.header`
   display: flex;
   align-items: center;
 
-  @media screen and (min-width: 1200px) {
+  ${media.xl`
     padding-left: 86px;
-  }
+  `};
 `;
 
 const Logo = styled.div`
   width: 30px;
   height: 30px;
+  color: #fff;
 `;
 
 const Text = styled.span`
@@ -23,7 +24,7 @@ const Text = styled.span`
   font-size: 20px;
   color: #fff;
 
-  ${media.tablet`
+  ${media.md`
     display: block;
   `};
 `;

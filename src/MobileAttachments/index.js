@@ -7,35 +7,35 @@ import {
   Attachments,
   Container,
   Title,
-  WrapRating,
+  Ratings,
   Rating,
   Text,
   Body,
   Phone,
-  WrapAttach,
+  Attach,
   PhoneTablet,
-  Wrapper
+  Content
 } from "./styled";
 
 export default () => (
   <Attachments>
     <Container>
       <PhoneTablet src={phoneTablet} alt="phone" />
-      <Wrapper>
+      <Content>
         <Title>Скачай мобильное приложение Aviasales.ru</Title>
-        <WrapRating>
+        <Ratings>
           <Rating src={rating} alt="rating" />
           <Text>Более 103 000 оценок</Text>
-        </WrapRating>
+        </Ratings>
         <Body>
           <Phone src={mobile} alt="phone" />
-          <WrapAttach>
+          <Attach>
             <Device icon="apple" text="iPhone или iPad" />
             <Device icon="android" text="Android" />
             <Device icon="windows" text="Windows Phone" />
-          </WrapAttach>
+          </Attach>
         </Body>
-      </Wrapper>
+      </Content>
     </Container>
   </Attachments>
 );

@@ -3,7 +3,7 @@ import { list } from "./index.mock";
 import {
   Info,
   Content,
-  WrapTitle,
+  ContentTitle,
   Logo,
   Title,
   Description,
@@ -16,10 +16,10 @@ export default () => (
     {list.map((content, key) => (
       <Content key={key}>
         <Container>
-          <WrapTitle>
+          <ContentTitle>
             <Logo src={content.logo} alt="logo" />
             <Title>{content.title}</Title>
-          </WrapTitle>
+          </ContentTitle>
           <Description>
             {content.description}
             <Link href={content.href}>Подробнее</Link>

@@ -6,84 +6,84 @@ export const list = [
   {
     flag: flagRu,
     altFlag: "flagRu",
-    cityName: "Симферополь (Крым)",
-    countryName: "Крым",
+    city: "SIP",
+    country: "CM",
     list: [
       {
-        from: "Москвы",
-        price: "4813"
+        from: "MOW",
+        price: 4813
       },
       {
-        from: "Санкт-Петербурга",
-        price: "7857"
+        from: "LED",
+        price: 7857
       },
       {
-        from: "Новосибирска",
-        price: "15127"
+        from: "OVB",
+        price: 15127
       },
       {
-        from: "Екатеринбурга",
-        price: "9275"
+        from: "SVX",
+        price: 9275
       },
       {
-        from: "Челябинска",
-        price: "9148"
+        from: "CEK",
+        price: 9148
       }
     ]
   },
   {
     flag: flagAm,
     altFlag: "flagAm",
-    cityName: "Ереван",
-    countryName: "Армения",
+    city: "EVN",
+    country: "AM",
     list: [
       {
-        from: "Москвы",
-        price: "6758"
+        from: "MOW",
+        price: 6758
       },
       {
-        from: "Санкт-Петербурга",
-        price: "9932"
+        from: "LED",
+        price: 9932
       },
       {
-        from: "Сочи",
-        price: "11951"
+        from: "AER",
+        price: 11951
       },
       {
-        from: "Краснодара",
-        price: "11741"
+        from: "KRR",
+        price: 11741
       },
       {
-        from: "Ростова-на-Дону",
-        price: "11956"
+        from: "ROV",
+        price: 11956
       }
     ]
   },
   {
     flag: flagMd,
     altFlag: "flagMd",
-    cityName: "Кишинёв",
-    countryName: "Молдавия",
+    city: "KIV",
+    country: "MD",
     list: [
       {
-        from: "Москвы",
-        price: "8319"
+        from: "MOW",
+        price: 8319
       },
       {
-        from: "Санкт-Петербурга",
-        price: "10800"
+        from: "LED",
+        price: 10800
       },
       {
-        from: "Краснодара",
-        price: "12098"
+        from: "KRR",
+        price: 12098
       },
       {
-        from: "Сургута",
-        price: "16277"
+        from: "SGC",
+        price: 16277
       },
       {
-        from: "Нового Уренгоя",
-        price: "15987"
+        from: "NUX",
+        price: 15987
       }
     ]
   }

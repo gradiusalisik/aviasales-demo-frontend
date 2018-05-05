@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="12" viewBox="0 0 12 12">
+    <title>
+        Shape
+    </title>
+    <desc>
+        Created using Figma
+    </desc>
+    <use fill="currentColor" transform="translate(0 .154)" xlink:href="#clock"/>
+    <defs>
+        <path id="clock" fill-rule="evenodd" d="M6 0C2.692 0 0 2.623 0 5.846s2.692 5.846 6 5.846 6-2.623 6-5.846S9.308 0 6 0zm0 .923c2.796 0 5.053 2.199 5.053 4.923S8.796 10.769 6 10.769.947 8.57.947 5.846 3.204.923 6 .923zm-.474 1.23A.468.468 0 0 1 6 1.693a.47.47 0 0 1 .474.461v3.428l2.773 1.557a.455.455 0 0 1 .172.63.48.48 0 0 1-.646.168l-3.01-1.692a.46.46 0 0 1-.237-.399V2.153z"/>
+    </defs>
+</svg>

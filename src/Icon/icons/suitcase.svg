@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="17" height="23" viewBox="0 0 17 23">
+    <title>
+        Shape
+    </title>
+    <desc>
+        Created using Figma
+    </desc>
+    <use fill="currentColor" xlink:href="#suitcase"/>
+    <defs>
+        <path id="suitcase" fill-rule="evenodd" d="M5.99 0a1 1 0 1 0 0 2l-.003 3H1.965C.863 5 0 5.893 0 6.995v12.01C0 20.107.863 21 1.964 21h2.02v1.001a.997.997 0 0 0 1 .999 1 1 0 0 0 1.003-.999V21h5.008v1.001a.997.997 0 0 0 1.001.999.998.998 0 0 0 1.002-.999V21h2.089C16.188 21 17 20.107 17 19.005V6.995C17 5.893 16.19 5 15.087 5h-4.092l-.003-3a1 1 0 0 0 0-2H5.99zm4.003 2H6.988v3h3.005V2zm2.002 18H4.987v1l-.003 1.001V20h-3.02c-.54 0-.964-.434-.964-.995V6.995c0-.56.426-.995.965-.995h13.122c.52 0 .913.415.913.995v12.01c0 .578-.393.995-.913.995h-3.092z"/>
+    </defs>
+</svg>

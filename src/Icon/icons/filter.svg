@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="14" viewBox="0 0 18 14">
+    <title>
+        sorting-filters-556fbcaa41ce5607db73ef81ac4bad46
+    </title>
+    <desc>
+        Created using Figma
+    </desc>
+    <use fill="currentColor" xlink:href="#filter"/>
+    <defs>
+        <path id="filter" fill-rule="evenodd" d="M5.645 11H.993A.997.997 0 0 0 0 12c0 .556.445 1 .993 1h4.652a3.5 3.5 0 0 1 0-2zm6.71 0h4.652c.548 0 .993.444.993 1 0 .552-.445 1-.993 1h-4.652a3.5 3.5 0 0 0 0-2zm.29-5H.993A.997.997 0 0 0 0 7c0 .556.445 1 .993 1h11.652a3.5 3.5 0 0 1 0-2zm-10-5H.993A.997.997 0 0 0 0 2c0 .556.445 1 .993 1h1.652a3.5 3.5 0 0 1 0-2zm6.71 0h7.652c.548 0 .993.444.993 1 0 .552-.445 1-.993 1H9.355a3.5 3.5 0 0 0 0-2zM6 4a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm10 5a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm-7 5a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
+    </defs>
+</svg>

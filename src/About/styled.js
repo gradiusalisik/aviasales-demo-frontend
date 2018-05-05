@@ -4,7 +4,7 @@ import media from "../utils/media";
 export const Info = styled.section`
   padding: 20px 6px;
 
-  ${media.tablet`
+  ${media.md`
     padding-bottom: 32px;
     padding-left: 8px;
     padding-right: 8px;
@@ -12,7 +12,7 @@ export const Info = styled.section`
 `;
 
 export const Container = styled.div`
-  ${media.desktop`
+  ${media.xl`
     margin-left: auto;
     margin-right: auto;
     max-width: 1030px;
@@ -22,12 +22,12 @@ export const Container = styled.div`
 export const Content = styled.div`
   margin-bottom: 15px;
 
-  ${media.desktop`
+  ${media.xl`
     margin-bottom: 24px;
   `};
 `;
 
-export const WrapTitle = styled.div`
+export const ContentTitle = styled.div`
   margin-bottom: 15px;
   display: flex;
   align-items: center;
@@ -60,7 +60,7 @@ export const Link = styled.a`
   color: #00ace2;
   transition: color 0.3s;
 
-  ${media.desktop`
+  ${media.xl`
     &:hover {
       color: #ff8b00;
     }

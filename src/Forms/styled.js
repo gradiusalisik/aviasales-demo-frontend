@@ -2,7 +2,7 @@ import styled from "styled-components";
 import media from "../utils/media";
 
 // ** index.js
-export const Forms = styled.form`
+export const FormsStyled = styled.form`
   width: 100%;
 `;
 
@@ -12,12 +12,12 @@ export const Title = styled.h1`
   text-align: center;
   color: #fff;
 
-  ${media.tablet`
+  ${media.md`
     margin-bottom: 10px;
     font-size: 32px;
   `};
 
-  ${media.desktop`
+  ${media.xl`
     font-size: 40px;
   `};
 `;
@@ -30,48 +30,103 @@ export const SubTitle = styled.h2`
   text-align: center;
   color: #fff;
 
-  ${media.tablet`
+  ${media.md`
     display: block;
   `};
 
-  ${media.desktop`
+  ${media.xl`
     font-size: 24px;
   `};
 `;
 
-export const WrapForm = styled.div`
+export const Content = styled.div`
   margin-bottom: 16px;
-  overflow: hidden;
   border-radius: 6px;
 
-  ${media.desktop`
+  ${media.xl`
     margin-bottom: 48px;
     display: flex;
   `};
 `;
 
-export const WrapField = styled.div`
-  margin-bottom: ${props => (props.noBottomIndent ? 0 : "2px")};
+export const Container = styled.div`
+  position: relative;
+`;
 
-  ${media.tablet`
-    margin-left: ${props => (props.noLeftIndentTablet ? 0 : "2px")};
-    margin-bottom: ${props => (props.noBottomIndentTablet ? 0 : "2px")};
+export const FieldContent = styled.div`
+  margin-bottom: 2px;
+
+  ${media.md`
+    margin-left: 0;
     width: 100%;
   `};
 
-  ${media.desktop`
+  ${media.xl`
     margin-bottom: 0;
-    margin-left: ${props => (props.noLeftIndentDesktop ? 0 : "2px")};
+    min-width: 224px;
   `};
 `;
 
-export const Wrapper = styled.div`
+export const From = FieldContent.extend`
+  margin-bottom: 2px;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+  overflow: hidden;
+
+  ${media.md`
+    margin-left: 0;
+    border-top-right-radius: 0;
+    width: 100%;
+  `};
+
+  ${media.xl`
+    margin-bottom: 0;
+    border-bottom-left-radius: 6px;
+    min-width: 224px;
+  `};
+`;
+
+export const To = FieldContent.extend`
+  ${media.md`
+    margin-left: 2px;
+    border-top-right-radius: 6px;
+    overflow: hidden;
+  `};
+
+  ${media.xl`
+    border-top-right-radius: 0;
+  `};
+`;
+
+export const DatePicker = FieldContent.extend`
+  ${media.md`
+    margin-left: 0;
+    margin-bottom: 0;
+  `};
+
+  ${media.xl`
+    min-width: 370px;
+    margin-left: 2px;
+  `};
+`;
+
+export const Selects = styled.div`
+  margin-bottom: 2px;
+  min-width: 225px;
+
+  ${media.md`
+    margin-bottom: 0;
+    margin-left: 2px;
+  `};
+`;
+
+export const FormFields = styled.div`
   width: 100%;
-  ${media.tablet`
+  ${media.md`
     display: flex;
   `};
 
-  ${media.desktop`
+  ${media.xl`
     width: auto;
     &:last-child {
       width: 100%;
@@ -79,8 +134,8 @@ export const Wrapper = styled.div`
   `};
 `;
 
-export const ButtonWrap = styled.div`
-  ${media.desktop`
+export const LinkContent = styled.div`
+  ${media.xl`
     margin-left: auto;
     margin-right: auto;
     max-width: 308px;
@@ -88,31 +143,32 @@ export const ButtonWrap = styled.div`
 `;
 
 // ** Field.js
-export const FieldWrap = styled.div`
+export const Fields = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
+  overflow: hidden;
   background-color: #fff;
-
-  ${media.desktop`
-    min-width: 224px;
-  `};
 `;
 
 export const Input = styled.input`
   padding: 16px;
+  padding-right: 38px;
   width: 100%;
   height: 100%;
   font-size: 16px;
   color: #4a4a4a;
+  text-overflow: ellipsis;
+  overflow: hidden;
   border: none;
+  transition: box-shadow 0.3s;
 
-  ::placeholder {
+  &::placeholder {
     color: #a0b0b9;
   }
 `;
 
-export const WrapInfoField = styled.div`
+export const InfoField = styled.div`
   position: absolute;
   padding-right: 16px;
   top: 0;
@@ -123,13 +179,14 @@ export const WrapInfoField = styled.div`
 `;
 
 export const Text = styled.div`
-  margin-right: 11px;
   font-size: 16px;
   text-transform: uppercase;
   color: #a0b0b9;
 `;
 
 export const ChangeCityArrows = styled.div`
+  margin-left: 11px;
   width: 16px;
   height: 18px;
+  color: #1ba6d2;
 `;

@@ -4,46 +4,46 @@ import Socials from "./Socials";
 import Attachment from "./Attachment";
 import { linkList } from "./index.mock";
 import {
-  Wrapper,
+  Footer,
   LinkInfo,
-  WrapLinks,
+  Links,
   LinkSearch,
   Copyright,
-  WrapAttach,
-  Wrap,
+  Attachments,
+  Content,
   Bottom,
   Line,
   Container
 } from "./styled";
 
 export default () => (
-  <Wrapper>
+  <Footer>
     <Container>
       <Menu />
     </Container>
     <Line />
     <Container>
       <Bottom>
-        <Wrap>
-          <WrapLinks>
+        <Content>
+          <Links>
             {linkList.map((link, key) => (
               <LinkInfo key={key} href={link.href || "#"}>
                 {link.text}
               </LinkInfo>
             ))}
-          </WrapLinks>
+          </Links>
           <Socials />
           <LinkSearch href="#">Поиск и бронирование отелей</LinkSearch>
-        </Wrap>
-        <Wrap>
-          <WrapAttach>
+        </Content>
+        <Content>
+          <Attachments>
             <Attachment icon="apple" download attach="App Store" />
             <Attachment icon="google" download attach="Google Play" />
             <Attachment icon="windows" attach="Windows Phone" />
-          </WrapAttach>
+          </Attachments>
           <Copyright>© 2007–2018, Aviasales — дешевые авиабилеты</Copyright>
-        </Wrap>
+        </Content>
       </Bottom>
     </Container>
-  </Wrapper>
+  </Footer>
 );

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import media from "../utils/media";
 import Icon from "../Icon";
 
-const Wrapper = styled.div`
+const Socials = styled.div`
   margin-bottom: 16px;
   display: flex;
   flex-wrap: wrap;
@@ -15,8 +15,14 @@ const Link = styled.a`
   align-items: center;
   width: 33%;
   text-decoration: none;
+  color: #4a4a4a;
+  transition: color 0.3s;
 
-  ${media.tablet`
+  &:hover {
+    color: #fd8a27;
+  }
+
+  ${media.md`
     margin-right: 30px;
     width: auto;
   `};
@@ -25,14 +31,7 @@ const Link = styled.a`
 const Text = styled.span`
   margin-left: 6px;
   font-size: 12px;
-  color: #4a4a4a;
-  transition: color .3s;
-
-  ${media.desktop`
-    ${Link}:hover & {
-      color: #FD8A27;
-    }
-  `}
+  color: currentColor;
 `;
 
 const LogoVk = styled.div`
@@ -61,7 +60,7 @@ const LogoViber = styled.div`
 `;
 
 export default () => (
-  <Wrapper>
+  <Socials>
     <Link href="#">
       <LogoVk>
         <Icon icon="vk" />
@@ -92,5 +91,5 @@ export default () => (
       </LogoViber>
       <Text>Вайбер</Text>
     </Link>
-  </Wrapper>
+  </Socials>
 );

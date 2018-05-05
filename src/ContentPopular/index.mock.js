@@ -67,59 +67,59 @@ export const cardList = [
     altPlaceImge: "krasnodar",
     flag: flagRu,
     altFlag: "flagRu",
-    cityName: "Краснодар",
-    price: "1212",
-    countryName: "Россия",
-    date: "18 марта"
+    city: "KRR",
+    price: 1212,
+    country: "RU",
+    date: 1521324000000
   },
   {
     placeImg: adler,
     altPlaceImge: "adler",
     flag: flagRu,
     altFlag: "flagRu",
-    cityName: "Сочи(Адлер)",
-    price: "1334",
-    countryName: "Россия",
-    date: "27 марта"
+    city: "AER",
+    price: 1334,
+    country: "RU",
+    date: 1522098000000
   },
   {
     placeImg: piter,
     altPlaceImge: "piter",
     flag: flagRu,
     altFlag: "flagRu",
-    cityName: "Санкт-Петербург",
-    price: "1508",
-    countryName: "Россия",
-    date: "19 февраля"
+    city: "LED",
+    price: 1508,
+    country: "RU",
+    date: 1518991200000
   },
   {
     placeImg: mineral,
     altPlaceImge: "mineral",
     flag: flagRu,
     altFlag: "flagRu",
-    cityName: "Минеральные Воды",
-    price: "2074",
-    countryName: "Россия",
-    date: "13 марта"
+    city: "MRV",
+    price: 2074,
+    country: "RU",
+    date: 1520892000000
   },
   {
     placeImg: simferopol,
     altPlaceImge: "simferopol",
     flag: flagRu,
     altFlag: "flagRu",
-    cityName: "Симферополь(Крым)",
-    price: "2407",
-    countryName: "Крым",
-    date: "13 марта"
+    city: "SIP",
+    price: 2407,
+    country: "CM",
+    date: 1520892000000
   },
   {
     placeImg: barsa,
     altPlaceImge: "barsa",
     flag: flagEsp,
     altFlag: "flagEsp",
-    cityName: "Барселона",
-    price: "4247",
-    countryName: "Испания",
-    date: "24 марта"
+    city: "BCN",
+    price: 4247,
+    country: "ES",
+    date: 1521842400000
   }
 ];
