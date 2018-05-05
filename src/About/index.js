@@ -1,20 +1,11 @@
-import React from "react";
-import { list } from "./index.mock";
-import {
-  Info,
-  Content,
-  ContentTitle,
-  Logo,
-  Title,
-  Description,
-  Link,
-  Container
-} from "./styled";
+import React from 'react';
+import list from './index.mock';
+import { Info, Content, ContentTitle, Logo, Title, Description, Link, Container } from './styled';
 
 export default () => (
   <Info>
-    {list.map((content, key) => (
-      <Content key={key}>
+    {list.map(content => (
+      <Content key={content.id}>
         <Container>
           <ContentTitle>
             <Logo src={content.logo} alt="logo" />

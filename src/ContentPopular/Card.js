@@ -1,9 +1,9 @@
-import React from "react";
-import { PropTypes as pt } from "prop-types";
-import { FormattedNumber } from "react-intl";
-import { cities, countries } from "../utils/library.mock";
-import format from "date-fns/format";
-import ruLocale from "date-fns/locale/ru";
+import React from 'react';
+import { PropTypes as pt } from 'prop-types';
+import { FormattedNumber } from 'react-intl';
+import format from 'date-fns/format';
+import ruLocale from 'date-fns/locale/ru';
+import { cities, countries } from '../utils/library.mock';
 import {
   Container,
   PlaceImg,
@@ -15,10 +15,10 @@ import {
   Date,
   Picture,
   ContentPlace,
-  Flag
-} from "./styled";
+  Flag,
+} from './styled';
 
-const formatDate = date => format(date, "D MMMM", { locale: ruLocale });
+const formatDate = date => format(date, 'D MMMM', { locale: ruLocale });
 
 const Card = props => (
   <Container>
@@ -35,10 +35,10 @@ const Card = props => (
       </ContentPlace>
       <Data>
         <PriceInfo>
-          Найти от{" "}
+          Найти от{' '}
           <FormattedNumber
             value={props.price}
-            style={`currency`}
+            style={String('currency')}
             currency="RUB"
             minimumFractionDigits={0}
             maximumFractionDigits={0}
@@ -52,13 +52,24 @@ const Card = props => (
 
 Card.propTypes = {
   placeImg: pt.string,
-  altPlaceImage: pt.string,
+  altPlaceImg: pt.string,
   altFlag: pt.string,
   city: pt.string,
   price: pt.number,
   country: pt.string,
   date: pt.number,
-  flag: pt.string
+  flag: pt.string,
+};
+
+Card.defaultProps = {
+  placeImg: '',
+  altPlaceImg: '',
+  altFlag: '',
+  city: '',
+  price: null,
+  country: '',
+  date: null,
+  flag: '',
 };
 
 export default Card;

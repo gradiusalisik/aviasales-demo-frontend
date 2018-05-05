@@ -1,12 +1,12 @@
-import React from "react";
-import Helmet from "react-helmet";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import Footer from "./Footer";
-import Main from "./Main";
-import Search from "./Search";
-import styled from "styled-components";
-import { IntlProvider, addLocaleData } from "react-intl";
-import ru from "react-intl/locale-data/ru";
+import React from 'react';
+import Helmet from 'react-helmet';
+import styled from 'styled-components';
+import { IntlProvider, addLocaleData } from 'react-intl';
+import ru from 'react-intl/locale-data/ru';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Footer from './Footer';
+import Main from './Main';
+import Search from './Search';
 
 addLocaleData(ru);
 

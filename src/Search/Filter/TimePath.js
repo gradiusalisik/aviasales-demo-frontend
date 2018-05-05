@@ -1,9 +1,9 @@
-import React from "react";
-import { PropTypes as pt } from "prop-types";
-import styled from "styled-components";
-import Range from "../../UI/Range";
-import Icon from "../../Icon";
-import { cities } from "../../utils/library.mock";
+import React from 'react';
+import { PropTypes as pt } from 'prop-types';
+import styled from 'styled-components';
+import Range from '../../UI/Range';
+import Icon from '../../Icon';
+import { cities } from '../../utils/library.mock';
 
 const Path = styled.div`
   margin-top: -4px;
@@ -55,24 +55,28 @@ const Dates = styled.div`
   align-items: center;
 `;
 
-const formatTime = minutes => ((minutes / 60) ^ 0) + "ч " + minutes % 60 + "м";
+const formatTime = minutes => `${Math.floor(minutes / 60)}ч ${minutes % 60}м`;
 
 const TimePath = props => (
   <Path>
-    <Places>
-      <Title>{cities[props.from].name}</Title>
-      <IconFly icon="aero" />
-      <Title>{cities[props.to].name}</Title>
-    </Places>
+    {cities[props.from] && (
+      <Places>
+        <Title>{cities[props.from].name}</Title>
+        <IconFly icon="aero" />
+        <Title>{cities[props.to].name}</Title>
+      </Places>
+    )}
     <Info>
       <Dates>
-        <Text>от {formatTime(props.leftTime)}</Text>
-        <TextRight>до {formatTime(props.rightTime)}</TextRight>
+        <Text>от {formatTime(props.beginTime)}</Text>
+        <TextRight>до {formatTime(props.endTime)}</TextRight>
       </Dates>
       <Range
-        min={props.range.min}
-        max={props.range.max}
-        defaultValue={props.range.defaultValue}
+        min={props.min}
+        max={props.max}
+        defaultValue={[props.min, props.max]}
+        value={[props.beginTime, props.endTime]}
+        onChange={props.handleChangeRange}
       />
     </Info>
   </Path>
@@ -81,17 +85,21 @@ const TimePath = props => (
 TimePath.propTypes = {
   from: pt.string,
   to: pt.string,
-  leftTime: pt.number,
-  rightTime: pt.number,
-  range: pt.object
+  beginTime: pt.number,
+  endTime: pt.number,
+  min: pt.number,
+  max: pt.number,
+  handleChangeRange: pt.func,
 };
 
 TimePath.defaultProps = {
-  range: {
-    min: 0,
-    max: 20,
-    defaultValue: [0, 20]
-  }
+  from: '',
+  to: '',
+  beginTime: null,
+  endTime: null,
+  min: null,
+  max: null,
+  handleChangeRange: () => {},
 };
 
 export default TimePath;

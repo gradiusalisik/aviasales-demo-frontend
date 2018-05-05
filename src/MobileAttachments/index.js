@@ -1,8 +1,8 @@
-import React from "react";
-import mobile from "./images/mobile.png";
-import rating from "./images/rating.png";
-import phoneTablet from "./images/phone-tablet.png";
-import Device from "./Device";
+import React from 'react';
+import mobile from './images/mobile.png';
+import rating from './images/rating.png';
+import phoneTablet from './images/phone-tablet.png';
+import Device from './Device';
 import {
   Attachments,
   Container,
@@ -14,8 +14,8 @@ import {
   Phone,
   Attach,
   PhoneTablet,
-  Content
-} from "./styled";
+  Content,
+} from './styled';
 
 export default () => (
   <Attachments>

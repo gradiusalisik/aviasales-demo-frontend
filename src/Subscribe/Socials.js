@@ -1,5 +1,5 @@
-import React from "react";
-import Icon from "../Icon";
+import React from 'react';
+import Icon from '../Icon';
 import {
   Socials,
   LinkTwitter,
@@ -9,8 +9,8 @@ import {
   LinkVk,
   Vk,
   LinkRss,
-  Rss
-} from "./styled";
+  Rss,
+} from './styled';
 
 export default () => (
   <Socials>

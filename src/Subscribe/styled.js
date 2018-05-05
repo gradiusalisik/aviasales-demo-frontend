@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import mask from "./images/mask.png";
-import media from "../utils/media";
+import styled from 'styled-components';
+import mask from './images/mask.png';
+import media from '../utils/media';
 
 // ** index.js
 export const Subscribe = styled.div`
@@ -17,7 +17,7 @@ export const Subscribe = styled.div`
     background-image: url(${mask});
     width: 100%;
     height: 7px;
-    content: "";
+    content: '';
   }
 `;
 

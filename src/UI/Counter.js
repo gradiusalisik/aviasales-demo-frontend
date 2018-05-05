@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import styled, { css } from "styled-components";
-import Icon from "../Icon";
+import React, { Component } from 'react';
+import styled, { css } from 'styled-components';
+import Icon from '../Icon';
 
 const CounterStyled = styled.div`
   display: flex;
@@ -73,13 +73,13 @@ const Count = styled.div`
 
 export default class Counter extends Component {
   state = {
-    value: 0
+    value: this.props.value || 0,
   };
 
   handleClick = delta => () => {
     const { min, max } = Math;
     this.setState((state, props) => ({
-      value: min(max(0, state.value + delta), props.max)
+      value: min(max(0, state.value + delta), props.max),
     }));
     this.props.onChangeCounter(delta);
   };
@@ -88,11 +88,7 @@ export default class Counter extends Component {
     const { value } = this.state;
     return (
       <CounterStyled>
-        <Decrement
-          disabled={value === 0}
-          onClick={this.handleClick(-1)}
-          type="button"
-        >
+        <Decrement disabled={value === 0} onClick={this.handleClick(-1)} type="button">
           <IconDecrement icon="decrement" />
         </Decrement>
         <Count>{this.state.value}</Count>

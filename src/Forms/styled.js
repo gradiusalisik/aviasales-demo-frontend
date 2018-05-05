@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import media from "../utils/media";
+import styled from 'styled-components';
+import media from '../utils/media';
 
 // ** index.js
 export const FormsStyled = styled.form`
@@ -71,7 +71,6 @@ export const From = FieldContent.extend`
   margin-bottom: 2px;
   border-top-right-radius: 6px;
   border-top-left-radius: 6px;
-  overflow: hidden;
 
   ${media.md`
     margin-left: 0;
@@ -87,14 +86,17 @@ export const From = FieldContent.extend`
 `;
 
 export const To = FieldContent.extend`
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+
   ${media.md`
     margin-left: 2px;
     border-top-right-radius: 6px;
-    overflow: hidden;
   `};
 
   ${media.xl`
     border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
   `};
 `;
 
@@ -147,13 +149,12 @@ export const Fields = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  background-color: #fff;
+  border-radius: inherit;
 `;
 
 export const Input = styled.input`
   padding: 16px;
-  padding-right: 38px;
+  padding-right: 80px;
   width: 100%;
   height: 100%;
   font-size: 16px;
@@ -161,10 +162,16 @@ export const Input = styled.input`
   text-overflow: ellipsis;
   overflow: hidden;
   border: none;
+  border-radius: inherit;
+
   transition: box-shadow 0.3s;
 
   &::placeholder {
     color: #a0b0b9;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px #ff8e41;
   }
 `;
 

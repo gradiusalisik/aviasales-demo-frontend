@@ -1,8 +1,8 @@
-import React from "react";
-import { PropTypes as pt } from "prop-types";
-import styled from "styled-components";
-import media from "../utils/media";
-import Icon from "../Icon";
+import React from 'react';
+import { PropTypes as pt } from 'prop-types';
+import styled from 'styled-components';
+import media from '../utils/media';
+import Icon from '../Icon';
 
 const Link = styled.a`
   padding-left: 14px;
@@ -66,8 +66,7 @@ const Attachment = props => (
   <Link href={props.href}>
     <Icons icon={props.icon} />
     <Content>
-      {props.download && <Download>Скачайте в</Download>}{" "}
-      <Attach>{props.attach}</Attach>
+      {props.download && <Download>Скачайте в</Download>} <Attach>{props.attach}</Attach>
     </Content>
   </Link>
 );
@@ -76,11 +75,14 @@ Attachment.propTypes = {
   href: pt.string,
   icon: pt.string,
   download: pt.bool,
-  attach: pt.string
+  attach: pt.string,
 };
 
 Attachment.defaultProps = {
-  href: "#"
+  href: '#',
+  icon: '',
+  download: false,
+  attach: '',
 };
 
 export default Attachment;

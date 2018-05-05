@@ -1,7 +1,7 @@
-import React from "react";
-import { PropTypes as pt } from "prop-types";
-import Icon from "../Icon";
-import { Link, Logo, Text } from "./styled";
+import React from 'react';
+import { PropTypes as pt } from 'prop-types';
+import Icon from '../Icon';
+import { Link, Logo, Text } from './styled';
 
 const Device = props => (
   <Link href={props.href}>
@@ -15,11 +15,13 @@ const Device = props => (
 Device.propTypes = {
   icon: pt.string,
   text: pt.string,
-  href: pt.string
+  href: pt.string,
 };
 
 Device.defaultProps = {
-  href: "#"
+  href: '#',
+  icon: '',
+  text: '',
 };
 
 export default Device;

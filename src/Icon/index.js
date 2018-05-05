@@ -1,6 +1,6 @@
-import React from "react";
-import { PropTypes as pt } from "prop-types";
-import styled from "styled-components";
+import React from 'react';
+import { PropTypes as pt } from 'prop-types';
+import styled from 'styled-components';
 
 const IconInside = styled.div`
   position: relative;
@@ -21,12 +21,12 @@ const IconInside = styled.div`
 // говнокод пока не выйдет react-scripts@2.0.0, где можно будет инлайн-импорт делать
 
 const Icon = ({ icon, ...props }) => {
-  const svg = require(`!svg-inline-loader!./icons/${icon}.svg`);
+  const svg = require(`!svg-inline-loader!./icons/${icon}.svg`); // eslint-disable-line
   return <IconInside {...props} dangerouslySetInnerHTML={{ __html: svg }} />;
 };
 
 Icon.propTypes = {
-  icon: pt.string.isRequired
+  icon: pt.string.isRequired,
 };
 
 export default Icon;

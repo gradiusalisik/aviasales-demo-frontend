@@ -1,7 +1,7 @@
-import React from "react";
-import Icon from "../Icon";
-import styled from "styled-components";
-import media from "../utils/media";
+import React from 'react';
+import styled from 'styled-components';
+import Icon from '../Icon';
+import media from '../utils/media';
 
 const Header = styled.header`
   display: flex;

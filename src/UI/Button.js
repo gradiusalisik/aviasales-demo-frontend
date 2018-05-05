@@ -1,5 +1,6 @@
-import styled from "styled-components";
-import media from "../utils/media";
+import styled from 'styled-components';
+import media from '../utils/media';
+
 export const Button = styled.button`
   padding-top: 15px;
   padding-bottom: 15px;

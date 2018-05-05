@@ -1,12 +1,12 @@
-import React from "react";
-import { PropTypes as pt } from "prop-types";
-import styled from "styled-components";
-import Scoreboard from "./Scoreboard";
-import Icon from "../../Icon";
-import format from "date-fns/format";
-import ruLocale from "date-fns/locale/ru";
-import { airports } from "../../utils/library.mock";
-import { formatTimePath, formatTime } from "../../utils/format";
+import React from 'react';
+import { PropTypes as pt } from 'prop-types';
+import format from 'date-fns/format';
+import ruLocale from 'date-fns/locale/ru';
+import styled from 'styled-components';
+import Scoreboard from './Scoreboard';
+import Icon from '../../Icon';
+import { airports } from '../../utils/library.mock';
+import { formatTimePath, formatTime } from '../../utils/format';
 
 const List = styled.div``;
 
@@ -68,12 +68,12 @@ const Right = Left.extend`
   text-align: right;
 `;
 
-const formatDate = date => format(date, "D MMM YYYY, dd", { locale: ruLocale });
+const formatDate = date => format(date, 'D MMM YYYY, dd', { locale: ruLocale });
 
 const InfoFly = props => (
   <List>
-    {props.list.map((info, key) => (
-      <Info key={key}>
+    {props.list.map(info => (
+      <Info key={info.id}>
         <Left>
           <Times>
             <IconPick>
@@ -102,7 +102,11 @@ const InfoFly = props => (
 );
 
 InfoFly.propTypes = {
-  list: pt.array
+  list: pt.arrayOf(pt.shape({})),
+};
+
+InfoFly.defaultProps = {
+  list: [],
 };
 
 export default InfoFly;

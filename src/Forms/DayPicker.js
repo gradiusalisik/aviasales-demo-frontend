@@ -1,16 +1,19 @@
-import React from "react";
-import DayPicker from "react-day-picker/DayPicker";
-import "react-day-picker/lib/style.css";
-import "./dayPicker.css";
-import { MONTHS, WEEKDAYS_SHORT } from "./index.mock";
+import React from 'react';
+import { PropTypes as pt } from 'prop-types';
+import DayPickers from 'react-day-picker/DayPicker';
+import styled from 'styled-components';
+import 'react-day-picker/lib/style.css';
+import './dayPicker.css';
+import { MONTHS, WEEKDAYS_SHORT } from './index.mock';
 
-export default props => (
-  <DayPicker
-    locale={"ru"}
+const DayPickerStyled = styled(DayPickers)``;
+
+const DayPicker = props => (
+  <DayPickerStyled
+    locale="ru"
     months={MONTHS}
     weekdaysShort={WEEKDAYS_SHORT}
     className="dataPicker"
-    fromMonth={props.fromMonth}
     modifiers={props.modifiers}
     firstDayOfWeek={1}
     onDayClick={props.onDayClick}
@@ -20,3 +23,23 @@ export default props => (
     onDayMouseEnter={props.handleDayMouseEnter}
   />
 );
+
+DayPicker.propTypes = {
+  modifiers: pt.shape(),
+  disabledDays: pt.shape(),
+  onDayClick: pt.func,
+  selectedDays: pt.arrayOf(pt.shape()),
+  renderDay: pt.func,
+  handleDayMouseEnter: pt.func,
+};
+
+DayPicker.defaultProps = {
+  modifiers: {},
+  disabledDays: {},
+  onDayClick: () => {},
+  selectedDays: [],
+  renderDay: () => {},
+  handleDayMouseEnter: () => {},
+};
+
+export default DayPicker;

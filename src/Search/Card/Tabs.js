@@ -1,7 +1,7 @@
-import React from "react";
-import { PropTypes as pt } from "prop-types";
-import styled, { css } from "styled-components";
-import Baggage from "./Baggage";
+import React from 'react';
+import { PropTypes as pt } from 'prop-types';
+import styled, { css } from 'styled-components';
+import Baggage from './Baggage';
 
 const TabsStyled = styled.div`
   display: flex;
@@ -34,8 +34,8 @@ const Tab = styled.div`
 
 const Tabs = props => (
   <TabsStyled>
-    {props.list.map((tab, key) => (
-      <Tab key={key} active={tab.active}>
+    {props.list.map(tab => (
+      <Tab key={tab.id} active={tab.active}>
         <Baggage list={tab.list} price={tab.price} noBaggage={tab.noBaggage} />
       </Tab>
     ))}
@@ -43,7 +43,11 @@ const Tabs = props => (
 );
 
 Tabs.propTypes = {
-  list: pt.array
+  list: pt.arrayOf(pt.shape({})),
+};
+
+Tabs.defaultProps = {
+  list: [],
 };
 
 export default Tabs;

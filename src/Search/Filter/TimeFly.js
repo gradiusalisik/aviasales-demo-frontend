@@ -1,11 +1,11 @@
-import React from "react";
-import { PropTypes as pt } from "prop-types";
-import styled from "styled-components";
-import Range from "../../UI/Range";
-import Icon from "../../Icon";
-import format from "date-fns/format";
-import ruLocale from "date-fns/locale/ru";
-import { cities } from "../../utils/library.mock";
+import React from 'react';
+import { PropTypes as pt } from 'prop-types';
+import format from 'date-fns/format';
+import ruLocale from 'date-fns/locale/ru';
+import styled from 'styled-components';
+import Range from '../../UI/Range';
+import Icon from '../../Icon';
+import { cities } from '../../utils/library.mock';
 
 const TimeFlyStyled = styled.div`
   margin-top: -4px;
@@ -62,7 +62,7 @@ const Dates = styled.div`
   align-items: center;
 `;
 
-const formatDate = date => format(date, "HH:mm, D MMM", { locale: ruLocale });
+const formatDate = date => format(date, 'HH:mm, D MMM', { locale: ruLocale });
 
 const TimeFly = props => (
   <TimeFlyStyled>
@@ -78,9 +78,11 @@ const TimeFly = props => (
         <TextRight>до {formatDate(props.outRightDate)}</TextRight>
       </Dates>
       <Range
-        min={props.outRange.min}
-        max={props.outRange.max}
-        defaultValue={props.outRange.defaultValue}
+        min={props.minOut}
+        max={props.maxOut}
+        defaultValue={[props.minOut, props.maxOut]}
+        value={[props.outLeftDate, props.outRightDate]}
+        onChange={props.handleChangeRangeOut}
       />
     </Info>
     <Info>
@@ -90,9 +92,11 @@ const TimeFly = props => (
         <TextRight>до {formatDate(props.inRightDate)}</TextRight>
       </Dates>
       <Range
-        min={props.inRange.min}
-        max={props.inRange.max}
-        defaultValue={props.inRange.defaultValue}
+        min={props.minIn}
+        max={props.maxIn}
+        defaultValue={[props.minIn, props.maxIn]}
+        value={[props.inLeftDate, props.inRightDate]}
+        onChange={props.handleChangeRangeIn}
       />
     </Info>
   </TimeFlyStyled>
@@ -102,24 +106,26 @@ TimeFly.propTypes = {
   from: pt.string,
   outLeftDate: pt.number,
   outRightDate: pt.number,
-  outRange: pt.object,
+  minOut: pt.number,
+  maxOut: pt.number,
   to: pt.string,
   inLeftDate: pt.number,
   inRightDate: pt.number,
-  inRange: pt.object
+  minIn: pt.number,
+  maxIn: pt.number,
 };
 
 TimeFly.defaultProps = {
-  outRange: {
-    min: 0,
-    max: 20,
-    defaultValue: [0, 20]
-  },
-  inRange: {
-    min: 0,
-    max: 20,
-    defaultValue: [0, 20]
-  }
+  from: '',
+  outLeftDate: null,
+  outRightDate: null,
+  minOut: null,
+  maxOut: null,
+  to: '',
+  inLeftDate: null,
+  inRightDate: null,
+  minIn: null,
+  maxIn: null,
 };
 
 export default TimeFly;
