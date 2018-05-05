@@ -79,7 +79,7 @@ const Accordion = props => (
 Accordion.propTypes = {
   open: pt.bool,
   text: pt.string,
-  quantity: pt.number,
+  quantity: pt.node,
   children: pt.node,
 };
 

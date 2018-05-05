@@ -1,9 +1,7 @@
+import { partners } from '../../utils/library.mock';
+
 const list = {
   transfer: [
-    {
-      id: 'all',
-      label: 'Все',
-    },
     {
       id: 'not-transfer',
       label: 'Без пересадок',
@@ -28,41 +26,184 @@ const list = {
   ],
   departure: {
     from: 'MOW',
-    outLeftDate: 1519423500000,
-    outRightDate: 1519508700000,
     to: 'BCN',
-    inLeftDate: 1519434300000,
-    inRightDate: 519645800000,
+    outDate: {
+      begin: 1519423500000,
+      end: 1519508700000,
+    },
+    inDate: {
+      begin: 1519434300000,
+      end: 1519643100000,
+    },
   },
   arrival: {
     from: 'BCN',
-    outLeftDate: 1520049600000,
-    outRightDate: 1520113500000,
     to: 'MOW',
-    inLeftDate: 1520082000000,
-    inRightDate: 1520063700000,
+    outDate: {
+      begin: 1520049600000,
+      end: 1520113500000,
+    },
+    inDate: {
+      begin: 1520082000000,
+      end: 1520236500000,
+    },
   },
-  timeOut: {
+  baggage: [
+    {
+      id: 'baggage-1',
+      label: 'Багаж и ручная кладь',
+      price: 23755,
+      checked: true,
+    },
+    {
+      id: 'no-baggage',
+      label: 'Без багажа',
+      price: 17762,
+    },
+  ],
+  partners: [
+    {
+      id: partners[1],
+      label: partners[1],
+      price: 7712,
+    },
+    {
+      id: partners[2],
+      label: partners[2],
+      price: 7712,
+    },
+    {
+      id: partners[3],
+      label: partners[3],
+      price: 7712,
+    },
+    {
+      id: partners[4],
+      label: partners[4],
+      price: 7712,
+    },
+    {
+      id: partners[5],
+      label: partners[5],
+      price: 7712,
+    },
+    {
+      id: partners[6],
+      label: partners[6],
+      price: 7712,
+    },
+    {
+      id: partners[7],
+      label: partners[7],
+      price: 7712,
+    },
+    {
+      id: partners[8],
+      label: partners[8],
+      price: 7712,
+    },
+    {
+      id: partners[9],
+      label: partners[9],
+      price: 7712,
+    },
+    {
+      id: partners[10],
+      label: partners[10],
+      price: 7712,
+    },
+    {
+      id: partners[11],
+      label: partners[11],
+      price: 7712,
+    },
+    {
+      id: partners[12],
+      label: partners[12],
+      price: 7712,
+    },
+    {
+      id: partners[13],
+      label: partners[13],
+      price: 7712,
+    },
+    {
+      id: partners[14],
+      label: partners[14],
+      price: 7712,
+    },
+    {
+      id: partners[15],
+      label: partners[15],
+      price: 7712,
+    },
+    {
+      id: partners[16],
+      label: partners[16],
+      price: 7712,
+    },
+    {
+      id: partners[17],
+      label: partners[17],
+      price: 7712,
+    },
+    {
+      id: partners[18],
+      label: partners[18],
+      price: 7712,
+    },
+    {
+      id: partners[19],
+      label: partners[19],
+      price: 7712,
+    },
+    {
+      id: partners[20],
+      label: partners[20],
+      price: 7712,
+    },
+    {
+      id: partners[21],
+      label: partners[22],
+      price: 7712,
+    },
+    {
+      id: partners[23],
+      label: partners[23],
+      price: 7712,
+    },
+    {
+      id: partners[24],
+      label: partners[24],
+      price: 7712,
+    },
+    {
+      id: partners[25],
+      label: partners[25],
+      price: 7712,
+    },
+  ],
+  duration: {
+    beginTime: 45,
+    endTime: 1440,
+  },
+  outTime: {
     from: 'MOW',
     to: 'BCN',
-    leftTime: 260,
-    rightTime: 2930,
+    beginTime: 260,
+    endTime: 2930,
   },
-  timeIn: {
+  inTime: {
     from: 'BCN',
     to: 'MOW',
-    leftTime: 250,
-    rightTime: 2480,
+    beginTime: 250,
+    endTime: 2480,
   },
-  airCompany: [
-    {
+  airCompany: {
+    alliance: {
       id: 'air-company-1',
       title: 'Альянсы',
       list: [
-        {
-          id: 'all-alianse',
-          label: 'Все',
-        },
         {
           id: 'Star Alliance',
           label: 'Star Alliance',
@@ -83,14 +224,10 @@ const list = {
         },
       ],
     },
-    {
+    company: {
       id: 'air-company-2',
       title: 'Авиакомпании',
       list: [
-        {
-          id: 'all-air',
-          label: 'Все',
-        },
         {
           id: 'Aegean Airlines',
           label: 'Aegean Airlines',
@@ -159,7 +296,7 @@ const list = {
         },
       ],
     },
-  ],
+  },
 };
 
 export default list;

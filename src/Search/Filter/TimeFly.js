@@ -78,9 +78,11 @@ const TimeFly = props => (
         <TextRight>до {formatDate(props.outRightDate)}</TextRight>
       </Dates>
       <Range
-        min={props.outRange.min}
-        max={props.outRange.max}
-        defaultValue={props.outRange.defaultValue}
+        min={props.minOut}
+        max={props.maxOut}
+        defaultValue={[props.minOut, props.maxOut]}
+        value={[props.outLeftDate, props.outRightDate]}
+        onChange={props.handleChangeRangeOut}
       />
     </Info>
     <Info>
@@ -90,9 +92,11 @@ const TimeFly = props => (
         <TextRight>до {formatDate(props.inRightDate)}</TextRight>
       </Dates>
       <Range
-        min={props.inRange.min}
-        max={props.inRange.max}
-        defaultValue={props.inRange.defaultValue}
+        min={props.minIn}
+        max={props.maxIn}
+        defaultValue={[props.minIn, props.maxIn]}
+        value={[props.inLeftDate, props.inRightDate]}
+        onChange={props.handleChangeRangeIn}
       />
     </Info>
   </TimeFlyStyled>
@@ -102,30 +106,26 @@ TimeFly.propTypes = {
   from: pt.string,
   outLeftDate: pt.number,
   outRightDate: pt.number,
-  outRange: pt.shape(),
-  inRange: pt.shape(),
+  minOut: pt.number,
+  maxOut: pt.number,
   to: pt.string,
   inLeftDate: pt.number,
   inRightDate: pt.number,
+  minIn: pt.number,
+  maxIn: pt.number,
 };
 
 TimeFly.defaultProps = {
   from: '',
   outLeftDate: null,
   outRightDate: null,
+  minOut: null,
+  maxOut: null,
   to: '',
   inLeftDate: null,
   inRightDate: null,
-  outRange: {
-    min: 0,
-    max: 20,
-    defaultValue: [0, 20],
-  },
-  inRange: {
-    min: 0,
-    max: 20,
-    defaultValue: [0, 20],
-  },
+  minIn: null,
+  maxIn: null,
 };
 
 export default TimeFly;

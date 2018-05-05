@@ -104,6 +104,7 @@ Checkbox.propTypes = {
   label: pt.string,
   price: pt.number,
   checked: pt.bool,
+  onChange: pt.func,
 };
 
 Checkbox.defaultProps = {
@@ -111,6 +112,7 @@ Checkbox.defaultProps = {
   label: '',
   price: null,
   checked: false,
+  onChange: () => {},
 };
 
 export default Checkbox;

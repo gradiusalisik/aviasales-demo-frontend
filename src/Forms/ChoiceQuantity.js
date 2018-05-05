@@ -41,7 +41,12 @@ export default props => (
   <ChoiceQuantity>
     <Content>
       <Text>Взрослые</Text>
-      <Counter disabled={props.disabled} max={9} onChangeCounter={props.onChangeCounter} />
+      <Counter
+        disabled={props.disabled}
+        max={9}
+        onChangeCounter={props.onChangeCounter}
+        value={1}
+      />
     </Content>
     <Content>
       <Text>Дети до 12 лет</Text>

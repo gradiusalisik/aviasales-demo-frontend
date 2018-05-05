@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Field from '../Forms/Field';
+import DownshiftAirports from '../Forms/DownshiftAirports';
 import DataPicker from '../Forms/DataPicker';
 import Select from '../Forms/Select';
 import ChoiceQuantity from '../Forms/ChoiceQuantity';
@@ -57,18 +57,17 @@ const FormField = styled.div`
 `;
 
 const From = FormField.extend`
-  border-top-left-radius: 6px;
-  overflow: hidden;
+  ${media.md`
+    border-top-left-radius: 6px;
+  `};
 
   ${media.xl`
-    max-width: 226px;
     border-bottom-left-radius: 6px;
+    max-width: 226px;
   `};
 `;
 
 const To = FormField.extend`
-  overflow: hidden;
-
   ${media.md`
     border-top-right-radius: 6px;
   `};
@@ -105,10 +104,20 @@ const ContentSelect = styled.div`
   `};
 `;
 
+const showDestination = (value, destination) => (value.length > 0 ? destination : '');
+
 export default class Forms extends Component {
   state = {
     quantitySelect: 1,
     isChecked: false,
+    from: {
+      value: '',
+      destination: '',
+    },
+    to: {
+      value: '',
+      destination: '',
+    },
   };
 
   handleChangeClass = () => {
@@ -123,18 +132,62 @@ export default class Forms extends Component {
     }));
   };
 
+  handleSelection = (id, selection) => {
+    this.setState({
+      [id]: {
+        value: selection.city,
+        destination: selection.code,
+      },
+    });
+  };
+
+  handleChangeInput = (id, value) => {
+    this.setState({
+      [id]: {
+        value,
+      },
+    });
+  };
+
+  handleClickReverseInputs = () => {
+    const { from, to } = this.state;
+
+    this.setState({
+      from: to,
+      to: from,
+    });
+  };
+
   render() {
     const { isChecked, quantitySelect } = this.state;
     const classFly = isChecked ? 'бизнес' : 'эконом';
+    const destinationTo = showDestination(this.state.to.value, this.state.to.destination);
+    const destinationFrom = showDestination(this.state.from.value, this.state.from.destination);
 
     return (
       <FormsStyled action="#" method="GET">
         <Fields>
           <From>
-            <Field defaultValue="Москва" reverse destination="Mow" />
+            <DownshiftAirports
+              id="from"
+              placeholder="Город отправления"
+              reverse
+              handleChangeInput={this.handleChangeInput}
+              handleSelection={this.handleSelection}
+              onClickReverse={this.handleClickReverseInputs}
+              value={this.state.from.value}
+              destination={destinationFrom}
+            />
           </From>
           <To>
-            <Field placeholder="Город прибытия" />
+            <DownshiftAirports
+              id="to"
+              placeholder="Город прибытия"
+              handleChangeInput={this.handleChangeInput}
+              handleSelection={this.handleSelection}
+              value={this.state.to.value}
+              destination={destinationTo}
+            />
           </To>
         </Fields>
         <Fields>

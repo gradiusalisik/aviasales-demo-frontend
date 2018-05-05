@@ -59,17 +59,25 @@ const formatTime = minutes => `${Math.floor(minutes / 60)}ч ${minutes % 60}м`;
 
 const TimePath = props => (
   <Path>
-    <Places>
-      <Title>{cities[props.from].name}</Title>
-      <IconFly icon="aero" />
-      <Title>{cities[props.to].name}</Title>
-    </Places>
+    {cities[props.from] && (
+      <Places>
+        <Title>{cities[props.from].name}</Title>
+        <IconFly icon="aero" />
+        <Title>{cities[props.to].name}</Title>
+      </Places>
+    )}
     <Info>
       <Dates>
-        <Text>от {formatTime(props.leftTime)}</Text>
-        <TextRight>до {formatTime(props.rightTime)}</TextRight>
+        <Text>от {formatTime(props.beginTime)}</Text>
+        <TextRight>до {formatTime(props.endTime)}</TextRight>
       </Dates>
-      <Range min={props.range.min} max={props.range.max} defaultValue={props.range.defaultValue} />
+      <Range
+        min={props.min}
+        max={props.max}
+        defaultValue={[props.min, props.max]}
+        value={[props.beginTime, props.endTime]}
+        onChange={props.handleChangeRange}
+      />
     </Info>
   </Path>
 );
@@ -77,21 +85,21 @@ const TimePath = props => (
 TimePath.propTypes = {
   from: pt.string,
   to: pt.string,
-  leftTime: pt.number,
-  rightTime: pt.number,
-  range: pt.shape(),
+  beginTime: pt.number,
+  endTime: pt.number,
+  min: pt.number,
+  max: pt.number,
+  handleChangeRange: pt.func,
 };
 
 TimePath.defaultProps = {
   from: '',
   to: '',
-  leftTime: null,
-  rightTime: null,
-  range: {
-    min: 0,
-    max: 20,
-    defaultValue: [0, 20],
-  },
+  beginTime: null,
+  endTime: null,
+  min: null,
+  max: null,
+  handleChangeRange: () => {},
 };
 
 export default TimePath;

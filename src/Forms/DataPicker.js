@@ -19,10 +19,10 @@ const Picker = styled.div`
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
+  overflow: hidden;
 
   ${media.md`
     border-bottom-left-radius: 6px;
-    overflow: hidden;
   `};
 
   ${media.xl`
@@ -198,6 +198,7 @@ class DataPicker extends Component {
     const toFormatted = this.formatted(to);
     const disabledDays = { before: new Date() };
     const selectedDays = [from, { from, to: enteredTo }];
+
     return (
       <Picker>
         <Container>
