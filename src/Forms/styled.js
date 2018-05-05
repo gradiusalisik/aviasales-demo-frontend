@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import media from "../utils/media";
+import styled from 'styled-components';
+import media from '../utils/media';
 
 // ** index.js
 export const FormsStyled = styled.form`
@@ -165,6 +165,10 @@ export const Input = styled.input`
 
   &::placeholder {
     color: #a0b0b9;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px #ff8e41;
   }
 `;
 

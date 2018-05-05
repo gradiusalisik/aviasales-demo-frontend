@@ -1,7 +1,7 @@
-import React from "react";
-import { PropTypes as pt } from "prop-types";
-import { FormattedNumber } from "react-intl";
-import { cities, countries } from "../utils/library.mock";
+import React from 'react';
+import { PropTypes as pt } from 'prop-types';
+import { FormattedNumber } from 'react-intl';
+import { cities, countries } from '../utils/library.mock';
 import {
   Container,
   Head,
@@ -12,8 +12,8 @@ import {
   Body,
   Info,
   FromPlace,
-  Price
-} from "./styled";
+  Price,
+} from './styled';
 
 const Card = props => (
   <Container>
@@ -25,16 +25,14 @@ const Card = props => (
       </Names>
     </Head>
     <Body>
-      {props.list.map((info, key) => (
-        <Info key={key}>
-          <FromPlace href={info.fromHref || "#"}>
-            Из {cities[info.from].cases.ro}
-          </FromPlace>
-          <Price href={info.toHref || "#"}>
-            от{" "}
+      {props.list.map(info => (
+        <Info key={info.id}>
+          <FromPlace href={info.fromHref || '#'}>Из {cities[info.from].cases.ro}</FromPlace>
+          <Price href={info.toHref || '#'}>
+            от{' '}
             <FormattedNumber
               value={info.price}
-              style={`currency`}
+              style={String('currency')}
               currency="RUB"
               minimumFractionDigits={0}
               maximumFractionDigits={0}
@@ -51,7 +49,15 @@ Card.propTypes = {
   altFlag: pt.string,
   city: pt.string,
   country: pt.string,
-  list: pt.array
+  list: pt.arrayOf(pt.shape({})),
+};
+
+Card.defaultProps = {
+  list: [],
+  flag: '',
+  altFlag: '',
+  city: '',
+  country: '',
 };
 
 export default Card;

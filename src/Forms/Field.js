@@ -1,20 +1,13 @@
-import React from "react";
-import { PropTypes as pt } from "prop-types";
-import Icon from "../Icon";
-import {
-  Fields,
-  Input,
-  InfoField as Info,
-  Text,
-  ChangeCityArrows
-} from "./styled";
+import React from 'react';
+import { PropTypes as pt } from 'prop-types';
+import Icon from '../Icon';
+import { Fields, Input, InfoField as Info, Text, ChangeCityArrows } from './styled';
 
 const Field = props => (
   <Fields height={props.height} onClick={props.onClick}>
     <Input
       type="text"
       defaultValue={props.defaultValue}
-      value={props.value}
       placeholder={props.placeholder}
       onChange={props.onChange}
     />
@@ -37,14 +30,18 @@ Field.propTypes = {
   reverse: pt.bool,
   defaultValue: pt.string,
   placeholder: pt.string,
-  value: pt.string,
   onChange: pt.func,
-  onClick: pt.func
+  onClick: pt.func,
 };
 
 Field.defaultProps = {
   onChange: () => {},
-  onClick: () => {}
+  onClick: () => {},
+  destination: '',
+  height: '',
+  reverse: false,
+  defaultValue: null,
+  placeholder: '',
 };
 
 export default Field;

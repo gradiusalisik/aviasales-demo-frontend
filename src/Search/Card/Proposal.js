@@ -1,8 +1,8 @@
-import React from "react";
-import { PropTypes as pt } from "prop-types";
-import { FormattedNumber } from "react-intl";
-import styled from "styled-components";
-import { partners } from "../../utils/library.mock";
+import React from 'react';
+import { PropTypes as pt } from 'prop-types';
+import { FormattedNumber } from 'react-intl';
+import styled from 'styled-components';
+import { partners } from '../../utils/library.mock';
 
 const ProposalStyled = styled.div`
   padding-top: 24px;
@@ -24,7 +24,7 @@ const Link = styled.a`
     color: #ff8b0f;
   }
 `;
-const Span = Link.withComponent("span");
+const Span = Link.withComponent('span');
 
 const ShowMore = Span.extend`
   margin-top: 8px;
@@ -41,17 +41,17 @@ const TextMedium = styled.span`
 
 const Proposal = props => (
   <ProposalStyled>
-    {props.list.map((link, key) => (
-      <div key={key}>
-        {!!link.showMore ? (
+    {props.list.map(link => (
+      <div key={link.id}>
+        {link.showMore ? (
           <ShowMore>+ Еще {link.showMore}</ShowMore>
         ) : (
-          <Link href={link.href || "#"}>
+          <Link href={link.href || '#'}>
             <Text>{partners[link.partnerId]}</Text>
             <TextMedium>
               <FormattedNumber
                 value={link.price}
-                style={`currency`}
+                style={String('currency')}
                 currency="RUB"
                 minimumFractionDigits={0}
                 maximumFractionDigits={0}
@@ -65,7 +65,11 @@ const Proposal = props => (
 );
 
 Proposal.propTypes = {
-  list: pt.array
+  list: pt.arrayOf(pt.shape({})),
+};
+
+Proposal.defaultProps = {
+  list: [],
 };
 
 export default Proposal;

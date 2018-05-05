@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import media from "../utils/media";
+import styled from 'styled-components';
+import media from '../utils/media';
 
 // index.js
 export const Footer = styled.footer`
@@ -56,7 +56,7 @@ export const LinkSearch = styled.a`
   `};
 `;
 
-const Description = LinkSearch.withComponent("span");
+const Description = LinkSearch.withComponent('span');
 
 export const Copyright = Description.extend`
   ${media.xl`

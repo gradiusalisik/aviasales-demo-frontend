@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const Toggle = styled.div``;
 
@@ -23,7 +23,7 @@ const Label = styled.label`
     display: block;
     width: 40px;
     height: 24px;
-    content: "";
+    content: '';
     background-color: #bccdd6;
     border-radius: 100px;
     box-shadow: inset 0px 0px 2px 0px rgba(0, 0, 0, 0.15);
@@ -37,7 +37,7 @@ const Label = styled.label`
     display: block;
     width: 20px;
     height: 20px;
-    content: "";
+    content: '';
     background: #fff;
     border-radius: 50%;
     box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.25);
@@ -56,11 +56,9 @@ const Input = styled.input`
   }
 `;
 
-export default props => {
-  return (
-    <Toggle>
-      <Input type="checkbox" id={props.id} onClick={props.onChange} />
-      <Label htmlFor={props.id}>{props.text}</Label>
-    </Toggle>
-  );
-};
+export default props => (
+  <Toggle>
+    <Input type="checkbox" id={props.id} onClick={props.onChange} />
+    <Label htmlFor={props.id}>{props.text}</Label>
+  </Toggle>
+);

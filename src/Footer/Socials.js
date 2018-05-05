@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import media from "../utils/media";
-import Icon from "../Icon";
+import React from 'react';
+import styled from 'styled-components';
+import media from '../utils/media';
+import Icon from '../Icon';
 
 const Socials = styled.div`
   margin-bottom: 16px;
@@ -61,31 +61,31 @@ const LogoViber = styled.div`
 
 export default () => (
   <Socials>
-    <Link href="#">
+    <Link href="/">
       <LogoVk>
         <Icon icon="vk" />
       </LogoVk>
       <Text>Вконтакте</Text>
     </Link>
-    <Link href="#">
+    <Link href="/">
       <LogoFB>
         <Icon icon="fb" />
       </LogoFB>
       <Text>Фейсбук</Text>
     </Link>
-    <Link href="#">
+    <Link href="/">
       <LogoInstagram>
         <Icon icon="instagram" />
       </LogoInstagram>
       <Text>Инстаграм</Text>
     </Link>
-    <Link href="#">
+    <Link href="/">
       <LogoTwitter>
         <Icon icon="twitter" />
       </LogoTwitter>
       <Text>Твиттер</Text>
     </Link>
-    <Link href="#">
+    <Link href="/">
       <LogoViber>
         <Icon icon="viber" />
       </LogoViber>

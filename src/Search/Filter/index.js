@@ -1,7 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import Accordions from "./Accordions";
-import Icon from "../../Icon";
+import React from 'react';
+import styled from 'styled-components';
+import Accordions from './Accordions';
 
 const Filter = styled.div`
   position: relative;
@@ -11,31 +10,8 @@ const Filter = styled.div`
   border-radius: 4px;
 `;
 
-const Reset = styled.button`
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 12px 16px;
-  background-color: transparent;
-  border: none;
-`;
-
-const IconReset = styled(Icon)`
-  width: 16px;
-  height: 16px;
-  color: #dadada;
-  transition: color 0.3s;
-
-  ${Reset}:hover & {
-    color: #ff6663;
-  }
-`;
-
 export default () => (
   <Filter>
     <Accordions />
-    <Reset>
-      <IconReset icon="clear" />
-    </Reset>
   </Filter>
 );

@@ -1,8 +1,8 @@
-import React from "react";
-import Menu from "./Menu";
-import Socials from "./Socials";
-import Attachment from "./Attachment";
-import { linkList } from "./index.mock";
+import React from 'react';
+import Menu from './Menu';
+import Socials from './Socials';
+import Attachment from './Attachment';
+import { linkList } from './index.mock';
 import {
   Footer,
   LinkInfo,
@@ -13,8 +13,8 @@ import {
   Content,
   Bottom,
   Line,
-  Container
-} from "./styled";
+  Container,
+} from './styled';
 
 export default () => (
   <Footer>
@@ -26,8 +26,8 @@ export default () => (
       <Bottom>
         <Content>
           <Links>
-            {linkList.map((link, key) => (
-              <LinkInfo key={key} href={link.href || "#"}>
+            {linkList.map(link => (
+              <LinkInfo key={link.id} href={link.href || '#'}>
                 {link.text}
               </LinkInfo>
             ))}

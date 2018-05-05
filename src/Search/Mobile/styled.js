@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import Icon from "../../Icon";
+import styled from 'styled-components';
+import Icon from '../../Icon';
 
 // ** Card.js **
 
@@ -45,7 +45,7 @@ export const CardIcon = styled(Icon)`
   width: 12px;
   height: 12px;
   color: #00ace2;
-  transform: ${props => (props.reverse ? "rotate(180deg)" : "none")};
+  transform: ${props => (props.reverse ? 'rotate(180deg)' : 'none')};
 `;
 export const Time = styled.span`
   display: flex;

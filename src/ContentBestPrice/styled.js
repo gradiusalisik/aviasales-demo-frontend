@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import media from "../utils/media";
-import Icon from "../Icon";
+import styled from 'styled-components';
+import media from '../utils/media';
+import Icon from '../Icon';
 
 // index.js
 

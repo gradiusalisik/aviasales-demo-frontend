@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import Counter from "../UI/Counter";
-import Checkbox from "../UI/Checkbox";
+import React from 'react';
+import styled from 'styled-components';
+import Counter from '../UI/Counter';
+import Checkbox from '../UI/Checkbox';
 
 const ChoiceQuantity = styled.div`
   padding: 16px;
@@ -41,37 +41,21 @@ export default props => (
   <ChoiceQuantity>
     <Content>
       <Text>Взрослые</Text>
-      <Counter
-        disabled={props.disabled}
-        max={9}
-        onChangeCounter={props.onChangeCounter}
-      />
+      <Counter disabled={props.disabled} max={9} onChangeCounter={props.onChangeCounter} />
     </Content>
     <Content>
       <Text>Дети до 12 лет</Text>
-      <Counter
-        disabled={props.disabled}
-        max={9}
-        onChangeCounter={props.onChangeCounter}
-      />
+      <Counter disabled={props.disabled} max={9} onChangeCounter={props.onChangeCounter} />
     </Content>
     <Content>
       <Info>
         <Text>Дети до 2 лет</Text>
         <SubText>Без места</SubText>
       </Info>
-      <Counter
-        disabled={props.disabled}
-        max={1}
-        onChangeCounter={props.onChangeCounter}
-      />
+      <Counter disabled={props.disabled} max={1} onChangeCounter={props.onChangeCounter} />
     </Content>
     <Checkboxes>
-      <Checkbox
-        label="Бизнес-класс"
-        id="business"
-        onChange={props.onChangeCheckbox}
-      />
+      <Checkbox label="Бизнес-класс" id="business" onChange={props.onChangeCheckbox} />
     </Checkboxes>
   </ChoiceQuantity>
 );

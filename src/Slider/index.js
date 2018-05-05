@@ -1,6 +1,6 @@
-import React from "react";
-import Slide from "./Slide";
-import { list } from "./index.mock";
+import React from 'react';
+import Slide from './Slide';
+import list from './index.mock';
 import {
   Slider,
   Title,
@@ -10,21 +10,17 @@ import {
   Slides,
   Next,
   Bullets,
-  Bullet
-} from "./styled";
+  Bullet,
+} from './styled';
 
 export default () => (
   <Slider>
-    <Title>
-      Дешевые авиабилеты от&nbsp;крупнейших авиакомпаний и&nbsp;агентств
-    </Title>
+    <Title>Дешевые авиабилеты от&nbsp;крупнейших авиакомпаний и&nbsp;агентств</Title>
     <Content>
       <Prev>
         <Icon icon="arrowSlider" />
       </Prev>
-      <Slides>
-        {list.map((slide, key) => <Slide key={key} list={slide.list} />)}
-      </Slides>
+      <Slides>{list.map(slide => <Slide key={slide.id} list={slide.list} />)}</Slides>
       <Next>
         <Icon icon="arrowSlider" />
       </Next>

@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import Header from "../Header";
-import Forms from "../Forms";
-import Container from "../Container";
-import media from "../utils/media";
+import React from 'react';
+import styled from 'styled-components';
+import Header from '../Header';
+import Forms from '../Forms';
+import Container from '../Container';
+import media from '../utils/media';
 
 const FirstScreen = styled.div`
   position: relative;

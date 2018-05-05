@@ -1,8 +1,8 @@
-import React from "react";
-import { PropTypes as pt } from "prop-types";
-import { Range as RangeSlider } from "rc-slider";
-import styled from "styled-components";
-import "rc-slider/assets/index.css";
+import React from 'react';
+import { PropTypes as pt } from 'prop-types';
+import { Range as RangeSlider } from 'rc-slider';
+import styled from 'styled-components';
+import 'rc-slider/assets/index.css';
 
 const RangeStyled = styled.div`
   padding-top: 10px;
@@ -32,7 +32,7 @@ const RangeStyled = styled.div`
       left: 4px;
       width: 9px;
       height: 9px;
-      content: "";
+      content: '';
       border-radius: 50%;
     }
   }
@@ -59,12 +59,7 @@ const RangeStyled = styled.div`
 
 const Range = props => (
   <RangeStyled>
-    <RangeSlider
-      min={props.min}
-      max={props.max}
-      step={props.step}
-      defaultValue={props.defaultValue}
-    />
+    <RangeSlider min={props.min} max={props.max} defaultValue={props.defaultValue} />
   </RangeStyled>
 );
 
@@ -72,11 +67,12 @@ Range.propTypes = {
   defaultValue: pt.arrayOf(pt.number),
   min: pt.number,
   max: pt.number,
-  step: pt.number
 };
 
 Range.defaultProps = {
-  defaultValue: []
+  defaultValue: [],
+  min: null,
+  max: null,
 };
 
 export default Range;

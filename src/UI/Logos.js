@@ -1,9 +1,14 @@
-import React from "react";
-import { PropTypes as pt } from "prop-types";
-import styled, { css } from "styled-components";
+import React from 'react';
+import { PropTypes as pt } from 'prop-types';
+import styled, { css } from 'styled-components';
 
 const List = styled.div`
   display: flex;
+`;
+
+const Logo = styled.img`
+  width: 99px;
+  height: 36px;
 `;
 
 const Content = styled.div`
@@ -27,15 +32,10 @@ const Content = styled.div`
     `};
 `;
 
-const Logo = styled.img`
-  width: 99px;
-  height: 36px;
-`;
-
 const Logos = props => (
   <List>
-    {props.list.map((logo, key) => (
-      <Content smallImage={logo.smallImage} key={key}>
+    {props.list.map(logo => (
+      <Content smallImage={logo.smallImage} key={logo.id}>
         <Logo src={logo.image} alt={logo.alt} />
       </Content>
     ))}
@@ -43,11 +43,11 @@ const Logos = props => (
 );
 
 Logos.propTypes = {
-  list: pt.array
+  list: pt.arrayOf(pt.shape({})),
 };
 
 Logos.defaultProps = {
-  list: []
+  list: [],
 };
 
 export default Logos;

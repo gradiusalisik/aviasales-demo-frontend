@@ -1,7 +1,7 @@
-import React from "react";
-import { PropTypes as pt } from "prop-types";
-import { FormattedNumber } from "react-intl";
-import styled from "styled-components";
+import React from 'react';
+import { PropTypes as pt } from 'prop-types';
+import { FormattedNumber } from 'react-intl';
+import styled from 'styled-components';
 
 const CheckboxStyled = styled.div`
   display: flex;
@@ -25,7 +25,7 @@ const Label = styled.label`
     margin-top: -1px;
     width: 18px;
     height: 18px;
-    content: "";
+    content: '';
     background-color: transparent;
     box-sizing: border-box;
     border: 1px solid #a0b0b9;
@@ -38,16 +38,15 @@ const Label = styled.label`
     top: 4px;
     left: 5px;
     z-index: 1;
-    content: "";
+    content: '';
     width: 9px;
     height: 7px;
     box-sizing: border-box;
-    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOSIgaGVpZ2h0PSI3IiB2aWV3Qm94PSIwIDAgOSA3IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgPHBhdGggZD0iTTEuNSAzLjVsMiAyIDQtNCIgc3Ryb2tlPSIjMENCMkUxIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=");
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOSIgaGVpZ2h0PSI3IiB2aWV3Qm94PSIwIDAgOSA3IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgPHBhdGggZD0iTTEuNSAzLjVsMiAyIDQtNCIgc3Ryb2tlPSIjMENCMkUxIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=');
     background-repeat: no-repeat;
     opacity: 0;
     transform: translateY(-5px);
-    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out,
-      -o-transform 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out, -o-transform 0.2s ease-in-out;
   }
 `;
 
@@ -87,10 +86,10 @@ const Checkbox = props => (
     </Checkboxes>
     {!!props.price && (
       <Price>
-        {" "}
+        {' '}
         <FormattedNumber
           value={props.price}
-          style={`currency`}
+          style={String('currency')}
           currency="RUB"
           minimumFractionDigits={0}
           maximumFractionDigits={0}
@@ -101,10 +100,17 @@ const Checkbox = props => (
 );
 
 Checkbox.propTypes = {
-  id: pt.string,
+  id: pt.node,
   label: pt.string,
   price: pt.number,
-  checked: pt.bool
+  checked: pt.bool,
+};
+
+Checkbox.defaultProps = {
+  id: null,
+  label: '',
+  price: null,
+  checked: false,
 };
 
 export default Checkbox;
